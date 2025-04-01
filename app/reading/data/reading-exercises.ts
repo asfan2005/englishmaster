@@ -1,0 +1,5839 @@
+import { ReactNode } from "react";
+import { Book, FileText, Newspaper, BookOpen } from "lucide-react";
+import { ReadingLevel, ReadingType, ReadingExercise } from "./types";
+
+// Reading levels
+export const readingLevels: ReadingLevel[] = [
+  { id: "beginner", name: "Beginner (A1-A2)" },
+  { id: "intermediate", name: "Intermediate (B1-B2)" },
+  { id: "advanced", name: "Advanced (C1-C2)" },
+  { id: "ielts", name: "IELTS Practice" }
+];
+
+// Reading types
+export const readingTypes: ReadingType[] = [
+  { id: "stories", name: "Stories", icon: "book" },
+  { id: "articles", name: "Articles", icon: "file-text" },
+  { id: "news", name: "News", icon: "newspaper" },
+  { id: "academic", name: "Academic", icon: "book-open" }
+];
+
+// Sample reading exercises
+// Ma'lumotlarni kengaytirish - har bir tur va daraja uchun kamida 3 tadan mashq
+export const readingExercises: ReadingExercise[] = [
+    // BEGINNER - STORIES (3 ta)
+    {
+      id: "beginner-story-1",
+      title: "A Day in the Park",
+      level: "beginner",
+      type: "stories",
+      text: `Sarah loves going to the park on Sundays. The park is near her house, so she can walk there easily. It takes her about ten minutes to get to the park.
+  
+  When Sarah arrives at the park, she usually sits on a bench near the lake. She likes to watch the ducks swimming in the water. Sometimes, she brings bread to feed them.
+  
+  There are always many people in the park on Sundays. Children play on the grass, and some people ride bicycles on the paths. Others walk their dogs or have picnics with their families.
+  
+  Sarah's favorite thing to do in the park is to read a book under a big tree. The tree gives her shade when the sun is hot. She can sit there for hours, enjoying her book and the peaceful atmosphere.
+  
+  In the afternoon, Sarah often buys an ice cream from the small shop in the park. She likes chocolate ice cream the best. After eating her ice cream, she walks home feeling happy and relaxed.
+  
+  Sarah thinks Sundays in the park are the best days of the week.`,
+      description: "A simple story about someone's weekend routine at the park.",
+      estimatedTime: 5,
+      difficulty: "easy",
+      vocabulary: [
+        { word: "bench", definition: "a long seat for several people, typically made of wood or stone" },
+        { word: "shade", definition: "an area of darkness where direct light from the sun is blocked" },
+        { word: "atmosphere", definition: "the mood or feeling of a place" }
+      ],
+      questions: [
+        {
+          id: "beginner-story-1-q1",
+          type: "mcq",
+          text: "How long does it take Sarah to get to the park?",
+          options: ["Five minutes", "Ten minutes", "Fifteen minutes", "Twenty minutes"],
+          correctAnswer: "Ten minutes"
+        },
+        {
+          id: "beginner-story-1-q2",
+          type: "mcq",
+          text: "What does Sarah like to watch in the park?",
+          options: ["Birds", "Children", "Ducks", "Dogs"],
+          correctAnswer: "Ducks"
+        },
+        {
+          id: "beginner-story-1-q3",
+          type: "mcq",
+          text: "Where does Sarah like to read her book?",
+          options: ["On a bench", "Under a tree", "By the lake", "On the grass"],
+          correctAnswer: "Under a tree"
+        }
+      ],
+      pronunciation: [
+        {
+          title: "Park Description",
+          text: "Sarah loves going to the park on Sundays. The park is near her house, so she can walk there easily.",
+          focusPoints: ["Practice the 'ar' sound in 'park'", "Focus on the 'th' sound in 'there'"]
+        }
+      ]
+    },
+    {
+      id: "beginner-story-2",
+      title: "My First Day at School",
+      level: "beginner",
+      type: "stories",
+      text: `Today was my first day at the new school. I was very nervous when I woke up. I didn't sleep well last night because I was thinking about today.
+  
+  My mother made a special breakfast for me - pancakes with honey. They were delicious! After breakfast, I put on my new uniform. The shirt was white, and the pants were dark blue. I also had a new backpack with books and pencils inside.
+  
+  My father drove me to school. It took about fifteen minutes to get there. The school building was big and white. There were many children in the schoolyard. Some were playing, and others were talking with their friends.
+  
+  A teacher met me at the entrance. Her name was Mrs. Johnson. She was very kind and showed me to my classroom. The classroom was bright and colorful, with pictures on the walls.
+  
+  There were twenty-five students in my class. The teacher asked me to introduce myself. I was shy, but I said my name and where I was from. Everyone smiled at me, which made me feel better.
+  
+  During the day, we had math, English, and science classes. The teachers were friendly, and the lessons were interesting. At lunchtime, I sat with two boys from my class. Their names were Tom and Alex. They asked me about my old school and told me about the sports teams here.
+  
+  After school, my mother picked me up. She asked me how my day was. I told her it was much better than I expected. I think I'm going to like this new school.`,
+      description: "A story about a child's experience on their first day at a new school.",
+      estimatedTime: 6,
+      difficulty: "easy",
+      vocabulary: [
+        { word: "nervous", definition: "feeling worried or anxious about something" },
+        { word: "uniform", definition: "a special set of clothes worn by members of the same organization" },
+        { word: "introduce", definition: "to present someone by name to someone else" }
+      ],
+      questions: [
+        {
+          id: "beginner-story-2-q1",
+          type: "mcq",
+          text: "What did the narrator eat for breakfast?",
+          options: ["Cereal with milk", "Toast with jam", "Pancakes with honey", "Eggs and bacon"],
+          correctAnswer: "Pancakes with honey"
+        },
+        {
+          id: "beginner-story-2-q2",
+          type: "mcq",
+          text: "How many students were in the narrator's class?",
+          options: ["Fifteen", "Twenty", "Twenty-five", "Thirty"],
+          correctAnswer: "Twenty-five"
+        },
+        {
+          id: "beginner-story-2-q3",
+          type: "mcq",
+          text: "Who picked up the narrator after school?",
+          options: ["Father", "Mother", "Mrs. Johnson", "Tom and Alex"],
+          correctAnswer: "Mother"
+        }
+      ],
+      pronunciation: [
+        {
+          title: "School Description",
+          text: "The school building was big and white. There were many children in the schoolyard.",
+          focusPoints: ["Practice the 'sch' sound in 'school'", "Focus on the 'ch' sound in 'children'"]
+        }
+      ]
+    },
+    {
+      id: "beginner-story-3",
+      title: "The Lost Cat",
+      level: "beginner",
+      type: "stories",
+      text: `Lisa had a small orange cat named Max. She loved her cat very much. Every evening, Max would sit on Lisa's lap while she watched TV.
+  
+  One morning, Lisa couldn't find Max. She looked under her bed, behind the sofa, and in all of Max's favorite places. But Max wasn't there. Lisa felt worried.
+  
+  She went to the kitchen and saw that the window was open. "Oh no," thought Lisa. "Max must have gone outside." Lisa put on her shoes and jacket and went to look for her cat.
+  
+  First, she looked in her garden. She called Max's name many times, but he didn't come. Then she walked around her neighborhood. She asked her neighbors if they had seen an orange cat. No one had seen Max.
+  
+  Lisa felt sad. She made some posters with Max's picture and the words "LOST CAT" in big letters. She put these posters on trees and lamp posts around her neighborhood.
+  
+  Two days later, Lisa's phone rang. It was her neighbor, Mr. Wilson. "I think I found your cat," he said. "There's an orange cat sleeping in my garden."
+  
+  Lisa ran to Mr. Wilson's house. And there was Max, sleeping under a bush! Lisa was so happy. She picked up Max and hugged him. Max purred loudly.
+  
+  "Thank you so much, Mr. Wilson," said Lisa. She took Max home and gave him some special cat food. That night, Max slept on Lisa's bed. Lisa was careful to keep all the windows closed.`,
+      description: "A story about a girl searching for her lost cat.",
+      estimatedTime: 5,
+      difficulty: "easy",
+      vocabulary: [
+        { word: "lap", definition: "the flat area formed by the upper legs of a seated person" },
+        { word: "neighborhood", definition: "the area where people live near each other" },
+        { word: "purr", definition: "a low, continuous sound made by a cat when it is content" }
+      ],
+      questions: [
+        {
+          id: "beginner-story-3-q1",
+          type: "mcq",
+          text: "What color was Max the cat?",
+          options: ["Black", "White", "Orange", "Gray"],
+          correctAnswer: "Orange"
+        },
+        {
+          id: "beginner-story-3-q2",
+          type: "mcq",
+          text: "How did Max leave Lisa's house?",
+          options: ["Through the door", "Through the window", "Through the chimney", "Someone took him"],
+          correctAnswer: "Through the window"
+        },
+        {
+          id: "beginner-story-3-q3",
+          type: "mcq",
+          text: "Who found Max?",
+          options: ["Lisa", "Mr. Wilson", "Another neighbor", "No one - Max came back alone"],
+          correctAnswer: "Mr. Wilson"
+        }
+      ],
+      pronunciation: [
+        {
+          title: "Describing Emotions",
+          text: "Lisa felt worried. She went to the kitchen and saw that the window was open.",
+          focusPoints: ["Practice the 'w' sound in 'worried' and 'window'", "Focus on the past tense 'ed' ending"]
+        }
+      ]
+    },
+  
+    // BEGINNER - ARTICLES (3 ta)
+    {
+      id: "beginner-article-1",
+      title: "Healthy Eating Habits",
+      level: "beginner",
+      type: "articles",
+      text: `Eating healthy food is important for our bodies. When we eat healthy foods, we feel better and have more energy. Here are some simple tips for healthy eating.
+  
+  First, eat plenty of fruits and vegetables. They contain vitamins and minerals that our bodies need. Try to eat at least five portions of fruits and vegetables every day. They can be fresh, frozen, or canned.
+  
+  Second, drink enough water. Water helps our bodies work properly. Most adults should drink about eight glasses of water each day. If you exercise or if the weather is hot, you need to drink more.
+  
+  Third, limit sugary foods and drinks. Too much sugar is not good for our teeth and can make us gain weight. Sodas, candies, and cakes have a lot of sugar. Try to eat these foods only occasionally.
+  
+  Fourth, eat whole grain foods. Whole grain bread, rice, and pasta contain fiber, which is good for digestion. They also make you feel full for longer than white bread or white rice.
+  
+  Fifth, include protein in your meals. Protein helps build and repair muscles. Good sources of protein include meat, fish, eggs, beans, and nuts. If you don't eat meat, make sure you get protein from other foods.
+  
+  Finally, try to eat regular meals. Eating breakfast, lunch, and dinner at similar times each day helps your body know when to expect food. Don't skip breakfast—it gives you energy for the morning.
+  
+  Remember, healthy eating doesn't mean you can never eat foods you enjoy. It's okay to have treats sometimes. The key is balance and moderation.`,
+      description: "Basic information about maintaining a healthy diet.",
+      estimatedTime: 6,
+      difficulty: "easy",
+      vocabulary: [
+        { word: "vitamins", definition: "natural substances that are necessary in small amounts for the body to grow and stay healthy" },
+        { word: "fiber", definition: "a substance in foods that helps digestion" },
+        { word: "moderation", definition: "the avoidance of excess or extremes, especially in behavior" }
+      ],
+      questions: [
+        {
+          id: "beginner-article-1-q1",
+          type: "mcq",
+          text: "How many portions of fruits and vegetables should you eat daily?",
+          options: ["At least two", "At least three", "At least five", "At least seven"],
+          correctAnswer: "At least five"
+        },
+        {
+          id: "beginner-article-1-q2",
+          type: "mcq",
+          text: "Which of these is a good source of protein?",
+          options: ["Apples", "Candy", "Soda", "Eggs"],
+          correctAnswer: "Eggs"
+        },
+        {
+          id: "beginner-article-1-q3",
+          type: "mcq",
+          text: "According to the article, why is breakfast important?",
+          options: ["It helps you sleep better", "It gives you energy for the morning", "It makes you grow taller", "It helps you lose weight"],
+          correctAnswer: "It gives you energy for the morning"
+        }
+      ],
+      pronunciation: [
+        {
+          title: "Food Vocabulary",
+          text: "Eating healthy food is important for our bodies. When we eat healthy foods, we feel better and have more energy.",
+          focusPoints: ["Practice the 'th' sound in 'healthy'", "Focus on the word stress in 'important'"]
+        }
+      ]
+    },
+    {
+      id: "beginner-article-2",
+      title: "Animals in the City",
+      level: "beginner",
+      type: "articles",
+      text: `Many people think that animals only live in forests, jungles, or farms. But there are many animals that live in cities too. Let's learn about some common city animals.
+  
+  Birds are probably the most visible animals in cities. Pigeons are very common in most cities around the world. They build nests on buildings and eat food that people drop. Sparrows are small birds that also like city life. They make nests in small spaces like holes in walls or under roof tiles.
+  
+  Squirrels are small mammals with bushy tails. They often live in city parks where there are trees. Squirrels eat nuts, seeds, and fruits. They are very good at climbing trees and can jump from branch to branch.
+  
+  Rats and mice are rodents that live in cities. They usually stay hidden in places like sewers, basements, or behind walls. They come out at night to look for food. Many people don't like rats because they can spread diseases.
+  
+  Some cities have foxes. Foxes are smart animals that have learned to live in urban areas. They eat almost anything, including food from garbage bins. Foxes are usually more active at night, so people don't see them often.
+  
+  Bats also live in some cities. They sleep during the day in dark places like attics or under bridges. At night, they fly around catching insects. Bats are very helpful because they eat mosquitoes and other pest insects.
+  
+  Even some wild animals like deer and coyotes are moving into cities as humans build more houses in their natural habitats. This can sometimes cause problems when wild animals and people live close together.
+  
+  Cities are not just for humans. They are home to many different animals too. Next time you're outside, look around carefully. You might be surprised by how many animals share your city with you.`,
+      description: "An article about the various wildlife found in urban environments.",
+      estimatedTime: 7,
+      difficulty: "easy",
+      vocabulary: [
+        { word: "visible", definition: "able to be seen" },
+        { word: "rodents", definition: "small mammals with sharp front teeth, such as mice and rats" },
+        { word: "urban", definition: "relating to a city or town" },
+        { word: "habitats", definition: "the natural homes of plants and animals" }
+      ],
+      questions: [
+        {
+          id: "beginner-article-2-q1",
+          type: "mcq",
+          text: "According to the text, where do sparrows make nests?",
+          options: ["In tall trees", "On the ground", "In small spaces like holes in walls", "Only in forests"],
+          correctAnswer: "In small spaces like holes in walls"
+        },
+        {
+          id: "beginner-article-2-q2",
+          type: "mcq",
+          text: "Why do many people dislike rats?",
+          options: ["They are too noisy", "They can spread diseases", "They attack people", "They eat too much food"],
+          correctAnswer: "They can spread diseases"
+        },
+        {
+          id: "beginner-article-2-q3",
+          type: "mcq",
+          text: "Why are bats considered helpful in cities?",
+          options: ["They eat mosquitoes and other pest insects", "They clean the streets", "They help pollinate city plants", "They eat garbage"],
+          correctAnswer: "They eat mosquitoes and other pest insects"
+        }
+      ],
+      pronunciation: [
+        {
+          title: "Animal Names",
+          text: "Squirrels are small mammals with bushy tails. They often live in city parks where there are trees.",
+          focusPoints: ["Practice the difficult 'squirrel' pronunciation", "Focus on the 'th' sound in 'there'"]
+        }
+      ]
+    },
+    {
+      id: "beginner-article-3",
+      title: "How to Save Energy at Home",
+      level: "beginner",
+      type: "articles",
+      text: `Using less energy in our homes is good for the environment and can save us money. Here are some easy ways to reduce energy use at home.
+  
+  Turn off lights when you leave a room. This is one of the simplest ways to save energy. Many people forget to turn off lights, but it's an easy habit to develop. You can save even more energy by using LED light bulbs, which use much less electricity than old-style bulbs.
+  
+  Unplug electronic devices when you're not using them. Many devices like TVs, computers, and phone chargers use electricity even when they're turned off. This is called "standby power" or "vampire power." Unplugging these devices when not in use can save energy.
+  
+  Use less hot water. Heating water requires a lot of energy. Take shorter showers instead of baths. Wash clothes in cold water when possible. Make sure your dishwasher is full before running it.
+  
+  Adjust your thermostat. In winter, keep your home a bit cooler and wear warm clothes. In summer, keep your home a bit warmer and use fans. Even small changes in temperature can make a big difference in energy use.
+  
+  Keep doors and windows closed when heating or cooling your home. Check for drafts around windows and doors, and use weather stripping to seal them. This helps keep warm or cool air inside your home.
+  
+  Use natural light when possible. Open curtains during the day to let sunlight in instead of turning on lights. But in summer, close curtains on windows that get direct sunlight to keep your home cooler.
+  
+  Cook efficiently. When using the oven, avoid opening the door frequently as each opening can reduce the temperature by 25 degrees. Use lids on pots to cook food faster. Consider using a microwave or slow cooker, which use less energy than an oven.
+  
+  These small changes in our daily habits can add up to significant energy savings. Not only will you save money on your energy bills, but you'll also help reduce pollution and protect our planet.`,
+      description: "Practical tips for reducing energy consumption in the home.",
+      estimatedTime: 7,
+      difficulty: "easy",
+      vocabulary: [
+        { word: "environment", definition: "the natural world, including air, water, land, plants, and animals" },
+        { word: "standby power", definition: "electricity used by appliances when they are turned off but still plugged in" },
+        { word: "thermostat", definition: "a device that automatically regulates temperature" },
+        { word: "drafts", definition: "currents of cool air in a room or other enclosed space" }
+      ],
+      questions: [
+        {
+          id: "beginner-article-3-q1",
+          type: "mcq",
+          text: "What type of light bulbs use less electricity?",
+          options: ["Incandescent bulbs", "Halogen bulbs", "LED bulbs", "Neon bulbs"],
+          correctAnswer: "LED bulbs"
+        },
+        {
+          id: "beginner-article-3-q2",
+          type: "mcq",
+          text: "What is 'vampire power'?",
+          options: ["A type of electricity used at night", "Electricity used by devices even when turned off", "A special kind of battery", "Power generated by solar panels"],
+          correctAnswer: "Electricity used by devices even when turned off"
+        },
+        {
+          id: "beginner-article-3-q3",
+          type: "mcq",
+          text: "According to the article, how much can opening the oven door reduce the temperature?",
+          options: ["5 degrees", "15 degrees", "25 degrees", "35 degrees"],
+          correctAnswer: "25 degrees"
+        }
+      ],
+      pronunciation: [
+        {
+          title: "Energy Vocabulary",
+          text: "Using less energy in our homes is good for the environment and can save us money.",
+          focusPoints: ["Practice the 'en' sound in 'energy' and 'environment'", "Focus on the word stress in 'electricity'"]
+        }
+      ]
+    },
+  
+    // BEGINNER - NEWS (3 ta)
+    {
+      id: "beginner-news-1",
+      title: "New Park Opens in City Center",
+      level: "beginner",
+      type: "news",
+      text: `The new Central Park opened yesterday in the middle of our city. Hundreds of people came to see the opening ceremony. The mayor cut a ribbon to officially open the park at 10 AM.
+  
+  The park has many features for visitors to enjoy. There is a large playground for children with swings, slides, and climbing frames. For sports lovers, there are tennis courts and a basketball court. There is also a running track that goes around the park.
+  
+  One of the most beautiful areas is the flower garden. It has many different types of flowers and plants. There are benches where people can sit and enjoy the colors and smells of the flowers. In the center of the park, there is a small lake with ducks and fish.
+  
+  "This park is exactly what our city needed," said Mayor Johnson at the opening ceremony. "It gives people a place to relax, exercise, and enjoy nature in the middle of the city."
+  
+  The park project cost $2 million and took two years to complete. The money came from city taxes and donations from local businesses.
+  
+  Central Park will be open every day from 6 AM to 10 PM. There is no entrance fee. The city will organize special events in the park during summer weekends, including concerts and outdoor movies.
+  
+  Local resident Maria Garcia visited the park on opening day with her two children. "The playground is amazing," she said. "My kids love it. I think we will come here every weekend."
+  
+  The city plans to plant more trees in the park next year. They also plan to build a café where visitors can buy drinks and snacks.`,
+      description: "News article about the opening of a new public park.",
+      estimatedTime: 5,
+      difficulty: "easy",
+      vocabulary: [
+        { word: "ceremony", definition: "a formal event celebrating a particular occasion" },
+        { word: "features", definition: "distinctive elements or characteristics of something" },
+        { word: "donations", definition: "money or goods given to help a person or organization" }
+      ],
+      questions: [
+        {
+          id: "beginner-news-1-q1",
+          type: "mcq",
+          text: "When did the park officially open?",
+          options: ["At 6 AM", "At 10 AM", "At 2 PM", "At 10 PM"],
+          correctAnswer: "At 10 AM"
+        },
+        {
+          id: "beginner-news-1-q2",
+          type: "mcq",
+          text: "How much did the park project cost?",
+          options: ["$1 million", "$2 million", "$3 million", "$5 million"],
+          correctAnswer: "$2 million"
+        },
+        {
+          id: "beginner-news-1-q3",
+          type: "mcq",
+          text: "What does the city plan to build in the park next year?",
+          options: ["A swimming pool", "A museum", "A café", "A zoo"],
+          correctAnswer: "A café"
+        }
+      ],
+      pronunciation: [
+        {
+          title: "Public Spaces Vocabulary",
+          text: "The new Central Park opened yesterday in the middle of our city. Hundreds of people came to see the opening ceremony.",
+          focusPoints: ["Practice the 'r' sound in 'park' and 'ceremony'", "Focus on the past tense pronunciations"]
+        }
+      ]
+    },
+    {
+      id: "beginner-news-2",
+      title: "Local School Wins Science Competition",
+      level: "beginner",
+      type: "news",
+      text: `Students from Riverside Elementary School won first place in the Regional Science Competition last weekend. The team of five students, ages 10-11, created a robot that can sort recycling materials.
+  
+  The competition took place at the City Convention Center on Saturday. Twenty schools from the region participated in the event. Each team had to design and build a project that could help solve an environmental problem.
+  
+  The Riverside team's robot can identify and sort different types of recycling materials, such as plastic, paper, metal, and glass. It uses sensors to determine what type of material an object is made of. Then, it puts the object in the correct recycling bin.
+  
+  "We wanted to make recycling easier for people," said Emma Chen, one of the team members. "Many people don't recycle because they're not sure which bin to use. Our robot solves that problem."
+  
+  The team worked on their project for three months after school. Their science teacher, Mr. Roberts, helped them with the design and programming. "These students are amazing," said Mr. Roberts. "They worked very hard and came up with creative solutions to every problem."
+  
+  As the winners, the Riverside team received a trophy and $1,000 for their school's science program. They will also represent our region at the National Science Competition in Washington, D.C. next month.
+  
+  "We're very proud of our students," said Principal Garcia. "This achievement shows that with hard work and creativity, our students can compete with anyone."
+  
+  The Riverside team is now improving their robot for the national competition. They are making it faster and more accurate. "We're excited about going to Washington," said team member Alex Rodriguez. "We hope our robot can win there too!"`,
+      description: "News article about elementary school students winning a science competition with their recycling robot.",
+      estimatedTime: 6,
+      difficulty: "easy",
+      vocabulary: [
+        { word: "competition", definition: "an event in which people compete against each other" },
+        { word: "sensors", definition: "devices that detect or measure physical properties and record or respond to them" },
+        { word: "represent", definition: "to speak, act, or be present officially for another person or group" }
+      ],
+      questions: [
+        {
+          id: "beginner-news-2-q1",
+          type: "mcq",
+          text: "What did the Riverside Elementary School team create?",
+          options: ["A water filter", "A robot that can sort recycling", "A solar-powered car", "A weather prediction system"],
+          correctAnswer: "A robot that can sort recycling"
+        },
+        {
+          id: "beginner-news-2-q2",
+          type: "mcq",
+          text: "How many schools participated in the competition?",
+          options: ["Five", "Ten", "Fifteen", "Twenty"],
+          correctAnswer: "Twenty"
+        },
+        {
+          id: "beginner-news-2-q3",
+          type: "mcq",
+          text: "What prize did the winning team receive?",
+          options: ["$500 and a medal", "$1,000 and a trophy", "$2,000 and a certificate", "A new computer lab"],
+          correctAnswer: "$1,000 and a trophy"
+        }
+      ],
+      pronunciation: [
+        {
+          title: "Technology Vocabulary",
+          text: "The team of five students, ages 10-11, created a robot that can sort recycling materials.",
+          focusPoints: ["Practice the 'r' sound in 'recycling' and 'robot'", "Focus on the past tense 'created'"]
+        }
+      ]
+    },
+    {
+      id: "beginner-news-3",
+      title: "New Bus Service Connects City and Airport",
+      level: "beginner",
+      type: "news",
+      text: `A new bus service between the city center and the international airport started operating today. The service, called AirportExpress, will make travel easier and cheaper for residents and tourists.
+  
+  The buses run every 30 minutes from 5 AM to midnight, seven days a week. The journey from the city center to the airport takes approximately 40 minutes, depending on traffic. Each bus has space for luggage, free Wi-Fi, and charging points for phones and laptops.
+  
+  Before this new service, people had to take a taxi to the airport, which costs around $35, or use public buses with several changes. The AirportExpress ticket costs just $8 one-way or $15 for a return ticket.
+  
+  "This is a great service for our city," said Transport Manager Sarah Williams. "It makes the airport more accessible and reduces traffic on our roads. We expect that many people will choose to leave their cars at home and use this service instead."
+  
+  The buses stop at five locations in the city: Central Station, Market Square, University, Grand Hotel, and Business District. At the airport, the bus stops right outside the main terminal building.
+  
+  "I used the service this morning, and it was excellent," said business traveler John Miller. "The bus was on time, comfortable, and much cheaper than a taxi. I'll definitely use it again."
+  
+  The city government paid $2 million for the new buses and hopes that the service will become profitable within two years. If the AirportExpress is successful, the city plans to buy more buses and increase the frequency of the service.
+  
+  Tickets can be purchased online, through a mobile app, from ticket machines at bus stops, or directly from the driver. Children under 5 years old travel for free when accompanied by an adult.`,
+      description: "News article about a new bus service connecting the city center with the airport.",
+      estimatedTime: 6,
+      difficulty: "easy",
+      vocabulary: [
+        { word: "operating", definition: "functioning or working" },
+        { word: "approximately", definition: "about or around; not exactly" },
+        { word: "accessible", definition: "able to be reached or entered" },
+        { word: "profitable", definition: "making or likely to make money" }
+      ],
+      questions: [
+        {
+          id: "beginner-news-3-q1",
+          type: "mcq",
+          text: "How often do the AirportExpress buses run?",
+          options: ["Every 15 minutes", "Every 30 minutes", "Every hour", "Every 2 hours"],
+          correctAnswer: "Every 30 minutes"
+        },
+        {
+          id: "beginner-news-3-q2",
+          type: "mcq",
+          text: "How much does a one-way ticket cost?",
+          options: ["$5", "$8", "$15", "$35"],
+          correctAnswer: "$8"
+        },
+        {
+          id: "beginner-news-3-q3",
+          type: "mcq",
+          text: "Where does the bus stop at the airport?",
+          options: ["At parking lot A", "At the taxi stand", "Outside the main terminal building", "At the hotel shuttle area"],
+          correctAnswer: "Outside the main terminal building"
+        }
+      ],
+      pronunciation: [
+        {
+          title: "Transportation Vocabulary",
+          text: "A new bus service between the city center and the international airport started operating today.",
+          focusPoints: ["Practice the 'r' sound in 'service' and 'airport'", "Focus on the word stress in 'international'"]
+        }
+      ]
+    },
+  
+    // BEGINNER - ACADEMIC (3 ta)
+    {
+        id: "beginner-academic-1",
+        title: "The Water Cycle",
+        level: "beginner",
+        type: "academic",
+        text: `The water cycle is the continuous movement of water on, above, and below the surface of the Earth. It is a natural process that is very important for all living things. Let's learn about the different stages of the water cycle.
+    
+    The water cycle begins with evaporation. This happens when the sun heats water in oceans, lakes, and rivers. The water changes from a liquid to a gas called water vapor. Plants also release water vapor into the air through a process called transpiration.
+    
+    As water vapor rises into the sky, it cools down. This cooling causes condensation. During condensation, water vapor changes back into liquid water, forming clouds. Clouds are collections of tiny water droplets or ice crystals.
+    
+    When the water droplets in clouds become too heavy, they fall to the Earth as precipitation. Precipitation can be rain, snow, sleet, or hail, depending on the temperature.
+    
+    Some precipitation soaks into the ground. This is called infiltration. The water that soaks in may become groundwater, which is stored underground. Some groundwater flows into rivers and lakes. Some stays underground for a long time.
+    
+    Water that doesn't soak into the ground flows over the surface as runoff. Runoff moves downhill, usually toward streams, rivers, and eventually oceans. Then the cycle begins again with evaporation.
+    
+    The water cycle is important because it provides fresh water for plants and animals. It also helps distribute water around the Earth. Without the water cycle, some places would have too much water, and others would have none.
+    
+    Human activities can affect the water cycle. Cutting down forests reduces transpiration. Pollution can change the quality of water. Climate change can alter precipitation patterns. It's important for us to understand and protect the water cycle for future generations.`,
+        description: "Basic explanation of the water cycle and its importance.",
+        estimatedTime: 6,
+        difficulty: "easy",
+        vocabulary: [
+          { word: "evaporation", definition: "the process of turning from liquid into vapor" },
+          { word: "condensation", definition: "the process of water vapor changing back to liquid" },
+          { word: "precipitation", definition: "water falling from clouds as rain, snow, sleet, or hail" },
+          { word: "infiltration", definition: "the process of water soaking into the ground" }
+        ],
+        questions: [
+          {
+            id: "beginner-academic-1-q1",
+            type: "mcq",
+            text: "What causes evaporation in the water cycle?",
+            options: ["Wind", "The sun's heat", "Rain", "Plant growth"],
+            correctAnswer: "The sun's heat"
+          },
+          {
+            id: "beginner-academic-1-q2",
+            type: "mcq",
+            text: "What are clouds made of?",
+            options: ["Dust particles", "Air pollution", "Tiny water droplets or ice crystals", "Water vapor only"],
+            correctAnswer: "Tiny water droplets or ice crystals"
+          },
+          {
+            id: "beginner-academic-1-q3",
+            type: "mcq",
+            text: "What is runoff?",
+            options: [
+              "Water that falls as rain",
+              "Water that evaporates from oceans",
+              "Water that stays underground",
+              "Water that flows over the ground's surface"
+            ],
+            correctAnswer: "Water that flows over the ground's surface"
+          }
+        ],
+        pronunciation: [
+          {
+            title: "Scientific Terms",
+            text: "The water cycle begins with evaporation. This happens when the sun heats water in oceans, lakes, and rivers.",
+            focusPoints: ["Practice the multi-syllable word 'evaporation'", "Focus on the 'r' sound in 'water' and 'rivers'"]
+          }
+        ]
+      },
+      {
+        id: "beginner-academic-2",
+        title: "Parts of a Plant",
+        level: "beginner",
+        type: "academic",
+        text: `Plants are living things that grow in soil. Like animals, plants need water and nutrients to live and grow. Unlike most animals, plants make their own food through a process called photosynthesis. Let's learn about the main parts of a plant.
+    
+    The roots are the part of the plant that grow underground. Roots have two important jobs. First, they absorb water and nutrients from the soil. Second, they hold the plant in place so it doesn't fall over. Some plants, like carrots and radishes, have roots that we can eat.
+    
+    The stem is the part that grows above ground and supports the plant. Water and nutrients travel from the roots, through the stem, to the leaves and flowers. The stem also holds the leaves up toward the sunlight. Some plants, like celery and asparagus, have stems that we eat.
+    
+    Leaves are usually green and grow from the stem. Leaves are very important because they make food for the plant. They use sunlight, water, and carbon dioxide to make sugar through photosynthesis. Leaves also release oxygen, which animals need to breathe. Many leaves, like lettuce and spinach, are edible.
+    
+    Flowers are the colorful parts of many plants. Flowers make seeds, which can grow into new plants. The bright colors and sweet smells of flowers attract bees, butterflies, and other insects. These insects help move pollen from one flower to another, which is necessary for making seeds. Some flowers, like broccoli and cauliflower, are eaten as vegetables.
+    
+    Fruits develop from flowers after pollination. Fruits protect the seeds inside them. When animals eat fruits, they often drop the seeds far away from the parent plant. This helps plants spread to new areas. Many fruits, like apples and oranges, are sweet and good to eat.
+    
+    Seeds contain baby plants and a food supply. When a seed is in the right conditions, with water and warm temperature, it begins to grow or germinate. Seeds come in many different sizes and shapes. Some seeds, like rice, beans, and nuts, are important foods for people.
+    
+    All these parts work together to help the plant live, grow, and reproduce. Plants are essential for life on Earth because they produce oxygen, provide food, and create habitats for animals.`,
+        description: "Basic explanation of the main parts of plants and their functions.",
+        estimatedTime: 7,
+        difficulty: "easy",
+        vocabulary: [
+          { word: "photosynthesis", definition: "the process by which plants use sunlight to make food from carbon dioxide and water" },
+          { word: "absorb", definition: "to take in or soak up (something, such as a liquid)" },
+          { word: "pollination", definition: "the transfer of pollen from one flower to another to allow fertilization" },
+          { word: "germinate", definition: "to begin to grow or develop" }
+        ],
+        questions: [
+          {
+            id: "beginner-academic-2-q1",
+            type: "mcq",
+            text: "What are the two main jobs of roots?",
+            options: [
+              "To make food and produce oxygen",
+              "To absorb water and nutrients, and hold the plant in place",
+              "To attract insects and protect seeds",
+              "To make seeds and support leaves"
+            ],
+            correctAnswer: "To absorb water and nutrients, and hold the plant in place"
+          },
+          {
+            id: "beginner-academic-2-q2",
+            type: "mcq",
+            text: "Which part of the plant makes food through photosynthesis?",
+            options: ["Roots", "Stem", "Leaves", "Flowers"],
+            correctAnswer: "Leaves"
+          },
+          {
+            id: "beginner-academic-2-q3",
+            type: "mcq",
+            text: "Why do flowers have bright colors and sweet smells?",
+            options: [
+              "To scare away animals",
+              "To attract bees, butterflies, and other insects",
+              "To absorb more sunlight",
+              "To protect the plant from disease"
+            ],
+            correctAnswer: "To attract bees, butterflies, and other insects"
+          }
+        ],
+        pronunciation: [
+          {
+            title: "Plant Vocabulary",
+            text: "Plants are living things that grow in soil. Like animals, plants need water and nutrients to live and grow.",
+            focusPoints: ["Practice the 'pl' blend in 'plants'", "Focus on the schwa sound in 'water'"]
+          }
+        ]
+      },
+      {
+        id: "beginner-academic-3",
+        title: "The Solar System",
+        level: "beginner",
+        type: "academic",
+        text: `Our solar system consists of the Sun and everything that orbits around it. This includes eight planets, their moons, asteroids, comets, and other space objects. Let's learn about the main parts of our solar system.
+    
+    The Sun is at the center of our solar system. It is a star, which means it is a hot ball of glowing gases. The Sun is very important because it provides light and heat to the planets. Without the Sun, life on Earth would not be possible. The Sun is so big that more than one million Earths could fit inside it.
+    
+    Mercury is the planet closest to the Sun. It is the smallest planet in our solar system. Mercury has no moons and no atmosphere. During the day, Mercury can be very hot because it is close to the Sun. At night, it becomes very cold because it has no atmosphere to trap heat.
+    
+    Venus is the second planet from the Sun. It is similar in size to Earth, which is why it is sometimes called Earth's sister planet. Venus has a thick atmosphere that traps heat, making it the hottest planet in our solar system. A day on Venus is longer than a year on Venus!
+    
+    Earth is the third planet from the Sun and our home. It is the only planet known to have life. Earth has one moon, which we simply call "the Moon." About 71% of Earth's surface is covered with water. Earth has a protective atmosphere that keeps us warm and provides the air we breathe.
+    
+    Mars is the fourth planet from the Sun. It is often called the Red Planet because of its reddish appearance. Mars has two small moons named Phobos and Deimos. Mars has seasons like Earth but they last longer because Mars takes more time to orbit the Sun.
+    
+    Jupiter is the fifth planet from the Sun and the largest planet in our solar system. It is a gas giant, which means it is mostly made of gases like hydrogen and helium. Jupiter has at least 79 moons. The largest are called the Galilean moons: Io, Europa, Ganymede, and Callisto.
+    
+    Saturn is the sixth planet from the Sun. It is famous for its beautiful rings, which are made of ice particles and rock. Like Jupiter, Saturn is a gas giant. Saturn has at least 82 moons. The largest is Titan, which is bigger than the planet Mercury.
+    
+    Uranus is the seventh planet from the Sun. It is an ice giant, containing ice, rock, and gases. Uranus is unique because it rotates on its side. This means its poles are where other planets' equators would be. Uranus has 27 known moons.
+    
+    Neptune is the eighth planet from the Sun and the farthest planet in our solar system. Like Uranus, Neptune is an ice giant. It is a very windy planet, with the fastest winds in the solar system. Neptune has 14 known moons. The largest is Triton.
+    
+    Pluto was once considered the ninth planet, but in 2006, astronomers reclassified it as a "dwarf planet." There are five officially recognized dwarf planets in our solar system: Pluto, Ceres, Haumea, Makemake, and Eris.
+    
+    Our solar system is just one small part of the Milky Way galaxy, which contains billions of stars. And the Milky Way is just one of billions of galaxies in the universe. Space is incredibly vast and there is still so much for us to discover and learn!`,
+        description: "Introduction to the planets and other components of our solar system.",
+        estimatedTime: 10,
+        difficulty: "easy",
+        vocabulary: [
+          { word: "orbit", definition: "the curved path of an object around a star, planet, or moon" },
+          { word: "atmosphere", definition: "the layer of gases surrounding a planet" },
+          { word: "gas giant", definition: "a large planet composed mostly of gases rather than solid materials" },
+          { word: "dwarf planet", definition: "a celestial body that orbits the Sun, is round, but has not cleared its orbital path" }
+        ],
+        questions: [
+          {
+            id: "beginner-academic-3-q1",
+            type: "mcq",
+            text: "Which planet is known as the Red Planet?",
+            options: ["Venus", "Earth", "Mars", "Jupiter"],
+            correctAnswer: "Mars"
+          },
+          {
+            id: "beginner-academic-3-q2",
+            type: "mcq",
+            text: "What makes Venus the hottest planet in our solar system?",
+            options: [
+              "It is the closest to the Sun",
+              "It has a thick atmosphere that traps heat",
+              "It has active volcanoes",
+              "It rotates very quickly"
+            ],
+            correctAnswer: "It has a thick atmosphere that traps heat"
+          },
+          {
+            id: "beginner-academic-3-q3",
+            type: "mcq",
+            text: "What are Saturn's rings made of?",
+            options: [
+              "Liquid gases",
+              "Ice particles and rock",
+              "Molten metal",
+              "Cosmic dust"
+            ],
+            correctAnswer: "Ice particles and rock"
+          }
+        ],
+        pronunciation: [
+          {
+            title: "Planet Names",
+            text: "Our solar system consists of the Sun and everything that orbits around it. This includes eight planets, their moons, asteroids, comets, and other space objects.",
+            focusPoints: ["Practice the names of the planets", "Focus on the 'or' sound in 'solar' and 'orbit'"]
+          }
+        ]
+      },
+    
+      // INTERMEDIATE - STORIES (3 ta)
+      {
+        id: "intermediate-story-1",
+        title: "The Unexpected Friendship",
+        level: "intermediate",
+        type: "stories",
+        text: `Anna had just moved to a new city for her job as a software developer. Despite being excited about the career opportunity, she felt increasingly lonely in her sparsely furnished apartment. The bustling city outside her window seemed to emphasize her isolation rather than alleviate it.
+    
+    On a particularly gloomy Saturday morning, Anna decided to explore her neighborhood. The local coffee shop caught her eye with its warm lighting and inviting atmosphere. Inside, every table was occupied except for one, where an elderly man sat alone with a chessboard in front of him.
+    
+    "Excuse me, is this seat taken?" Anna asked, gesturing to the empty chair across from him.
+    
+    The man looked up with bright eyes that contrasted with his weathered face. "Not unless you play chess," he replied with a mischievous smile.
+    
+    Anna hesitated. She hadn't played chess since her grandfather taught her as a child. "I'm a bit rusty, but I know the basics," she admitted.
+    
+    "Perfect! My name is George," he said, extending a hand that was marked with age spots but surprisingly firm in its grip.
+    
+    "Anna," she replied, taking a seat.
+    
+    Their first game was quick—George won within twenty moves. But instead of feeling defeated, Anna found herself enjoying the challenge. George wasn't condescending about his victory; instead, he offered tips and explained strategies that her grandfather had never mentioned.
+    
+    What began as a chance encounter became a weekly ritual. Every Saturday at 10 AM, Anna would meet George at the coffee shop for chess and conversation. She learned that George had been a mathematics professor before retiring, that he had lost his wife five years ago, and that he had a daughter who lived overseas.
+    
+    In turn, Anna shared her struggles with adjusting to the new city, her passion for coding, and her dreams of eventually starting her own tech company. George listened attentively, offering wisdom from his decades of experience navigating life's complexities.
+    
+    As weeks turned into months, Anna's chess skills improved dramatically. She even managed to win a game occasionally, much to George's delight. "Nothing makes a teacher prouder than being surpassed by their student," he would say with genuine pleasure.
+    
+    But it wasn't just chess that was enriching Anna's life. Through George, she met other regulars at the coffee shop—artists, writers, and professionals who formed a diverse and welcoming community. Her apartment gradually filled with plants, artwork from local creators, and photographs of her new friends.
+    
+    One Saturday, almost a year after their first meeting, George didn't show up at their usual time. Concerned, Anna called his home phone, which went unanswered. After waiting anxiously for two hours, she was about to leave when George's daughter walked into the coffee shop.
+    
+    "Are you Anna?" she asked, approaching with red-rimmed eyes. "My father had a stroke yesterday. He's stable now, but he asked me to come find you. He was worried you'd think he stood you up."
+    
+    At the hospital, George looked smaller somehow, connected to monitors that beeped steadily. But his eyes lit up when Anna entered the room. On the bedside table was a small wooden box.
+    
+    "A gift," George whispered, his speech slightly slurred. "Open it at home."
+    
+    That evening, Anna opened the box to find a beautiful hand-carved chess piece—a queen. Attached was a note in George's shaky handwriting: "To the queen of the chessboard and a true friend. Some connections transcend time and circumstance."
+    
+    Anna placed the queen on her windowsill, where the city lights illuminated it at night. What had once seemed like an impersonal concrete jungle now felt like home, filled with unexpected connections and friendships that had begun with a simple game of chess.`,
+        description: "A story about how a chance encounter over a chess game leads to a meaningful intergenerational friendship.",
+        estimatedTime: 8,
+        difficulty: "medium",
+        vocabulary: [
+          { word: "alleviate", definition: "to make suffering, deficiency, or a problem less severe" },
+          { word: "weathered", definition: "showing the effects of exposure to the weather; worn by age or use" },
+          { word: "condescending", definition: "showing or implying a usually patronizing descent from dignity or superiority" },
+          { word: "transcend", definition: "to rise above or go beyond the limits of something" }
+        ],
+        questions: [
+          {
+            id: "intermediate-story-1-q1",
+            type: "mcq",
+            text: "What was Anna's profession?",
+            options: ["Teacher", "Artist", "Software developer", "Chess player"],
+            correctAnswer: "Software developer"
+          },
+          {
+            id: "intermediate-story-1-q2",
+            type: "mcq",
+            text: "How did Anna and George first meet?",
+            options: [
+              "At a chess tournament",
+              "Through mutual friends",
+              "At a coffee shop",
+              "In a hospital"
+            ],
+            correctAnswer: "At a coffee shop"
+          },
+          {
+            id: "intermediate-story-1-q3",
+            type: "mcq",
+            text: "What was George's reaction when Anna occasionally won their chess games?",
+            options: [
+              "He was upset about losing",
+              "He was delighted by her improvement",
+              "He became more competitive",
+              "He stopped playing with her"
+            ],
+            correctAnswer: "He was delighted by her improvement"
+          },
+          {
+            id: "intermediate-story-1-q4",
+            type: "mcq",
+            text: "What gift did George give to Anna?",
+            options: [
+              "A chess strategy book",
+              "A complete chess set",
+              "A hand-carved queen chess piece",
+              "A framed photograph"
+            ],
+            correctAnswer: "A hand-carved queen chess piece"
+          }
+        ],
+        pronunciation: [
+          {
+            title: "Emotional Expressions",
+            text: "Despite being excited about the career opportunity, she felt increasingly lonely in her sparsely furnished apartment.",
+            focusPoints: ["Practice the word stress in 'increasingly' and 'opportunity'", "Focus on the 'th' sound in 'weathered'"]
+          }
+        ]
+      },
+      {
+        id: "intermediate-story-2",
+        title: "The Blue Door",
+        level: "intermediate",
+        type: "stories",
+        text: `Maya had walked past the blue door a hundred times before she finally noticed it. It was tucked between a bustling bakery and a vintage clothing store on her daily route to work. The door itself was nothing extraordinary—just an old wooden door painted a faded cobalt blue—but what struck Maya as odd was that she couldn't recall ever seeing anyone enter or exit through it.
+    
+    On this particular morning, as rain drizzled steadily from a gray April sky, Maya paused in front of the door. There was no sign, no house number, not even a doorknob—just a small brass knocker shaped like a labyrinth. Intrigued and seeking shelter from the strengthening rain, Maya reached out and used the knocker.
+    
+    The sound that resonated was unexpectedly deep, as if she'd knocked on the door of a much larger structure. After a moment, the door swung inward, though Maya couldn't see who had opened it. Curiosity overcoming caution, she stepped over the threshold.
+    
+    Inside was not a shop or an apartment as Maya had expected, but a vast library that seemed architecturally impossible given the small space between the bakery and clothing store. Shelves stretched upward for at least three stories, connected by spiral staircases and rolling ladders. The air smelled of old paper, leather bindings, and something Maya couldn't quite identify—perhaps possibility.
+    
+    "Welcome to The Waypoint," said a voice behind her. Maya turned to find an elderly woman with silver hair tied in a neat bun. She wore a dark blue cardigan with patches on the elbows and spectacles that magnified her keen gray eyes.
+    
+    "I'm sorry," Maya stammered. "I didn't mean to intrude. The rain was getting heavy and—"
+    
+    "No one finds this door by accident," the woman interrupted with a gentle smile. "I'm Eleanor, the librarian. You must be Maya."
+    
+    Maya blinked in surprise. "How do you know my name?"
+    
+    Eleanor's smile widened. "The books told me, of course. They've been expecting you."
+    
+    Before Maya could question this peculiar statement, Eleanor gestured toward the center of the library where several comfortable reading chairs surrounded a fireplace that crackled with a warm, inviting flame.
+    
+    "Please, make yourself comfortable. Your book will find you shortly."
+    
+    Too bewildered to argue, Maya settled into one of the chairs. Within minutes, a book seemed to detach itself from a nearby shelf and floated—actually floated—down to land gently in her lap. The cover was blank except for a title that appeared as she touched it: "The Path Not Taken: Maya Chen's Alternate Journey."
+    
+    With trembling fingers, Maya opened the book. Inside were detailed accounts of her life—not as it had happened, but as it might have been had she made different choices. The scholarship she had declined out of fear. The love she had let slip away out of pride. The adventure she had postponed until it was too late.
+    
+    Hours passed as Maya read, occasionally wiping away tears or laughing softly at the twists and turns of her untaken paths. She barely noticed as other visitors came and went, each engaged with their own floating books.
+    
+    When she finally reached the last page, it was blank except for a single question written in elegant script: "What path will you choose now?"
+    
+    Maya closed the book and looked up to find Eleanor watching her from behind a circulation desk.
+    
+    "This can't be real," Maya said, her voice hoarse from disuse and emotion.
+    
+    "The Waypoint exists at the intersection of what is, what was, and what could be," Eleanor explained. "It appears to those at a crossroads. The door will always be here for you now, though you may not need it again."
+    
+    "Can I... take the book with me?" Maya asked.
+    
+    Eleanor shook her head. "The books belong here. But what you've learned is yours to keep."
+    
+    As Maya stepped back outside, she was surprised to discover that the rain had stopped and the late afternoon sun was casting long shadows on the street. Checking her watch, she realized that nearly eight hours had passed, yet it had felt like both an eternity and a moment.
+    
+    The next morning, Maya did not take her usual route to work. Instead, she pulled out the application for a master's program she'd been considering for years, and began to fill it out. As she wrote, she could almost smell the distinctive scent of The Waypoint—old paper, leather, and the unmistakable fragrance of possibility.`,
+        description: "A magical realism story about a mysterious door that leads to a library containing books about the roads not taken in life.",
+        estimatedTime: 9,
+        difficulty: "medium",
+        vocabulary: [
+          { word: "cobalt", definition: "a deep blue color" },
+          { word: "threshold", definition: "the floor or ground at the entrance to a building or room" },
+          { word: "architecturally", definition: "relating to the art or practice of designing and constructing buildings" },
+          { word: "bewildered", definition: "confused and indecisive; puzzled" },
+          { word: "crossroads", definition: "a point at which a crucial decision must be made that will have far-reaching consequences" }
+        ],
+        questions: [
+          {
+            id: "intermediate-story-2-q1",
+            type: "mcq",
+            text: "What was unusual about the blue door?",
+            options: [
+              "It changed colors depending on the weather",
+              "It had no doorknob, only a knocker",
+              "It was much taller than other doors",
+              "It was partially transparent"
+            ],
+            correctAnswer: "It had no doorknob, only a knocker"
+          },
+          {
+            id: "intermediate-story-2-q2",
+            type: "mcq",
+            text: "What was the name of the library behind the blue door?",
+            options: [
+              "The Blue Library",
+              "The Waypoint",
+              "Eleanor's Collection",
+              "The Crossroads Library"
+            ],
+            correctAnswer: "The Waypoint"
+          },
+          {
+            id: "intermediate-story-2-q3",
+            type: "mcq",
+            text: "What was unique about the book Maya read?",
+            options: [
+              "It was written in a language only she could understand",
+              "It predicted her future",
+              "It described alternate versions of her life based on different choices",
+              "It changed its content every time she turned a page"
+            ],
+            correctAnswer: "It described alternate versions of her life based on different choices"
+          },
+          {
+            id: "intermediate-story-2-q4",
+            type: "mcq",
+            text: "What did Maya do after visiting The Waypoint?",
+            options: [
+              "She moved to a different city",
+              "She started applying for a master's program",
+              "She returned to the library the next day",
+              "She wrote a book about her experience"
+            ],
+            correctAnswer: "She started applying for a master's program"
+          }
+        ],
+        pronunciation: [
+          {
+            title: "Descriptive Language",
+            text: "Inside was not a shop or an apartment as Maya had expected, but a vast library that seemed architecturally impossible given the small space between the bakery and clothing store.",
+            focusPoints: ["Practice the word 'architecturally'", "Focus on the rhythm of longer descriptive sentences"]
+          }
+        ]
+      },
+      {
+        id: "intermediate-story-3",
+        title: "The Night Train",
+        level: "intermediate",
+        type: "stories",
+        text: `The station was nearly empty when Daniel boarded the 11:58 PM train. He hadn't planned on taking the night train, but his meeting had run late, and he'd missed the last express back to the suburbs. This local would take longer—stopping at every small town along the way—but at least he wouldn't have to spend the night in the city.
+    
+    Daniel settled into a window seat in the last car, which was empty except for an elderly man reading a newspaper at the far end. Outside, a light snow had begun to fall, dusting the platform with a thin white blanket. The train lurched forward, and the station lights faded into the distance as they entered the darkness beyond the city limits.
+    
+    Leaning his head against the cool window, Daniel watched the occasional lights of small towns appear and disappear in the distance. The gentle rocking of the train and the rhythmic clicking of wheels against tracks began to lull him toward sleep. He checked his watch—just past midnight. He'd be home in about two hours if the train kept to its schedule.
+    
+    Daniel must have dozed off because he awoke with a start when the train halted at a station. Disoriented, he peered out the window. The platform was dimly lit by a single yellow lamp, revealing a small wooden building with peeling paint. A sign read "Crossfield," though Daniel couldn't recall ever hearing of such a place despite having taken this line for years.
+    
+    The doors opened, and a young woman boarded the train. She was dressed oddly—in a style that Daniel associated with the 1940s—wearing a fitted dark green coat, her hair pinned up neatly under a small hat. She carried a brown leather suitcase that looked weathered and heavy.
+    
+    The woman sat across the aisle from Daniel, setting her suitcase carefully on the floor beside her. She smiled politely at him, then turned to gaze out the window. Daniel noticed that despite the snowy night, her coat was perfectly dry.
+    
+    "Excuse me," Daniel said, breaking the silence. "Is Crossfield a new stop? I take this train often, but I've never noticed it before."
+    
+    The woman turned to him with an expression of mild surprise. "New? No, Crossfield has been here for a very long time." Her voice had a quality that Daniel couldn't quite place—clear and articulate, but with an inflection that seemed slightly out of time, like listening to an old radio show.
+    
+    "Are you going far?" she asked.
+    
+    "Just to Lakeside," Daniel replied. "My family is waiting."
+    
+    A curious expression crossed her face. "Lakeside? I don't believe this train stops there anymore."
+    
+    Before Daniel could respond, the conductor entered their car—a tall man with a silver beard and a uniform that looked too formal for the local night train. He didn't ask for tickets but nodded at the woman as if they were acquainted.
+    
+    "We'll be arriving at the Junction in twenty minutes," the conductor announced, though he seemed to be addressing only the woman. "You'll need to make your connection there." Then he continued to the next car without acknowledging Daniel.
+    
+    "Excuse me," Daniel called after him, rising from his seat. "This train does stop at Lakeside, doesn't it?"
+    
+    The conductor didn't turn back, and when Daniel tried to follow him to the next car, he found the door inexplicably locked. Confused, he returned to his seat.
+    
+    "Are you sure you're on the right train?" the woman asked, her expression now showing concern.
+    
+    "Of course I am," Daniel replied, a hint of irritation in his voice. "I take this route twice a day, five days a week."
+    
+    The woman opened her handbag and withdrew an old-fashioned paper timetable. "Here," she said, passing it to him. "Perhaps this will help."
+    
+    Daniel unfolded the yellowed paper. The timetable was dated May 1952, but what disturbed him more was that it showed no stop called Lakeside on this line. His hands began to tremble slightly as he noticed the final destination: "Junction (End of Line – Closed 1963)."
+    
+    Looking up, Daniel found the woman watching him with a gentle, almost sad smile.
+    
+    "What is this?" he demanded, his voice barely above a whisper.
+    
+    "Some trains," she said quietly, "run on tracks that exist outside of regular timetables. They only come once in a lifetime."
+    
+    Before Daniel could respond, the train began to slow. Outside the window, he could see another station approaching—larger than Crossfield, with several people waiting on the platform despite the late hour.
+    
+    "This is the Junction," the woman said, standing and picking up her suitcase. "You have a choice to make now. You can continue with this train to its final destination, or you can disembark here and find your way back."
+    
+    "Back to what?" Daniel asked, suddenly afraid of the answer.
+    
+    "To before you boarded this train," she replied simply. "But I should warn you—the journey back is not always straightforward, and you might not arrive at exactly the same place you left."
+    
+    The train came to a complete stop, and the doors opened with a hydraulic sigh. The woman stepped toward the exit, then paused, turning back to Daniel with an enigmatic smile.
+    
+    "For what it's worth," she said, "I chose to continue the journey. Sometimes the unplanned destinations are the most meaningful."
+    
+    With that, she stepped onto the platform and disappeared into the crowd.
+    
+    Daniel sat frozen in his seat as the doors remained open, the decision before him as unclear as the snowy night beyond the station.`,
+        description: "A mysterious story about a late-night train journey that takes an unexpected turn.",
+        estimatedTime: 10,
+        difficulty: "medium",
+        vocabulary: [
+          { word: "lurched", definition: "made an abrupt, unsteady movement or series of movements" },
+          { word: "disoriented", definition: "having lost one's sense of direction, position, or relationship with one's surroundings" },
+          { word: "inflection", definition: "a change in the pitch or tone of someone's voice" },
+          { word: "enigmatic", definition: "difficult to interpret or understand; mysterious" }
+        ],
+        questions: [
+          {
+            id: "intermediate-story-3-q1",
+            type: "mcq",
+            text: "Why did Daniel take the night train?",
+            options: [
+              "He enjoyed night travel",
+              "It was cheaper than the express train",
+              "His meeting ran late and he missed the last express",
+              "There was a problem with the regular train service"
+            ],
+            correctAnswer: "His meeting ran late and he missed the last express"
+          },
+          {
+            id: "intermediate-story-3-q2",
+            type: "mcq",
+            text: "What was unusual about the woman who boarded at Crossfield?",
+            options: [
+              "She was extremely tall",
+              "She was dressed in a 1940s style and her coat was dry despite the snow",
+              "She spoke a foreign language",
+              "She was invisible to everyone except Daniel"
+            ],
+            correctAnswer: "She was dressed in a 1940s style and her coat was dry despite the snow"
+          },
+          {
+            id: "intermediate-story-3-q3",
+            type: "mcq",
+            text: "What disturbing information did Daniel discover from the timetable?",
+            options: [
+              "The train was going in the opposite direction from his home",
+              "The timetable was from 1952 and showed his stop didn't exist on this line",
+              "The train was actually a museum piece not in service",
+              "The train was scheduled to crash that night"
+            ],
+            correctAnswer: "The timetable was from 1952 and showed his stop didn't exist on this line"
+          },
+          {
+            id: "intermediate-story-3-q4",
+            type: "mcq",
+            text: "What choice did the woman say Daniel had to make at the Junction?",
+            options: [
+              "Whether to report the conductor for his rudeness",
+              "Whether to continue on the train or disembark and find his way back",
+              "Whether to follow her to her final destination",
+              "Whether to call his family and tell them he'd be late"
+            ],
+            correctAnswer: "Whether to continue on the train or disembark and find his way back"
+          }
+        ],
+        pronunciation: [
+          {
+            title: "Descriptive Passages",
+            text: "Outside, a light snow had begun to fall, dusting the platform with a thin white blanket. The train lurched forward, and the station lights faded into the distance.",
+            focusPoints: ["Practice the past tense '-ed' endings", "Focus on the 'ch' sound in 'lurched'"]
+          }
+        ]
+      },
+    
+      // INTERMEDIATE - ARTICLES (3 ta)
+      {
+        id: "intermediate-article-1",
+        title: "The Benefits of Learning a Second Language",
+        level: "intermediate",
+        type: "articles",
+        text: `Learning a second language offers numerous benefits that go well beyond the ability to communicate with people from different countries. Research has shown that bilingualism can have a profound impact on brain development and cognitive abilities.
+    
+    One of the most significant advantages of learning another language is improved cognitive function. When you switch between two languages, your brain has to work harder, which strengthens your mental muscles. This mental exercise enhances your ability to focus, solve problems, and make decisions. Studies have found that bilingual individuals often outperform monolinguals on tasks that require multitasking and selective attention.
+    
+    Memory improvement is another key benefit. Learning vocabulary, grammar rules, and language structures exercises your memory capacity. This enhanced memory function doesn't just apply to language skills but extends to other areas of life as well. Bilingual people have been shown to have better long-term memory and recall abilities.
+    
+    From a career perspective, speaking a second language can open doors to new opportunities. In our increasingly globalized world, companies value employees who can communicate with international partners and customers. This skill can lead to better job prospects, higher salaries, and more chances for advancement within your career.
+    
+    Cultural awareness and understanding naturally develop when learning a new language. Language and culture are deeply intertwined, and by studying a language, you gain insights into different perspectives, traditions, and ways of thinking. This cultural sensitivity is increasingly important in our diverse society.
+    
+    There are even health benefits associated with bilingualism. Research suggests that speaking multiple languages might delay the onset of dementia and Alzheimer's disease by 4-5 years. The mental exercise involved in language switching creates a "cognitive reserve" that helps the brain resist damage.
+    
+    Despite these compelling benefits, many people are hesitant to learn a new language, believing it's too difficult or time-consuming. However, with modern learning methods and resources, mastering the basics of a new language has never been more accessible. Even limited knowledge of a second language can provide many of these cognitive and cultural advantages.
+    
+    In conclusion, learning a second language is an investment that pays dividends throughout life – enhancing your cognitive abilities, career prospects, cultural understanding, and potentially even your health. It's never too late to start learning and experiencing these benefits for yourself.`,
+        description: "An informative article about the cognitive, career, and cultural benefits of learning additional languages.",
+        estimatedTime: 10,
+        difficulty: "medium",
+        vocabulary: [
+          { word: "bilingualism", definition: "the ability to speak two languages fluently" },
+          { word: "cognitive", definition: "relating to mental processes of perception, memory, judgment, and reasoning" },
+          { word: "multitasking", definition: "the ability to perform more than one task at the same time" },
+          { word: "intertwined", definition: "twisted or twined together; closely connected" },
+          { word: "globalized", definition: "made global or worldwide in scope or application" }
+        ],
+        questions: [
+          {
+            id: "intermediate-article-1-q1",
+            type: "mcq",
+            text: "According to the article, what happens to your brain when you switch between two languages?",
+            options: [
+              "It becomes confused and disoriented",
+              "It works harder, which strengthens mental muscles",
+              "It automatically translates everything",
+              "It creates new neural pathways only"
+            ],
+            correctAnswer: "It works harder, which strengthens mental muscles"
+          },
+          {
+            id: "intermediate-article-1-q2",
+            type: "mcq",
+            text: "What career benefit does the article mention about speaking a second language?",
+            options: [
+              "Guaranteed promotion within six months",
+              "Ability to work fewer hours",
+              "Better job prospects and higher salaries",
+              "Automatic qualification for international positions"
+            ],
+            correctAnswer: "Better job prospects and higher salaries"
+          },
+          {
+            id: "intermediate-article-1-q3",
+            type: "mcq",
+            text: "What health benefit is associated with bilingualism according to the article?",
+            options: [
+              "It reduces the risk of heart disease",
+              "It improves eyesight and hearing",
+              "It might delay the onset of dementia by 4-5 years",
+              "It prevents speech disorders"
+            ],
+            correctAnswer: "It might delay the onset of dementia by 4-5 years"
+          },
+          {
+            id: "intermediate-article-1-q4",
+            type: "mcq",
+            text: "How does the article describe the relationship between language and culture?",
+            options: [
+              "They are completely separate concepts",
+              "They are deeply intertwined",
+              "Cultural understanding is unnecessary for language learning",
+              "Language learning hampers cultural awareness"
+            ],
+            correctAnswer: "They are deeply intertwined"
+          }
+        ],
+        pronunciation: [
+          {
+            title: "Academic Language",
+            text: "Research has shown that bilingualism can have a profound impact on brain development and cognitive abilities.",
+            focusPoints: ["Practice the word stress in 'bilingualism' and 'cognitive'", "Focus on clear articulation of multi-syllable words"]
+          }
+        ]
+      },
+      {
+        id: "intermediate-article-2",
+        title: "The Psychology of Habit Formation",
+        level: "intermediate",
+        type: "articles",
+        text: `We all have habits—behaviors that we perform automatically without much conscious thought. Some habits are beneficial, like brushing our teeth or exercising regularly. Others can be detrimental, such as mindless snacking or procrastinating on important tasks. Understanding how habits form and how they can be changed is key to personal development and achieving long-term goals.
+    
+    At its core, a habit consists of three main components: a cue, a routine, and a reward. This is often called the "habit loop." The cue is a trigger that tells your brain to go into automatic mode and which habit to use. Cues can be locations, times of day, emotional states, other people, or immediately preceding actions. The routine is the behavior itself—what we typically think of as the habit. The reward is the benefit you get from the behavior, which helps your brain determine if this particular loop is worth remembering for the future.
+    
+    Research suggests that habits form when the brain tries to save effort. Our brains are constantly looking for ways to reduce cognitive load, and habits allow us to perform complex behaviors without devoting conscious attention to them. This frees up mental resources for other tasks. For example, once driving becomes habitual, you can have a conversation or listen to a podcast while navigating traffic.
+    
+    Contrary to popular belief, habit formation doesn't always take 21 days. Studies have shown that the time it takes to form a new habit can range from 18 to 254 days, with an average of about 66 days. The variation depends on the complexity of the behavior, your personality, and your circumstances. More complex behaviors take longer to become automatic than simpler ones.
+    
+    When trying to establish new habits, consistency is more important than perfection. Missing one opportunity to perform the habit doesn't significantly impact habit formation, as long as you return to the behavior promptly. However, consistency in the context—the cue part of the habit loop—is crucial. Performing the behavior in the same context each time helps solidify the neural pathways that support automaticity.
+    
+    Breaking unwanted habits is generally more challenging than forming new ones because the neural pathways for established habits remain in the brain even after we stop performing them. This is why old habits can resurface during times of stress or fatigue. The most effective strategy for changing habits isn't to try to eliminate the old behavior but to replace it with a new one that provides a similar reward.
+    
+    Implementation intentions—specific plans that link situations to responses—have been shown to significantly increase the likelihood of successfully adopting new habits. These are "if-then" plans: "If situation X arises, then I will perform response Y." For example, "If it's 7 AM, then I will meditate for 10 minutes before breakfast."
+    
+    Social support also plays a crucial role in habit formation. Sharing your goals with others creates accountability and can provide encouragement when motivation wanes. Additionally, seeing others perform the desired behavior can strengthen your belief in your own ability to succeed.
+    
+    Understanding the neuroscience and psychology of habits empowers us to take control of our automatic behaviors. By deliberately designing our habit cues, routines, and rewards, we can harness the brain's efficiency-seeking tendencies to our advantage, making beneficial behaviors automatic and reducing the grip of detrimental ones. With patience and consistent effort, we can reshape our daily actions to better align with our long-term goals and values.`,
+        description: "An exploration of how habits form, why they're difficult to change, and strategies for developing beneficial ones.",
+        estimatedTime: 11,
+        difficulty: "medium",
+        vocabulary: [
+          { word: "detrimental", definition: "causing harm or damage" },
+          { word: "procrastinating", definition: "delaying or postponing action; putting off doing something" },
+          { word: "cognitive load", definition: "the total amount of mental effort being used in working memory" },
+          { word: "automaticity", definition: "the ability to do things without occupying the mind with the low-level details" },
+          { word: "implementation intentions", definition: "specific plans that link situations to responses" }
+        ],
+        questions: [
+          {
+            id: "intermediate-article-2-q1",
+            type: "mcq",
+            text: "According to the article, what are the three components of the 'habit loop'?",
+            options: [
+              "Action, reaction, reinforcement",
+              "Start, middle, end",
+              "Cue, routine, reward",
+              "Trigger, behavior, consequence"
+            ],
+            correctAnswer: "Cue, routine, reward"
+          },
+          {
+            id: "intermediate-article-2-q2",
+            type: "mcq",
+            text: "Why does the brain develop habits, according to the article?",
+            options: [
+              "To increase pleasure",
+              "To save effort and reduce cognitive load",
+              "To improve physical capabilities",
+              "To enhance social bonding"
+            ],
+            correctAnswer: "To save effort and reduce cognitive load"
+          },
+          {
+            id: "intermediate-article-2-q3",
+            type: "mcq",
+            text: "What is the average time it takes to form a new habit, based on research mentioned in the article?",
+            options: [
+              "21 days",
+              "66 days",
+              "18 days",
+              "254 days"
+            ],
+            correctAnswer: "66 days"
+          },
+          {
+            id: "intermediate-article-2-q4",
+            type: "mcq",
+            text: "What are 'implementation intentions' as described in the article?",
+            options: [
+              "Strong desires to change behavior",
+              "Specific plans that link situations to responses ('if-then' plans)",
+              "The rewards that reinforce habits",
+              "The decision to implement a new habit"
+            ],
+            correctAnswer: "Specific plans that link situations to responses ('if-then' plans)"
+          }
+        ],
+        pronunciation: [
+          {
+            title: "Psychology Terms",
+            text: "At its core, a habit consists of three main components: a cue, a routine, and a reward. This is often called the 'habit loop.'",
+            focusPoints: ["Practice the word stress in 'psychology' and 'components'", "Focus on the clear pronunciation of 'cue', 'routine', and 'reward'"]
+          }
+        ]
+      },
+      {
+        id: "intermediate-article-3",
+        title: "Urban Farming: Growing Food in Cities",
+        level: "intermediate",
+        type: "articles",
+        text: `Urban farming—the practice of cultivating, processing, and distributing food in or around urban areas—is transforming how city dwellers think about food production. As cities continue to expand and more people move to urban environments, innovative approaches to growing food locally are becoming increasingly important for sustainability, food security, and community development.
+    
+    Unlike traditional rural agriculture, urban farming takes many diverse forms. Rooftop gardens utilize otherwise unused space on buildings to grow vegetables and herbs, often in containers or raised beds. Community gardens convert vacant lots into productive growing spaces that are shared by neighborhood residents. Vertical farms use stacked systems to maximize growing area in limited spaces, sometimes incorporating technologies like hydroponics (growing plants in nutrient-enriched water rather than soil) or aquaponics (systems that combine raising fish with growing plants).
+    
+    The benefits of urban farming extend far beyond simply producing food. From an environmental perspective, growing food locally reduces the "food miles"—the distance food travels from farm to consumer—thus decreasing transportation emissions. Urban farms also create green spaces that help reduce the urban heat island effect, improve air quality, and increase biodiversity in city environments.
+    
+    Economically, urban farms can generate jobs and entrepreneurial opportunities in neighborhoods that may lack employment options. Small-scale urban farmers often sell directly to consumers through farmers' markets or community-supported agriculture programs, keeping money circulating within the local economy. Some urban farms also partner with restaurants interested in ultra-fresh, locally sourced ingredients.
+    
+    The social impact of urban farming is equally significant. Community gardens bring together diverse groups of people who might otherwise never interact, fostering social connections across cultural, generational, and socioeconomic lines. Many urban farming projects include educational components, teaching children and adults about nutrition, ecology, and food systems. In areas with limited access to fresh produce—often called "food deserts"—urban farms can provide vital access to healthy food options.
+    
+    Challenges to urban farming include limited space, potential soil contamination in formerly industrial areas, securing long-term land access, and navigating zoning regulations that may not address agricultural uses in cities. Water access and management can also present difficulties, especially in areas prone to drought.
+    
+    Despite these challenges, innovative solutions continue to emerge. Some cities are revising zoning codes to accommodate agriculture, while organizations are developing standardized testing protocols for urban soils. Rainwater harvesting systems and efficient drip irrigation help address water concerns. Meanwhile, advances in growing technologies are making urban farming more productive and resource-efficient.
+    
+    Government support for urban agriculture varies widely. Some cities have embraced urban farming as part of their sustainability and community development strategies, offering grants, technical assistance, or favorable policies. Other municipalities have been slower to recognize and support urban agriculture, though this is changing as its multiple benefits become more widely acknowledged.
+    
+    The future of urban farming likely involves a blend of high-tech and community-based approaches. While some urban farms will incorporate cutting-edge technologies like controlled environment agriculture and automated systems, others will emphasize accessibility, education, and community building. Both approaches have valuable roles to play in creating more resilient, sustainable, and food-secure cities.
+    
+    As urban populations continue to grow worldwide, the importance of producing food in and near cities will only increase. Urban farming represents not just a practical response to the challenges of feeding cities sustainably, but also a reimagining of the relationship between urban life and food production—a recognition that agriculture need not be distant from the places where people live, work, and build communities.`,
+        description: "An overview of urban farming practices, benefits, challenges, and future directions.",
+        estimatedTime: 12,
+        difficulty: "medium",
+        vocabulary: [
+          { word: "sustainability", definition: "the ability to maintain or support a process continuously over time" },
+          { word: "hydroponics", definition: "the process of growing plants in sand, gravel, or liquid, with added nutrients but without soil" },
+          { word: "aquaponics", definition: "a system of aquaculture in which the waste produced by farmed fish supplies nutrients for plants grown hydroponically" },
+          { word: "biodiversity", definition: "the variety of plant and animal life in a particular habitat or ecosystem" },
+          { word: "resilient", definition: "able to withstand or recover quickly from difficult conditions" }
+        ],
+        questions: [
+          {
+            id: "intermediate-article-3-q1",
+            type: "mcq",
+            text: "What does the term 'food miles' refer to in the context of the article?",
+            options: [
+              "The distance people must travel to find grocery stores",
+              "The distance food travels from farm to consumer",
+              "The amount of food produced per square mile",
+              "The calories contained in different foods"
+            ],
+            correctAnswer: "The distance food travels from farm to consumer"
+          },
+          {
+            id: "intermediate-article-3-q2",
+            type: "mcq",
+            text: "According to the article, what is a 'food desert'?",
+            options: [
+              "A place where no food will grow due to climate conditions",
+              "A place with an abundance of fast food restaurants",
+              "An area with limited access to fresh produce",
+              "A farming technique that uses minimal water"
+            ],
+            correctAnswer: "An area with limited access to fresh produce"
+          },
+          {
+            id: "intermediate-article-3-q3",
+            type: "mcq",
+            text: "Which of the following is NOT mentioned as a challenge to urban farming?",
+            options: [
+              "Limited space",
+              "Potential soil contamination",
+              "Excessive rainfall",
+              "Navigating zoning regulations"
+            ],
+            correctAnswer: "Excessive rainfall"
+          },
+          {
+            id: "intermediate-article-3-q4",
+            type: "mcq",
+            text: "What does the article suggest about the future of urban farming?",
+            options: [
+              "It will be replaced by traditional rural agriculture",
+              "It will become exclusively high-tech",
+              "It will likely involve both high-tech and community-based approaches",
+              "It will focus only on decorative plants rather than food"
+            ],
+            correctAnswer: "It will likely involve both high-tech and community-based approaches"
+          }
+        ],
+        pronunciation: [
+          {
+            title: "Agricultural Terms",
+            text: "Vertical farms use stacked systems to maximize growing area in limited spaces, sometimes incorporating technologies like hydroponics or aquaponics.",
+            focusPoints: ["Practice the technical terms 'hydroponics' and 'aquaponics'", "Focus on the word stress in 'vertical' and 'incorporating'"]
+          }
+        ]
+      },
+    
+      // INTERMEDIATE - NEWS (3 ta)
+      {
+        id: "intermediate-news-1",
+        title: "Global Summit Addresses Climate Change Challenges",
+        level: "intermediate",
+        type: "news",
+        text: `Representatives from 195 countries gathered in Geneva this week for the International Climate Action Summit, where they discussed urgent measures to combat global warming and its increasingly visible effects worldwide.
+    
+    The five-day summit, which concluded yesterday, focused on implementing the goals set by the Paris Agreement and developing new strategies to reduce carbon emissions faster than previously planned. This comes after recent scientific reports indicating that climate change is progressing more rapidly than earlier models predicted.
+    
+    "We no longer have the luxury of gradual transitions," said UN Secretary-General Paulo Meireles in his opening address. "The data is clear: we need transformative action within this decade to avoid the worst impacts of climate change."
+    
+    A central achievement of the summit was the establishment of the Global Climate Finance Initiative, a $100 billion fund designed to help developing nations transition to renewable energy sources. Industrialized nations have pledged to contribute based on their historical emissions, with details on the exact funding structure to be finalized in the coming months.
+    
+    China, currently the world's largest carbon emitter, announced its plan to peak its emissions by 2025—five years earlier than its previous target—and to increase its renewable energy capacity to 1,200 gigawatts by 2030. "We recognize our responsibility as a major economy to lead by example," stated Chinese Climate Envoy Li Wei.
+    
+    The United States unveiled a comprehensive strategy to reduce its emissions by 55% below 2005 levels by 2030, up from its previous commitment of 50%. This plan includes significant investments in electric vehicle infrastructure, renewable energy projects, and regulatory measures to phase out fossil fuels in electricity generation.
+    
+    Small island nations, which face existential threats from rising sea levels, pushed for more ambitious targets and additional funding for climate adaptation. "For us, this is not about economics or politics—it's about survival," said Maldives representative Aisha Farah. The Alliance of Small Island States presented new research showing that several member nations could become partially uninhabitable within 30 years without drastic global action.
+    
+    The European Union reaffirmed its commitment to becoming carbon-neutral by 2050 and proposed a new Carbon Border Adjustment Mechanism, which would place tariffs on imports from countries with less stringent climate policies. This proposal has created tension with some developing nations, who argue it could unfairly impact their economies.
+    
+    Despite the progress made, climate activists expressed disappointment that the summit did not result in legally binding commitments for emissions reductions. Thousands of protesters gathered outside the conference center throughout the week, demanding more decisive action.
+    
+    "The pledges we're hearing sound impressive in press releases, but without enforcement mechanisms, they risk becoming empty promises," said climate activist Sophia Rodriguez. "We've seen too many missed targets already."
+    
+    The summit also addressed emerging technologies for carbon capture and storage, with several countries announcing joint research initiatives. However, scientists at the conference emphasized that such technologies should supplement, not replace, rapid reductions in fossil fuel use.
+    
+    A notable outcome was the creation of a working group to address climate-related migration, acknowledging that millions of people may be displaced by rising seas, prolonged droughts, and other climate impacts in the coming decades.
+    
+    As delegates departed Geneva, the focus shifted to implementation. "The true test of this summit's success will not be the declarations made here, but the actions taken when everyone returns home," concluded Summit Chair Elena Khoury. "The clock is ticking, and the world is watching."
+    
+    The next major climate summit is scheduled for November next year in Nairobi, Kenya, where nations will assess progress on the commitments made in Geneva.`,
+        description: "Coverage of an international summit addressing global climate change policies and commitments.",
+        estimatedTime: 12,
+        difficulty: "medium",
+        vocabulary: [
+          { word: "transformative", definition: "causing a marked change in someone or something" },
+          { word: "pledged", definition: "formally promised to give or do something" },
+          { word: "existential", definition: "relating to existence; concerning the very nature of being" },
+          { word: "carbon-neutral", definition: "having or resulting in no net release of carbon dioxide into the atmosphere" },
+          { word: "supplement", definition: "something added to complete a thing, make up for a deficiency, or extend or strengthen the whole" }
+        ],
+        questions: [
+          {
+            id: "intermediate-news-1-q1",
+            type: "mcq",
+            text: "How much money is allocated to the Global Climate Finance Initiative?",
+            options: ["$50 billion", "$75 billion", "$100 billion", "$200 billion"],
+            correctAnswer: "$100 billion"
+          },
+          {
+            id: "intermediate-news-1-q2",
+            type: "mcq",
+            text: "What did China announce regarding its emissions?",
+            options: [
+              "Immediate carbon neutrality",
+              "Carbon neutrality by 2050",
+              "Peak emissions by 2025",
+              "Reduction of 55% by 2030"
+            ],
+            correctAnswer: "Peak emissions by 2025"
+          },
+          {
+            id: "intermediate-news-1-q3",
+            type: "mcq",
+            text: "What was a criticism from climate activists about the summit?",
+            options: [
+              "Too few countries participated",
+              "It focused too much on technology",
+              "It did not result in legally binding commitments",
+              "It ignored renewable energy solutions"
+            ],
+            correctAnswer: "It did not result in legally binding commitments"
+          },
+          {
+            id: "intermediate-news-1-q4",
+            type: "mcq",
+            text: "Where will the next major climate summit be held?",
+            options: [
+              "Paris, France",
+              "Nairobi, Kenya",
+              "Geneva, Switzerland",
+              "Beijing, China"
+            ],
+            correctAnswer: "Nairobi, Kenya"
+          }
+        ],
+        pronunciation: [
+          {
+            title: "Environmental Terminology",
+            text: "Representatives from 195 countries gathered in Geneva this week for the International Climate Action Summit, where they discussed urgent measures to combat global warming.",
+            focusPoints: ["Practice the 'th' sound in 'gathered'", "Focus on word stress in 'international' and 'representatives'"]
+          }
+        ]
+      },
+      {
+        id: "intermediate-news-2",
+        title: "Revolutionary AI System Detects Early Signs of Alzheimer's",
+        level: "intermediate",
+        type: "news",
+        text: `Scientists at the Neural Technologies Institute have developed an artificial intelligence system that can detect early signs of Alzheimer's disease up to six years before clinical diagnosis, potentially transforming treatment approaches for this devastating condition.
+    
+    The system, named NeuroDetect, analyzes brain scans using a sophisticated machine learning algorithm trained on thousands of images from patients who eventually developed Alzheimer's. In a study published yesterday in the journal Medical AI Applications, researchers reported that NeuroDetect achieved a 91% accuracy rate in identifying subtle brain changes that precede obvious symptoms.
+    
+    "Early detection is crucial for Alzheimer's treatment," explained Dr. Sophia Chen, the lead researcher on the project. "By the time most patients receive a diagnosis, significant brain damage has already occurred. NeuroDetect can identify patterns of neural deterioration years before traditional diagnostic methods, potentially opening a crucial window for intervention."
+    
+    The study involved 4,500 participants over the age of 65 who were cognitively normal at the beginning of the research. Each participant underwent regular brain scans and cognitive assessments over eight years. Of these participants, 737 eventually received clinical Alzheimer's diagnoses.
+    
+    When researchers retrospectively analyzed the early brain scans using NeuroDetect, the system correctly identified 91% of those who would later develop Alzheimer's, based on subtle changes in brain structure and activity that are invisible to the human eye.
+    
+    "What makes this particularly promising is that NeuroDetect doesn't require any special equipment," said Dr. Marcus Williams, a neurologist at Central University Medical Center who was not involved in the study. "It works with standard MRI scans that are already part of routine care for many older adults."
+    
+    The researchers emphasize that while NeuroDetect can predict who is likely to develop Alzheimer's, it does not yet offer solutions for prevention or treatment. However, early detection could allow patients to participate in clinical trials for experimental treatments aimed at slowing disease progression.
+    
+    "Currently, many Alzheimer's drug trials fail because they intervene too late in the disease process," explained Dr. Chen. "With earlier identification of at-risk individuals, we might be able to test treatments when they can be most effective."
+    
+    The development of NeuroDetect comes at a critical time, as the global population ages and Alzheimer's cases are projected to triple by 2050. The disease currently affects approximately 55 million people worldwide and is a leading cause of disability among older adults.
+    
+    The technology has already attracted attention from healthcare systems and pharmaceutical companies. Memorial Hospital Network has announced plans to implement NeuroDetect at its 12 locations across the country as part of a pilot program, while pharmaceutical giant Novaris has expressed interest in using the system to identify candidates for its experimental Alzheimer's treatments.
+    
+    Privacy advocates have raised concerns about how the predictive data might be used, particularly regarding insurance coverage and long-term care planning. In response, the Neural Technologies Institute has published ethical guidelines for implementing NeuroDetect, emphasizing patient consent and data protection.
+    
+    "Knowing you may develop Alzheimer's years in the future is sensitive information that must be handled with extreme care," said Dr. Eliana Patel, the institute's ethics director. "We're working with healthcare providers to ensure appropriate counseling is available for individuals who receive high-risk predictions."
+    
+    The research team is now working to refine the system further by incorporating additional data types, including genetic information and cognitive test results, which could potentially increase accuracy to 95% or higher.
+    
+    Clinical trials using NeuroDetect to identify participants for preventative treatment studies are expected to begin next year, offering hope that earlier intervention might finally lead to more effective management of a disease that has resisted treatment efforts for decades.`,
+        description: "News about a breakthrough AI system that can detect early signs of Alzheimer's disease years before symptoms appear.",
+        estimatedTime: 12,
+        difficulty: "medium",
+        vocabulary: [
+          { word: "algorithm", definition: "a process or set of rules to be followed in calculations or other problem-solving operations, especially by a computer" },
+          { word: "neural", definition: "relating to a nerve or the nervous system" },
+          { word: "retrospectively", definition: "looking back on or dealing with past events or situations" },
+          { word: "intervention", definition: "action taken to improve a medical disorder" },
+          { word: "projected", definition: "estimated or forecast for the future" }
+        ],
+        questions: [
+          {
+            id: "intermediate-news-2-q1",
+            type: "mcq",
+            text: "How far in advance can NeuroDetect identify signs of Alzheimer's before clinical diagnosis?",
+            options: ["Up to two years", "Up to four years", "Up to six years", "Up to ten years"],
+            correctAnswer: "Up to six years"
+          },
+          {
+            id: "intermediate-news-2-q2",
+            type: "mcq",
+            text: "What accuracy rate did NeuroDetect achieve in identifying early signs of Alzheimer's?",
+            options: ["75%", "85%", "91%", "98%"],
+            correctAnswer: "91%"
+          },
+          {
+            id: "intermediate-news-2-q3",
+            type: "mcq",
+            text: "According to the article, why do many Alzheimer's drug trials fail?",
+            options: [
+              "Insufficient funding",
+              "They intervene too late in the disease process",
+              "Lack of participants",
+              "Poor medication adherence"
+            ],
+            correctAnswer: "They intervene too late in the disease process"
+          },
+          {
+            id: "intermediate-news-2-q4",
+            type: "mcq",
+            text: "What concern have privacy advocates raised about NeuroDetect?",
+            options: [
+              "The technology is too expensive",
+              "It might increase healthcare disparities",
+              "Its accuracy is questionable",
+              "How the predictive data might be used for insurance purposes"
+            ],
+            correctAnswer: "How the predictive data might be used for insurance purposes"
+          }
+        ],
+        pronunciation: [
+          {
+            title: "Medical and Technical Terminology",
+            text: "Scientists at the Neural Technologies Institute have developed an artificial intelligence system that can detect early signs of Alzheimer's disease.",
+            focusPoints: ["Practice the pronunciation of 'Alzheimer's'", "Focus on the word stress in 'artificial intelligence'"]
+          }
+        ]
+      },
+      {
+        id: "intermediate-news-3",
+        title: "Historic Space Mission Successfully Samples Asteroid",
+        level: "intermediate",
+        type: "news",
+        text: `The International Space Agency (ISA) has successfully completed a historic mission to collect samples from asteroid Bennu, potentially providing insights into the formation of our solar system and the origins of life on Earth.
+    
+    The spacecraft Odysseus touched down on Earth yesterday, carrying approximately 250 grams of material collected from the surface of Bennu, a carbon-rich asteroid located about 200 million miles from Earth. Scientists believe the asteroid contains organic compounds and water-bearing minerals that have remained largely unchanged for billions of years.
+    
+    "This is truly a landmark achievement in space exploration," said Dr. Helena Rodriguez, ISA's chief scientist. "These samples are essentially time capsules from the early solar system, preserving material from a period when planets were just beginning to form."
+    
+    The $1.2 billion mission launched six years ago, with Odysseus reaching Bennu after a two-year journey. The spacecraft spent nearly three years studying the asteroid from orbit before executing a brief touch-and-go maneuver to collect the samples in 2022. The return journey to Earth took an additional two years.
+    
+    Recovery teams located the sample capsule minutes after it landed in the designated area in the Australian outback. The capsule was immediately transported to a specialized clean room facility to prevent contamination from Earth's environment.
+    
+    "Initial analyses confirm that we have successfully collected pristine asteroid material," announced Mission Director James Chen at a press conference held at ISA headquarters. "The sample contains dark, carbon-rich material visible even to the naked eye, which is extremely promising."
+    
+    Scientists are particularly interested in analyzing the organic compounds in the sample. "Asteroids like Bennu may have delivered the building blocks of life to early Earth through impacts," explained astrobiologist Dr. Aisha Nkosi. "These samples could help us understand how the organic molecules necessary for life reached our planet."
+    
+    The mission faced numerous technical challenges. Engineers had to design systems capable of operating millions of miles from Earth with minimal direct control. The touch-and-go sample collection was especially risky, as Bennu's surface proved to be covered with large boulders that could have damaged the spacecraft.
+    
+    "We had to navigate a surface that resembled a rubble pile more than a smooth beach," said navigation engineer Dr. Marcus Lee. "The team developed sophisticated autonomous systems that allowed Odysseus to detect and avoid hazards during its approach."
+    
+    Another significant challenge was protecting the samples during their fiery reentry through Earth's atmosphere. The capsule experienced temperatures of over 2,700 degrees Celsius as it descended, while keeping the asteroid material inside at room temperature.
+    
+    The samples will be distributed to laboratories around the world, where scientists will analyze them using specialized equipment that can identify their chemical and mineral composition at the atomic level. ISA has pledged that 25% of the material will be preserved for future studies, when more advanced analytical techniques may become available.
+    
+    This mission represents only the third time in history that samples from an asteroid have been returned to Earth, and by far the largest amount of material collected. Previous missions by the Japanese space agency brought back microscopic quantities from asteroids Itokawa in 2010 and Ryugu in 2020.
+    
+    "What makes this mission particularly valuable is that Bennu is believed to be a fragment of a much larger carbon-rich asteroid that broke apart billions of years ago," said planetary scientist Dr. Carlos Vega. "It belongs to a class of asteroids that may have been responsible for seeding Earth with water and organic compounds."
+    
+    Educational institutions around the world have developed curriculum materials to engage students with the mission. "This is a perfect opportunity to inspire the next generation of scientists and engineers," said education specialist Maria Gonzalez. "Nothing captures a young person's imagination quite like holding a lesson about material that actually came from deep space."
+    
+    ISA has already announced plans for a follow-up mission to a different type of asteroid, with launch expected within the next five years. Meanwhile, the analysis of the Bennu samples is expected to yield scientific discoveries for decades to come.`,
+        description: "News report on a successful mission to collect and return samples from an asteroid.",
+        estimatedTime: 12,
+        difficulty: "medium",
+        vocabulary: [
+          { word: "carbon-rich", definition: "containing a large amount of carbon compounds" },
+          { word: "pristine", definition: "in its original condition; unspoiled" },
+          { word: "astrobiologist", definition: "a scientist who studies the possibility of life beyond Earth" },
+          { word: "autonomous", definition: "having the freedom to act independently" },
+          { word: "reentry", definition: "the return of a spacecraft into the Earth's atmosphere" }
+        ],
+        questions: [
+          {
+            id: "intermediate-news-3-q1",
+            type: "mcq",
+            text: "How much material did the Odysseus spacecraft collect from asteroid Bennu?",
+            options: ["About 50 grams", "About 100 grams", "About 250 grams", "About 500 grams"],
+            correctAnswer: "About 250 grams"
+          },
+          {
+            id: "intermediate-news-3-q2",
+            type: "mcq",
+            text: "Why are scientists particularly interested in Bennu's organic compounds?",
+            options: [
+              "They could be used as fuel for future spacecraft",
+              "They might help explain how the building blocks of life reached Earth",
+              "They could reveal alien life forms",
+              "They might contain valuable minerals for mining"
+            ],
+            correctAnswer: "They might help explain how the building blocks of life reached Earth"
+          },
+          {
+            id: "intermediate-news-3-q3",
+            type: "mcq",
+            text: "What unexpected challenge did the mission face when collecting samples?",
+            options: [
+              "The asteroid was moving too quickly",
+              "The surface was covered with large boulders",
+              "The spacecraft lost communication with Earth",
+              "The collection mechanism malfunctioned"
+            ],
+            correctAnswer: "The surface was covered with large boulders"
+          },
+          {
+            id: "intermediate-news-3-q4",
+            type: "mcq",
+            text: "What percentage of the asteroid material will ISA preserve for future studies?",
+            options: ["10%", "25%", "50%", "75%"],
+            correctAnswer: "25%"
+          }
+        ],
+        pronunciation: [
+          {
+            title: "Scientific and Space Terminology",
+            text: "Scientists believe the asteroid contains organic compounds and water-bearing minerals that have remained largely unchanged for billions of years.",
+            focusPoints: ["Practice the word stress in 'asteroid' and 'organic'", "Focus on the 'r' sound in 'water-bearing'"]
+          }
+        ]
+      },
+    
+      // INTERMEDIATE - ACADEMIC (3 ta)
+      {
+        id: "intermediate-academic-1",
+        title: "The Cognitive Benefits of Bilingualism",
+        level: "intermediate",
+        type: "academic",
+        text: `The phenomenon of bilingualism—the ability to speak and understand two languages—has been the subject of increasing scientific interest over the past few decades. While earlier educational theories sometimes cautioned against raising children with two languages simultaneously due to concerns about potential confusion or delayed language acquisition, contemporary research has revealed numerous cognitive advantages associated with bilingualism that persist throughout the lifespan.
+    
+    One of the most well-documented cognitive benefits of bilingualism is enhanced executive function. Executive function encompasses a range of cognitive processes that include attentional control, inhibition of inappropriate responses, working memory, and cognitive flexibility. Bilingual individuals constantly manage two active language systems, requiring them to select the appropriate language while suppressing the non-target language. This ongoing mental exercise appears to strengthen general executive control mechanisms.
+    
+    In experimental settings, bilinguals typically outperform monolinguals on tasks requiring conflict resolution and attentional control, such as the Stroop test or the Simon task. These tasks require participants to focus on relevant information while ignoring competing stimuli—a skill that bilingual individuals practice inherently through their daily language management. The differences between monolinguals and bilinguals on these tasks are often subtle but consistent, suggesting a fundamental enhancement of cognitive control systems.
+    
+    Particularly noteworthy is research indicating that bilingualism may contribute to cognitive reserve, potentially delaying the onset of dementia symptoms by approximately four to five years. Cognitive reserve refers to the brain's resilience to neuropathological damage, allowing some individuals to maintain cognitive function despite physical evidence of brain deterioration. Studies comparing monolingual and bilingual Alzheimer's patients matched for symptom severity have found significantly greater brain atrophy in bilingual patients, suggesting they were able to function at the same level despite more advanced physical disease progression.
+    
+    The bilingual advantage appears to extend beyond executive function to include enhanced metalinguistic awareness—the ability to reflect on and analyze language as an abstract system. Bilingual children typically develop earlier and more sophisticated understanding of the arbitrary nature of language, recognizing that objects can have different names in different languages and that those names are conventional rather than inherent properties of the objects themselves. This heightened awareness may contribute to advantages in certain aspects of reading acquisition, particularly those related to phonological processing.
+    
+    Interestingly, the cognitive benefits of bilingualism seem to be most pronounced in individuals who regularly use both languages and frequently switch between them. This suggests that the cognitive advantages stem not merely from knowledge of two languages but from the active management of those languages in daily life. The pattern of language use, age of acquisition, and relative proficiency in each language all appear to modulate the extent of cognitive enhancement.
+    
+    Recent neuroimaging research has provided some insight into the neural mechanisms underlying these cognitive advantages. Functional magnetic resonance imaging (fMRI) studies have revealed that bilinguals show greater activation in brain regions associated with executive control, particularly the dorsolateral prefrontal cortex and anterior cingulate cortex, even when performing non-linguistic tasks. Structural neuroimaging has also identified differences in gray matter density and white matter integrity in bilinguals compared to monolinguals, particularly in regions involved in language processing and executive control.
+    
+    It is important to note that the bilingual advantage is not universal across all cognitive domains. Some studies have found that bilinguals may have smaller vocabularies in each of their languages compared to monolinguals (though their total vocabulary size across both languages is typically larger), and they sometimes show slower lexical retrieval. These potential disadvantages, however, appear to be outweighed by the broader cognitive benefits.
+    
+    The research on bilingualism has significant implications for educational policy and parenting practices. Far from being a cognitive burden, exposure to multiple languages from an early age appears to provide valuable mental exercise that enhances cognitive development. This understanding has led to increased support for dual-language education programs and has reassured bilingual families that maintaining heritage languages alongside societal majority languages confers cognitive advantages rather than liabilities.
+    
+    In conclusion, the scientific evidence strongly supports the view that bilingualism provides a range of cognitive benefits across the lifespan. From enhanced executive function in childhood to delayed onset of dementia in older adulthood, the mental flexibility required to navigate multiple languages appears to strengthen fundamental cognitive mechanisms with effects that extend well beyond language processing itself.`,
+        description: "Academic examination of research on how speaking multiple languages affects cognitive abilities.",
+        estimatedTime: 14,
+        difficulty: "medium",
+        vocabulary: [
+          { word: "bilingualism", definition: "the ability to speak and understand two languages" },
+          { word: "executive function", definition: "cognitive processes that include attentional control, inhibition of inappropriate responses, working memory, and cognitive flexibility" },
+          { word: "cognitive reserve", definition: "the brain's resilience to neuropathological damage" },
+          { word: "metalinguistic", definition: "relating to awareness and understanding of the nature of language and its role in thinking" },
+          { word: "modulate", definition: "to vary the strength, intensity, or tone of something" }
+        ],
+        questions: [
+          {
+            id: "intermediate-academic-1-q1",
+            type: "mcq",
+            text: "According to the text, what is one of the most well-documented cognitive benefits of bilingualism?",
+            options: [
+              "Enhanced memory for facts and figures",
+              "Faster language acquisition",
+              "Enhanced executive function",
+              "Higher IQ scores"
+            ],
+            correctAnswer: "Enhanced executive function"
+          },
+          {
+            id: "intermediate-academic-1-q2",
+            type: "mcq",
+            text: "What does research suggest about bilingualism and dementia?",
+            options: [
+              "Bilingualism prevents dementia entirely",
+              "Bilingualism may delay dementia symptoms by 4-5 years",
+              "Bilingualism has no effect on dementia progression",
+              "Bilingualism accelerates cognitive decline"
+            ],
+            correctAnswer: "Bilingualism may delay dementia symptoms by 4-5 years"
+          },
+          {
+            id: "intermediate-academic-1-q3",
+            type: "mcq",
+            text: "What is 'metalinguistic awareness' as described in the text?",
+            options: [
+              "The ability to speak more than three languages",
+              "The ability to translate accurately between languages",
+              "The ability to reflect on and analyze language as an abstract system",
+              "The ability to recognize different accents"
+            ],
+            correctAnswer: "The ability to reflect on and analyze language as an abstract system"
+          },
+          {
+            id: "intermediate-academic-1-q4",
+            type: "mcq",
+            text: "According to the text, which factor seems to enhance the cognitive benefits of bilingualism?",
+            options: [
+              "Learning languages from the same language family",
+              "Focusing primarily on reading rather than speaking",
+              "Regularly using both languages and frequently switching between them",
+              "Learning languages in a classroom setting rather than at home"
+            ],
+            correctAnswer: "Regularly using both languages and frequently switching between them"
+          },
+          {
+            id: "intermediate-academic-1-q5",
+            type: "mcq",
+            text: "What potential disadvantage of bilingualism does the text mention?",
+            options: [
+              "Lower overall intelligence",
+              "Smaller vocabularies in each language compared to monolinguals",
+              "Reduced ability to learn additional languages",
+              "Permanent confusion between languages"
+            ],
+            correctAnswer: "Smaller vocabularies in each language compared to monolinguals"
+          }
+        ],
+        pronunciation: [
+          {
+            title: "Academic Terminology",
+            text: "The phenomenon of bilingualism—the ability to speak and understand two languages—has been the subject of increasing scientific interest over the past few decades.",
+            focusPoints: ["Practice the word stress in 'phenomenon' and 'bilingualism'", "Focus on clear articulation of multi-syllable academic terms"]
+          }
+        ]
+      },
+      {
+        id: "intermediate-academic-2",
+        title: "Ecosystems and Biodiversity: An Interdependent Web",
+        level: "intermediate",
+        type: "academic",
+        text: `Ecosystems are dynamic, complex networks of organisms interacting with each other and their physical environment. From the smallest soil microbiome to vast ocean systems, ecosystems function through intricate relationships that have evolved over millions of years. Central to our understanding of ecosystems is the concept of biodiversity—the variety of life forms within an ecosystem, encompassing genetic diversity within species, species diversity within communities, and ecosystem diversity across landscapes.
+    
+    Biodiversity plays a crucial role in maintaining ecosystem stability and resilience. A fundamental principle in ecology is that more diverse ecosystems tend to be more stable and productive. This relationship can be explained through several mechanisms. First, diverse communities contain species with different ecological functions, allowing for more efficient resource utilization. Second, functional redundancy—where multiple species perform similar ecological roles—provides insurance against environmental fluctuations. If one species declines due to disturbance, others can compensate, maintaining ecosystem processes.
+    
+    Consider tropical rainforests, which host approximately 50% of Earth's species despite covering just 6% of its surface. The high biodiversity in these ecosystems creates numerous interdependent relationships. For instance, in pollination networks, different plant species rely on specific pollinators, while those pollinators depend on particular plants for nectar and pollen. This specialization allows for coexistence of many species but also creates vulnerability when key species are lost.
+    
+    The complexity of ecosystem interactions is further illustrated through trophic cascades—indirect effects that transmit through food webs when a species' abundance changes. A classic example is the reintroduction of wolves to Yellowstone National Park in 1995. The wolves' return reduced elk populations and altered their behavior, decreasing browsing pressure on riparian vegetation. This allowed willow and aspen regeneration, which subsequently benefited beavers, stabilized stream banks, and transformed river morphology. This cascade demonstrates how a single species can influence ecosystem structure and function through direct and indirect pathways.
+    
+    Ecosystem services—the benefits that humans derive from ecosystems—are directly linked to biodiversity. These services fall into four categories: provisioning services (e.g., food, water, timber), regulating services (e.g., climate regulation, flood control, water purification), cultural services (e.g., recreation, aesthetic value, spiritual significance), and supporting services (e.g., nutrient cycling, soil formation, primary production). The economic value of these services globally has been estimated at $125-145 trillion per year, far exceeding global GDP.
+    
+    Despite their immense value, ecosystems worldwide face unprecedented threats from human activities. Habitat destruction, primarily through conversion to agriculture and urban development, remains the leading cause of biodiversity loss. Climate change is altering temperature and precipitation patterns, forcing species to adapt, migrate, or face extinction. Pollution, overexploitation, and invasive species further stress ecosystems, often with synergistic effects that accelerate degradation.
+    
+    The current rate of species extinction is estimated to be 100-1,000 times higher than background rates, prompting many scientists to characterize our era as the sixth mass extinction. Unlike previous mass extinctions caused by natural phenomena such as asteroid impacts or volcanic eruptions, the current biodiversity crisis stems almost entirely from human activities.
+    
+    Conservation biology has emerged as a discipline focused on understanding and mitigating these threats. Conservation strategies operate at multiple scales, from single-species protection to ecosystem management and landscape-level planning. Protected areas, which currently cover approximately 15% of Earth's land surface and 7% of marine environments, serve as cornerstone conservation tools, though their effectiveness varies considerably depending on management practices and surrounding land use.
+    
+    Beyond traditional protected areas, conservation increasingly emphasizes landscape connectivity, recognizing that isolated habitats often cannot maintain viable populations long-term. Wildlife corridors, buffer zones, and matrix management—improving the habitat quality of landscapes between protected areas—help maintain gene flow and allow species to shift their ranges in response to climate change.
+    
+    The concept of ecological restoration has gained prominence as conservation shifts from merely preventing further degradation to actively repairing damaged ecosystems. Restoration projects range from reintroducing keystone species to reconstructing entire ecological communities, often with the dual goals of biodiversity conservation and ecosystem service provision. However, restoration typically cannot fully recreate original ecosystem complexity, underscoring the importance of preserving intact ecosystems.
+    
+    Emerging approaches to conservation recognize the inseparability of human and natural systems. The "ecosystem approach" advocated by the Convention on Biological Diversity promotes integrated management of land, water, and living resources while ensuring sustainable use and equitable benefit sharing. Similarly, the concept of "nature-based solutions" seeks to address societal challenges—such as climate change, food security, and disaster risk—by working with natural processes rather than against them.
+    
+    In conclusion, ecosystems represent intricate webs of life characterized by complex interdependencies that have evolved over evolutionary time. Biodiversity within these systems provides both resilience against disturbance and the foundation for ecosystem services upon which human well-being depends. As we confront unprecedented environmental changes, understanding, valuing, and conserving this ecological complexity becomes not merely a scientific imperative but a necessity for sustaining human civilization.`,
+        description: "An academic examination of ecosystem complexity, biodiversity, and conservation challenges.",
+        estimatedTime: 15,
+        difficulty: "medium",
+        vocabulary: [
+          { word: "resilience", definition: "the capacity of an ecosystem to respond to a disturbance by resisting damage and recovering quickly" },
+          { word: "trophic cascades", definition: "ecological effects that transmit through food webs when a species' abundance changes" },
+          { word: "synergistic", definition: "relating to interactions that produce a combined effect greater than the sum of separate effects" },
+          { word: "keystone species", definition: "a species that has a disproportionately large effect on its environment relative to its abundance" },
+          { word: "ecological restoration", definition: "the process of assisting the recovery of an ecosystem that has been degraded, damaged, or destroyed" }
+        ],
+        questions: [
+          {
+            id: "intermediate-academic-2-q1",
+            type: "mcq",
+            text: "What principle about ecosystems does the text identify as fundamental in ecology?",
+            options: [
+              "Larger ecosystems are always more stable than smaller ones",
+              "More diverse ecosystems tend to be more stable and productive",
+              "Ecosystems with fewer predators are more resilient",
+              "Tropical ecosystems are inherently more valuable than temperate ones"
+            ],
+            correctAnswer: "More diverse ecosystems tend to be more stable and productive"
+          },
+          {
+            id: "intermediate-academic-2-q2",
+            type: "mcq",
+            text: "What does the text identify as the leading cause of biodiversity loss?",
+            options: [
+              "Climate change",
+              "Habitat destruction",
+              "Pollution",
+              "Invasive species"
+            ],
+            correctAnswer: "Habitat destruction"
+          },
+          {
+            id: "intermediate-academic-2-q3",
+            type: "mcq",
+            text: "What example does the text use to illustrate trophic cascades?",
+            options: [
+              "Pollination networks in tropical rainforests",
+              "Coral reef bleaching events",
+              "The reintroduction of wolves to Yellowstone National Park",
+              "Agricultural monocultures"
+            ],
+            correctAnswer: "The reintroduction of wolves to Yellowstone National Park"
+          },
+          {
+            id: "intermediate-academic-2-q4",
+            type: "mcq",
+            text: "According to the text, how does the current extinction rate compare to background rates?",
+            options: [
+              "Approximately the same",
+              "10-50 times higher",
+              "100-1,000 times higher",
+              "More than 10,000 times higher"
+            ],
+            correctAnswer: "100-1,000 times higher"
+          },
+          {
+            id: "intermediate-academic-2-q5",
+            type: "mcq",
+            text: "What concept does the text describe as gaining prominence as conservation shifts from preventing degradation to repairing ecosystems?",
+            options: [
+              "Wildlife corridors",
+              "Ecological restoration",
+              "Protected areas",
+              "Matrix management"
+            ],
+            correctAnswer: "Ecological restoration"
+          }
+        ],
+        pronunciation: [
+          {
+            title: "Ecological Terminology",
+            text: "Ecosystems are dynamic, complex networks of organisms interacting with each other and their physical environment.",
+            focusPoints: ["Practice the 'eco' sound in 'ecosystem'", "Focus on word stress in 'dynamic' and 'environment'"]
+          }
+        ]
+      },
+      {
+        id: "intermediate-academic-3",
+        title: "Cultural Globalization: Homogenization or Hybridization?",
+        level: "intermediate",
+        type: "academic",
+        text: `Cultural globalization—the transmission of ideas, meanings, and values across world space—has accelerated in the late 20th and early 21st centuries due to unprecedented advancements in communication technology, transportation systems, and economic integration. As cultural products, practices, and ideas traverse national boundaries with increasing ease and frequency, scholars have engaged in vigorous debate about the implications of these exchanges. At the center of this discourse lies a fundamental question: Does cultural globalization lead primarily to homogenization, wherein local cultures are subsumed by dominant global forces, or does it foster hybridization, creating new and diverse cultural forms through processes of adaptation and synthesis?
+    
+    The homogenization thesis, often associated with the concept of "cultural imperialism," posits that globalization predominantly involves the unidirectional flow of Western—particularly American—cultural products and values to the rest of the world, gradually eroding local cultural distinctions. Proponents of this perspective point to the ubiquity of Western consumer brands, Hollywood films, popular music, and English-language content across the globe. They argue that market-driven cultural dissemination, backed by the economic and political power of multinational corporations and wealthy nations, creates asymmetrical cultural exchanges that privilege Western forms while marginalizing indigenous traditions.
+    
+    Evidence for homogenization can be observed in various domains. In urban landscapes worldwide, similar architectural styles, retail chains, and consumption patterns create what anthropologist Marc Augé terms "non-places"—spaces largely indistinguishable from one another despite their geographic separation. In media consumption, global formats for television programs such as reality shows and talent competitions are replicated across countries with minimal adaptation. Linguistic homogenization is evidenced by the growing predominance of English as a global lingua franca, potentially threatening linguistic diversity.
+    
+    However, the hybridization thesis challenges this unidirectional model, emphasizing how cultural elements are transformed as they move between contexts. Proponents argue that receiving cultures do not passively absorb foreign influences but actively interpret, adapt, and reconfigure them according to local frameworks of meaning. This perspective draws on concepts such as "transculturation" (Fernando Ortiz), "hybridization" (Néstor García Canclini), and "glocalization" (Roland Robertson)—all of which highlight how global forms are localized and recontextualized through creative processes of cultural mixing.
+    
+    Examples of cultural hybridization abound. In music, genres like reggaeton, K-pop, and Afrobeats incorporate global musical elements while maintaining distinctive regional characteristics and often using local languages. Culinary fusion blends ingredients and techniques from diverse traditions, creating new dishes that reflect multiple cultural influences. Religious practices frequently incorporate elements from different spiritual traditions, as seen in syncretic religions like Santería or contemporary New Age spirituality.
+    
+    Digital communication technologies have further complicated this dynamic. While these technologies have certainly accelerated the global dissemination of dominant cultural products, they have simultaneously created unprecedented opportunities for marginalized cultures to represent themselves and reach global audiences. Social media platforms enable direct cultural exchange between individuals across national boundaries, bypassing traditional gatekeepers of cultural transmission. Online communities form around shared interests rather than geographic proximity, creating transnational cultural spaces with their own norms and practices.
+    
+    Empirical research increasingly suggests that cultural globalization produces neither simple homogenization nor unfettered diversification, but complex patterns of both convergence and divergence. The anthropologist Arjun Appadurai proposes conceptualizing globalization through five dimensions or "scapes": ethnoscapes (flows of people), technoscapes (flows of technology), financescapes (flows of capital), mediascapes (flows of media images), and ideoscapes (flows of ideologies). These flows move at different speeds and in different directions, creating disjunctures and contradictions that resist any singular narrative of globalization's effects.
+    
+    The reception of global cultural elements varies significantly depending on local contexts. Socioeconomic factors influence access to global culture, creating stratification within societies between cosmopolitan elites and those with primarily local cultural orientations. Historical relationships between regions—particularly colonial histories—shape how cultural imports are perceived and adapted. Some societies have instituted explicit cultural policies aimed at protecting local traditions from global influences, though such efforts face significant challenges in an interconnected world.
+    
+    Identity formation in the context of cultural globalization has become increasingly complex. Rather than adhering to essentialist notions of cultural authenticity, many individuals construct multicultural identities that draw from diverse sources. Cultural theorist Stuart Hall describes identity as a "production which is never complete, always in process," highlighting how individuals selectively appropriate elements from both global and local cultural repertoires. This perspective challenges the assumption that globalization necessarily alienates people from their cultural roots, suggesting instead that it may expand the resources available for identity construction.
+    
+    Critical approaches to cultural globalization emphasize questions of power and inequality. While rejecting simplistic narratives of cultural imperialism, they recognize that cultural exchanges occur within uneven economic and political structures that privilege certain cultural producers and forms over others. The concept of "cultural hegemony," drawing on Antonio Gramsci's work, illuminates how dominant cultural values become naturalized and internalized, often making cultural domination less visible than economic or political forms of power.
+    
+    In conclusion, cultural globalization entails neither straightforward homogenization nor unbounded hybridization, but rather a complex interplay between these processes. Global cultural flows are refracted through local contexts, creating patterns of both convergence and divergence that vary across different domains of cultural practice. As communications technology continues to evolve and economic interdependence deepens, understanding these nuanced cultural dynamics becomes increasingly important for comprehending the contemporary social world.`,
+        description: "An academic analysis of how global cultural exchanges create patterns of both uniformity and diversity.",
+        estimatedTime: 15,
+        difficulty: "medium",
+        vocabulary: [
+          { word: "homogenization", definition: "the process of making things uniform or similar" },
+          { word: "hybridization", definition: "the process of combining different elements to form something new" },
+          { word: "unidirectional", definition: "operating or moving in a single direction" },
+          { word: "syncretic", definition: "characterized by the combination of different forms of belief or practice" },
+          { word: "essentialist", definition: "relating to the view that certain categories have fixed properties that define their essential nature" }
+        ],
+        questions: [
+          {
+            id: "intermediate-academic-3-q1",
+            type: "mcq",
+            text: "What is the central question in debates about cultural globalization according to the text?",
+            options: [
+              "Is globalization beneficial or harmful to economic development?",
+              "Does cultural globalization lead to homogenization or hybridization?",
+              "Should governments regulate cultural imports?",
+              "Will English eventually become the world's only language?"
+            ],
+            correctAnswer: "Does cultural globalization lead to homogenization or hybridization?"
+          },
+          {
+            id: "intermediate-academic-3-q2",
+            type: "mcq",
+            text: "Which concept is associated with the homogenization thesis?",
+            options: [
+              "Glocalization",
+              "Transculturation",
+              "Cultural imperialism",
+              "Hybridization"
+            ],
+            correctAnswer: "Cultural imperialism"
+          },
+          {
+            id: "intermediate-academic-3-q3",
+            type: "mcq",
+            text: "According to the text, what has digital communication technology done to cultural exchange?",
+            options: [
+              "Completely stopped cultural exchange between nations",
+              "Only accelerated Western cultural dominance",
+              "Created new gatekeepers to control cultural transmission",
+              "Both accelerated dominant cultural dissemination and created opportunities for marginalized cultures"
+            ],
+            correctAnswer: "Both accelerated dominant cultural dissemination and created opportunities for marginalized cultures"
+          },
+          {
+            id: "intermediate-academic-3-q4",
+            type: "mcq",
+            text: "Which of the following is NOT one of Arjun Appadurai's 'scapes' mentioned in the text?",
+            options: [
+              "Ethnoscapes",
+              "Mediascapes",
+              "Culturescapes",
+              "Financescapes"
+            ],
+            correctAnswer: "Culturescapes"
+          },
+          {
+            id: "intermediate-academic-3-q5",
+            type: "mcq",
+            text: "How does Stuart Hall characterize identity formation according to the text?",
+            options: [
+              "As a fixed attribute determined at birth",
+              "As a production which is never complete, always in process",
+              "As entirely determined by national culture",
+              "As resistant to any global influences"
+            ],
+            correctAnswer: "As a production which is never complete, always in process"
+          }
+        ],
+        pronunciation: [
+          {
+            title: "Cultural Terminology",
+            text: "Cultural globalization—the transmission of ideas, meanings, and values across world space—has accelerated in the late 20th and early 21st centuries.",
+            focusPoints: ["Practice the word stress in 'globalization' and 'transmission'", "Focus on the 'th' sound in 'twentieth' and 'twenty-first'"]
+          }
+        ]
+      },
+    
+      // ADVANCED - STORIES (3 ta)
+      {
+        id: "advanced-story-1",
+        title: "The Cartographer's Paradox",
+        level: "advanced",
+        type: "stories",
+        text: `Dr. Eleanor Marsh closed the leather-bound journal with a gentle finality that belied her inner turbulence. Through the bay window of her university office, silver moonlight cast long shadows across the antique map table, illuminating the curious artifact that had consumed her research for the past eighteen months. The Herschel Map—as it had come to be known in academic circles—was either the most ingenious cartographic fraud ever perpetrated or something far more extraordinary.
+    
+    Discovered in the sealed basement of a colonial-era home in Providence, the map bore a striking resemblance to conventional 18th-century maritime charts, with one bewildering distinction: it depicted coastlines and geographic features that simply did not exist. At least, not in this world.
+    
+    "You're still obsessing over that enigma, I see." The voice from the doorway startled Eleanor from her reverie. Dr. Marcus Chen, her colleague in quantum physics, stood silhouetted against the hallway lights, his expression a mixture of concern and curiosity.
+    
+    "It's not obsession, it's dedication," Eleanor countered, gesturing for him to enter. "Besides, I'm making progress. The spectroscopic analysis came back today."
+    
+    Marcus raised an eyebrow as he approached the table. "And?"
+    
+    "The ink contains trace elements that don't correspond to any known pigment composition from the period. But that's not the most intriguing part." She pointed to a series of notations inscribed along the map's border. "These coordinates—they're not simply longitude and latitude. They include a third variable."
+    
+    "A three-dimensional map?" Marcus frowned, adjusting his glasses.
+    
+    "That's what I initially thought. But after running the numbers through various algorithms, I've come to a different conclusion." Eleanor hesitated, aware of how preposterous her theory would sound. "I believe they're quantum coordinates."
+    
+    Marcus's incredulous laugh echoed in the high-ceilinged room. "Quantum coordinates? On an 18th-century map? Eleanor, that's—"
+    
+    "Impossible, I know," she interrupted. "Yet here we are. Look at this notation." She indicated a faded inscription near the compass rose: 'Traversing the membrane requires precise calculation of the separation constant.'
+    
+    "That terminology—'separation constant'—it's eerily similar to the mathematics we use to describe quantum barriers," Marcus admitted, his skepticism visibly wavering.
+    
+    "Precisely. And there's more." Eleanor carefully unfolded a fragile piece of parchment from between the journal's pages. "This was hidden in the map's casing. It's a letter from the cartographer, Jonathan Herschel, to his brother. Listen to this passage:
+    
+    'My dear William, I write to you from what our scientific minds would term an alternative reality. The crossing was momentarily disorienting but ultimately successful. The natural philosophers here possess technology beyond our wildest imaginations, yet remain curiously medieval in their social structures. I have learned their method of navigation between worlds and have encoded it within my chart. Should anything happen to me, follow the coordinates precisely. The boundary is thinnest during the autumnal equinox when the dimensional separation constant approaches zero...'
+    
+    "The letter continues with personal details, but ends abruptly," Eleanor concluded, carefully returning the parchment to its protective sleeve.
+    
+    Marcus had gone pale. "This can't be genuine. Quantum theory wasn't developed until the early 20th century. There's no way an 18th-century cartographer could have..."
+    
+    "Known about parallel universes or quantum barriers? I agree." Eleanor nodded. "Unless he actually experienced them."
+    
+    A contemplative silence fell between them as they both studied the map with its intricate illustrations of unfamiliar continents and impossibly located mountain ranges. Strange creatures resembling marine life, but with distinct anatomical differences, were illustrated in the map's corners—a common decorative element of period maps, yet rendered with unsettlingly specific detail.
+    
+    "Let's assume, for a moment, this is authentic," Marcus said finally. "What exactly are you proposing? That this man, Jonathan Herschel, somehow traveled to a parallel Earth and returned to document it?"
+    
+    "That's one possibility," Eleanor replied. "But there's another interpretation that fits the evidence more precisely." She pointed to a particular set of coordinates near the center of the map. "These figures correspond to our exact location—this university—but with that third variable included. I believe Herschel wasn't documenting his journey to another world; he was creating a navigational guide for travelers from that world to reach ours."
+    
+    Marcus's eyes widened. "Are you suggesting—"
+    
+    A sudden gust of wind swept through the room, though the windows remained closed. The pages of Eleanor's journal fluttered, and the map trembled on the table. The air seemed to compress, creating a momentary vacuum that made their ears pop.
+    
+    In the center of the room, directly above the spot marked by Herschel's coordinates, the air began to shimmer like heat rising from sun-baked asphalt. The distortion expanded, forming a translucent membrane that rippled with iridescent energy.
+    
+    Eleanor and Marcus backed against the wall, watching in astonished silence as a figure began to materialize within the distortion—first as a silhouette, then gaining substance and color. A man stepped through the shimmering portal, dressed in an anachronistic blend of 18th-century attire and what appeared to be technologically advanced accessories. He carried a sextant-like device fashioned from an unfamiliar metal that emitted a soft blue glow.
+    
+    The portal collapsed behind him with a whisper of displaced air, leaving the three of them in the moonlit office, the silence heavy with implication.
+    
+    The stranger straightened his brocade waistcoat and offered a formal bow. "Dr. Marsh, Dr. Chen. I apologize for the dramatic entrance, but the window for crossing only opens briefly." His accent was cultured, archaic, yet perfectly comprehensible. "I am Thomas Herschel, great-grandson of Jonathan, whose map I believe you've been studying with some diligence."
+    
+    Eleanor found her voice first. "How do you know our names?"
+    
+    Thomas smiled. "We've been observing your progress with great interest. Your world's development of quantum mechanics has finally reached a point where meaningful exchange is possible." He gestured to the map. "That was merely the first step—a bridge between worlds. Now, if you're willing, there is much more to show you."
+    
+    Outside, clouds parted to reveal a night sky filled with stars—identical to those they had observed all their lives, yet somehow now seeming like the first page of a much larger atlas, waiting to be explored.`,
+        description: "A story about a cartographer who discovers maps that seem to chart parallel dimensions.",
+        estimatedTime: 10,
+        difficulty: "hard",
+        vocabulary: [
+          { word: "cartographic", definition: "relating to the science or practice of drawing maps" },
+          { word: "reverie", definition: "a state of being pleasantly lost in one's thoughts; a daydream" },
+          { word: "preposterous", definition: "contrary to reason or common sense; utterly absurd or ridiculous" },
+          { word: "anachronistic", definition: "belonging to a period other than that being portrayed" },
+          { word: "quantum", definition: "relating to the behavior of matter and energy at the atomic and subatomic scale" }
+        ],
+        questions: [
+          {
+            id: "advanced-story-1-q1",
+            type: "mcq",
+            text: "What unusual feature did the Herschel Map contain compared to conventional maps?",
+            options: [
+              "It was drawn upside-down",
+              "It included three-dimensional coordinates",
+              "It was made from unknown materials",
+              "It depicted non-existent geographic features"
+            ],
+            correctAnswer: "It depicted non-existent geographic features"
+          },
+          {
+            id: "advanced-story-1-q2",
+            type: "mcq",
+            text: "What unusual discovery did Eleanor make about the coordinates on the map?",
+            options: [
+              "They included a third variable beyond longitude and latitude",
+              "They were written in a secret code",
+              "They pointed to buried treasure",
+              "They were mathematically impossible"
+            ],
+            correctAnswer: "They included a third variable beyond longitude and latitude"
+          },
+          {
+            id: "advanced-story-1-q3",
+            type: "mcq",
+            text: "What was Marcus Chen's field of expertise?",
+            options: [
+              "History",
+              "Cartography",
+              "Quantum physics",
+              "Marine biology"
+            ],
+            correctAnswer: "Quantum physics"
+          },
+          {
+            id: "advanced-story-1-q4",
+            type: "mcq",
+            text: "Who was Jonathan Herschel according to the story?",
+            options: [
+              "Eleanor's research assistant",
+              "The original cartographer who created the map",
+              "A modern-day explorer",
+              "Thomas Herschel's brother"
+            ],
+            correctAnswer: "The original cartographer who created the map"
+          },
+          {
+            id: "advanced-story-1-q5",
+            type: "mcq",
+            text: "Who appears at the end of the story?",
+            options: [
+              "Jonathan Herschel",
+              "William Herschel",
+              "Thomas Herschel, Jonathan's great-grandson",
+              "A university security guard"
+            ],
+            correctAnswer: "Thomas Herschel, Jonathan's great-grandson"
+          }
+        ],
+        pronunciation: [
+          {
+            title: "Scientific Terminology",
+            text: "I believe they're quantum coordinates. Marcus's incredulous laugh echoed in the high-ceilinged room.",
+            focusPoints: ["Practice the 'qu' sound in 'quantum'", "Focus on the word stress in 'incredulous' and 'coordinates'"]
+          }
+        ]
+      },
+      {
+        id: "advanced-story-2",
+        title: "The Memory Architect",
+        level: "advanced",
+        type: "stories",
+        text: `The waiting room at Mnemosyne Technologies embodied calculated neutrality—neither comforting nor clinical, with furniture that discouraged both relaxation and anxiety. Evelyn noted these details mechanically, her architectural training still asserting itself despite her current purpose here. She completed the intake form with methodical precision, pausing only briefly at the final question: "Reason for memory modification procedure?"
+    
+    How to distill such complexity into the three lines provided? She settled for simplicity: "Removal of traumatic experience to facilitate cognitive functioning."
+    
+    "Ms. Nakamura?" The technician who appeared in the doorway wore the standard Mnemosyne uniform: silver-gray jumpsuit with the company's stylized brain logo emblazoned across the right shoulder. "Dr. Lansing is ready for your consultation."
+    
+    Evelyn followed her through a labyrinth of corridors, each turn bringing them deeper into the heart of the facility. The sterile efficiency of the space struck her as ironic; she had once designed structures intended to create memorable experiences, and now she walked willingly into a place designed to dismantle them.
+    
+    Dr. Lansing did not match Evelyn's preconceptions. Instead of the clinical detachment she had expected, the neurosurgeon radiated a quiet intensity, her silver-streaked hair framing a face lined with what appeared to be equal measures of wisdom and worry.
+    
+    "Ms. Nakamura," she began after introductions were complete, "your preliminary scans indicate you're an excellent candidate for targeted memory extraction. Before we proceed further, however, I need to ensure you fully understand what this entails."
+    
+    Evelyn nodded. "I've reviewed the materials extensively."
+    
+    "Most people do," Dr. Lansing acknowledged, "but understanding the theory differs from accepting the reality. Memory isn't stored in discrete packets that can be neatly removed. It's embedded in complex neural networks. When we extract a memory, we're not simply removing information—we're restructuring your neural architecture."
+    
+    "I'm aware of the risks," Evelyn replied.
+    
+    Dr. Lansing studied her with penetrating intensity. "Are you? The procedure you're requesting isn't like standard trauma protocols where we dampen emotional associations while preserving factual content. You're asking for complete excision of a specific two-year period. That represents approximately seven percent of your conscious existence."
+    
+    "Seven-point-four percent," Evelyn corrected automatically. "I've calculated it."
+    
+    A flicker of something—concern, perhaps—crossed the doctor's features. "May I ask why such precision matters to you?"
+    
+    Evelyn hadn't anticipated this question. After a moment's hesitation, she answered with uncharacteristic candor. "Because I need to know exactly how much of myself I'm sacrificing to be functional again."
+    
+    The office fell silent except for the subtle hum of equipment. Dr. Lansing's expression softened almost imperceptibly. "Would you be willing to tell me what happened during those two years? It might help me better preserve surrounding neural structures."
+    
+    Evelyn had prepared for this question, had rehearsed clinical descriptions of her relationship with Marcus, their joint architectural practice, their plans for both a professional and personal future. She had practiced articulating the sequence of events—the late-night call, the accident scene on the rain-slicked mountain pass, the three days in intensive care before his life support was terminated—all without emotional inflection.
+    
+    What emerged instead was entirely unscripted. "We designed buildings together," she said, her voice unexpectedly steady. "Marcus believed architecture should create memories, that spatial experience imprints itself on consciousness. After he died, I couldn't design anymore. Every concept, every drawing, every spatial relationship—they're all entangled with him."
+    
+    Dr. Lansing didn't interrupt, allowing the silence to create space for continuation.
+    
+    "I can't separate my professional knowledge from my memories of him," Evelyn continued. "When I look at a cantilever, I hear his voice explaining load distribution. When I consider material properties, I feel his hand guiding mine across texture samples." She paused, her composure momentarily fracturing. "I need to work again. I need my knowledge without this... haunting."
+    
+    Dr. Lansing nodded slowly. "What you're describing is precisely the complexity I'm concerned about. Your professional knowledge and your personal memories have formed integrated neural pathways. Extracting one threatens the integrity of the other."
+    
+    "But it's possible?" Evelyn pressed.
+    
+    "Possible, yes. Advisable?" The doctor sighed. "There's an alternative approach we might consider. Rather than extraction, we could implement a neural partition—a cognitive framework that allows you to access the professional knowledge while creating emotional distance from the personal associations."
+    
+    "A firewall in my brain," Evelyn said flatly.
+    
+    "A more nuanced intervention," Dr. Lansing corrected. "It preserves both your memories and your knowledge while modifying how they interact."
+    
+    Evelyn considered this. "Would I remember him?"
+    
+    "Yes, but with the emotional intensity significantly reduced. You would recall events factually without reliving them experientially. Over time, new neural pathways would develop, allowing your professional knowledge to exist independently."
+    
+    "That's not what I came here for," Evelyn said, an edge entering her voice. "I don't want distance. I want absence. Complete removal."
+    
+    Dr. Lansing regarded her thoughtfully. "May I show you something?" Without waiting for a response, she activated a holographic display. A complex three-dimensional visualization materialized between them—a neural network represented in pulsing blue light, with certain pathways highlighted in gold.
+    
+    "This is a simplified model of your memory architecture," the doctor explained. "The gold pathways represent neural connections involving your target memories. Notice how they intersect with virtually every specialized knowledge center." Her finger traced patterns through the hologram. "Architecture, spatial reasoning, material science, design theory—they're all integrated with the memories you want to remove."
+    
+    Evelyn stared at the visualization, her professional appreciation for the complex structure momentarily overriding her purpose. "It's beautiful," she murmured involuntarily.
+    
+    "Yes," Dr. Lansing agreed quietly. "The mind's architecture usually is." She deactivated the display. "Ms. Nakamura, as your physician, I cannot recommend complete extraction in your case. The cognitive cost would likely include much of your professional expertise—the very thing you're trying to preserve."
+    
+    Evelyn felt a curious hollowness expanding within her. "So I have two options: remember everything and remain professionally paralyzed, or forget everything and lose who I am professionally."
+    
+    "Or the third option," Dr. Lansing countered. "The neural partition allows you to retain both your memories and your knowledge while changing your relationship to them." She hesitated before adding, "There's something Marcus said that resonates with your situation. You mentioned he believed architecture creates memories—that spatial experience imprints itself on consciousness."
+    
+    "You think I should preserve the imprint," Evelyn concluded.
+    
+    "I think total erasure might eliminate not just the pain but the architecture of who you've become." Dr. Lansing's tone remained professional, but her eyes conveyed compassion. "The partition approach acknowledges that your relationship with Marcus—both personal and professional—has constructed the neural framework that makes you the architect you are."
+    
+    Evelyn sat silently, absorbing this perspective. Part of her wanted to reject it immediately, to insist on the clean slate she had come seeking. Yet her training in structural integrity made the doctor's argument difficult to dismiss. Remove a critical support, and the entire structure might collapse.
+    
+    "How long would the partition procedure take?" she finally asked.
+    
+    "Three sessions over three weeks. We map, implement, and then reinforce the cognitive framework." Dr. Lansing's expression remained neutral, giving no indication of approval or relief at this potential shift in direction.
+    
+    "And if it doesn't work? If I still can't design?"
+    
+    "Then extraction remains an option, though not one I recommend." The doctor leaned forward slightly. "Ms. Nakamura, memory architecture, like physical architecture, serves purposes beyond aesthetics or immediate function. Sometimes the structures that cause us pain also give us strength."
+    
+    Evelyn recognized the weight of the decision before her—not simply a medical choice but an existential one. Would she remain the architect of her memories, or surrender that role to technology that promised relief through forgetting?
+    
+    Outside the windows of Mnemosyne Technologies, the city skyline stretched toward the horizon—buildings of glass and steel reaching upward with the peculiar optimism of human construction. Somewhere among them stood structures she and Marcus had designed together, physical manifestations of shared creativity that would outlast both their creators.
+    
+    "I'd like to schedule the first mapping session," Evelyn said finally. "For the partition procedure."
+    
+    As she completed the necessary forms, she felt neither certainty nor peace, but something more valuable to an architect: a recognition that even painful spaces could be redesigned rather than demolished—that memory, like the built environment, could be recontextualized without being erased.`,
+        description: "A futuristic story exploring the ethics and consequences of selectively editing memories.",
+        estimatedTime: 12,
+        difficulty: "hard",
+        vocabulary: [
+          { word: "Mnemosyne", definition: "In Greek mythology, the goddess of memory and mother of the Muses" },
+          { word: "excision", definition: "the action of removing something, especially by cutting" },
+          { word: "cantilever", definition: "a long projecting beam or girder fixed at only one end, used in building construction" },
+          { word: "nuanced", definition: "characterized by subtle differences in appearance, meaning, sound, etc." },
+          { word: "recontextualized", definition: "placed or viewed in a different context, especially in order to give it a new meaning" }
+        ],
+        questions: [
+          {
+            id: "advanced-story-2-q1",
+            type: "mcq",
+            text: "What was Evelyn's profession?",
+            options: ["Neurosurgeon", "Memory technician", "Architect", "Psychologist"],
+            correctAnswer: "Architect"
+          },
+          {
+            id: "advanced-story-2-q2",
+            type: "mcq",
+            text: "What percentage of her conscious existence did Evelyn calculate the two-year period represented?",
+            options: ["5.2 percent", "7 percent", "7.4 percent", "10 percent"],
+            correctAnswer: "7.4 percent"
+          },
+          {
+            id: "advanced-story-2-q3",
+            type: "mcq",
+            text: "What alternative to memory extraction did Dr. Lansing propose?",
+            options: [
+              "Traditional psychotherapy",
+              "A neural partition",
+              "A memory dampening procedure",
+              "Complete cognitive reset"
+            ],
+            correctAnswer: "A neural partition"
+          },
+          {
+            id: "advanced-story-2-q4",
+            type: "mcq",
+            text: "What happens to Marcus in the story?",
+            options: [
+              "He leaves Evelyn for another architect",
+              "He develops amnesia",
+              "He dies in an accident",
+              "He becomes a memory scientist"
+            ],
+            correctAnswer: "He dies in an accident"
+          },
+          {
+            id: "advanced-story-2-q5",
+            type: "mcq",
+            text: "What decision does Evelyn ultimately make at the end of the story?",
+            options: [
+              "To proceed with complete memory extraction",
+              "To abandon any memory modification",
+              "To try the neural partition procedure",
+              "To become a memory technician herself"
+            ],
+            correctAnswer: "To try the neural partition procedure"
+          }
+        ],
+        pronunciation: [
+          {
+            title: "Technical and Medical Terms",
+            text: "Memory isn't stored in discrete packets that can be neatly removed. It's embedded in complex neural networks.",
+            focusPoints: ["Practice the word stress in 'discrete' and 'embedded'", "Focus on clear pronunciation of 'neural networks'"]
+          }
+        ]
+      },
+      {
+        id: "advanced-story-3",
+        title: "Synchronicity",
+        level: "advanced",
+        type: "stories",
+        text: `The first time it happened, Adnan dismissed it as coincidence. He had been reading about quantum entanglement in a scientific journal—how particles once connected remain inexplicably linked across vast distances—when his phone chimed with a text from his twin sister Amara: "Just had the strangest feeling we're somehow entangled like those quantum particles I was reading about this morning. Weird, right?"
+    
+    Adnan stared at the message, the hair on his arms rising despite the Chennai afternoon heat. He attributed the synchronicity to their shared background in physics and moved on, responding with a laughing emoji and changing the subject.
+    
+    The second incident occurred three weeks later. Adnan woke abruptly at 3:17 AM from a vivid dream about their childhood home in Hyderabad flooding. Water had been rising steadily up the staircase, and in the dream-logic way of things, he had been simultaneously trying to save their mother's old photograph albums while calculating the volumetric flow rate of the water. His phone rang moments after he sat up, still disoriented.
+    
+    "You're awake," Amara said when he answered, her voice clear despite calling from her apartment in Boston, thirteen time zones away.
+    
+    "How did you know?" he asked, though some part of him already suspected.
+    
+    "I had this intense dream about the house flooding," she replied. "When I woke up, I just knew you'd be awake too."
+    
+    That conversation lasted until sunrise in Chennai, as they cautiously explored similar experiences they'd dismissed over the years: simultaneous headaches, identical cravings, finishing each other's obscure thoughts during video calls.
+    
+    "It's probably just twin stuff," Adnan had concluded, his scientific mind resistant to more esoteric explanations. "Shared genetics, similar neural architecture."
+    
+    "Maybe," Amara had conceded, though her tone suggested otherwise.
+    
+    By the third incident, neither of them could maintain comfortable skepticism. Adnan had been in a minor auto accident—a fender bender on his way to the university where he lectured in theoretical physics. No injuries, just the inconvenience of insurance paperwork and a canceled class. He hadn't told anyone yet when Amara called, frantic.
+    
+    "What happened? Are you hurt? I felt it—like a jolt—and then this overwhelming anxiety that something had happened to you."
+    
+    That evening, they initiated what would become a meticulously documented two-year study of their apparent connection. Both scientists by training, they approached their investigation methodically: recording instances of potential telepathic communication, designing blind tests to rule out confirmation bias, analyzing the variables that seemed to strengthen or weaken the phenomenon.
+    
+    The results defied conventional explanation. They documented over three hundred instances of statistically significant connectedness across thirteen time zones. The effect persisted regardless of distance but intensified during emotionally charged situations. Most intriguingly, their connection seemed to bypass the constraints of time itself—Amara would sometimes react to events in Adnan's life hours before they occurred, and vice versa.
+    
+    "We need to publish this," Amara insisted during one of their weekly video calls, her face illuminated by the pale blue light of her laptop in the Boston midnight. "The implications for quantum consciousness theories are enormous."
+    
+    Adnan's response was immediate and emphatic: "Absolutely not. Our careers would be destroyed. You know how the scientific community treats this kind of research."
+    
+    What Adnan didn't say—couldn't bring himself to articulate—was his growing fear of what their connection might mean. If their consciousness could somehow transcend physical distance, what other boundaries might prove illusory? Where did his self end and hers begin? The philosophical implications disturbed his carefully constructed worldview.
+    
+    The decisive moment came unexpectedly. Adnan had been invited to present at a conference in Zurich on his mainstream research into quantum field theory. The night before his presentation, he dreamed of equations—not unusual for a physicist before a major talk—but these were unfamiliar, elegant in their simplicity, connecting consciousness to quantum phenomena in ways he had never considered.
+    
+    He woke to find himself already writing, the equations flowing through him with uncanny precision. Three hours later, he had thirty pages of notes outlining what would eventually become the Zhang-Rao Framework for Quantum Consciousness—named for Amara's married name and his own.
+    
+    His phone rang. Amara, of course.
+    
+    "You've got it too, don't you?" she asked without preamble. "The framework. The mathematics of consciousness."
+    
+    "Yes," he admitted. "Did you...send it to me somehow?"
+    
+    "I don't think that's how it works," she replied thoughtfully. "I think we both accessed something that was already there, waiting to be discovered. We just did it simultaneously."
+    
+    The framework they developed over the following months provided a mathematical model for consciousness as a field phenomenon rather than a strictly localized process—one that allowed for nonlocal connections under specific conditions. Their model made testable predictions about information transfer that conventional neuroscience couldn't explain.
+    
+    When they finally published their findings in the Journal of Consciousness Studies, the response was predictably mixed. Mainstream physicists were skeptical, consciousness researchers intrigued, and the parapsychology community overenthusiastic in ways that made both twins uncomfortable.
+    
+    What none of their critics or supporters knew was that the twins continued to document their personal experiences alongside their theoretical work, accumulating evidence that their own connection transcended even the parameters of their model.
+    
+    The phenomenon reached its inexplicable zenith when Amara was hospitalized with appendicitis. Adnan, attending a seminar in Tokyo, collapsed at precisely the moment her appendix ruptured. Medical examinations found nothing physically wrong with him, yet he experienced every symptom of her condition, down to localized pain in the corresponding area of his abdomen.
+    
+    "We need to stop this," he told her during her recovery. "Whatever this connection is, it's becoming dangerous. If something serious happened to you—"
+    
+    "Then you'd feel it too," she completed his thought. "That's exactly why we can't stop. Don't you see? This could revolutionize everything from medicine to physics. Imagine doctors who could literally feel their patients' symptoms, or emergency systems that could detect disasters through human sensors."
+    
+    "Or imagine governments weaponizing connected consciousness," Adnan countered. "Some things shouldn't be pursued just because they're possible."
+    
+    Their disagreement created the first real distance between them in their thirty-three years of life. The irony wasn't lost on either of them—that their closest connection had become the source of their first significant separation.
+    
+    For nearly six months, they limited their communication to conventional channels, carefully avoiding the techniques they'd developed to enhance their nonlocal awareness. The connection dimmed but never disappeared entirely—like a radio tuned to low volume rather than switched off.
+    
+    Then came the dream that changed everything.
+    
+    Both twins experienced it simultaneously—Adnan in Chennai, Amara in Boston. They stood together in a space that was neither physical nor imaginary, but somehow more real than either. Before them stretched what they could only describe later as the "architecture of consciousness" itself—a vast, multidimensional framework that organized reality, with threads of connection running between all points of awareness.
+    
+    "Do you understand now?" asked a presence that was somehow both external and a part of them. "Your connection is not exceptional. It is merely visible. All consciousness is entangled—most simply haven't learned to perceive it."
+    
+    They woke at the same instant, separated by half a world but united in understanding. Their subsequent video call lasted hours as they struggled to translate the experience into language, knowing even as they tried that their vocabulary was insufficient for what they'd witnessed.
+    
+    "It's not about us," Amara said finally. "It never was. We're just... case studies in something universal."
+    
+    "Which means our responsibility is even greater," Adnan replied. "If consciousness is fundamentally connected, then every thought, every action, ripples outward in ways we've never imagined."
+    
+    Their revised framework, published two years later, presented a more subtle model—one that acknowledged the ethical dimensions of consciousness research alongside its theoretical underpinnings. They proposed that consciousness might be understood as a field phenomenon with varying degrees of connectivity, strengthened through relationship and intention.
+    
+    The scientific community remained divided, but the twins found themselves surprisingly unconcerned with conventional validation. Their investigation had expanded beyond the parameters of traditional science into something that was simultaneously more personal and more universal—a recognition that the boundaries between self and other, between observer and observed, were more permeable than any model could fully capture.
+    
+    "Maybe that's the point," Amara suggested during one of their now-daily conversations. "Maybe the most important discoveries reshape the discoverer rather than just adding to a body of knowledge."
+    
+    Adnan, watching Chennai's sunset through his office window as Boston's day began, found himself nodding in agreement. The equations of their shared consciousness continued to evolve, not just on paper, but in the lived experience of their connection—a connection that had become not a phenomenon to be studied, but a lens through which they experienced the profound interconnectedness of all things.`,
+        description: "A story about twin physicists who discover they share a quantum entanglement that challenges their understanding of consciousness.",
+        estimatedTime: 12,
+        difficulty: "hard",
+        vocabulary: [
+          { word: "synchronicity", definition: "the simultaneous occurrence of events that appear significantly related but have no discernible causal connection" },
+          { word: "entanglement", definition: "a quantum phenomenon where pairs of particles remain connected so that actions performed on one affect the other, regardless of distance" },
+          { word: "esoteric", definition: "intended for or likely to be understood by only a small number of people with specialized knowledge or interest" },
+          { word: "parapsychology", definition: "the study of mental phenomena that are excluded from or inexplicable by orthodox scientific psychology" },
+          { word: "nonlocal", definition: "existing or having effect beyond the local region; in physics, referring to quantum effects that transcend spatial separation" }
+        ],
+        questions: [
+          {
+            id: "advanced-story-3-q1",
+            type: "mcq",
+            text: "What field did both Adnan and Amara work in?",
+            options: ["Medicine", "Psychology", "Physics", "Computer science"],
+            correctAnswer: "Physics"
+          },
+          {
+            id: "advanced-story-3-q2",
+            type: "mcq",
+            text: "What was the second incident that made the twins question their connection?",
+            options: [
+              "They both got sick at the same time",
+              "They bought identical gifts for each other",
+              "They both had the same dream about their childhood home flooding",
+              "They independently developed the same scientific theory"
+            ],
+            correctAnswer: "They both had the same dream about their childhood home flooding"
+          },
+          {
+            id: "advanced-story-3-q3",
+            type: "mcq",
+            text: "What was Adnan's initial concern about publishing their findings?",
+            options: [
+              "It might damage their scientific careers",
+              "It would attract too much public attention",
+              "It wasn't sufficiently documented",
+              "It would violate research ethics"
+            ],
+            correctAnswer: "It might damage their scientific careers"
+          },
+          {
+            id: "advanced-story-3-q4",
+            type: "mcq",
+            text: "What physical experience demonstrated the strongest connection between the twins?",
+            options: [
+              "When they both collapsed simultaneously in different cities",
+              "When Adnan felt Amara's appendicitis symptoms while in Tokyo",
+              "When they had identical headaches",
+              "When they dreamed the same equations"
+            ],
+            correctAnswer: "When Adnan felt Amara's appendicitis symptoms while in Tokyo"
+          },
+          {
+            id: "advanced-story-3-q5",
+            type: "mcq",
+            text: "What key insight did the twins gain from their shared dream near the end of the story?",
+            options: [
+                "That their connection was something everyone possesses but rarely perceives",
+                "That their connection was unique and unrepeatable",
+                "That their connection was dangerous and should be terminated",
+                "That their connection was being monitored by the government"
+              ],
+              correctAnswer: "That their connection was something everyone possesses but rarely perceives"
+            }
+          ],
+          pronunciation: [
+            {
+              title: "Scientific Terminology",
+              text: "He had been reading about quantum entanglement in a scientific journal—how particles once connected remain inexplicably linked across vast distances.",
+              focusPoints: ["Practice the word stress in 'quantum entanglement'", "Focus on the 'x' sound in 'inexplicably'"]
+            }
+          ]
+        },
+      
+        // ADVANCED - ARTICLES (3 ta)
+        {
+          id: "advanced-article-1",
+          title: "The Neuroscience of Decision-Making Under Uncertainty",
+          level: "advanced",
+          type: "articles",
+          text: `Human decision-making under conditions of uncertainty represents one of the most complex cognitive processes studied in neuroscience. Unlike computers, which can calculate probability distributions with algorithmic precision, the human brain employs a sophisticated interplay of emotional, rational, and unconscious mechanisms when navigating ambiguous scenarios. Recent advances in neuroimaging, computational modeling, and behavioral economics have revolutionized our understanding of these processes, revealing that decision-making under uncertainty engages multiple neural systems working in concert—and occasionally in conflict.
+      
+      At the neuroanatomical level, functional magnetic resonance imaging (fMRI) studies have consistently implicated several key brain regions in decision-making under uncertainty. The ventromedial prefrontal cortex (vmPFC) appears crucial for integrating value signals and emotional responses, while the dorsolateral prefrontal cortex (dlPFC) supports executive control and the maintenance of decision-relevant information. The anterior cingulate cortex (ACC) monitors conflicts between competing response options and signals the need for enhanced cognitive control. Meanwhile, subcortical structures including the amygdala and nucleus accumbens mediate emotional reactions and reward anticipation, respectively.
+      
+      Uncertainty itself comes in multiple forms, each engaging these neural systems differently. Economists and cognitive scientists distinguish between risk (known probability distributions of outcomes), ambiguity (unknown probability distributions), and fundamental uncertainty (unknown possible outcomes). Research by Hsu and colleagues demonstrated that while risky decisions primarily activate the vmPFC and striatum, ambiguous decisions additionally recruit the lateral prefrontal cortex and amygdala, suggesting heightened cognitive control and emotional processing when probability information is missing.
+      
+      The interplay between emotion and cognition in uncertain decision-making has been particularly illuminating. Contrary to traditional economic models that posited emotion as a disruptive force in rational choice, contemporary neuroscience suggests that emotional signals provide crucial information for effective decisions. Damasio's somatic marker hypothesis proposes that emotional responses to potential outcomes—manifested as subtle physiological changes—help constrain the decision space and guide behavior, particularly when explicit reasoning proves insufficient. Indeed, patients with damage to emotion-processing regions like the vmPFC often make catastrophically poor decisions despite intact logical reasoning abilities.
+      
+      Computational frameworks have further enriched our understanding by formalizing the algorithms the brain might implement during decision-making. Bayesian models suggest that the brain maintains and updates probabilistic representations of the environment, integrating prior beliefs with new evidence to form posterior probability distributions. Reinforcement learning models characterize how reward prediction errors—the difference between expected and received outcomes—drive learning through dopaminergic signaling in the striatum. More recently, active inference models propose that the brain minimizes surprise by selecting actions that confirm its predictions about the world.
+      
+      Individual differences in decision-making under uncertainty appear linked to both trait characteristics and neurochemical variations. Risk aversion correlates with heightened amygdala reactivity and lower levels of dopamine, while sensation-seeking tendencies associate with reduced prefrontal activity and higher dopamine signaling. Genetic polymorphisms affecting neurotransmitter systems, particularly those involving dopamine and serotonin, partially explain the substantial variability in how individuals approach uncertain situations.
+      
+      Age-related changes in decision processes reveal developmental trajectories in uncertainty management. Adolescents typically exhibit greater reward sensitivity and diminished risk aversion compared to adults, corresponding with protracted development of prefrontal control regions relative to earlier maturation of subcortical reward circuitry. Conversely, older adults generally demonstrate increased risk aversion on financial tasks but sometimes show impaired decision quality when tasks involve complex probabilistic reasoning, potentially reflecting age-related changes in prefrontal function.
+      
+      The social context profoundly influences decision-making under uncertainty. When individuals observe others' choices or outcomes, mirror neuron systems and mentalizing networks activate, allowing social learning that can circumvent direct trial-and-error experience. Peer presence significantly modulates risk-taking behavior, particularly in adolescents, with fMRI studies showing heightened ventral striatum activity during risky choices made under peer observation. Such findings elucidate the neural mechanisms underlying peer influence on risk behavior.
+      
+      Intriguingly, recent research suggests bidirectional relationships between bodily states and decision processes. The insula, which receives inputs regarding physiological conditions, shows activity patterns that predict risk-averse choices. Manipulations of bodily states—through induced stress, hunger, or fatigue—systematically alter decision preferences under uncertainty. These findings support embodied cognition perspectives, which propose that cognitive processes are fundamentally grounded in bodily experiences rather than occurring as abstract computations.
+      
+      Clinical implications of this research are substantial. Patients with anxiety disorders demonstrate heightened amygdala reactivity to uncertainty and excessive recruitment of cognitive control regions, reflecting the neural basis of pathological intolerance of uncertainty. Individuals with substance use disorders show blunted responses in reward circuitry during decision tasks, requiring progressively greater risks to achieve normal levels of neural activation. Such insights have inspired novel therapeutic approaches, including neurofeedback training to modulate activity in key decision circuits.
+      
+      Neuroeconomic research has particularly challenged traditional economic models of rational choice by revealing that decisions under uncertainty rarely conform to normative utility maximization. Instead, humans employ various heuristics—mental shortcuts that reduce computational demands but sometimes produce systematic biases. The neural signatures of these heuristics are increasingly well-characterized. For instance, temporal discounting—the tendency to devalue delayed rewards—correlates with diminished activity in future-oriented brain regions like the dorsolateral prefrontal cortex relative to regions signaling immediate rewards.
+      
+      Technological advancements are increasingly enabling us to move beyond correlational approaches to causal understanding. Transcranial magnetic stimulation studies have demonstrated that temporarily disrupting dlPFC function increases preference for immediate over delayed rewards and impairs strategic thinking in competitive games. Such interventional methods help establish which brain regions are necessary rather than merely associated with specific decision processes.
+      
+      The practical applications of this research extend to multiple domains. In education, understanding the neural basis of learning under uncertainty has informed adaptive teaching methods that optimize information presentation based on learners' predictive uncertainty. In public policy, insights about how the brain processes probabilistic health information have improved risk communication strategies. Financial institutions have incorporated neuroeconomic findings into retirement planning tools that accommodate well-documented cognitive biases in long-term financial decision-making.
+      
+      Despite substantial progress, significant questions remain. How do neural systems arbitrate between competing decision strategies? How does the brain determine when to explore new options versus exploit known rewards? How do cultural factors shape the neural architecture supporting decision processes? Addressing these questions will require continued interdisciplinary collaboration between neuroscientists, psychologists, economists, and computational theorists.
+      
+      As we advance our understanding of the neuroscience of decision-making under uncertainty, perhaps the most profound insight is the recognition that what once appeared as irrational behavior often reflects sophisticated adaptive mechanisms shaped by evolutionary pressures. The heuristics and biases that sometimes lead us astray in modern contexts likely served our ancestors well in environments where decisions needed to be made quickly with limited information. This evolutionary perspective provides a unifying framework for interpreting the complex neural systems that guide human choice in an uncertain world.`,
+          description: "An academic exploration of the brain mechanisms involved in making decisions when outcomes are uncertain.",
+          estimatedTime: 15,
+          difficulty: "hard",
+          vocabulary: [
+            { word: "neuroanatomical", definition: "relating to the structure of the nervous system" },
+            { word: "probabilistic", definition: "based on or adapted to a theory of probability; subject to or involving chance variation" },
+            { word: "dopaminergic", definition: "related to or activated by dopamine" },
+            { word: "polymorphisms", definition: "the occurrence of different forms, stages, or types in individual organisms or in organisms of the same species" },
+            { word: "neuroeconomic", definition: "relating to the study of how economic behavior can shape our understanding of the brain, and how neuroscientific discoveries can constrain and guide models of economics" }
+          ],
+          questions: [
+            {
+              id: "advanced-article-1-q1",
+              type: "mcq",
+              text: "According to the article, which brain region is crucial for integrating value signals and emotional responses?",
+              options: [
+                "Dorsolateral prefrontal cortex (dlPFC)",
+                "Anterior cingulate cortex (ACC)",
+                "Ventromedial prefrontal cortex (vmPFC)",
+                "Nucleus accumbens"
+              ],
+              correctAnswer: "Ventromedial prefrontal cortex (vmPFC)"
+            },
+            {
+              id: "advanced-article-1-q2",
+              type: "mcq",
+              text: "What does Damasio's somatic marker hypothesis propose about emotions in decision-making?",
+              options: [
+                "Emotions should be suppressed for optimal decision-making",
+                "Emotional signals provide crucial information for effective decisions",
+                "Emotions only play a role in social decision-making",
+                "Emotional processing is completely separate from decision processes"
+              ],
+              correctAnswer: "Emotional signals provide crucial information for effective decisions"
+            },
+            {
+              id: "advanced-article-1-q3",
+              type: "mcq",
+              text: "How do adolescents typically differ from adults in decision-making under uncertainty?",
+              options: [
+                "They show less activity in reward regions of the brain",
+                "They exhibit greater risk aversion",
+                "They demonstrate greater reward sensitivity and diminished risk aversion",
+                "They rely more heavily on prefrontal control regions"
+              ],
+              correctAnswer: "They demonstrate greater reward sensitivity and diminished risk aversion"
+            },
+            {
+              id: "advanced-article-1-q4",
+              type: "mcq",
+              text: "What does research on patients with anxiety disorders reveal about their neural responses to uncertainty?",
+              options: [
+                "Reduced amygdala reactivity",
+                "Heightened amygdala reactivity and excessive recruitment of cognitive control regions",
+                "Normal prefrontal activity but reduced insula function",
+                "Increased activity only in reward-processing regions"
+              ],
+              correctAnswer: "Heightened amygdala reactivity and excessive recruitment of cognitive control regions"
+            },
+            {
+              id: "advanced-article-1-q5",
+              type: "mcq",
+              text: "According to the article, what evolutionary perspective helps explain seemingly irrational decision-making?",
+              options: [
+                "Humans evolved to make perfectly rational decisions but modern environments interfere",
+                "Decision biases are purely cultural with no evolutionary basis",
+                "Heuristics that sometimes lead us astray today likely served our ancestors well in their environment",
+                "Evolutionary pressures selected for purely emotional decision-making"
+              ],
+              correctAnswer: "Heuristics that sometimes lead us astray today likely served our ancestors well in their environment"
+            }
+          ],
+          pronunciation: [
+            {
+              title: "Neuroscientific Terminology",
+              text: "At the neuroanatomical level, functional magnetic resonance imaging studies have implicated several key brain regions in decision-making under uncertainty.",
+              focusPoints: ["Practice the word stress in 'neuroanatomical' and 'resonance'", "Focus on the clear articulation of scientific terms"]
+            }
+          ]
+        },
+        {
+          id: "advanced-article-2",
+          title: "Linguistic Relativity: How Language Shapes Thought",
+          level: "advanced",
+          type: "articles",
+          text: `The hypothesis that the language we speak influences or even determines our thoughts and perceptions of reality has fascinated scholars across disciplines for decades. Known variously as linguistic relativity, the Sapir-Whorf hypothesis, or Whorfianism, this concept challenges the notion that human cognition is universal and independent of linguistic systems. While early formulations of this hypothesis suggested a form of linguistic determinism—that language rigidly constrains thought—contemporary research favors more nuanced interpretations examining specific domains where language might shape cognitive processes in subtle yet significant ways.
+      
+      The intellectual genealogy of linguistic relativity extends beyond its namesakes, Edward Sapir and Benjamin Lee Whorf. Wilhelm von Humboldt in the early 19th century proposed that different languages represent different worldviews, while Franz Boas later emphasized the relationship between language and culture. Sapir and Whorf, working in the 1930s and 1940s, advanced these ideas through their studies of Native American languages, particularly Whorf's analyses of Hopi temporal concepts. Though their original formulations were often more sophisticated than later characterizations suggested, their ideas faced intense scrutiny during the cognitive revolution of the 1960s, when universalist approaches to language and cognition gained prominence.
+      
+      After decades of relative dormancy, linguistic relativity has experienced a remarkable revival, fueled by methodological innovations and empirical findings from cognitive psychology, linguistic anthropology, and neuroscience. This renaissance has generally abandoned strong deterministic claims in favor of investigating specific cognitive domains where language might influence thought, including spatial cognition, color perception, numerical reasoning, and temporal understanding.
+      
+      Research on spatial language and cognition has provided particularly compelling evidence for linguistic relativity effects. Languages vary dramatically in how they encode spatial relationships. While English speakers predominantly use relative spatial terms (left, right, front, back), many languages rely on absolute reference frames based on cardinal directions or geographic features. For instance, Guugu Yimithirr speakers from Australia use cardinal direction terms (north, south, east, west) exclusively, even for small-scale spatial arrangements. Levinson and colleagues have demonstrated that speakers of such languages perform differently on non-linguistic spatial memory and orientation tasks, suggesting that habitual use of linguistic spatial frameworks influences spatial cognition beyond the moment of speaking.
+      
+      Color perception represents another domain where language appears to shape cognitive processes. Languages segment the color spectrum differently, with some distinguishing only two or three basic color categories while others identify twelve or more. Research by Roberson and colleagues with speakers of Berinmo (Papua New Guinea) and Himba (Namibia), languages with fewer color terms than English, revealed that categorical perception of colors—the tendency to perceive greater differences between colors that cross linguistic category boundaries—aligns with language-specific color categories rather than presumably universal perceptual boundaries. Neuroimaging studies have further shown that language-specific color categories influence activity in visual processing regions approximately 200 milliseconds after stimulus presentation, suggesting that language affects even seemingly basic perceptual processes.
+      
+      Temporal cognition also exhibits cross-linguistic variation with cognitive consequences. Mandarin speakers often use vertical metaphors for time (earlier events are "up," later events "down"), while English speakers typically employ horizontal metaphors (earlier events are "back," later events "ahead"). When asked to arrange temporal sequences, speakers tend to create spatial arrangements consistent with their language's dominant temporal metaphors. Moreover, manipulating spatial attention can differentially affect temporal judgments in speakers of different languages, indicating that these metaphorical conceptualizations influence cognitive processing of time.
+      
+      Grammatical features—the structural elements of language—may exert particularly pervasive effects on cognition. Languages with grammatical gender, which assign masculine or feminine status to nouns, influence speakers' conceptualizations of inanimate objects in gender-consistent ways. For example, German speakers, whose language assigns masculine gender to "key" (der Schlüssel), tend to describe keys with stereotypically masculine attributes like "hard" or "heavy," while Spanish speakers, whose language assigns feminine gender to "key" (la llave), often use stereotypically feminine descriptors like "golden" or "intricate."
+      
+      Similarly, languages vary in how they grammatically mark evidentiality—the source of information. Turkish, for instance, requires speakers to indicate through grammatical markers whether information was directly witnessed, inferred from evidence, or learned secondhand. Research suggests that speakers of such languages demonstrate enhanced source monitoring and memory for information sources compared to speakers of languages without obligatory evidentiality marking. These findings indicate that habitually attending to linguistically required distinctions may enhance associated cognitive functions.
+      
+      Bilingualism provides a fascinating window into linguistic relativity effects. Studies show that bilinguals may exhibit different personality profiles, emotional responses, and even moral judgments when operating in different languages. These effects appear most pronounced when the languages concerned differ substantially in how they encode relevant concepts. For instance, bilinguals using languages that differ in evidentiality marking demonstrate language-specific patterns of source monitoring. Neuroimaging research reveals that the same bilingual individuals may activate different neural networks when processing the same concepts in different languages, suggesting that each language engages somewhat distinct cognitive systems.
+      
+      Developmental perspectives further illuminate the relationship between language and thought. Cross-linguistic studies of children acquiring different languages indicate that from early stages, children's conceptual development aligns with the distinctions emphasized in their language. For example, Korean-speaking children distinguish between "tight fit" and "loose fit" containment earlier than English-speaking children, reflecting Korean's grammatical marking of this distinction. However, prelinguistic infants often demonstrate perceptual sensitivities to distinctions not marked in their ambient language, suggesting that language acquisition may involve directing attention to linguistically relevant distinctions rather than creating entirely new conceptual capabilities.
+      
+      Computational approaches have recently contributed to this field through neural network models that simulate how linguistic structures might shape conceptual representations. These models demonstrate how linguistic categorization systems can influence boundary judgments and similarity perceptions even in non-linguistic domains, providing computational plausibility for linguistic relativity effects. Similarly, corpus analyses examining large datasets of natural language use have identified systematic cross-linguistic differences in how languages package information, differences that align with experimental findings on cognitive variation.
+      
+      Critics of linguistic relativity argue that many purported effects may reflect task-specific verbal encoding strategies rather than deeper differences in conceptual structure. When tasks are designed to minimize verbal encoding or when verbal interference tasks are employed, some cross-linguistic differences diminish or disappear. However, proponents counter that other effects persist even under such conditions and that linguistic habits of mind may shape cognition even when language is not explicitly engaged.
+      
+      The philosophical implications of linguistic relativity extend to fundamental questions about the relationship between language, thought, and reality. While few contemporary scholars would endorse full linguistic determinism—the notion that language absolutely constrains what can be thought—the evidence increasingly suggests that language provides scaffolding that facilitates certain pathways of thought while potentially making others less accessible. This perspective aligns with Vygotskian approaches to cognitive development, which emphasize the role of cultural tools, including language, in shaping higher cognitive functions.
+      
+      From a pragmatic standpoint, linguistic relativity research has implications for fields ranging from education to artificial intelligence. In educational contexts, awareness of how language structures information may inform more effective pedagogical approaches for second language learners. In technology development, the design of programming languages and human-computer interfaces might benefit from understanding how linguistic structures facilitate or constrain certain modes of thinking.
+      
+      The contemporary study of linguistic relativity has moved beyond the simplistic question of whether language determines thought toward more sophisticated investigations of when, how, and to what extent linguistic structures influence various cognitive processes. This nuanced approach acknowledges both the universal foundations of human cognition and the subtle yet significant ways in which our languages guide our attention, structure our memories, and shape our interpretations of experience. What emerges is a view of language not merely as a tool for expressing pre-existing thoughts, but as an integral component of the cognitive processes through which we construct our understanding of the world.`,
+          description: "An examination of how different languages may influence the way people think and perceive the world.",
+          estimatedTime: 15,
+          difficulty: "hard",
+          vocabulary: [
+            { word: "linguistic relativity", definition: "the hypothesis that the structure of a language affects its speakers' worldview or cognition" },
+            { word: "determinism", definition: "the doctrine that all events, including human action, are ultimately determined by causes external to the will" },
+            { word: "evidentiality", definition: "a grammatical category that expresses the source of information" },
+            { word: "prelinguistic", definition: "existing or occurring before the development of language" },
+            { word: "Vygotskian", definition: "relating to the theories of psychologist Lev Vygotsky, who emphasized the role of social interaction in cognitive development" }
+          ],
+          questions: [
+            {
+              id: "advanced-article-2-q1",
+              type: "mcq",
+              text: "How does contemporary research on linguistic relativity differ from earlier formulations?",
+              options: [
+                "It completely rejects any connection between language and thought",
+                "It focuses exclusively on color perception",
+                "It favors more nuanced interpretations examining specific domains where language might shape cognition",
+                "It maintains that language absolutely determines all aspects of thought"
+              ],
+              correctAnswer: "It favors more nuanced interpretations examining specific domains where language might shape cognition"
+            },
+            {
+              id: "advanced-article-2-q2",
+              type: "mcq",
+              text: "According to the article, what is significant about speakers of Guugu Yimithirr?",
+              options: [
+                "They have no color terms in their language",
+                "They use only absolute reference frames based on cardinal directions for spatial relationships",
+                "They cannot understand the concept of time",
+                "They have more words for snow than any other language"
+              ],
+              correctAnswer: "They use only absolute reference frames based on cardinal directions for spatial relationships"
+            },
+            {
+              id: "advanced-article-2-q3",
+              type: "mcq",
+              text: "What does research on grammatical gender suggest about its effects on cognition?",
+              options: [
+                "It has no effect on how speakers think about objects",
+                "It influences speakers' conceptualizations of inanimate objects in gender-consistent ways",
+                "It only affects how children learn language",
+                "It determines political attitudes about gender roles"
+              ],
+              correctAnswer: "It influences speakers' conceptualizations of inanimate objects in gender-consistent ways"
+            },
+            {
+              id: "advanced-article-2-q4",
+              type: "mcq",
+              text: "What does the article say about bilingualism and linguistic relativity?",
+              options: [
+                "Bilingualism disproves linguistic relativity",
+                "Bilinguals are immune to language effects on cognition",
+                "Bilinguals may exhibit different personality profiles, emotional responses, and moral judgments when using different languages",
+                "Bilingualism only affects memory, not other cognitive processes"
+              ],
+              correctAnswer: "Bilinguals may exhibit different personality profiles, emotional responses, and moral judgments when using different languages"
+            },
+            {
+              id: "advanced-article-2-q5",
+              type: "mcq",
+              text: "Which of the following best summarizes the contemporary view of the relationship between language and thought according to the article?",
+              options: [
+                "Language completely determines all aspects of thought",
+                "Language has no influence on thought whatsoever",
+                "Language provides scaffolding that facilitates certain pathways of thought while potentially making others less accessible",
+                "Only certain languages affect thought; others have no effect"
+              ],
+              correctAnswer: "Language provides scaffolding that facilitates certain pathways of thought while potentially making others less accessible"
+            }
+          ],
+          pronunciation: [
+            {
+              title: "Linguistic Terminology",
+              text: "Known variously as linguistic relativity, the Sapir-Whorf hypothesis, or Whorfianism, this concept challenges the notion that human cognition is universal.",
+              focusPoints: ["Practice the names 'Sapir' and 'Whorf'", "Focus on the word stress in 'relativity' and 'cognition'"]
+            }
+          ]
+        },
+        {
+          id: "advanced-article-3",
+          title: "Climate Adaptation: Preparing for an Uncertain Future",
+          level: "advanced",
+          type: "articles",
+          text: `As evidence mounts that some degree of climate change is now unavoidable regardless of mitigation efforts, adaptation strategies have gained prominence in scientific research, policy discussions, and community planning initiatives. Climate adaptation encompasses the adjustments in ecological, social, and economic systems that reduce vulnerability to actual or anticipated climate change impacts. While mitigation aims to limit the magnitude of climate change by reducing greenhouse gas emissions, adaptation addresses the consequences of changes already underway or projected to occur. These twin approaches are increasingly recognized as complementary and essential components of comprehensive climate action.
+      
+      Adaptation strategies span multiple scales, from individual behaviors to international frameworks. At the household level, adaptations might include installing heat-resistant building materials, elevating structures in flood-prone areas, or diversifying income sources to reduce vulnerability to climate-related economic disruptions. At community scales, adaptations often involve infrastructure modifications such as sea walls, expanded stormwater systems, or cooling centers, alongside social innovations like community-based early warning systems and resilience hubs. National governments typically focus on sectoral policies for agriculture, water resources, public health, and disaster management, while international adaptation efforts emphasize financing mechanisms, technology transfer, and coordinated responses to cross-border climate impacts.
+      
+      The efficacy of adaptation interventions depends significantly on local contexts, underscoring the importance of place-based approaches. Adaptations that succeed in one region may prove maladaptive in another due to differences in climate hazards, socioeconomic conditions, governance structures, or cultural values. This contextual specificity has prompted increased attention to co-production processes that integrate scientific expertise with local and indigenous knowledge. Such collaborative approaches recognize that affected communities possess crucial insights about their environments and social systems that can enhance the relevance, legitimacy, and ultimate effectiveness of adaptation measures.
+      
+      Agricultural adaptation illustrates both the complexity and necessity of sectoral responses to climate change. As shifting temperature and precipitation patterns alter growing conditions, agricultural systems face challenges including reduced yields, increased pest and disease pressure, and more frequent extreme weather events. Adaptations range from incremental adjustments in planting dates and crop varieties to transformative changes in farming systems. Conservation agriculture practices that enhance soil organic matter can increase water retention capacity and resilience to drought, while diversified cropping systems reduce vulnerability to single-stress events. Technological innovations such as precision irrigation, climate-informed seasonal forecasts, and stress-tolerant crop varieties offer promising pathways but require context-appropriate implementation and equitable access.
+      
+      Coastal zones represent particularly vulnerable systems requiring robust adaptation planning. Sea level rise combined with more intense storms threatens coastal communities and ecosystems through increased erosion, inundation, and saltwater intrusion. Traditional "gray" infrastructure approaches like seawalls and levees provide immediate protection but often generate ecological consequences and create path dependencies that limit future options. Nature-based solutions such as wetland restoration, living shorelines, and coral reef rehabilitation offer alternative approaches that can provide multiple benefits beyond flood protection, including carbon sequestration, habitat provision, and recreational opportunities. Many coastal regions are now implementing hybrid approaches that integrate built and natural elements while planning for staged adaptation as conditions change.
+      
+      Urban areas present distinct adaptation challenges due to concentrated populations, complex infrastructure networks, and unique microclimates. The urban heat island effect, which can raise temperatures 4-7°C above surrounding areas, exacerbates heat-related health risks, particularly for vulnerable residents without adequate cooling or green space access. Urban adaptation strategies include expanding tree canopy coverage, implementing cool roof and pavement technologies, redesigning public spaces with heat-sensitive materials, and establishing cooling centers. Forward-thinking cities are incorporating climate projections into long-term planning processes, adopting climate-informed building codes, and designing infrastructure systems with greater redundancy and flexibility to withstand intensified stressors.
+      
+      Water resource management requires substantial reconfiguration in many regions facing altered precipitation patterns and increased hydrologic variability. Adaptations range from efficiency improvements and demand management to systemic changes in water governance and infrastructure. Water-sensitive urban design, which incorporates features like permeable surfaces, rainwater harvesting systems, and vegetated swales, can reduce flood risks while augmenting water supplies. Agricultural water conservation techniques such as deficit irrigation and precision application systems help farmers adapt to reduced water availability. Some regions are implementing more fundamental transitions through integrated watershed management approaches that coordinate across sectors and jurisdictions to enhance overall system resilience.
+      
+      Public health systems face expanding challenges as climate change intensifies existing health threats and introduces new ones. Heat-related illness, vector-borne diseases, allergens, air pollution, and mental health impacts all demonstrate climate sensitivity. Health-focused adaptations include strengthening surveillance systems to detect emerging threats, developing early warning systems for extreme weather events, designing climate-informed disease control programs, and ensuring healthcare facilities can function during disasters. The concept of "climate-smart healthcare" encompasses both making health systems more resilient to climate impacts and reducing their carbon footprint through energy efficiency and clean energy transitions.
+      
+      Financial mechanisms play crucial roles in enabling adaptation, particularly for resource-constrained communities and nations. Dedicated climate funds like the Green Climate Fund and Adaptation Fund provide targeted support for developing countries, while multilateral development banks increasingly mainstream climate considerations into their lending portfolios. Insurance innovations such as parametric policies that pay out based on predefined climate parameters rather than assessed damages offer promising approaches for rapid post-disaster recovery. However, adaptation finance remains insufficient relative to estimated needs, with persistent barriers around accessing funds, demonstrating project viability, and ensuring benefits reach the most vulnerable populations.
+      
+      The equity dimensions of adaptation demand particular attention, as climate impacts and adaptive capacity are unevenly distributed both within and between societies. Historical patterns of development, colonization, and discrimination have created pre-existing vulnerabilities that climate change threatens to exacerbate. The concept of "just adaptation" emphasizes procedural equity (who participates in decision-making), distributional equity (how benefits and burdens are shared), and recognition (whose knowledge and values are respected). Adaptation planning that fails to address these dimensions risks reinforcing existing inequalities or creating new forms of vulnerability through maladaptive interventions that benefit privileged groups while marginalizing others.
+      
+      Transformational adaptation recognizes that incremental changes may prove insufficient as climate impacts intensify. While incremental approaches adjust existing systems to maintain their essential functions, transformational adaptation involves fundamental changes in system structures, functions, or organization. Examples include retreating from increasingly uninhabitable areas, switching to entirely different livelihoods or production systems, or restructuring governance institutions to address novel challenges. Although potentially disruptive, transformational approaches may ultimately prove more effective and equitable than incremental adaptations that preserve unsustainable or inequitable systems in the face of escalating climate pressures.
+      
+      Monitoring and evaluation frameworks for adaptation remain underdeveloped compared to mitigation, where greenhouse gas reductions provide a universal metric of success. Adaptation outcomes depend on counterfactual scenarios (what would have happened without intervention), involve longer timeframes than typical project cycles, and must account for changing baseline conditions as climate continues to shift. Process-based indicators focusing on adaptive capacity and implementation fidelity provide interim measures, while outcome-based metrics require careful contextualization. The field increasingly emphasizes learning-oriented approaches that support iterative improvement rather than rigid assessment frameworks that may prove maladaptive as conditions evolve.
+      
+      The limits of adaptation are becoming increasingly evident as climate projections indicate potential changes beyond the coping range of many systems. Hard limits occur when no adaptive actions can prevent intolerable risks, such as existential threats to coral reef ecosystems under high-warming scenarios or human habitability thresholds in regions exceeding wet-bulb temperatures compatible with thermoregulation. Soft limits arise when current technological, economic, or social constraints prevent effective adaptation but could potentially be overcome through innovation or social change. Recognition of these limits underscores the continued importance of ambitious mitigation alongside adaptation efforts.
+      
+      As climate impacts accelerate, the integration of adaptation with sustainable development and disaster risk reduction has emerged as a crucial framework. The concept of "climate-resilient development pathways" articulates approaches that simultaneously reduce poverty, minimize climate vulnerabilities, and enhance sustainability. Such integrated approaches recognize that effective adaptation cannot be separated from broader societal goals and development trajectories. By addressing underlying drivers of vulnerability while preparing for changing climate conditions, these pathways offer the potential to navigate the profound challenges of the anthropocene era while advancing human wellbeing and environmental integrity.`,
+          description: "An analysis of strategies and challenges in adapting to the inevitable effects of climate change.",
+          estimatedTime: 15,
+          difficulty: "hard",
+          vocabulary: [
+            { word: "mitigation", definition: "actions to reduce the severity, seriousness, or painfulness of something" },
+            { word: "maladaptive", definition: "characterized by or resulting in poor or inadequate adjustment to a situation" },
+            { word: "co-production", definition: "a collaborative approach that involves different stakeholders in the design and delivery of services or knowledge" },
+            { word: "redundancy", definition: "the inclusion of extra components to ensure system functionality in case of failure" },
+            { word: "counterfactual", definition: "relating to or expressing what has not happened or is not the case but could, would, or might occur under different conditions" }
+          ],
+          questions: [
+            {
+              id: "advanced-article-3-q1",
+              type: "mcq",
+              text: "How does the article distinguish between climate adaptation and mitigation?",
+              options: [
+                "Adaptation is for wealthy countries while mitigation is for developing countries",
+                "Adaptation addresses consequences of changes already underway while mitigation aims to limit the magnitude of climate change",
+                "Adaptation involves technological solutions while mitigation involves policy changes",
+                "Adaptation is more effective than mitigation in all circumstances"
+              ],
+              correctAnswer: "Adaptation addresses consequences of changes already underway while mitigation aims to limit the magnitude of climate change"
+            },
+            {
+                id: "advanced-article-3-q2",
+                type: "mcq",
+                text: "According to the article, why is context important in climate adaptation?",
+                options: [
+                  "Because adaptations that succeed in one region may prove maladaptive in another due to local differences",
+                  "Because only certain cultures are willing to adapt to climate change",
+                  "Because climate change only affects certain regions",
+                  "Because adaptation is only necessary in urban areas"
+                ],
+                correctAnswer: "Because adaptations that succeed in one region may prove maladaptive in another due to local differences"
+              },
+              {
+                id: "advanced-article-3-q3",
+                type: "mcq",
+                text: "What approach to coastal adaptation does the article identify as an alternative to traditional 'gray' infrastructure?",
+                options: [
+                  "Complete abandonment of coastal areas",
+                  "Massive seawalls around all coastlines",
+                  "Nature-based solutions such as wetland restoration and living shorelines",
+                  "Floating cities that rise with sea levels"
+                ],
+                correctAnswer: "Nature-based solutions such as wetland restoration and living shorelines"
+              },
+              {
+                id: "advanced-article-3-q4",
+                type: "mcq",
+                text: "How does the article describe the relationship between equity and climate adaptation?",
+                options: [
+                  "Equity concerns are separate from adaptation planning",
+                  "Climate impacts and adaptive capacity are evenly distributed across societies",
+                  "Climate impacts and adaptive capacity are unevenly distributed, and adaptation planning must address equity dimensions",
+                  "Equity is important only in developing countries"
+                ],
+                correctAnswer: "Climate impacts and adaptive capacity are unevenly distributed, and adaptation planning must address equity dimensions"
+              },
+              {
+                id: "advanced-article-3-q5",
+                type: "mcq",
+                text: "What distinguishes transformational adaptation from incremental adaptation according to the article?",
+                options: [
+                  "Transformational adaptation costs more money",
+                  "Transformational adaptation involves fundamental changes in system structures, functions, or organization",
+                  "Transformational adaptation only applies to infrastructure",
+                  "Transformational adaptation is less disruptive than incremental adaptation"
+                ],
+                correctAnswer: "Transformational adaptation involves fundamental changes in system structures, functions, or organization"
+              }
+            ],
+            pronunciation: [
+              {
+                title: "Environmental Terminology",
+                text: "Climate adaptation encompasses the adjustments in ecological, social, and economic systems that reduce vulnerability to actual or anticipated climate change impacts.",
+                focusPoints: ["Practice the word stress in 'adaptation' and 'vulnerability'", "Focus on clearly pronouncing the term 'ecological'"]
+              }
+            ]
+          },
+        
+          // ADVANCED - NEWS (3 ta)
+          {
+            id: "advanced-news-1",
+            title: "Quantum Computing Breakthrough Solves Decade-Old Problem",
+            level: "advanced",
+            type: "news",
+            text: `In a landmark achievement for quantum computing, researchers at the Institute for Quantum Information Science have successfully demonstrated quantum advantage for the first time in a practically relevant computational problem, potentially accelerating numerous fields from drug discovery to materials science.
+        
+        The team, led by Dr. Elena Vasquez, reported yesterday in the journal Nature that their specially designed 256-qubit quantum processor solved a complex optimization problem that would require approximately 8,000 years on today's most powerful classical supercomputers. The quantum system completed the calculation in just 3.5 minutes.
+        
+        "This represents a watershed moment for quantum computing," said Dr. Vasquez. "Unlike previous demonstrations of quantum advantage, which relied on highly specialized problems with limited practical applications, this achievement tackles a problem class with immediate relevance across multiple industries."
+        
+        The specific problem—finding optimal configurations of particles in high-dimensional spaces—has applications ranging from protein folding for drug development to portfolio optimization in finance. The quantum processor, named Aurora Q2, employed a novel architecture that significantly reduces error rates through what the team calls "topological error suppression."
+        
+        "Previous quantum systems have been plagued by decoherence and error rates that limited their practical utility," explained co-author Dr. Michio Tanaka. "Our approach doesn't eliminate errors entirely, but it confines them in ways that prevent them from cascading through the system and corrupting the calculation."
+        
+        The breakthrough builds on a theoretical framework developed three years ago by mathematicians at the University of Waterloo, who identified a class of optimization problems particularly well-suited to quantum computation. However, implementing this framework required engineering innovations that many experts believed were still years away.
+        
+        "Dr. Vasquez's team has achieved what many of us thought would take another decade," commented Dr. Sophia Chen, a quantum computing researcher at MIT who wasn't involved in the study. "This doesn't mean quantum computers will replace classical systems anytime soon for everyday tasks, but it opens up entirely new possibilities for specific high-value computational challenges."
+        
+        Industry reaction to the announcement has been swift and significant. Pharmaceutical giant Merck announced a research partnership with the Institute to explore applications in drug discovery, while Goldman Sachs is investigating implementations for risk assessment models. The Aurora Q2 system is not currently for sale, but the team plans to offer cloud-based access to the system for research partners beginning next quarter.
+        
+        Not all experts are fully convinced by the results, however. "The paper makes impressive claims, but we need to carefully verify that the problem can't be solved more efficiently using new classical algorithms," cautioned Dr. Robert Mitchell, a computer scientist at Stanford University. "The history of quantum advantage claims is filled with examples where subsequent refinements to classical approaches narrowed or eliminated the quantum lead."
+        
+        The research team acknowledges these concerns and has made their methodologies and raw data publicly available for verification. They also emphasized that they specifically chose a problem that has resisted efficient classical solutions despite decades of focused research.
+        
+        The development represents a potential turning point in the global race for quantum computing supremacy. The United States, China, and the European Union have collectively invested over $30 billion in quantum computing research over the past five years, recognizing its strategic importance for both economic competitiveness and national security.
+        
+        The Aurora Q2 system employs superconducting qubits maintained at temperatures approaching absolute zero. Unlike its predecessors, it incorporates on-chip optical interconnects that allow for more flexible qubit-to-qubit communication—a key innovation that enables its error suppression capabilities.
+        
+        "We're not just scaling up the number of qubits, which has been the focus of much recent work," noted Dr. Vasquez. "We're fundamentally rethinking the architecture to make each qubit more useful and the overall system more resilient to noise."
+        
+        The team is already working on Aurora Q3, which they project will feature 1,024 qubits and more sophisticated error correction. At that scale, the researchers believe they could tackle optimization problems that would take classical computers millions of years to solve.
+        
+        Beyond the technical achievement, the breakthrough has implications for how research in quantum computing is conducted. The project brought together experts from physics, computer science, materials engineering, and mathematics in a highly integrated approach.
+        
+        "The era of the lone quantum genius is over," said Dr. Vasquez. "These advances require deeply collaborative teams working across traditional disciplinary boundaries. The complexity of these systems demands it."
+        
+        For industries grappling with computationally intensive problems, the development offers both excitement and strategic questions. Companies must now assess whether to invest in developing quantum-ready algorithms or risk falling behind competitors who successfully leverage this emerging capability.
+        
+        "This doesn't make existing supercomputers obsolete," emphasized Dr. Tanaka. "Classical computing will remain essential for the vast majority of applications. But for certain crucial problems, quantum systems will offer capabilities that were previously simply unattainable."
+        
+        The researchers also highlighted the educational implications of their work, announcing an open-source educational platform that will allow university students to experiment with simulated versions of the Aurora architecture. "Developing the quantum workforce is just as important as developing the quantum hardware," said Dr. Vasquez. "We need a new generation of thinkers who intuitively understand both quantum mechanics and computational thinking."
+        
+        As verification efforts continue and the scientific community processes the significance of this advance, one thing remains clear: the theoretical promise of quantum computing has taken a decisive step toward practical reality, potentially redefining what we consider computationally possible.`,
+            description: "News report on a significant advancement in quantum computing technology with widespread implications.",
+            estimatedTime: 12,
+            difficulty: "hard",
+            vocabulary: [
+              { word: "qubit", definition: "a quantum bit, the basic unit of information in a quantum computer" },
+              { word: "decoherence", definition: "loss of quantum coherence, or the quantum information in a system due to interaction with the environment" },
+              { word: "topological", definition: "relating to the properties of geometric figures that remain unchanged by stretching or bending" },
+              { word: "superconducting", definition: "exhibiting zero electrical resistance at very low temperatures" },
+              { word: "cascade", definition: "a process that occurs in stages, each of which triggers or initiates the next stage" }
+            ],
+            questions: [
+              {
+                id: "advanced-news-1-q1",
+                type: "mcq",
+                text: "What makes this quantum computing breakthrough different from previous demonstrations of quantum advantage?",
+                options: [
+                  "It uses fewer qubits than previous systems",
+                  "It operates at room temperature",
+                  "It solves a practically relevant problem rather than a specialized one",
+                  "It was developed with a smaller budget"
+                ],
+                correctAnswer: "It solves a practically relevant problem rather than a specialized one"
+              },
+              {
+                id: "advanced-news-1-q2",
+                type: "mcq",
+                text: "How long would it take a classical supercomputer to solve the problem that the quantum computer solved in 3.5 minutes?",
+                options: [
+                  "Approximately 80 years",
+                  "Approximately 800 years",
+                  "Approximately 8,000 years",
+                  "Approximately 80,000 years"
+                ],
+                correctAnswer: "Approximately 8,000 years"
+              },
+              {
+                id: "advanced-news-1-q3",
+                type: "mcq",
+                text: "What innovation does the Aurora Q2 system incorporate that previous quantum computers didn't have?",
+                options: [
+                  "Room-temperature operation",
+                  "On-chip optical interconnects for flexible qubit-to-qubit communication",
+                  "Biological components",
+                  "Direct neural interfaces"
+                ],
+                correctAnswer: "On-chip optical interconnects for flexible qubit-to-qubit communication"
+              },
+              {
+                id: "advanced-news-1-q4",
+                type: "mcq",
+                text: "What concern did Dr. Robert Mitchell express about the results?",
+                options: [
+                  "The quantum computer used too much electricity",
+                  "The research team didn't publish their methodology",
+                  "The team might have fabricated their results",
+                  "New classical algorithms might solve the problem more efficiently"
+                ],
+                correctAnswer: "New classical algorithms might solve the problem more efficiently"
+              },
+              {
+                id: "advanced-news-1-q5",
+                type: "mcq",
+                text: "According to Dr. Vasquez, what approach is necessary for advances in quantum computing?",
+                options: [
+                  "Solitary geniuses working independently",
+                  "Highly integrated teams working across disciplinary boundaries",
+                  "Increased competition between research groups",
+                  "More government regulation of quantum research"
+                ],
+                correctAnswer: "Highly integrated teams working across disciplinary boundaries"
+              }
+            ],
+            pronunciation: [
+              {
+                title: "Scientific and Technical Terms",
+                text: "The Aurora Q2 system employs superconducting qubits maintained at temperatures approaching absolute zero.",
+                focusPoints: ["Practice the term 'qubit' (pronounced 'kyoo-bit')", "Focus on the word stress in 'superconducting'"]
+              }
+            ]
+          },
+          {
+            id: "advanced-news-2",
+            title: "Global Initiative Launches to Restore Coral Reefs Using Genetic Technology",
+            level: "advanced",
+            type: "news",
+            text: `An unprecedented international coalition of marine scientists, conservation organizations, and government agencies launched the Coral Genome Project yesterday, a $150 million initiative that aims to protect and restore endangered coral reef ecosystems using cutting-edge genetic technologies and traditional conservation approaches.
+        
+        The project, announced during the International Coral Reef Symposium in Cairns, Australia, represents the largest coordinated effort to date to address the global coral crisis. Scientists estimate that approximately 50% of the world's coral reefs have died over the past 30 years due to climate change, pollution, and other human impacts. Without intervention, projections suggest that over 90% of remaining reefs could be lost by 2050.
+        
+        "We're witnessing the collapse of one of Earth's most biodiverse ecosystems in real time," said Dr. Ayana Johnson, marine biologist and co-director of the initiative. "This project brings together the full spectrum of solutions—from traditional reef management to novel biotechnology approaches—in recognition that no single strategy will be sufficient."
+        
+        At the center of the initiative is a pioneering genetic sequencing effort that will map the genomes of 500 coral species, creating a comprehensive genetic library of coral biodiversity. This data will support multiple intervention strategies, including the identification of naturally heat-resistant coral varieties and the development of genetically-informed breeding programs.
+        
+        "Some coral populations have already adapted to warmer temperatures, particularly in regions that naturally experience temperature fluctuations," explained Dr. Manuel Gonzalez of the Instituto Oceanográfico in Brazil. "By sequencing these resilient corals, we can identify the genetic factors that confer heat tolerance and potentially incorporate these traits into restoration efforts."
+        
+        The initiative will establish regional biobanks in Australia, the Philippines, Honduras, Kenya, and the Maldives to preserve genetic material from threatened coral species. These facilities will maintain living coral tissue cultures and cryopreserved gametes (reproductive cells), creating a genetic repository that could prevent species extinction and support future restoration efforts.
+        
+        One of the most ambitious components of the project involves the development of specialized coral nurseries where scientists will cultivate hardier strains through selective breeding. Similar to agricultural breeding programs that develop crop varieties resistant to disease or drought, these efforts aim to accelerate natural adaptive processes to help corals survive in warming oceans.
+        
+        "We're essentially trying to compress the timeline of evolution," said Dr. Makani Kema from the University of Hawaii. "Natural adaptation might take centuries that corals don't have, given the rapid pace of ocean warming. Assisted evolution approaches give these ecosystems a fighting chance."
+        
+        The initiative has generated both enthusiasm and controversy within the scientific community. Proponents argue that the severity of the coral crisis justifies exploring all possible solutions, including genetic interventions. Critics raise concerns about unintended ecological consequences and argue that without addressing the root causes of coral decline—particularly climate change—technological interventions merely treat symptoms rather than the disease.
+        
+        "These genetic approaches must complement, not replace, urgent climate action and local conservation efforts," emphasized Dr. Johnson. "We're simultaneously working on multiple fronts, including collaborative programs with local communities to reduce pollution and destructive fishing practices."
+        
+        The project includes significant funding for implementation science—research focused on how to effectively deploy interventions in real-world settings while minimizing risks. This includes extensive environmental impact assessments and the development of international governance frameworks for genetic interventions in marine ecosystems.
+        
+        The initiative also diverges from previous coral conservation efforts in its emphasis on indigenous knowledge and community involvement. Local and indigenous communities, whose livelihoods often depend directly on reef ecosystems, will participate in project governance and implementation.
+        
+        "Meaningful conservation cannot happen without the leadership and consent of the people who have lived alongside these reefs for generations," said Makareta Tawai, a community conservation leader from Fiji and member of the project's steering committee. "Their knowledge systems often include sophisticated understanding of reef dynamics that Western science is only beginning to appreciate."
+        
+        The financial backing for the initiative comes from a diverse coalition including the Global Environment Facility, philanthropic organizations like the Paul G. Allen Family Foundation, and government agencies from 25 countries. Private sector partners include biotech companies contributing technical expertise and computing resources for genomic analysis.
+        
+        Beyond its scientific objectives, the Coral Genome Project aims to reshape public understanding of coral reefs and their importance. The initiative includes a substantial educational component, developing curriculum materials and digital resources to increase ocean literacy worldwide.
+        
+        "Coral reefs support approximately 25% of all marine species while covering less than 1% of the ocean floor," noted Dr. Johnson. "Their ecological importance is matched by their cultural and economic value, supporting tourism, fisheries, and coastal protection worth hundreds of billions of dollars annually."
+        
+        The project faces significant logistical challenges, including operating in remote locations and coordinating across multiple jurisdictions, each with different regulatory frameworks for genetic research and marine conservation. Project leaders have established a dedicated policy team to navigate these complexities.
+        
+        Initial field operations will focus on 12 key reef systems selected for their biodiversity, genetic uniqueness, and varying levels of environmental stress. These sites include portions of the Great Barrier Reef, the Coral Triangle in Southeast Asia, the Mesoamerican Reef in the Caribbean, and reefs in the Western Indian Ocean.
+        
+        The initiative's timeline projects completion of the genetic sequencing phase within three years, with pilot restoration efforts beginning in year two. Large-scale implementation of breeding and outplanting programs is scheduled to commence in year four, contingent on rigorous safety assessments and regulatory approvals.
+        
+        Marine scientists not affiliated with the project have generally responded positively while emphasizing the need for careful assessment of ecological risks. "This initiative represents the scale of response that the coral crisis demands," said Dr. Sylvia Earle, oceanographer and National Geographic Explorer-in-Residence. "However, we must proceed with both urgency and caution, recognizing that we are intervening in complex ecosystems we don't fully understand."
+        
+        Project leaders acknowledge that even with these interventions, many coral reefs will be lost or fundamentally altered as oceans continue to warm. Yet they maintain that the alternative—doing nothing while these ecosystems collapse—is unacceptable given coral reefs' ecological and cultural significance.
+        
+        "This is not about maintaining the status quo, which is already gone," Dr. Johnson concluded. "It's about helping corals through this human-caused extinction crisis while we simultaneously work to stabilize the climate. The question isn't whether we should intervene—it's whether we can develop interventions thoughtful and effective enough to make a difference."`,
+            description: "News about a major scientific initiative to save coral reefs using genetic technology alongside traditional conservation methods.",
+            estimatedTime: 14,
+            difficulty: "hard",
+            vocabulary: [
+              { word: "intervention", definition: "the action or process of intervening" },
+              { word: "cryopreserved", definition: "preserved by freezing at extremely low temperatures" },
+              { word: "gametes", definition: "mature reproductive cells (egg or sperm cells) that unite during fertilization" },
+              { word: "biobank", definition: "a large collection of biological samples and associated data for research purposes" },
+              { word: "outplanting", definition: "the process of moving organisms from a controlled environment to a natural environment" }
+            ],
+            questions: [
+              {
+                id: "advanced-news-2-q1",
+                type: "mcq",
+                text: "What percentage of the world's coral reefs have already died according to the article?",
+                options: ["About 25%", "About 50%", "About 75%", "About 90%"],
+                correctAnswer: "About 50%"
+              },
+              {
+                id: "advanced-news-2-q2",
+                type: "mcq",
+                text: "What is one of the main objectives of the Coral Genome Project?",
+                options: [
+                  "To completely replace damaged reefs with artificial structures",
+                  "To map the genomes of 500 coral species",
+                  "To relocate vulnerable coral species to land-based aquariums",
+                  "To eliminate all human activity near reef ecosystems"
+                ],
+                correctAnswer: "To map the genomes of 500 coral species"
+              },
+              {
+                id: "advanced-news-2-q3",
+                type: "mcq",
+                text: "How does Dr. Makani Kema describe the selective breeding approach?",
+                options: [
+                  "As a way to create entirely new coral species",
+                  "As an attempt to compress the timeline of evolution",
+                  "As a replacement for climate action",
+                  "As a proven method with guaranteed success"
+                ],
+                correctAnswer: "As an attempt to compress the timeline of evolution"
+              },
+              {
+                id: "advanced-news-2-q4",
+                type: "mcq",
+                text: "How does this initiative differ from previous coral conservation efforts according to the article?",
+                options: [
+                  "It focuses exclusively on technological solutions",
+                  "It only involves scientists from developed countries",
+                  "It emphasizes indigenous knowledge and community involvement",
+                  "It requires less funding than traditional approaches"
+                ],
+                correctAnswer: "It emphasizes indigenous knowledge and community involvement"
+              },
+              {
+                id: "advanced-news-2-q5",
+                type: "mcq",
+                text: "What percentage of marine species do coral reefs support according to Dr. Johnson?",
+                options: ["About 10%", "About 25%", "About 50%", "About 75%"],
+                correctAnswer: "About 25%"
+              }
+            ],
+            pronunciation: [
+              {
+                title: "Scientific and Environmental Terms",
+                text: "We're essentially trying to compress the timeline of evolution. Natural adaptation might take centuries that corals don't have, given the rapid pace of ocean warming.",
+                focusPoints: ["Practice the word stress in 'adaptation' and 'evolution'", "Focus on clearly pronouncing 'essentially'"]
+              }
+            ]
+          },
+          {
+            id: "advanced-news-3",
+            title: "Unprecedented Archaeological Discovery Rewrites Understanding of Ancient Trade Networks",
+            level: "advanced",
+            type: "news",
+            text: `Archaeologists working in the remote highlands of Ethiopia have uncovered an extensive urban center dating to the 4th century CE that provides groundbreaking evidence of complex trade networks connecting sub-Saharan Africa with the Mediterranean world, India, and possibly even China—centuries earlier than previously documented.
+        
+        The site, named Dengora Biyu after a nearby village, was discovered during a survey led by Dr. Ayana Haile of Addis Ababa University in collaboration with an international team from institutions in Germany, the United States, and Kenya. Located at an elevation of 2,400 meters in Ethiopia's northern highlands, the sprawling 45-hectare site remained hidden from archaeological attention until local farmers reported finding unusual artifacts while plowing their fields.
+        
+        "What we've uncovered fundamentally challenges the conventional narrative about early globalization and the role of sub-Saharan Africa in ancient trade networks," said Dr. Haile, whose team has been excavating the site for three years. "The diversity and origin of artifacts we're finding suggest connections that weren't thought possible for this region at this time period."
+        
+        Among the most significant discoveries are coins from the Byzantine Empire, Roman glass vessels, Indian semi-precious stones, and fragments of what appear to be Chinese silk—all found within what archaeologists have identified as a planned urban settlement with distinct quarters for production, residence, and commerce.
+        
+        Carbon dating of organic materials found at the site consistently places its peak occupation between 320-550 CE, corresponding to the late Roman and early Byzantine period. The architectural remains reveal a sophisticated settlement with stone buildings, a complex water management system, and evidence of specialized craft production, including metalworking and possibly glass manufacture.
+        
+        "The presence of these imported goods in such quantities indicates that this wasn't simply a matter of a few exotic items finding their way inland through down-the-line trading," explained Dr. Klaus Schmidt of the University of Heidelberg, the project's co-director. "This appears to have been a deliberate trade hub, strategically positioned to connect multiple networks."
+        
+        The discovery is particularly significant because it contradicts long-standing assumptions about the timing and extent of Africa's participation in early global trade. Previous archaeological evidence had suggested that extensive trade between sub-Saharan Africa and Eurasia developed primarily after the spread of Islam in the 7th and 8th centuries CE.
+        
+        "We're looking at evidence that predates Islamic trade networks by several centuries," noted Dr. Haile. "This requires us to completely rethink the chronology and geography of early global connections."
+        
+        Analysis of the site's extensive bone deposits reveals another surprising aspect of Dengora Biyu: its inhabitants appear to have been raising and domesticating camels on a significant scale, along with cattle and sheep. This finding suggests that the settlement may have controlled crucial transportation networks, as camels would have been essential for crossing the arid regions separating the Ethiopian highlands from Red Sea ports.
+        
+        The excavation has also yielded linguistic evidence in the form of inscriptions using multiple scripts, including Greek, ancient Ethiopian Ge'ez, and what epigraphers tentatively identify as Brahmi script from the Indian subcontinent. Several stone tablets contain what appear to be inventories and commercial records, potentially offering direct documentation of ancient trade transactions once they are fully translated.
+        
+        "The multilingual nature of these inscriptions suggests a cosmopolitan population that was comfortable operating across cultural boundaries," said Dr. Maria Fernandez, an epigrapher with the project. "We're seeing evidence of a much more interconnected ancient world than we previously imagined."
+        
+        DNA analysis of human remains from the site's cemetery provides further evidence of its diverse population. Preliminary results indicate genetic markers associated with Northeast Africa, the Eastern Mediterranean, and South Asia, suggesting that merchants or their descendants from these regions may have resided at Dengora Biyu.
+        
+        Environmental archaeology at the site is revealing how this trade center impacted and adapted to its local ecosystem. Analysis of pollen and plant remains indicates that the surrounding landscape was significantly modified, with evidence of terraced fields and irrigation systems that would have supported intensive agriculture to feed the urban population.
+        
+        "This settlement wasn't just dropped into the landscape," explained environmental archaeologist Dr. Thomas Wolde. "Its inhabitants engineered their environment extensively, creating an agricultural system that could support both permanent residents and presumably the flow of traders and caravans."
+        
+        The question of why such a significant trade center would develop in this remote highland location remains under investigation. The researchers hypothesize that the site may have been positioned to control access to valuable local resources, potentially including gold, ivory, obsidian, or agricultural products. Another possibility is that it served as an important stop on a trade route that allowed merchants to avoid political instabilities or taxation regimes along more established paths.
+        
+        "Complex trade networks often develop alternatives when main routes become problematic," noted Dr. Schmidt. "The fourth and fifth centuries were periods of significant political restructuring in both the Roman world and the Aksumite Empire of Ethiopia. Dengora Biyu may represent an entrepreneurial response to changing political circumstances."
+        
+        The discovery has generated significant excitement in the archaeological community, with scholars emphasizing its importance for understanding early globalization processes. "This finding forces us to reconsider Africa's role in early global networks," commented Dr. Eleanor Johnson, an archaeologist specializing in ancient trade systems who is not affiliated with the project. "It challenges Eurocentric perspectives that have often marginalized Africa's position in world history."
+        
+        Ethiopian officials have announced plans to secure UNESCO World Heritage status for the site and develop research facilities that will support ongoing investigation while ensuring that the economic benefits of any future tourism remain within the local community.
+        
+        For the researchers, the work has only begun. Less than 10% of the site has been systematically excavated, and ground-penetrating radar surveys suggest numerous substantial structures remain unexplored. The team plans to continue excavations for at least another five years, focusing particularly on what appears to be a large public building complex at the settlement's center.
+        
+        "Each season of excavation brings new surprises and challenges our assumptions," said Dr. Haile. "What's most exciting is that sites like this have likely been overlooked throughout the region. Dengora Biyu may be just the first of many discoveries that will fundamentally alter our understanding of ancient African civilizations and their place in world history."
+        
+        As analysis continues on the thousands of artifacts already recovered, researchers anticipate that Dengora Biyu will provide unprecedented insights into not only the mechanics of early trade networks but also the cultural exchanges and knowledge transfers that accompanied them, potentially rewriting substantial portions of ancient world history.`,
+            description: "News report on an archaeological discovery in Ethiopia that changes our understanding of ancient global trade networks.",
+            estimatedTime: 13,
+            difficulty: "hard",
+            vocabulary: [
+              { word: "epigraphers", definition: "specialists who study ancient inscriptions" },
+              { word: "Ge'ez", definition: "an ancient Ethiopian script and language" },
+              { word: "Brahmi", definition: "an ancient script used in the Indian subcontinent" },
+              { word: "down-the-line trading", definition: "a process where goods are traded between neighboring groups, gradually moving far from their source" },
+              { word: "terraced", definition: "land that has been cut into flat levels for cultivation on a slope" }
+            ],
+            questions: [
+              {
+                id: "advanced-news-3-q1",
+                type: "mcq",
+                text: "When was the peak occupation period of Dengora Biyu according to carbon dating?",
+                options: ["100-300 CE", "320-550 CE", "600-800 CE", "900-1100 CE"],
+                correctAnswer: "320-550 CE"
+              },
+              {
+                id: "advanced-news-3-q2",
+                type: "mcq",
+                text: "What makes this archaeological discovery particularly significant?",
+                options: [
+                  "It is the largest ancient settlement ever found in Africa",
+                  "It contains the earliest known writing system",
+                  "It shows evidence of trade connections centuries earlier than previously thought",
+                  "It proves that aliens visited ancient Ethiopia"
+                ],
+                correctAnswer: "It shows evidence of trade connections centuries earlier than previously thought"
+              },
+              {
+                id: "advanced-news-3-q3",
+                type: "mcq",
+                text: "What animals were being raised at Dengora Biyu according to bone deposits?",
+                options: [
+                  "Horses, goats, and pigs",
+                  "Camels, cattle, and sheep",
+                  "Elephants and rhinoceroses",
+                  "Only wild animals were found"
+                ],
+                correctAnswer: "Camels, cattle, and sheep"
+              },
+              {
+                id: "advanced-news-3-q4",
+                type: "mcq",
+                text: "What evidence suggests that Dengora Biyu had a diverse, multicultural population?",
+                options: [
+                  "Only the architectural styles",
+                  "The presence of a single foreign language",
+                  "Multiple scripts in inscriptions and DNA evidence from diverse regions",
+                  "Religious artifacts from different faiths"
+                ],
+                correctAnswer: "Multiple scripts in inscriptions and DNA evidence from diverse regions"
+              },
+              {
+                id: "advanced-news-3-q5",
+                type: "mcq",
+                text: "How much of the Dengora Biyu site has been systematically excavated so far?",
+                options: ["Less than 10%", "About 25%", "About 50%", "More than 75%"],
+                correctAnswer: "Less than 10%"
+              }
+            ],
+            pronunciation: [
+              {
+                title: "Archaeological Terminology",
+                text: "Environmental archaeology at the site is revealing how this trade center impacted and adapted to its local ecosystem.",
+                focusPoints: ["Practice the word stress in 'archaeology' and 'environmental'", "Focus on clearly pronouncing 'ecosystem'"]
+              }
+            ]
+          },
+        
+          // IELTS - STORIES (3 ta)
+          {
+            id: "ielts-story-1",
+            title: "The Restoration Project",
+            level: "ielts",
+            type: "stories",
+            text: `When Eliza Matthews first laid eyes on the dilapidated Victorian house on Maple Street, most observers would have seen only an architectural catastrophe: peeling paint, rotting wooden porches, cracked windows, and a once-majestic structure slowly surrendering to the persistent forces of time and neglect. What distinguished Eliza's gaze, however, was her peculiar ability to perceive not merely what stood before her, but what once had been and—more importantly—what could be again.
+        
+        As an architectural conservationist specializing in nineteenth-century residential buildings, Eliza had developed both the technical expertise and historical knowledge to resurrect such structures from near-terminal states of decay. Yet her colleagues at the Historical Preservation Society often remarked that her success stemmed from something beyond professional training—a nearly preternatural intuition for divining a building's original character and hidden potential.
+        
+        "The Douglas House," as locals still called it despite its having passed through seven owners since the Douglas family had occupied it, had been vacant for nearly a decade. Its last residents, an elderly couple who had purchased it in the 1970s with renovation intentions that never materialized, had reluctantly relocated to assisted living, leaving the house to languish on the market, its asking price steadily declining as interested buyers invariably balked at the enormous restoration costs that any inspection immediately revealed.
+        
+        The city council had recently debated whether to condemn the property, with several members arguing that the decaying structure posed both safety hazards and a blight on neighborhood property values. It was precisely this conversation that had brought Eliza to Maple Street on a crisp autumn morning, clipboard in hand, to conduct a preliminary assessment. The Historical Preservation Society had received an anonymous donation specifically designated for salvaging historically significant architecture within the city limits, and the Douglas House represented exactly the sort of project these funds were intended to support.
+        
+        As Eliza methodically documented the building's condition, moving from room to room with practiced efficiency, she found herself increasingly captivated not by the extensive damage—which her experienced eye catalogued automatically—but by the remarkable craftsmanship that remained visible beneath decades of deterioration. The ornate plaster ceiling medallions, though partially collapsed in places; the intricate woodwork surrounding doorways and windows, obscured beneath multiple layers of carelessly applied paint; the marble fireplace mantels, cracked but fundamentally intact—all testified to the original builder's commitment to quality and artistic detail.
+        
+        In the library, Eliza discovered something particularly intriguing. Beneath a section of water-damaged wallpaper that had begun to separate from the wall, she glimpsed what appeared to be hand-painted murals. Carefully peeling back a small additional section, she revealed a pastoral scene executed with considerable skill: rolling hills, a meandering stream, and a grove of trees rendered in colors that, though faded, retained a surprising vibrancy. If similar artwork existed throughout the room, the restoration of this space alone would add immeasurably to the architectural and historical significance of the property.
+        
+        Descending to the basement with her flashlight, Eliza made perhaps her most valuable discovery. There, stacked haphazardly in a corner, lay what appeared to be the original architectural drawings for the house, along with journals, correspondence, and photographs documenting its construction and early occupation. This historical treasure trove would prove invaluable in guiding accurate restoration work, eliminating much of the guesswork that typically complicated such projects.
+        
+        By the time Eliza completed her initial survey, the autumn sun was already casting long shadows across the overgrown garden. Sitting on the front steps, she reviewed her notes, calculating preliminary cost estimates while watching golden leaves spiral down from the massive oak trees that flanked the property. The restoration would be challenging, certainly—she estimated eighteen months of intensive work at minimum—but unquestionably worthwhile. With proper restoration, the Douglas House could serve as a powerful reminder of the city's architectural heritage and the craftsmanship of a bygone era.
+        
+        The subsequent weeks were consumed with preparations: securing necessary permits, researching the building's history through local archives, assembling a team of craftspeople specializing in historical restoration techniques, and developing a meticulous timeline for the project. Eliza's proposal to the Historical Preservation Society's board emphasized not only the architectural significance of the Douglas House but also its potential as an educational resource and community asset once restored.
+        
+        Work began in earnest with the arrival of spring. The initial phase—stabilizing the structure and addressing critical damage to prevent further deterioration—proceeded relatively smoothly, though not without the inevitable surprises that any historic restoration entails. Behind one wall, workers discovered extensive termite damage requiring additional structural reinforcement. Several original windows proved unsalvageable, necessitating custom reproductions created using traditional methods.
+        
+        As the project progressed, it began attracting attention beyond the immediate neighborhood. A local newspaper ran a feature article on the restoration, complete with before-and-after photographs of completed sections. This publicity attracted both volunteers eager to contribute to the effort and additional donations to supplement the original funding. A retired craftsman who had specialized in Victorian-era plasterwork offered his expertise for the ceiling medallion restoration, while a university architectural program arranged for students to participate as interns, simultaneously contributing labor and gaining invaluable practical experience.
+        
+        Perhaps most significantly, the restoration inspired a community-wide conversation about historical preservation. Residents who had previously viewed older buildings primarily as maintenance burdens began recognizing their cultural and aesthetic value. The city council, noting the positive public response, initiated discussions about establishing a dedicated fund for similar projects and developing more comprehensive preservation policies.
+        
+        Eliza, though gratified by this broader impact, remained primarily focused on the countless decisions that any restoration project entails. Each element required careful consideration: whether to preserve, repair, or replace; how to integrate modern systems like electrical wiring and plumbing without compromising historical integrity; when to prioritize authenticity over practicality or vice versa. These judgments drew upon both her technical knowledge and the philosophical framework she had developed through years of preservation work.
+        
+        Seventeen months after work began—remarkably close to Eliza's initial estimate—the restoration reached substantial completion. The transformed Douglas House stood once again as a neighborhood landmark, its exterior returned to its original color scheme as determined through paint analysis, its structural integrity ensured for decades to come, its interior spaces both historically authentic and functionally appropriate for contemporary use.
+        
+        Following extensive discussion, the Historical Preservation Society had decided that the restored building would serve multiple purposes: its main floor would function as a museum showcasing Victorian domestic architecture and featuring exhibits on local history; its upper floors would provide office space for the Society and meeting rooms available to community organizations; and the restored gardens would offer a public green space in a neighborhood with limited access to parks.
+        
+        At the official reopening ceremony, as Eliza stood somewhat uncomfortably at the podium acknowledging the applause that followed the board president's effusive introduction, she found herself reflecting on what truly motivated her work. Beyond the technical challenges and aesthetic satisfaction, beyond even the historical value, what ultimately drove her passion for preservation was the conviction that such projects represented a form of temporal stewardship—a responsibility to maintain connections between past, present, and future.
+        
+        Looking out at the gathered community members, many of whom had contributed in various ways to the restoration, Eliza realized that the true significance of the Douglas House transcended its architectural features. The building had become a catalyst for community engagement, a repository of shared history, and a testament to the enduring value of craftsmanship and beauty. In preserving this structure, they had collectively affirmed that continuity matters—that in a world increasingly characterized by disposability and constant change, maintaining links to our architectural heritage offers something essential to civic identity and cultural cohesion.
+        
+        As the ceremony concluded and visitors began touring the restored rooms, Eliza quietly slipped away from the crowd. There would be other buildings in need of similar intervention, other opportunities to rescue pieces of history from oblivion. Walking down Maple Street, she already found herself scanning rooflines and façades with her practiced eye, imagining possibilities, seeing beyond present appearances to historical significance and future potential.`,
+            description: "A story about an architectural conservationist who takes on the challenging restoration of a historic Victorian house.",
+            estimatedTime: 12,
+            difficulty: "very hard",
+            vocabulary: [
+              { word: "dilapidated", definition: "in a state of disrepair or ruin due to age or neglect" },
+              { word: "preternatural", definition: "beyond what is normal or natural; extraordinary" },
+              { word: "balked", definition: "hesitated or refused to accept or do something" },
+              { word: "languish", definition: "to exist in an unpleasant or unwanted situation, often for a long time" },
+              { word: "effusive", definition: "expressing feelings of gratitude, pleasure, or approval in an unrestrained or heartfelt manner" }
+            ],
+            questions: [
+              {
+                id: "ielts-story-1-q1",
+                type: "mcq",
+                text: "What is Eliza Matthews' profession?",
+                options: [
+                  "Real estate agent",
+                  "Architectural conservationist",
+                  "City council member",
+                  "Interior designer"
+                ],
+                correctAnswer: "Architectural conservationist"
+              },
+              {
+                id: "ielts-story-1-q2",
+                type: "mcq",
+                text: "Why was the Douglas House at risk of being condemned?",
+                options: [
+                  "The owners wanted to build a modern structure instead",
+                  "It contained dangerous building materials",
+                  "It posed safety hazards and was considered a neighborhood blight",
+                  "The city needed the land for a new development"
+                ],
+                correctAnswer: "It posed safety hazards and was considered a neighborhood blight"
+              },
+              {
+                id: "ielts-story-1-q3",
+                type: "mcq",
+                text: "What valuable discovery did Eliza make in the basement?",
+                options: [
+                  "Valuable antique furniture",
+                  "A hidden safe containing jewelry",
+                  "Original architectural drawings and historical documents",
+                  "Evidence of structural problems that would make restoration impossible"
+                ],
+                correctAnswer: "Original architectural drawings and historical documents"
+              },
+              {
+                id: "ielts-story-1-q4",
+                type: "mcq",
+                text: "How long did the restoration project take to complete?",
+                options: [
+                  "Six months",
+                  "One year",
+                  "Seventeen months",
+                  "Two and a half years"
+                ],
+                correctAnswer: "Seventeen months"
+              },
+              {
+                id: "ielts-story-1-q5",
+                type: "mcq",
+                text: "What was decided as the future purpose of the restored Douglas House?",
+                options: [
+                  "A private residence for a wealthy buyer",
+                  "A luxury hotel",
+                  "A multi-purpose building with museum, offices, and public gardens",
+                  "A public library and archive"
+                ],
+                correctAnswer: "A multi-purpose building with museum, offices, and public gardens"
+              },
+              {
+                id: "ielts-story-1-q6",
+                type: "mcq",
+                text: "According to the text, what does Eliza believe is the true significance of historical preservation?",
+                options: [
+                  "Making money from tourism",
+                  "Personal recognition and career advancement",
+                  "Maintaining connections between past, present, and future",
+                  "Competing with other cities for architectural prestige"
+                ],
+                correctAnswer: "Maintaining connections between past, present, and future"
+              }
+            ],
+            pronunciation: [
+              {
+                title: "Architectural Terminology",
+                text: "As Eliza methodically documented the building's condition, she found herself captivated by the remarkable craftsmanship visible beneath decades of deterioration.",
+                focusPoints: ["Practice the word stress in 'architectural' and 'methodically'", "Focus on pronouncing 'craftsmanship' clearly"]
+              }
+            ]
+          },
+          {
+            id: "ielts-story-2",
+            title: "The Language Experiment",
+            level: "ielts",
+            type: "stories",
+            text: `Professor Helena Chen checked the recording equipment for the third time that morning, a manifestation of both professional thoroughness and barely concealed nervous anticipation. After fifteen years of research into linguistic acquisition patterns, she stood on the precipice of her most ambitious experiment yet—one that could potentially revolutionize our understanding of how human beings process and internalize language structures.
+        
+        The university laboratory, ordinarily austere and institutional, had been transformed over the preceding weeks into something resembling a comfortable living environment: soft lighting replaced the harsh fluorescents; ergonomic furniture arranged in conversational groupings supplanted the utilitarian workstations; and carefully selected artwork adorned walls previously dedicated to academic credentials and conference posters. These modifications hadn't been implemented for aesthetic reasons but rather as essential variables in an experimental design requiring participants to achieve a state of relaxed attentiveness—what Helena had identified in her previous research as the optimal neurological condition for accelerated language acquisition.
+        
+        At precisely 9:00 AM, the first participant arrived. Marco Alvarez, a 34-year-old software engineer with no prior exposure to any East Asian languages, would spend the next thirty days immersed in Helena's experimental protocol for learning Mandarin Chinese. If her hypotheses proved correct, by the end of the month Marco would achieve conversational fluency equivalent to what traditional language learning methods typically required eighteen to twenty-four months to develop.
+        
+        "Coffee?" Helena offered as Marco settled into an armchair, his expression betraying the mixture of skepticism and hope that characterized most of the twelve volunteers selected for the study. Each participant had undergone rigorous screening to ensure comparable cognitive profiles and learning histories, minimizing variables that might confound the experimental results.
+        
+        "Thanks," Marco replied, accepting the cup. "I'm still not entirely clear on what we'll be doing for the next month. The preliminary materials mentioned something about 'neural-linguistic integration techniques' and 'contextual immersion,' but that doesn't tell me much about what my days will actually look like."
+        
+        Helena nodded, having deliberately limited detailed protocol descriptions during recruitment to prevent participants from researching and potentially attempting the techniques independently before the study began.
+        
+        "The simplest explanation is that we'll be approaching language acquisition from a fundamentally different perspective than traditional methods," she explained. "Rather than treating a new language as a system of rules to be memorized and vocabulary to be accumulated, we'll be engaging with Mandarin as a holistic experience, integrating physical movement, emotional states, sensory input, and social interaction in ways that mirror how we originally acquired our native languages as children—but optimized for adult neurological structures."
+        
+        Marco looked simultaneously intrigued and dubious. "That sounds...unconventional."
+        
+        "Precisely why we're testing it," Helena replied with a smile. "Conventional approaches to adult language acquisition have remarkably consistent limitations and plateaus. By reconceptualizing the entire framework, we hope to bypass those constraints."
+        
+        Over the next several hours, Helena introduced Marco to the first phase of the protocol, establishing baseline measurements of his current linguistic capabilities and cognitive processing patterns. Unlike traditional language aptitude tests, Helena's assessments involved activities that appeared tangentially related to language at best: arranging abstract shapes according to intuitive patterns; identifying emotional states from subtle facial expressions in photographs; discriminating between nearly identical sounds across frequency ranges; and navigating complex narrative structures in his native English.
+        
+        "You haven't asked me to repeat a single word of Mandarin," Marco observed during a brief break. "I was expecting to be drilling basic phrases by now."
+        
+        "That comes tomorrow," Helena assured him. "Today is about mapping your cognitive landscape—understanding how your particular brain processes patterns, emotions, sounds, and meanings. No two participants have identical cognitive architectures, so we'll be customizing specific elements of the protocol based on today's results."
+        
+        By the end of the first week, Marco's initial skepticism had evolved into cautious enthusiasm. The protocol indeed differed radically from any language learning experience he had previously encountered. Mornings typically began with what Helena termed "somatic integration"—physical movements synchronized with specific phonemic patterns, training his articulatory muscles to produce unfamiliar sounds while simultaneously encoding those sounds through kinesthetic memory.
+        
+        Mid-days focused on "contextual immersion"—elaborately constructed scenarios in which Marco needed to achieve concrete objectives using only the Mandarin vocabulary and structures he had thus far acquired. Unlike conventional role-playing exercises, these scenarios engaged multiple sensory systems simultaneously: distinctive aromas accompanied specific vocabulary domains; particular lighting conditions became associated with grammatical structures; and subtle background music in varying keys correlated with different tonal patterns essential to Mandarin.
+        
+        "It's as though you're trying to make me associate every aspect of the language with something else," Marco remarked during the debriefing session concluding his first week.
+        
+        "That's precisely what we're doing," Helena confirmed. "Traditional language learning often treats words and grammar as abstract symbols to be memorized in isolation. We're deliberately creating rich networks of association that anchor the language in multiple regions of your brain simultaneously, creating redundant neural pathways for retrieval."
+        
+        The second week introduced what Helena called "narrative scaffolding"—an approach wherein Marco absorbed vocabulary and grammatical structures through increasingly complex stories that built upon one another, each new narrative incorporating and reinforcing previously learned elements while strategically introducing new components at carefully calibrated intervals.
+        
+        By day seventeen, the transformation became undeniable. During the morning evaluation, Marco successfully navigated a thirty-minute conversation with a native Mandarin speaker who had no connection to the research project and had been instructed to speak naturally rather than simplifying his language for a learner. While Marco's pronunciation retained traces of his native accent, his comprehension and expressive capabilities had progressed far beyond what conventional methods typically achieved in comparable timeframes.
+        
+        "This is rather extraordinary," commented Dr. Wei Liu, the independent linguistics expert Helena had invited to conduct blind assessments throughout the experiment. "His sentence construction exhibits native-like intuition for structures that typically require years to internalize. More remarkably, he's displaying pragmatic competence—understanding contextual nuances and implied meanings rather than just literal definitions."
+        
+        Helena acknowledged this observation with contained satisfaction, her scientific caution restraining any premature celebration despite the promising indicators. "We're seeing similar patterns with the other participants, though with notable variations in specific domains. Some are advancing more rapidly in grammatical intuition while others show accelerated vocabulary acquisition."
+        
+        The final week of the experiment introduced the most innovative component of Helena's protocol: "linguistic dreamscaping." In this phase, participants listened to carefully structured Mandarin narratives during the hypnagogic state between wakefulness and sleep—a period when the brain becomes exceptionally receptive to certain types of pattern recognition while critical analytical filters are temporarily diminished.
+        
+        On the twenty-ninth day, Helena observed the culminating evaluation session from behind one-way glass, maintaining experimental distance while a team of independent assessors subjected Marco to a comprehensive evaluation of his Mandarin proficiency. For three hours, he underwent rigorous testing across multiple linguistic domains: comprehension of complex native-speed conversations; production of grammatically sophisticated narratives; appropriate navigation of culturally-specific conversational nuances; and accurate perception and reproduction of tonal distinctions.
+        
+        The results exceeded even Helena's carefully moderated expectations. Marco had achieved proficiency equivalent to CEFR B2/C1 level—upper intermediate to advanced capability—in just under one month. Conventional intensive language programs typically required at least eighteen months to achieve comparable results, and often substantially longer for languages as typologically distant from English as Mandarin.
+        
+        As the experiment concluded with each participant's final assessment, Helena faced the complex task of interpreting the voluminous data generated over the preceding month. While all twelve participants demonstrated accelerated acquisition compared to conventional learning approaches, the rates varied significantly between individuals. Moreover, different aspects of Helena's protocol appeared more effective for different cognitive profiles: participants with strong visual-spatial processing benefited disproportionately from certain components, while those with heightened auditory discrimination thrived with others.
+        
+        Six months later, Helena presented the preliminary findings at the International Conference on Applied Linguistics in Singapore. Her presentation generated precisely the academic tempest she had anticipated: established figures in the field expressed skepticism about both the methodology and results, questioning whether such accelerated acquisition could be maintained long-term or replicated outside carefully controlled experimental conditions. Younger researchers, less invested in traditional frameworks, responded with enthusiastic interest, particularly regarding the protocol's implications for language education and cognitive neuroscience.
+        
+        "The most significant insight isn't about language acquisition specifically," Helena explained during the subsequent panel discussion. "It's about cognitive integration more broadly. Our research suggests that human learning capacity remains extraordinarily plastic throughout adulthood, provided we engage multiple neural systems simultaneously rather than relying on the narrowly analytical approaches that characterize conventional education."
+        
+        As the academic debate continued, Helena had already begun preparations for the next phase of research: a longitudinal study tracking the twelve original participants over five years to assess retention and continued language development, alongside a larger-scale replication study implementing refined versions of the protocol across more diverse populations and multiple target languages.
+        
+        For Marco Alvarez, the implications extended beyond linguistic capability. "Learning Mandarin this way has changed how I approach everything," he explained during his six-month follow-up interview. "I'm more attuned to patterns I previously overlooked, more conscious of how sensory experiences shape cognition. It's as though the experiment enhanced not just language acquisition specifically, but my overall capacity for perceiving and processing complexity."
+        
+        Which was, Helena reflected as she reviewed the interview transcript, perhaps the most profound implication of her research: that language, rather than being merely a communication system to be acquired, might serve as a gateway for expanding human cognitive capacity more fundamentally—a prospect warranting further investigation with implications extending far beyond linguistics into the broader domains of human potential and cognitive enhancement.`,
+            description: "A story about a linguistics professor conducting a groundbreaking experiment in language acquisition.",
+            estimatedTime: 14,
+            difficulty: "very hard",
+            vocabulary: [
+              { word: "precipice", definition: "a very steep rock face or cliff, especially a tall one; figuratively, a dangerous situation" },
+              { word: "tangentially", definition: "in a way that relates only slightly to a matter; peripherally" },
+              { word: "articulatory", definition: "relating to the movements and positions of the speech organs in producing speech sounds" },
+              { word: "hypnagogic", definition: "relating to the state immediately before falling asleep" },
+              { word: "typologically", definition: "relating to the classification of languages according to their structural features" }
+            ],
+            questions: [
+              {
+                id: "ielts-story-2-q1",
+                type: "mcq",
+                text: "What language was being taught in Professor Chen's experiment?",
+                options: ["Japanese", "Korean", "Mandarin Chinese", "Cantonese"],
+                correctAnswer: "Mandarin Chinese"
+              },
+              {
+                id: "ielts-story-2-q2",
+                type: "mcq",
+                text: "How long was the experimental language learning program?",
+                options: ["One week", "Two weeks", "Thirty days", "Six months"],
+                correctAnswer: "Thirty days"
+              },
+              {
+                id: "ielts-story-2-q3",
+                type: "mcq",
+                text: "What was unusual about the first day of Marco's language training?",
+                options: [
+                  "He was asked to speak Mandarin immediately",
+                  "He wasn't asked to repeat any Mandarin words",
+                  "He had to teach someone else Mandarin",
+                  "He failed all the initial assessments"
+                ],
+                correctAnswer: "He wasn't asked to repeat any Mandarin words"
+              },
+              {
+                id: "ielts-story-2-q4",
+                type: "mcq",
+                text: "What is 'somatic integration' as described in the story?",
+                options: [
+                  "Sleeping while listening to the language",
+                  "Watching videos in the target language",
+                  "Physical movements synchronized with specific speech sounds",
+                  "Eating foods from the target language's culture"
+                ],
+                correctAnswer: "Physical movements synchronized with specific speech sounds"
+              },
+              {
+                id: "ielts-story-2-q5",
+                type: "mcq",
+                text: "What level of proficiency did Marco achieve by the end of the experiment?",
+                options: [
+                  "Beginner level (A1/A2)",
+                  "Intermediate level (B1)",
+                  "Upper intermediate to advanced level (B2/C1)",
+                  "Native-like fluency (C2)"
+                ],
+                correctAnswer: "Upper intermediate to advanced level (B2/C1)"
+              },
+              {
+                id: "ielts-story-2-q6",
+                type: "mcq",
+                text: "How did established academics respond to Helena's findings?",
+                options: [
+                  "With immediate acceptance and praise",
+                  "With skepticism about the methodology and results",
+                  "By offering her funding for expanded research",
+                  "By suggesting she apply the method to other fields"
+                ],
+                correctAnswer: "With skepticism about the methodology and results"
+              }
+            ],
+            pronunciation: [
+              {
+                title: "Scientific and Linguistic Terminology",
+                text: "Traditional language learning often treats words and grammar as abstract symbols to be memorized in isolation. We're deliberately creating rich networks of association.",
+                focusPoints: ["Practice the word stress in 'traditional' and 'deliberately'", "Focus on clear articulation of 'networks of association'"]
+              }
+            ]
+          },
+          {
+            id: "ielts-story-3",
+            title: "The River's Memory",
+            level: "ielts",
+            type: "stories",
+            text: `The anthropologist's journal lay open on the desk, its pages filled with meticulously recorded interviews, carefully sketched maps, and thoughtfully annotated photographs. Dr. Amara Okafor had spent the past eighteen months documenting the traditional ecological knowledge of the Riverine people, an indigenous community whose ancestral territories spanned the watershed of the Nderi River in East Africa. Now, as unprecedented flooding threatened both the physical landscape and the cultural heritage of the region, her research had acquired unexpected urgency.
+        
+        The government's proposed solution to the flooding—a massive dam and reservoir system—had polarized public opinion. Proponents emphasized the infrastructure's capacity to control dangerous water levels while generating hydroelectric power for a region where only thirty percent of rural households had electricity access. Opponents cited environmental concerns, displacement of communities, and the destruction of archaeological sites dating back three millennia.
+        
+        What distinguished Amara's contribution to this contentious debate was her focus on a perspective frequently marginalized in development discussions: the sophisticated environmental knowledge embedded within indigenous oral traditions and practices. Her training in both anthropology and hydrology allowed her to recognize that stories often dismissed as folklore actually encoded generations of observations about the river's behavior and the surrounding ecosystem's responses to environmental changes.
+        
+        "The river remembers what the people forget," Elder Makena had told her during their first interview beneath the sprawling branches of a baobab tree that local tradition held to be over a thousand years old. "Our ancestors learned to read its memories, and those who didn't listen found their villages washed away."
+        
+        Initially, Amara had interpreted this statement as poetic metaphor. However, as she compared the community's oral histories with hydrological records and geological evidence, striking correlations emerged. Stories about "the time the river reclaimed the western fields" aligned precisely with a major flood documented in colonial records from 1923. Myths describing "the river's hunger that swallowed three villages" corresponded to erosion patterns consistent with catastrophic flooding approximately two centuries earlier, well before written records existed for the region.
+        
+        Most compelling were the traditional land management practices that seemed irrational to outside observers but revealed remarkable sophistication when examined through both cultural and scientific lenses. The community periodically abandoned fertile riverbank areas that agricultural experts identified as prime farmland, leaving them uncultivated for twenty-year cycles. Government agricultural programs had repeatedly tried to override this practice, characterizing it as superstitious or inefficient.
+        
+        Yet when Amara conducted soil analyses of these areas, she discovered that they precisely corresponded to vulnerable flood zones with approximately twenty-year inundation cycles—information encoded not in written hydrological surveys but in cultural practices transmitted across generations. What officials viewed as stubborn adherence to outdated customs represented, in fact, a nuanced risk management system refined through centuries of environmental observation.
+        
+        The proposed dam would permanently submerge many of these traditionally managed areas, displacing communities and disrupting knowledge systems that had enabled sustainable coexistence with the river's natural rhythms for centuries. However, Amara recognized that opposing necessary infrastructure development wasn't a viable solution either. The changing climate had indeed altered historical flooding patterns, creating new vulnerabilities that traditional knowledge alone couldn't address.
+        
+        Her research therefore evolved from pure documentation to applied anthropology. Working collaboratively with community elders, environmental engineers, and government officials, she developed an alternative proposal that incorporated indigenous knowledge into modern flood management approaches.
+        
+        The revised plan maintained the hydroelectric component but reconfigured the dam's location and design based on insights from traditional ecological knowledge. Instead of a single massive structure, the new approach proposed a series of smaller interventions distributed throughout the watershed, many incorporating traditional water management techniques that had been practiced in the region for generations.
+        
+        "Our ancestors built check dams using local materials," explained Elder Nia, showing Amara ancient stone structures half-hidden in vegetation along seasonal tributaries. "Each family maintained several, and together they slowed the water during heavy rains, giving the earth time to drink before the water reached the main river."
+        
+        This distributed approach, updated with modern materials and engineering principles, would require significantly less displacement of communities, preserve archaeological sites, and potentially provide more resilient flood protection than the original design. Additionally, it would enable local communities to participate meaningfully in both construction and maintenance, creating employment while preserving traditional environmental management roles.
+        
+        Presenting this alternative to government officials initially proved challenging. The project engineers, educated at prestigious international institutions, were skeptical of incorporating what they perceived as unscientific folk practices into modern infrastructure design. The turning point came when extreme rainfall during the most recent wet season overwhelmed preliminary construction at the main dam site—an outcome that the Riverine elders had predicted based on their observations of specific bird nesting patterns and vegetation changes months earlier.
+        
+        "The challenge we face is not choosing between traditional and modern knowledge systems," Amara explained during a crucial meeting with the Ministry of Infrastructure Development. "Rather, we need to recognize them as complementary approaches to environmental understanding, each with distinct strengths and limitations. The scientific method excels at precise measurement and modeling based on quantifiable variables, while indigenous knowledge systems excel at integrating complex, place-based observations across generations."
+        
+        This framing—presenting indigenous knowledge not as opposition to development but as a sophisticated system with practical applications for contemporary challenges—gradually gained traction among key decision-makers. An independent assessment commissioned by the Ministry concluded that the hybrid approach could potentially reduce construction costs by eighteen percent while increasing community acceptance and long-term sustainability.
+        
+        As the project entered its redesign phase, Amara's role evolved once again. She now facilitated knowledge exchange between elders and engineers, translating between epistemological frameworks that had rarely engaged in meaningful dialogue. This process revealed additional insights that neither approach might have generated independently.
+        
+        For instance, when discussing seasonal tributary management, engineers initially proposed concrete channels to maximize flow efficiency during high rainfall. The elders objected based on traditional beliefs about "the river's need to breathe through its smaller veins." When this concept was examined through scientific analysis, it revealed the critical hydrological functions of natural percolation and groundwater recharge that engineered channels would have disrupted—functions that traditional management had implicitly preserved.
+        
+        Not all traditional practices proved applicable to contemporary conditions, however. Some had developed in response to historical environmental patterns significantly altered by climate change and upstream development. In these cases, scientific modeling offered valuable projections that traditional knowledge could not provide. The most effective solutions emerged when both knowledge systems were engaged in respectful dialogue rather than hierarchical evaluation.
+        
+        Throughout this process, Amara maintained meticulous records of both the technical discussions and the methodological approach to knowledge integration. Her case study was beginning to attract attention from development agencies and academic institutions globally, as it offered a replicable framework for addressing a challenge faced in infrastructure projects worldwide: how to incorporate place-based ecological knowledge into standardized engineering approaches.
+        
+        "The river's memory is longer than any human life," Elder Makena reminded participants during a community consultation session. "We are not its owners but its students and guardians. Our task is to learn its language and remember its lessons."
+        
+        This perspective—recognizing natural systems as repositories of information rather than merely resources to be managed—represented perhaps the most profound contribution of indigenous knowledge to the project. It suggested an approach to environmental stewardship based not solely on control and exploitation but on relationship and reciprocity—principles increasingly recognized as essential for sustainable development in an era of environmental uncertainty.
+        
+        As construction began on the revised project, Amara continued documenting both the technical implementation and the ongoing knowledge exchange process. The outcome remained uncertain; innovative approaches inevitably entail risks alongside their potential benefits. Yet regardless of the specific infrastructural results, the project had already achieved something significant: it had demonstrated that environmental challenges are simultaneously technical and cultural, and that addressing them effectively requires engaging with both dimensions.
+        
+        In her journal's final entry before submitting her report to the project oversight committee, Amara noted: "Perhaps the most valuable lesson from the Riverine people's relationship with the Nderi is that human memory and natural systems are interdependent. Our infrastructure reflects not just our engineering capabilities but our understanding of our place within ecological relationships developed across generations. The river remembers—but only if we remember to listen."`,
+            description: "A story about an anthropologist working with indigenous communities on a flood management project that combines traditional knowledge with modern engineering.",
+            estimatedTime: 14,
+            difficulty: "very hard",
+            vocabulary: [
+              { word: "watershed", definition: "an area of land draining into a river, river system, or other body of water" },
+              { word: "polarized", definition: "divided or caused to divide into two sharply contrasting groups or sets of opinions or beliefs" },
+              { word: "embedded", definition: "fixed firmly and deeply in a surrounding mass" },
+              { word: "epistemological", definition: "relating to the theory of knowledge, especially with regard to its methods, validity, and scope" },
+              { word: "reciprocity", definition: "the practice of exchanging things with others for mutual benefit" }
+            ],
+            questions: [
+              {
+                id: "ielts-story-3-q1",
+                type: "mcq",
+                text: "What aspect of indigenous knowledge did Dr. Amara Okafor focus on in her research?",
+                options: [
+                    "Religious ceremonies related to the river",
+                    "Traditional farming techniques",
+                    "Environmental knowledge embedded in oral traditions and practices",
+                    "Ancient architectural methods"
+                  ],
+                  correctAnswer: "Environmental knowledge embedded in oral traditions and practices"
+                },
+                {
+                  id: "ielts-story-3-q2",
+                  type: "mcq",
+                  text: "What did Amara discover about the traditional practice of leaving riverbank areas uncultivated?",
+                  options: [
+                    "It was based on religious superstition",
+                    "It corresponded precisely to flood zones with twenty-year inundation cycles",
+                    "It was an inefficient use of prime farmland",
+                    "It was a practice imposed by colonial authorities"
+                  ],
+                  correctAnswer: "It corresponded precisely to flood zones with twenty-year inundation cycles"
+                },
+                {
+                  id: "ielts-story-3-q3",
+                  type: "mcq",
+                  text: "How did Amara's alternative proposal differ from the government's original dam plan?",
+                  options: [
+                    "It canceled the dam entirely",
+                    "It relocated the dam upstream",
+                    "It replaced the dam with traditional farming methods",
+                    "It proposed multiple smaller interventions incorporating traditional techniques"
+                  ],
+                  correctAnswer: "It proposed multiple smaller interventions incorporating traditional techniques"
+                },
+                {
+                  id: "ielts-story-3-q4",
+                  type: "mcq",
+                  text: "What event helped convince government officials to consider the alternative approach?",
+                  options: [
+                    "International pressure from environmental groups",
+                    "A court order requiring indigenous consultation",
+                    "Flooding that damaged preliminary construction at the main dam site",
+                    "The discovery of valuable minerals in the proposed dam location"
+                  ],
+                  correctAnswer: "Flooding that damaged preliminary construction at the main dam site"
+                },
+                {
+                  id: "ielts-story-3-q5",
+                  type: "mcq",
+                  text: "According to the independent assessment, what were two potential benefits of the hybrid approach?",
+                  options: [
+                    "Faster construction time and higher energy output",
+                    "Lower construction costs and increased community acceptance",
+                    "More government control and less environmental impact",
+                    "Higher dam capacity and improved road access"
+                  ],
+                  correctAnswer: "Lower construction costs and increased community acceptance"
+                },
+                {
+                  id: "ielts-story-3-q6",
+                  type: "mcq",
+                  text: "What did Elder Makena mean by saying 'The river remembers what the people forget'?",
+                  options: [
+                    "Rivers contain archaeological artifacts from ancient civilizations",
+                    "The river's behavior reveals patterns of flooding that people might not personally remember",
+                    "The community should document their history in writing",
+                    "People should avoid living near rivers"
+                  ],
+                  correctAnswer: "The river's behavior reveals patterns of flooding that people might not personally remember"
+                }
+              ],
+              pronunciation: [
+                {
+                  title: "Academic and Environmental Terminology",
+                  text: "The anthropologist had spent the past eighteen months documenting the traditional ecological knowledge of the Riverine people, an indigenous community whose ancestral territories spanned the watershed.",
+                  focusPoints: ["Practice the word stress in 'anthropologist' and 'indigenous'", "Focus on clearly pronouncing 'ecological' and 'watershed'"]
+                }
+              ]
+            },
+          
+            // IELTS - ARTICLES (3 ta)
+            {
+              id: "ielts-article-1",
+              title: "Urban Green Spaces: Benefits and Challenges",
+              level: "ielts",
+              type: "articles",
+              text: `Urban green spaces encompass a diverse range of vegetated areas within city environments, including public parks, community gardens, street trees, and recreational grounds. As cities worldwide experience rapid population growth and increasing density, the significance of these natural refuges within built environments has garnered substantial attention from urban planners, public health officials, and environmental scientists alike.
+          
+          Research consistently demonstrates that urban green spaces yield multidimensional benefits for metropolitan residents. From an environmental perspective, these areas serve as critical components of urban ecosystems. Vegetation mitigates the urban heat island effect by providing shade and through evapotranspiration, potentially reducing ambient temperatures by 1-5°C compared to surrounding built areas. Urban flora also contributes to improved air quality by sequestering carbon dioxide and filtering particulate matter. Additionally, permeable green surfaces facilitate natural water infiltration, reducing stormwater runoff and alleviating pressure on drainage infrastructure during precipitation events.
+          
+          The public health advantages associated with urban green spaces are equally compelling. Epidemiological studies have established correlations between proximity to green spaces and reduced rates of cardiovascular disease, obesity, and mental health disorders. These health outcomes appear to be mediated through multiple pathways: green spaces encourage physical activity, reduce exposure to air pollutants, mitigate noise pollution, and provide restorative environments that alleviate psychological stress. A landmark study published in The Lancet found that residents living in proximity to urban greenery had significantly lower cortisol levels and reported better self-assessed mental health compared to those with minimal access to natural environments.
+          
+          Beyond individual health benefits, urban green spaces foster social cohesion and community resilience. Public parks and community gardens function as democratic venues where diverse demographic groups can interact, strengthening social networks and building community capacity. Research from the University of Sheffield demonstrated that neighborhoods with accessible green spaces reported stronger social ties and greater collective efficacy in addressing community concerns. Economic advantages include increased property values adjacent to well-maintained parks and reduced healthcare expenditure attributable to improved public health outcomes.
+          
+          Despite these documented benefits, the implementation and maintenance of urban green spaces face considerable challenges. Land scarcity in densely populated urban centers creates competitive pressure for development, with green space often sacrificed for housing or commercial interests that promise immediate economic returns. Municipal budget constraints frequently limit funding for park development and maintenance, resulting in degradation of existing green infrastructure. Additionally, concerns regarding equitable distribution remain prevalent, as socioeconomically disadvantaged neighborhoods typically have less access to high-quality green spaces—a disparity that reinforces environmental justice concerns.
+          
+          Climate change introduces additional complexities to urban green space management. Rising temperatures and altered precipitation patterns necessitate adaptations in plant selection and maintenance regimes. Species that thrived in previous climate conditions may become increasingly vulnerable to heat stress, drought, or emerging pests. Landscape architects and urban foresters now emphasize climate-resilient design, incorporating diverse native species with greater adaptive capacity and resistance to environmental stressors.
+          
+          Innovative approaches to urban greening have emerged in response to these challenges. Vertical gardens and green roofs utilize underexploited surfaces to increase vegetation in space-constrained environments. These interventions not only provide ecological benefits but also improve building energy efficiency through enhanced insulation. Temporary or "pop-up" parks transform underutilized urban spaces into vibrant community assets with minimal permanent infrastructure investment. Participatory governance models engage community members in green space planning and maintenance, fostering stewardship while reducing municipal maintenance costs.
+          
+          Looking forward, the integration of technology offers promising avenues for enhancing urban green space functionality. Smart irrigation systems that respond to soil moisture conditions optimize water usage in arid environments. Remote sensing and GIS applications enable precise monitoring of urban forest health and biodiversity metrics. Digital platforms facilitate community engagement in park management and environmental monitoring, creating opportunities for citizen science initiatives that enhance both ecological understanding and public appreciation of urban nature.
+          
+          In conclusion, urban green spaces represent essential infrastructure for sustainable, healthy, and resilient cities. Their multifaceted benefits encompass environmental protection, public health promotion, social cohesion, and economic advantage. Addressing implementation challenges requires cross-sectoral collaboration, innovative design solutions, and policy frameworks that prioritize equitable access to urban nature. As global urbanization continues unabated, the thoughtful integration of green spaces within the urban fabric becomes not merely desirable but imperative for city dwellers' quality of life and environmental sustainability.`,
+              description: "An IELTS-style academic article examining the importance and challenges of green spaces in urban environments.",
+              estimatedTime: 20,
+              difficulty: "very hard",
+              vocabulary: [
+                { word: "encompass", definition: "include or contain (a number of things)" },
+                { word: "multidimensional", definition: "having several dimensions or aspects" },
+                { word: "evapotranspiration", definition: "the process by which water is transferred from the land to the atmosphere by evaporation from soil and transpiration from plants" },
+                { word: "sequestering", definition: "isolating or hiding away (something)" },
+                { word: "epidemiological", definition: "relating to the branch of medicine which deals with the incidence, distribution, and control of diseases" },
+                { word: "mediating", definition: "forming a connecting link" },
+                { word: "cohesion", definition: "the action or fact of forming a united whole" }
+              ],
+              questions: [
+                {
+                  id: "ielts-article-1-q1",
+                  type: "mcq",
+                  text: "According to the passage, urban green spaces can reduce ambient temperatures by:",
+                  options: ["0.5-1°C", "1-5°C", "5-10°C", "10-15°C"],
+                  correctAnswer: "1-5°C"
+                },
+                {
+                  id: "ielts-article-1-q2",
+                  type: "mcq",
+                  text: "Which of the following is NOT mentioned as a health benefit of urban green spaces?",
+                  options: [
+                    "Reduced rates of cardiovascular disease",
+                    "Lower levels of psychological stress",
+                    "Decreased exposure to air pollutants",
+                    "Improved immune system function"
+                  ],
+                  correctAnswer: "Improved immune system function"
+                },
+                {
+                  id: "ielts-article-1-q3",
+                  type: "mcq",
+                  text: "The article suggests that neighborhoods with accessible green spaces have:",
+                  options: [
+                    "Higher crime rates",
+                    "Stronger social ties",
+                    "More commercial development",
+                    "Higher population density"
+                  ],
+                  correctAnswer: "Stronger social ties"
+                },
+                {
+                  id: "ielts-article-1-q4",
+                  type: "mcq",
+                  text: "What challenge to urban green spaces is created by climate change?",
+                  options: [
+                    "Increased demand for recreational areas",
+                    "Greater vulnerability of existing plant species",
+                    "Reduced public interest in outdoor activities",
+                    "Higher maintenance costs for artificial turf"
+                  ],
+                  correctAnswer: "Greater vulnerability of existing plant species"
+                },
+                {
+                  id: "ielts-article-1-q5",
+                  type: "mcq",
+                  text: "Which innovative approach utilizes underexploited surfaces in space-constrained environments?",
+                  options: [
+                    "Pop-up parks",
+                    "Participatory governance models",
+                    "Vertical gardens and green roofs",
+                    "Smart irrigation systems"
+                  ],
+                  correctAnswer: "Vertical gardens and green roofs"
+                },
+                {
+                  id: "ielts-article-1-q6",
+                  type: "mcq",
+                  text: "According to the article, which neighborhoods typically have less access to high-quality green spaces?",
+                  options: [
+                    "Historic districts",
+                    "Newly developed areas",
+                    "Socioeconomically disadvantaged neighborhoods",
+                    "Commercial centers"
+                  ],
+                  correctAnswer: "Socioeconomically disadvantaged neighborhoods"
+                }
+              ],
+              pronunciation: [
+                {
+                  title: "Academic Vocabulary",
+                  text: "Research consistently demonstrates that urban green spaces yield multidimensional benefits for metropolitan residents.",
+                  focusPoints: ["Focus on the word stress in 'consistently' and 'metropolitan'", "Practice the 'th' sound in 'multidimensional'"]
+                }
+              ]
+            },
+            {
+              id: "ielts-article-2",
+              title: "Digital Literacy: A 21st Century Essential Skill",
+              level: "ielts",
+              type: "articles",
+              text: `Digital literacy encompasses far more than the basic ability to use computers or navigate the internet. It represents a complex constellation of competencies that enable individuals to function effectively, critically, and safely in an increasingly digitized world. As technological advancement accelerates, digital literacy has evolved from a specialized skill set to a fundamental requirement across virtually all sectors of contemporary society, comparable in importance to traditional literacies in reading, writing, and mathematics.
+          
+          At its core, digital literacy comprises several interconnected dimensions: technical proficiency with devices and software; information literacy for locating, evaluating, and using digital content; media literacy for critically analyzing digital media; communication literacy for appropriate and effective digital interaction; and computational thinking for problem-solving through algorithmic approaches. Each dimension represents distinct yet complementary capabilities necessary for full participation in digital environments.
+          
+          The technical dimension of digital literacy involves practical competencies in operating digital devices and navigating various software interfaces—from basic word processing to specialized applications. However, this foundational aspect must extend beyond mere operational skill to include conceptual understanding of how digital systems function. Research indicates that individuals possessing both procedural knowledge (how to perform specific tasks) and declarative knowledge (understanding why systems operate as they do) demonstrate greater adaptability when confronting unfamiliar technologies or technological challenges.
+          
+          Information literacy within digital contexts has become increasingly crucial as the volume of accessible information expands exponentially. The ability to formulate effective search strategies, evaluate source credibility, synthesize information from multiple sources, and recognize misinformation represents an essential component of digital citizenship. Studies conducted by the Stanford History Education Group revealed alarming deficiencies in these capabilities even among digitally native populations, with over 80% of secondary students unable to distinguish between sponsored content and genuine news articles online.
+          
+          The communication dimension of digital literacy encompasses both technical abilities to utilize various communication platforms and the social competencies required for effective digital interaction. This includes understanding platform-specific communication norms, recognizing how digital communications may be interpreted differently than face-to-face interactions, awareness of privacy implications, and capacity to adapt communication styles across different digital contexts. As professional and personal relationships increasingly develop and maintain connections through digital channels, these communication competencies directly impact social integration and professional advancement.
+          
+          Perhaps most crucial in an era of unprecedented information access is the critical thinking component of digital literacy. This dimension involves analyzing the reliability, bias, purpose, and context of digital content—skills particularly vital given the democratization of content creation and dissemination. Critical digital literacy enables individuals to recognize manipulation techniques, identify commercial or political agendas in digital content, understand how algorithms may shape information access, and evaluate evidence-based arguments versus opinion-based assertions.
+          
+          The significance of comprehensive digital literacy extends across multiple domains of individual and societal functioning. In educational contexts, research consistently demonstrates that digitally literate students exhibit enhanced learning outcomes across subject areas. A longitudinal study by the International Association for the Evaluation of Educational Achievement found that students with higher digital literacy scores demonstrated superior performance in mathematics, science, and reading comprehension, suggesting transferable cognitive benefits beyond technological contexts.
+          
+          In occupational spheres, digital literacy increasingly determines employability and career advancement potential. The World Economic Forum's Future of Jobs Report indicates that 85% of jobs projected for 2025 will require substantial digital competencies, with this requirement extending beyond traditionally technology-oriented fields to sectors such as healthcare, education, manufacturing, and retail. Employers consistently rank digital literacy among their top priorities when evaluating potential candidates, often citing deficiencies in critical digital skills as significant barriers to hiring.
+          
+          From a socioeconomic perspective, digital literacy functions as a powerful determinant of economic opportunity and social inclusion. As essential services—from government benefits to healthcare information to educational resources—migrate to digital platforms, those lacking digital literacy face substantial barriers to accessing critical resources. This "digital divide" increasingly manifests not merely as a binary distinction between those with and without technological access, but as a spectrum of capability that determines the degree to which individuals can leverage digital resources for personal advancement.
+          
+          The civic dimension of digital literacy has acquired newfound significance as democratic processes and public discourse increasingly unfold in digital spaces. The ability to access accurate information about civic issues, critically evaluate political communications, and participate effectively in online deliberative processes has become essential for meaningful democratic engagement. Concurrently, digital literacy serves as a crucial defense against misinformation campaigns, computational propaganda, and other digital threats to democratic institutions.
+          
+          Despite its established importance, significant challenges persist in fostering universal digital literacy. Educational institutions often struggle to integrate comprehensive digital literacy development within already-crowded curricula and frequently lack instructors with sufficient expertise to teach these competencies effectively. The rapidly evolving nature of digital technologies necessitates continuous learning approaches rather than one-time skill acquisition, creating challenges for traditional educational structures.
+          
+          Socioeconomic disparities compound these challenges, with access to both technologies and quality instruction varying dramatically across demographic groups. Research from the Pew Research Center indicates persistent digital literacy gaps correlated with income, education level, geographic location, and age. These disparities create cyclical disadvantages as digitally illiterate populations face increasing difficulty accessing educational and economic opportunities required for advancement in a digital economy.
+          
+          Forward-thinking approaches to addressing these challenges increasingly focus on integrating digital literacy development across educational curricula rather than treating it as a separate subject. This approach recognizes that digital literacy is most effectively developed when embedded within meaningful learning contexts rather than taught in isolation. Similarly, lifelong learning frameworks that extend beyond formal education settings have proven essential for maintaining relevant digital competencies amid rapid technological change.
+          
+          Policymakers worldwide have begun implementing national digital literacy strategies that address both infrastructural requirements for digital access and instructional frameworks for developing these competencies. Singapore's Digital Readiness Blueprint and the European Union's Digital Education Action Plan exemplify comprehensive approaches that coordinate educational initiatives, workforce development programs, public awareness campaigns, and targeted interventions for underserved populations.
+          
+          As artificial intelligence and automation continue transforming the technological landscape, the nature of digital literacy will inevitably evolve. Future frameworks will likely emphasize human-AI collaboration skills, algorithmic literacy for understanding automated decision systems, data literacy for functioning in data-rich environments, and ethical competencies for navigating increasingly complex digital dilemmas. This evolution suggests that digital literacy will remain not a fixed skill set but an adaptable, continuously developing capacity for engaging with emerging technological realities.
+          
+          In conclusion, digital literacy represents not merely a technical skill but a multidimensional competency essential for individual advancement and societal functioning in the 21st century. Its development requires coordinated effort across educational institutions, policymakers, employers, and communities to ensure that all individuals possess the capabilities necessary for effective participation in an increasingly digital world. As the technological landscape continues evolving, so too must our conceptualization of and approaches to fostering digital literacy—ensuring that technological advancement serves as a force for opportunity and inclusion rather than exacerbating existing social disparities.`,
+              description: "An academic examination of digital literacy as a fundamental skill for modern society.",
+              estimatedTime: 15,
+              difficulty: "very hard",
+              vocabulary: [
+                { word: "constellation", definition: "a group or configuration of related things" },
+                { word: "exponentially", definition: "becoming more and more rapid; increasing at a growing rate" },
+                { word: "democratization", definition: "the action of making something accessible to everyone" },
+                { word: "deliberative", definition: "relating to or intended for consideration or discussion" },
+                { word: "cyclical", definition: "occurring in cycles; recurrent" }
+              ],
+              questions: [
+                {
+                  id: "ielts-article-2-q1",
+                  type: "mcq",
+                  text: "According to the article, which type of knowledge helps people adapt better to unfamiliar technologies?",
+                  options: [
+                    "Only procedural knowledge",
+                    "Only declarative knowledge",
+                    "Both procedural and declarative knowledge",
+                    "Neither procedural nor declarative knowledge"
+                  ],
+                  correctAnswer: "Both procedural and declarative knowledge"
+                },
+                {
+                  id: "ielts-article-2-q2",
+                  type: "mcq",
+                  text: "What percentage of jobs projected for 2025 will require substantial digital competencies according to the World Economic Forum?",
+                  options: ["50%", "65%", "85%", "95%"],
+                  correctAnswer: "85%"
+                },
+                {
+                  id: "ielts-article-2-q3",
+                  type: "mcq",
+                  text: "According to the Stanford History Education Group study, what percentage of secondary students couldn't distinguish between sponsored content and genuine news?",
+                  options: ["Over 50%", "Over 60%", "Over 70%", "Over 80%"],
+                  correctAnswer: "Over 80%"
+                },
+                {
+                  id: "ielts-article-2-q4",
+                  type: "mcq",
+                  text: "How is the 'digital divide' now manifesting according to the article?",
+                  options: [
+                    "As a simple division between those with and without internet access",
+                    "As a spectrum of capability determining how people can leverage digital resources",
+                    "As a generational gap between young and old users",
+                    "As a geographic gap between urban and rural areas"
+                  ],
+                  correctAnswer: "As a spectrum of capability determining how people can leverage digital resources"
+                },
+                {
+                  id: "ielts-article-2-q5",
+                  type: "mcq",
+                  text: "Which approach to teaching digital literacy does the article suggest is most effective?",
+                  options: [
+                    "Teaching it as a separate subject",
+                    "Focusing only on technical skills",
+                    "Integrating it across educational curricula",
+                    "Teaching it only at the university level"
+                  ],
+                  correctAnswer: "Integrating it across educational curricula"
+                },
+                {
+                  id: "ielts-article-2-q6",
+                  type: "mcq",
+                  text: "Which of the following is NOT mentioned as a dimension of digital literacy in the article?",
+                  options: [
+                    "Technical proficiency",
+                    "Information literacy",
+                    "Communication literacy",
+                    "Financial literacy"
+                  ],
+                  correctAnswer: "Financial literacy"
+                }
+              ],
+              pronunciation: [
+                {
+                  title: "Academic and Technical Vocabulary",
+                  text: "Digital literacy encompasses far more than the basic ability to use computers or navigate the internet. It represents a complex constellation of competencies.",
+                  focusPoints: ["Practice the word stress in 'encompasses' and 'competencies'", "Focus on the pronunciation of 'constellation'"]
+                }
+              ]
+            },
+            {
+              id: "ielts-article-3",
+              title: "The Future of Work: Automation, Skills, and Society",
+              level: "ielts",
+              type: "articles",
+              text: `The nature of work has continuously evolved throughout human history, from agricultural to industrial to knowledge-based paradigms. However, the current technological revolution—characterized by artificial intelligence, robotics, and advanced automation—represents a transformation potentially unprecedented in both scale and velocity. This shift promises extraordinary productivity gains and economic growth while simultaneously raising profound questions about labor market disruption, skill requirements, economic inequality, and the very meaning of work in human society.
+          
+          Automation technologies are rapidly expanding beyond routine manufacturing tasks to encompass increasingly complex cognitive functions. Machine learning algorithms now demonstrate capabilities in medical diagnosis, legal document analysis, financial forecasting, and content creation—domains previously considered exclusive to human expertise. This technological frontier continues advancing at an accelerating pace; what seemed implausible five years ago often appears inevitable today. Consequently, occupational categories once considered immune to automation now face significant transformation or potential obsolescence.
+          
+          Quantifying the precise impact of these technologies on employment remains challenging, with projections varying substantially. Research from Oxford University suggests that approximately 47% of U.S. jobs face high automation risk in the coming decades, while the Organization for Economic Cooperation and Development estimates a more moderate 14% of jobs across developed economies are highly automatable, with an additional 32% likely to undergo substantial transformation. These disparities reflect differing methodological approaches and assumptions about technological adoption rates, regulatory responses, and labor market adaptability.
+          
+          Despite these uncertainties, clear patterns have emerged regarding differential vulnerability across occupational categories. Positions involving predictable physical activities in structured environments (manufacturing, transportation, retail operations) face significant automation pressure. Similarly, jobs centered on data processing, information organization, and routine analytical tasks (accounting, paralegal work, basic financial analysis) demonstrate high automation potential. Conversely, occupations requiring complex social interactions, creative problem-solving, contextual adaptability, and physical dexterity in unstructured environments remain less immediately susceptible.
+          
+          Historical precedent offers ambiguous guidance regarding these developments. Previous technological revolutions ultimately created more jobs than they eliminated, as emerging sectors absorbed displaced workers and rising productivity generated broader economic expansion. However, the current transformation differs in significant aspects: it affects a wider range of occupational categories simultaneously, progresses at unprecedented speed, and increasingly impacts cognitive rather than merely physical tasks. These distinctions may challenge historical patterns of labor market adjustment.
+          
+          The skills implications of this transition are profound. Educational systems designed for industrial or early knowledge economies may inadequately prepare workers for emerging labor market realities. Technical capabilities remain valuable but increasingly insufficient alone. Instead, distinctively human capacities—complex problem-solving, critical thinking, emotional intelligence, creativity, systems thinking, and adaptability—acquire premium value as automation technologies handle routine cognitive and physical tasks. This shift necessitates fundamental reconsideration of educational priorities and pedagogical approaches.
+          
+          For individual workers, these developments demand continuous learning orientation and career adaptability. The traditional model of front-loaded education followed by stable career progression appears increasingly untenable. Instead, workers may require multiple skill transitions throughout their working lives as technological change renders certain competencies obsolete while creating demand for others. This reality raises critical questions about responsibility for facilitating these transitions—whether primarily individual, employer-based, or requiring significant public policy intervention.
+          
+          Beyond skill requirements, the automation revolution raises structural labor market concerns. Historical evidence suggests technological change can drive labor market polarization—robust demand for highly skilled workers and some non-routine manual occupations, with diminishing opportunities in middle-skill categories. This hollowing of the middle threatens traditional pathways to socioeconomic advancement and may exacerbate inequality if unaddressed. Additionally, the potential decoupling of productivity from broad employment growth could challenge conventional economic assumptions about technology-driven prosperity.
+          
+          The geographic dimension adds further complexity, as automation impacts manifest unevenly across regions. Communities historically dependent on manufacturing, transportation, retail, or routine administrative functions face disproportionate disruption risk. Without effective transition strategies, these geographic disparities could intensify existing socioeconomic divisions and political tensions. Evidence already suggests differential regional vulnerability contributes to populist political movements across numerous countries.
+          
+          Policy responses to these challenges must balance innovation encouragement with transition management. Restrictive approaches limiting technology adoption would likely prove both ineffective and counterproductive, sacrificing productivity gains and competitive advantage. More promising strategies include educational system transformation to emphasize distinctively human capabilities; expanded workforce development programs with employer collaboration; strengthened labor market transition supports including portable benefits and mid-career retraining opportunities; and potentially new social contract elements addressing economic security amid increasing labor market volatility.
+          
+          The corporate sector's role extends beyond technology development to responsible implementation practices. Forward-thinking organizations increasingly adopt augmentation rather than replacement approaches—using automation to enhance human capabilities rather than simply substituting for human labor. This strategy often yields superior outcomes by combining technological strengths (processing power, pattern recognition, consistency) with distinctively human attributes (judgment, creativity, ethical reasoning). Additionally, progressive firms recognize substantial business benefits from investing in workforce transition rather than relying exclusively on external talent markets to meet emerging skill requirements.
+          
+          Automation's economic implications extend beyond employment to broader questions of value distribution. As capital increasingly substitutes for labor in production processes, traditional mechanisms linking economic growth to widely shared prosperity may weaken. Without deliberate policy intervention, automation's productivity benefits might concentrate among technology creators, implementers, and capital owners rather than distributing broadly across society. This possibility has prompted renewed interest in policy mechanisms ranging from expanded profit-sharing arrangements to universal basic income proposals.
+          
+          The psychological and social dimensions of work transformation warrant equal consideration alongside economic aspects. Work provides not merely income but identity, purpose, social connection, and status within many cultural contexts. As automation reshapes occupational structures, societies must address these broader functions that employment has historically fulfilled. Communities of practice, alternative contribution recognition systems, and expanded conceptions of valuable human activity may become increasingly important as traditional employment evolves.
+          
+          Despite these challenges, the automation revolution offers extraordinary opportunities if thoughtfully managed. Productivity enhancements could support reduced working hours while maintaining living standards, addressing long-standing aspirations for better work-life balance. Automation of dangerous, physically demanding, or tedious tasks could improve working conditions substantially. Most significantly, technology could free human capital for inherently meaningful activities—scientific exploration, creative expression, care work, community development, and environmental stewardship—potentially enabling work more aligned with fundamental human capabilities and aspirations.
+          
+          Ultimately, technology itself determines less about our future than the social, economic, and policy choices we make regarding its development and implementation. Technological change creates possibilities, but societies determine outcomes through their institutions, policies, and value expressions. Historical transitions suggest that the most successful adaptation approaches combine technological innovation with social innovation—developing new institutional arrangements that enable broad participation in technology's benefits while addressing its distributional challenges.
+          
+          The future of work thus represents not merely a technological question but a profound social choice point—an opportunity to reconsider how we organize economic activity, distribute opportunity, recognize contribution, and define progress. Navigating this transition successfully will require unprecedented collaboration across sectors, disciplines, and stakeholders to develop approaches that harness automation's extraordinary potential while ensuring its benefits strengthen rather than strain our social fabric.`,
+              description: "An examination of how automation and AI are transforming work and what this means for skills, jobs, and society.",
+              estimatedTime: 15,
+              difficulty: "very hard",
+              vocabulary: [
+                { word: "paradigms", definition: "typical examples or patterns of something" },
+                { word: "obsolescence", definition: "the process of becoming outdated or no longer used" },
+                { word: "ambiguous", definition: "open to more than one interpretation; not having one obvious meaning" },
+                { word: "polarization", definition: "division into two sharply contrasting groups or sets of opinions or beliefs" },
+                { word: "augmentation", definition: "the action or process of making or becoming greater in size or amount" }
+              ],
+              questions: [
+                {
+                  id: "ielts-article-3-q1",
+                  type: "mcq",
+                  text: "According to Oxford University research, what percentage of U.S. jobs face high automation risk?",
+                  options: ["14%", "32%", "47%", "75%"],
+                  correctAnswer: "47%"
+                },
+                {
+                  id: "ielts-article-3-q2",
+                  type: "mcq",
+                  text: "Which types of jobs are described as less immediately susceptible to automation?",
+                  options: [
+                    "Jobs centered on data processing",
+                    "Jobs involving predictable physical activities",
+                    "Jobs requiring complex social interactions and creative problem-solving",
+                    "Jobs focused on information organization"
+                  ],
+                  correctAnswer: "Jobs requiring complex social interactions and creative problem-solving"
+                },
+                {
+                  id: "ielts-article-3-q3",
+                  type: "mcq",
+                  text: "How does the article describe the traditional education model in relation to future work needs?",
+                  options: [
+                    "Perfectly aligned with future skill requirements",
+                    "Increasingly untenable as workers may require multiple skill transitions",
+                    "Needing only minor adjustments",
+                    "Ideal for developing technical skills but not social skills"
+                  ],
+                  correctAnswer: "Increasingly untenable as workers may require multiple skill transitions"
+                },
+                {
+                  id: "ielts-article-3-q4",
+                  type: "mcq",
+                  text: "What is meant by 'labor market polarization' in the article?",
+                  options: [
+                    "The increasing divide between urban and rural workers",
+                    "Strong demand for high-skilled and some non-routine manual workers with diminishing opportunities in middle-skill categories",
+                    "The separation between technical and non-technical jobs",
+                    "The difference in pay between men and women"
+                  ],
+                  correctAnswer: "Strong demand for high-skilled and some non-routine manual workers with diminishing opportunities in middle-skill categories"
+                },
+                {
+                  id: "ielts-article-3-q5",
+                  type: "mcq",
+                  text: "What approach to automation do forward-thinking organizations adopt according to the article?",
+                  options: [
+                    "Complete replacement of human workers",
+                    "Limiting technology adoption",
+                    "Augmentation rather than replacement approaches",
+                    "Outsourcing all technology development"
+                  ],
+                  correctAnswer: "Augmentation rather than replacement approaches"
+                },
+                {
+                  id: "ielts-article-3-q6",
+                  type: "mcq",
+                  text: "According to the article, what does work provide beyond income?",
+                  options: [
+                    "Only status in society",
+                    "Identity, purpose, social connection, and status",
+                    "Transportation and healthcare benefits",
+                    "Nothing of significance beyond financial compensation"
+                  ],
+                  correctAnswer: "Identity, purpose, social connection, and status"
+                }
+              ],
+              pronunciation: [
+                {
+                  title: "Academic and Technical Vocabulary",
+                  text: "The nature of work has continuously evolved throughout human history, from agricultural to industrial to knowledge-based paradigms.",
+                  focusPoints: ["Practice the word stress in 'continuously' and 'agricultural'", "Focus on clearly pronouncing 'paradigms'"]
+                }
+              ]
+            },
+          
+            // IELTS - NEWS (3 ta)
+            {
+              id: "ielts-news-1",
+              title: "Global Summit Addresses Climate Change Challenges",
+              level: "ielts",
+              type: "news",
+              text: `Representatives from 195 countries gathered in Geneva this week for the International Climate Action Summit, where they discussed urgent measures to combat global warming and its increasingly visible effects worldwide.
+          
+          The five-day summit, which concluded yesterday, focused on implementing the goals set by the Paris Agreement and developing new strategies to reduce carbon emissions faster than previously planned. This comes after recent scientific reports indicating that climate change is progressing more rapidly than earlier models predicted.
+          
+          "We no longer have the luxury of gradual transitions," said UN Secretary-General Paulo Meireles in his opening address. "The data is clear: we need transformative action within this decade to avoid the worst impacts of climate change."
+          
+          A central achievement of the summit was the establishment of the Global Climate Finance Initiative, a $100 billion fund designed to help developing nations transition to renewable energy sources. Industrialized nations have pledged to
+          contribute 80% of the funding, while major corporations have committed to providing the remaining 20%.
+
+"This fund represents a recognition that climate change is a shared global challenge requiring shared solutions," explained Finance Initiative Chair Amara Okafor. "Developing nations shouldn't have to choose between economic growth and environmental sustainability."
+
+The summit also resulted in the adoption of the Geneva Protocol, which establishes more ambitious emissions reduction targets. Under the new agreement, signatory nations commit to reducing carbon emissions by 60% from 2010 levels by 2040, a significant increase from the previous 40% target.
+
+The protocol includes stronger accountability mechanisms, including a transparent monitoring system and financial penalties for nations that fail to meet interim targets. This represents a departure from previous agreements, which critics argued lacked sufficient enforcement provisions.
+
+"What makes this protocol different is that it has teeth," noted European Climate Commissioner Helena Bergström. "We're moving beyond voluntary commitments to a system with real consequences for inaction."
+
+Several major economies announced accelerated timelines for phasing out fossil fuels during the summit. Canada and Japan both committed to ending coal-fired electricity generation by 2030, while Brazil pledged to achieve 80% renewable energy in its power sector by 2035.
+
+The private sector also featured prominently at the summit, with a coalition of 150 multinational corporations signing the Business Climate Pledge. Signatories commit to achieving carbon neutrality in their operations by 2040 and implementing science-based emissions reduction targets throughout their supply chains.
+
+"Businesses recognize that climate action is not just an environmental imperative but an economic one," said Wei Zhang, CEO of Global Electronics Corporation and a leading architect of the pledge. "Companies that fail to adapt to a low-carbon future risk becoming obsolete."
+
+Despite these accomplishments, the summit was not without controversy. Several oil-producing nations expressed reservations about the accelerated phase-out timelines, arguing they would cause economic hardship and social instability in regions dependent on fossil fuel revenues.
+
+Additionally, some environmental organizations criticized the agreements as still insufficient given the scale of the climate crisis. "The targets represent progress, but they still fall short of what the science demands," said Greenpeace International Director Sophia Rivera. "We're moving in the right direction, but not fast enough."
+
+The summit also addressed climate adaptation strategies, recognizing that some degree of climate change is now inevitable even with aggressive mitigation efforts. A working group on adaptation produced guidelines for urban planning, agricultural systems, and infrastructure development designed to withstand changing climate conditions.
+
+"Adaptation isn't a distraction from mitigation—it's an essential complement," explained Dr. Kwame Nkrumah of the African Climate Resilience Network. "Communities already experiencing climate impacts need practical solutions today, not just promises for tomorrow."
+
+As delegates departed Geneva, attention turned to implementation. The agreements reached at the summit will now need to be ratified by national governments and translated into concrete policies and regulations.
+
+"The real test comes now," remarked U.S. Climate Envoy Mark Williams. "Declarations at international conferences are important, but what truly matters is the action that follows when the cameras are gone and the hard work of transformation begins."
+
+The next major checkpoint will come in 18 months, when nations are required to submit their updated emission reduction plans under the Geneva Protocol. These submissions will provide the first indication of whether the summit's ambitions will translate into meaningful global action.`,
+    description: "A comprehensive report on the International Climate Action Summit in Geneva and its outcomes.",
+    estimatedTime: 10,
+    difficulty: "medium",
+    vocabulary: [
+      { word: "transformative", definition: "causing a marked change in someone or something" },
+      { word: "signatory", definition: "a party that has signed an agreement, especially a country that has signed a treaty" },
+      { word: "accountability", definition: "the fact or condition of being responsible for one's actions and decisions" },
+      { word: "interim", definition: "meantime; provisional or temporary" },
+      { word: "adaptation", definition: "the action or process of adapting or being adapted to new conditions" }
+    ],
+    questions: [
+      {
+        id: "ielts-news-1-q1",
+        type: "mcq",
+        text: "How many countries were represented at the International Climate Action Summit?",
+        options: ["150", "180", "195", "200"],
+        correctAnswer: "195"
+      },
+      {
+        id: "ielts-news-1-q2",
+        type: "mcq",
+        text: "What is the total amount pledged for the Global Climate Finance Initiative?",
+        options: ["$50 billion", "$80 billion", "$100 billion", "$200 billion"],
+        correctAnswer: "$100 billion"
+      },
+      {
+        id: "ielts-news-1-q3",
+        type: "mcq",
+        text: "What percentage reduction in carbon emissions does the Geneva Protocol target by 2040 (from 2010 levels)?",
+        options: ["40%", "50%", "60%", "70%"],
+        correctAnswer: "60%"
+      },
+      {
+        id: "ielts-news-1-q4",
+        type: "mcq",
+        text: "By what year did Canada and Japan commit to ending coal-fired electricity generation?",
+        options: ["2025", "2030", "2035", "2040"],
+        correctAnswer: "2030"
+      },
+      {
+        id: "ielts-news-1-q5",
+        type: "mcq",
+        text: "According to the article, what distinguishes the Geneva Protocol from previous agreements?",
+        options: [
+          "It focuses exclusively on renewable energy",
+          "It has stronger accountability mechanisms with real consequences",
+          "It only applies to developed nations",
+          "It prioritizes adaptation over mitigation"
+        ],
+        correctAnswer: "It has stronger accountability mechanisms with real consequences"
+      },
+      {
+        id: "ielts-news-1-q6",
+        type: "mcq",
+        text: "How many multinational corporations signed the Business Climate Pledge?",
+        options: ["100", "125", "150", "200"],
+        correctAnswer: "150"
+      }
+    ],
+    pronunciation: [
+      {
+        title: "News Reporting Vocabulary",
+        text: "Representatives from 195 countries gathered in Geneva this week for the International Climate Action Summit, where they discussed urgent measures to combat global warming.",
+        focusPoints: ["Practice the word stress in 'representatives' and 'international'", "Focus on clearly pronouncing 'measures'"]
+      }
+    ]
+  },
+  {
+    id: "ielts-news-2",
+    title: "Breakthrough in Quantum Computing Signals New Technological Era",
+    level: "ielts",
+    type: "news",
+    text: `A team of researchers at the National Quantum Research Institute (NQRI) has achieved what many experts are calling a watershed moment in computing history. In a paper published yesterday in the journal Science, the team demonstrated a quantum computer capable of performing calculations that would be practically impossible for conventional supercomputers, marking the first conclusive proof of "quantum supremacy" in a commercially relevant application.
+
+The breakthrough centers on a 256-qubit quantum processor codenamed "Prometheus" that successfully simulated complex molecular interactions for potential pharmaceutical applications. The simulation, which would require thousands of years on current supercomputers, was completed in approximately 17 minutes.
+
+"This represents the crossing of a fundamental threshold," explained Dr. Sophia Chen, director of quantum computing at NQRI and lead author of the study. "We've moved beyond theoretical quantum advantage to demonstrating practical superiority in solving real-world problems that have immediate scientific and commercial value."
+
+Unlike conventional computers that process information in binary bits (0s and 1s), quantum computers leverage quantum mechanical properties such as superposition and entanglement. This allows qubits to exist in multiple states simultaneously, creating computational possibilities that scale exponentially with each additional qubit.
+
+Previous demonstrations of quantum advantage have been criticized for focusing on specialized problems with limited practical applications. The NQRI team addressed this limitation by focusing on molecular dynamics simulations critical to drug discovery processes.
+
+"What makes this achievement significant is that we've applied quantum computing to accelerate a computational task that pharmaceutical companies perform daily and that directly impacts human health," said Dr. Chen. "This isn't an academic exercise—it's a preview of how quantum computing will transform multiple industries."
+
+The simulation modeled the interactions between a potential therapeutic compound and a protein implicated in Alzheimer's disease, revealing binding mechanisms that could inform more effective drug design. Pharmaceutical giant Merck has already announced a research partnership with NQRI to explore applications of the technology in their drug discovery pipeline.
+
+"The pharmaceutical industry spends billions annually on computing resources for molecular modeling," noted Dr. James Watkins, head of computational chemistry at Merck. "Quantum computing could dramatically compress the timeline from target identification to viable drug candidates, potentially saving years in development cycles."
+
+Beyond pharmaceutical applications, experts suggest the achievement has significant implications for materials science, financial modeling, logistics optimization, and artificial intelligence. These fields all involve complex computational problems that could benefit from quantum acceleration.
+
+The NQRI team overcame several critical technical challenges to reach this milestone. Quantum systems are notoriously fragile, with qubits easily disrupted by the slightest environmental interference—a phenomenon known as quantum decoherence. The researchers developed novel error-correction techniques and cryogenic control systems that maintained quantum coherence for unprecedented durations.
+
+"Maintaining quantum coherence at this scale represents an engineering achievement comparable to the computational breakthrough itself," explained quantum physicist Dr. Elena Rodríguez of MIT, who was not involved in the research. "They've solved problems many considered showstoppers for practical quantum computing."
+
+Despite the excitement surrounding the announcement, researchers caution that significant challenges remain before quantum computers become widely accessible. The NQRI system operates at temperatures near absolute zero and requires specialized infrastructure. Additionally, developing quantum algorithms for specific applications requires highly specialized expertise currently in short supply.
+
+"We're at a stage comparable to where classical computing was in the 1950s," said Dr. Chen. "The fundamental capability has been demonstrated, but substantial engineering work remains to make these systems practical and accessible."
+
+The economic implications of the breakthrough have already triggered market reactions. Major technology companies with quantum computing initiatives, including IBM, Google, and Microsoft, saw their stock prices rise following the announcement. Venture capital funding for quantum computing startups has also surged, with three firms announcing new funding rounds totaling $245 million this week.
+
+Governments are similarly accelerating their quantum investments. The U.S. Department of Energy announced an additional $300 million in funding for quantum research initiatives yesterday, while the European Commission is reportedly preparing a €1 billion quantum technologies program. China's Ministry of Science and Technology reaffirmed its commitment to its existing $10 billion National Quantum Initiative.
+
+This international activity reflects growing recognition of quantum computing's strategic importance. The technology offers potential advantages in cryptography, potentially rendering current encryption methods vulnerable while enabling new, more secure protocols. This has profound implications for national security and data protection.
+
+"Quantum computing represents not just a technological race but a strategic one," observed cybersecurity expert Marcus Fenwick. "Nations and organizations that develop quantum capabilities first will have significant advantages in both economic competitiveness and security posture."
+
+Industry analysts project that the quantum computing market could grow from approximately $500 million currently to over $65 billion by 2030 as commercial applications become more accessible. Initial adoption is expected in research-intensive industries and financial services, followed by broader implementation as systems become more robust and programming interfaces more user-friendly.
+
+Educational institutions are already responding to anticipated workforce demands. MIT, Stanford, and Oxford have all announced expanded quantum computing curricula, while coding academies are beginning to offer introductory courses in quantum programming languages.
+
+As the implications of the breakthrough continue to reverberate through scientific and business communities, Dr. Chen emphasized that quantum computing should be viewed as complementary to classical computing rather than a replacement. "Classical computing isn't going away—quantum systems will tackle specific problems where they have a natural advantage, while conventional computers will remain essential for everyday computing tasks."
+
+The paper's publication marks the culmination of more than a decade of research at NQRI, a multi-institutional center established in 2013 with funding from the Department of Energy, the National Science Foundation, and several technology companies. The research team comprised 28 scientists and engineers from seven universities and research institutions.
+
+The achievement has been compared to other computing milestones, such as the first transistor, the integrated circuit, and the first microprocessor. "This will be remembered as the moment quantum computing moved from theoretical possibility to practical reality," said computing historian Dr. Lawrence Peterson. "It's a technological inflection point whose full implications will only become clear in retrospect."`,
+    description: "A comprehensive news article about a breakthrough in quantum computing technology and its implications.",
+    estimatedTime: 10,
+    difficulty: "hard",
+    vocabulary: [
+      { word: "watershed", definition: "an event or period marking a turning point in a situation" },
+      { word: "qubit", definition: "a quantum bit, the basic unit of quantum information in quantum computing" },
+      { word: "superposition", definition: "the ability of a quantum system to exist in multiple states simultaneously" },
+      { word: "decoherence", definition: "loss of quantum coherence; the process by which quantum systems lose their quantum properties" },
+      { word: "cryptography", definition: "the practice and study of techniques for secure communication" }
+    ],
+    questions: [
+      {
+        id: "ielts-news-2-q1",
+        type: "mcq",
+        text: "How many qubits does the quantum processor 'Prometheus' contain?",
+        options: ["128 qubits", "256 qubits", "512 qubits", "1024 qubits"],
+        correctAnswer: "256 qubits"
+      },
+      {
+        id: "ielts-news-2-q2",
+        type: "mcq",
+        text: "How long did it take the quantum computer to complete the molecular simulation?",
+        options: ["About 2 minutes", "About 17 minutes", "About 45 minutes", "About 3 hours"],
+        correctAnswer: "About 17 minutes"
+      },
+      {
+        id: "ielts-news-2-q3",
+        type: "mcq",
+        text: "What disease is mentioned in connection with the protein that was modeled in the simulation?",
+        options: ["Parkinson's disease", "Multiple sclerosis", "Alzheimer's disease", "Cancer"],
+        correctAnswer: "Alzheimer's disease"
+      },
+      {
+        id: "ielts-news-2-q4",
+        type: "mcq",
+        text: "According to industry analysts, what could the quantum computing market be worth by 2030?",
+        options: ["$10 billion", "$25 billion", "$65 billion", "$100 billion"],
+        correctAnswer: "$65 billion"
+      },
+      {
+        id: "ielts-news-2-q5",
+        type: "mcq",
+        text: "What does Dr. Chen compare the current stage of quantum computing to?",
+        options: [
+          "Classical computing in the 1980s",
+          "Classical computing in the 1950s",
+          "The early internet in the 1990s",
+          "The first smartphones in the 2000s"
+        ],
+        correctAnswer: "Classical computing in the 1950s"
+      },
+      {
+        id: "ielts-news-2-q6",
+        type: "mcq",
+        text: "How much additional funding did the U.S. Department of Energy announce for quantum research?",
+        options: ["$100 million", "$245 million", "$300 million", "$1 billion"],
+        correctAnswer: "$300 million"
+      }
+    ],
+    pronunciation: [
+      {
+        title: "Scientific and Technical Terminology",
+        text: "Unlike conventional computers that process information in binary bits, quantum computers leverage quantum mechanical properties such as superposition and entanglement.",
+        focusPoints: ["Focus on the pronunciation of 'quantum' and 'mechanical'", "Practice the word stress in 'superposition' and 'entanglement'"]
+      }
+    ]
+  },
+  {
+    id: "ielts-news-3",
+    title: "Archaeological Discovery Challenges Timeline of Ancient Civilization",
+    level: "ielts",
+    type: "news",
+    text: `An archaeological expedition in the Mesopotamian plains has unearthed evidence that may fundamentally alter our understanding of early urban civilization. The discovery, announced yesterday by an international team led by the University of Cambridge, suggests sophisticated city structures existed nearly 1,000 years earlier than previously established in the archaeological record.
+
+The excavation site, located near the confluence of the Tigris and Euphrates rivers in modern-day Iraq, has revealed a complex urban settlement dating to approximately 5500 BCE. This predates the currently accepted timeline for the emergence of the first cities in Mesopotamia, traditionally placed around 4500-4000 BCE.
+
+"What we're seeing here challenges the conventional narrative about when and how complex urban societies first developed," said Professor Eleanor Harris, lead archaeologist on the project. "The implications for our understanding of early civilization are profound."
+
+The settlement, named Tel Hamoukar by researchers, spans approximately 12 hectares and shows evidence of specialized craft production, monumental architecture, and social stratification—hallmarks of urban civilization that were previously thought to have emerged much later.
+
+Most significantly, the excavation has revealed a sophisticated water management system including underground ceramic pipes and filtration mechanisms that demonstrate engineering knowledge previously attributed to later periods.
+
+"The water system we've uncovered indicates a level of technological sophistication and social organization that requires us to reconsider the timeline of hydraulic engineering in ancient societies," explained Dr. Amir Nasir, the team's expert in ancient infrastructure.
+
+The site has also yielded evidence of extensive long-distance trade networks. Analysis of materials found at Tel Hamoukar indicates connections with regions as distant as the Caucasus Mountains and the Indus Valley. Lapis lazuli from Afghanistan, obsidian from eastern Turkey, and shells from the Persian Gulf suggest trade relationships spanning thousands of kilometers.
+
+"These findings point to a much earlier emergence of extensive trade networks than previously documented," noted Dr. Julia Chen, specialist in ancient trade systems. "This wasn't just a local settlement—it was connected to a much broader world."
+
+Carbon dating of organic materials found at the site has consistently indicated occupation between 5500-5200 BCE, with the most sophisticated structures dating to approximately 5400 BCE. Multiple independent laboratories have confirmed these dates, establishing strong chronological evidence for the settlement's antiquity.
+
+The discovery has generated significant debate within the archaeological community. Dr. Michael Lawson of Oxford University, who was not involved in the excavation, described the findings as "potentially revolutionary, but requiring careful scrutiny."
+
+"If verified through peer review and further excavation, these findings would necessitate a substantial revision of when we believe urban civilization first emerged in Mesopotamia," Dr. Lawson commented. "This doesn't just push the timeline back by centuries—it pushes it back by a millennium."
+
+The excavation has also uncovered evidence of early writing in the form of clay tokens with consistent symbolic markings. While not confirming a fully developed writing system, these tokens may represent precursors to later cuneiform script, suggesting that symbolic communication systems were developing earlier than previously thought.
+
+"These aren't definitively writing as we would recognize it, but they show clear evidence of systematic symbolic representation for accounting purposes," explained Dr. Sarah Mahmoud, epigrapher with the expedition. "This challenges our understanding of how and when writing evolved."
+
+Particularly intriguing is evidence suggesting the settlement experienced a sudden abandonment around 5200 BCE. Analytical data from soil samples indicates a prolonged drought may have rendered the location uninhabitable, forcing its residents to migrate elsewhere.
+
+"The environmental data suggests a dramatic shift in climate conditions that would have severely impacted agricultural production," said paleoclimatologist Dr. Thomas Eriksen. "This may explain the site's abandonment and raises interesting questions about how early urban settlements responded to environmental challenges."
+
+The archaeological team employed cutting-edge technologies in their excavation, including ground-penetrating radar, drone-based photogrammetry, and portable X-ray fluorescence analysis. These methods allowed for comprehensive mapping of the site without extensive disturbance and provided detailed compositional analysis of artifacts in situ.
+
+"The methodological rigor of this excavation strengthens the credibility of these extraordinary claims," noted Dr. Victoria Schmidt of the Archaeological Institute of America. "The team has documented their findings with exceptional thoroughness."
+
+The artifacts recovered from Tel Hamoukar will be preserved at the National Museum of Iraq in Baghdad following detailed analysis. The Iraqi State Board of Antiquities and Heritage has worked in close partnership with the international team throughout the excavation process.
+
+"This discovery belongs to the cultural heritage of Iraq and the world," stated Dr. Farouk al-Rawi, representative of the State Board. "It offers invaluable insights into our shared human past and the remarkable achievements of ancient Mesopotamian society."
+
+The findings have broader implications beyond archaeology, potentially impacting our understanding of how complex societies develop. Conventional models have typically linked the emergence of cities to specific population thresholds, agricultural surpluses, and technological innovations that were believed to have converged later in history.
+
+"If urban complexity emerged a thousand years earlier than we thought, we need to reexamine our assumptions about the conditions necessary for civilization to develop," observed anthropologist Dr. Rebecca Thornton. "This may suggest that the human capacity for creating complex social structures has deeper roots than we've recognized."
+
+The research team will continue excavations at Tel Hamoukar for at least two more seasons, focusing on expanding their understanding of the settlement's extent and internal organization. Additional specialists in archaeobotany and zooarchaeology will join the team to analyze plant and animal remains that could provide insights into the agricultural and dietary practices of the settlement's inhabitants.
+
+A comprehensive report on the findings is currently under peer review for publication in the journal Antiquity, with preliminary results scheduled for presentation at the International Congress on the Archaeology of the Ancient Near East next month.
+
+"We're just beginning to understand the significance of what we've found," said Professor Harris. "Each layer we excavate raises new questions and challenges us to rethink what we thought we knew about the origins of urban life."`,
+    description: "A news report about a groundbreaking archaeological discovery that challenges conventional understanding of ancient urban civilization.",
+    estimatedTime: 10,
+    difficulty: "medium",
+    vocabulary: [
+      { word: "confluence", definition: "the junction of two rivers, especially rivers of approximately equal width" },
+      { word: "stratification", definition: "the arrangement or classification of something into different groups" },
+      { word: "hydraulic", definition: "operated by the pressure created by forcing water, oil, or another liquid through a relatively narrow pipe or orifice" },
+      { word: "epigrapher", definition: "a specialist in the study of ancient inscriptions" },
+      { word: "photogrammetry", definition: "the science of making measurements from photographs, especially for recovering the exact positions of surface points" }
+    ],
+    questions: [
+      {
+        id: "ielts-news-3-q1",
+        type: "mcq",
+        text: "According to the article, how much earlier than previously thought did sophisticated city structures exist?",
+        options: ["About 500 years", "About 1,000 years", "About 1,500 years", "About 2,000 years"],
+        correctAnswer: "About 1,000 years"
+      },
+      {
+        id: "ielts-news-3-q2",
+        type: "mcq",
+        text: "What is the name given to the settlement by researchers?",
+        options: ["Tel Hamid", "Tel Hamoudi", "Tel Hamoukar", "Tel Hammurabi"],
+        correctAnswer: "Tel Hamoukar"
+      },
+      {
+        id: "ielts-news-3-q3",
+        type: "mcq",
+        text: "What sophisticated system discovered at the site demonstrates advanced engineering knowledge?",
+        options: [
+          "Defensive walls",
+          "Water management system",
+          "Astronomical observatory",
+          "Agricultural irrigation"
+        ],
+        correctAnswer: "Water management system"
+      },
+      {
+        id: "ielts-news-3-q4",
+        type: "mcq",
+        text: "What material found at the site originated from Afghanistan?",
+        options: ["Obsidian", "Lapis lazuli", "Shells", "Clay"],
+        correctAnswer: "Lapis lazuli"
+      },
+      {
+        id: "ielts-news-3-q5",
+        type: "mcq",
+        text: "What is the approximate date range for the settlement according to carbon dating?",
+        options: [
+          "4500-4000 BCE",
+          "5000-4500 BCE",
+          "5500-5200 BCE",
+          "6000-5500 BCE"
+        ],
+        correctAnswer: "5500-5200 BCE"
+      },
+      {
+        id: "ielts-news-3-q6",
+        type: "mcq",
+        text: "What does the evidence suggest caused the sudden abandonment of the settlement?",
+        options: [
+          "Military invasion",
+          "Disease outbreak",
+          "Prolonged drought",
+          "Earthquake"
+        ],
+        correctAnswer: "Prolonged drought"
+      }
+    ],
+    pronunciation: [
+      {
+        title: "Archaeological and Historical Terminology",
+        text: "An archaeological expedition in the Mesopotamian plains has unearthed evidence that may fundamentally alter our understanding of early urban civilization.",
+        focusPoints: ["Practice the word stress in 'archaeological' and 'civilization'", "Focus on clearly pronouncing 'Mesopotamian'"]
+      }
+    ]
+  },
+  
+  // Advanced - STORIES (3 ta)
+  {
+    id: "advanced-story-1",
+    title: "The Memory Collector",
+    level: "advanced",
+    type: "stories",
+    text: `The first time I met Eliza Thornfield, she asked if she could buy my memory of the summer I turned eighteen. I nearly laughed—would have, if not for the earnest intensity in her eyes and the crisp hundred-dollar bill extended between her fingers.
+
+"I can offer more," she said, misinterpreting my hesitation. "Two hundred for the entire summer. Three hundred if it includes your first love."
+
+We were sitting in a coffee shop on Marlborough Street. Outside, Boston was dissolving in an October drizzle that blurred the edges of buildings and pedestrians alike. I had come to grade papers from my undergraduate linguistics seminar; she had come, apparently, to purchase pieces of strangers' pasts.
+
+"I don't understand," I said, setting down my pen. "What exactly are you proposing?"
+
+"I collect memories," she replied simply, as though announcing she collected stamps or vintage watches. "I pay for the experience of having someone share a specific memory in complete detail. Once shared, I ask that you agree not to speak of that particular memory again to anyone. It becomes mine exclusively."
+
+She was perhaps fifty, with silver-streaked auburn hair and the kind of self-possession that comes from moving through the world entirely on one's own terms. Her clothes were expensive but understated—cashmere scarf, simple pearl earrings, a wedding band that looked antique.
+
+"That's not possible," I said. "You can't own someone else's memory."
+
+She smiled. "Legally? No. But people honor the arrangement surprisingly well. There's something liberating about surrendering a memory—particularly ones that feel burdensome. The transaction satisfies something fundamental in human nature."
+
+I should have gathered my papers and left. Instead, I asked, "Why the summer I was eighteen?"
+
+Her eyes sharpened with interest. "You have the look of someone shaped by a pivotal moment in young adulthood. There's a particular quality to memories from that age—the intensity, the consequence. They retain their clarity even decades later."
+
+She wasn't wrong. The summer after high school had altered the trajectory of my life in ways I was still uncovering at thirty-five.
+
+"Three hundred dollars for you to sit here and listen to me talk about my past? That's all?"
+
+"Not quite. I need you to recall everything—smells, sounds, emotions. I'll ask questions to draw out details you might not consciously remember. The process typically takes about two hours. And afterward, that summer belongs to me."
+
+"And if I mention it to someone later?"
+
+"Some do," she acknowledged. "But most find they lose interest in revisiting what they've given away. The memories don't vanish—they simply become... remote. Like watching someone else's home videos."
+
+"Why do you do this?"
+
+She took a careful sip of her tea before answering. "Some collect art to surround themselves with beauty. I collect moments of transformation. Each acquisition helps me understand the architecture of human experience. How we become ourselves."
+
+Against all logic, I found myself intrigued. That summer held David, the boy who'd recognized my gift for languages before I had. It held my father's disappointment when I declined the practical business school path he'd envisioned. It held the night I'd slept on a beach in Maine and woken with my future clarified like a photograph developing in solution.
+
+"What happens to the memories you collect?" I asked.
+
+"I preserve them. Revisit them. Sometimes I find connections between seemingly unrelated experiences from different people. Patterns emerge."
+
+"And the people? Do you stay in contact?"
+
+"No," she said firmly. "The transaction concludes our relationship."
+
+I had bills to pay. Student loans. A transmission problem in my car that the mechanic described with ominous terms like "imminent" and "catastrophic."
+
+"How does this work, exactly?"
+
+Her posture relaxed fractionally. "We make an appointment. Neutral location. I record our conversation, for my records only. You sign a non-disclosure agreement regarding our arrangement, I sign a contract limiting my use of your narrative to personal purposes only—no publication, no sharing."
+
+This was madness. Yet I heard myself say, "I'd need five hundred."
+
+"Done," she replied without hesitation. "Tuesday next week? Three o'clock, perhaps? We could meet at the Athenaeum—I'm a member. There's a private room that would suit our purposes."
+
+A week later I found myself in a wood-paneled study filled with leather-bound books, describing to Eliza Thornfield how David tasted like cinnamon gum the first time he kissed me in his father's Volvo. How the August humidity had pressed against my skin the night I told my parents I was declining my business school scholarship. The precise shade of dawn light on Hampton Beach when I decided to pursue linguistics instead.
+
+Her questions were gentle but persistent, excavating details I didn't know I remembered: the song playing in the background during a pivotal conversation, the texture of my mother's tablecloth when I announced my decision, the exact wording of the letter declining my place at Wharton.
+
+When we finished, I felt hollowed out. Not unpleasantly—more like the spaciousness after a thorough housecleaning. She counted out twenty-five crisp twenty-dollar bills and slid them across the polished table.
+
+"Thank you for your contribution," she said with the gravity of a physician post-surgery.
+
+"That's it?" I asked, somewhat dazed.
+
+"That's it. Though I do have one final question, if you'll indulge me. Not about that summer, but about this experience: how do you feel now?"
+
+I considered carefully. "Lighter," I finally said. "Like I've set down something I didn't realize I was carrying."
+
+She nodded as though I'd confirmed a hypothesis. "Many people report similar sensations. The unburdening can be quite profound."
+
+We parted ways at the library entrance. I never expected to see Eliza Thornfield again.
+
+But six years later, as I stood in a gallery on Newbury Street examining an installation piece, I heard her voice behind me.
+
+"Professor Chen. How interesting to encounter you here."
+
+She looked essentially unchanged—perhaps a few more strands of silver in her hair, the same impeccable posture and assessing gaze.
+
+"Ms. Thornfield." My surprise was genuine. "I didn't realize you were involved in the art world."
+
+"Only peripherally," she said, gesturing toward the installation we both had been viewing. "Though I find this exhibition particularly relevant to my interests."
+
+The exhibition, titled "Borrowed Lives," featured recordings of people describing formative experiences, played simultaneously through multiple headphones hanging throughout the space. Visitors moved from station to station, temporarily inhabiting strangers' pivotal moments.
+
+"Have you contributed to this?" I asked, suddenly suspicious.
+
+"No," she said firmly. "As I promised, your memory—and all others I've collected—remain private. But I'm curious: have you found yourself revisiting that summer much since our meeting?"
+
+I realized with a start that I hadn't. Not because it was forgotten, but because it had somehow ceased to feel urgently mine. The emotional charge had dissipated, leaving only academic knowledge of events that had happened to someone who eventually became me.
+
+"No," I admitted. "Though I still remember everything."
+
+"Of course. Memory transfer isn't literally possible." Her smile held a trace of amusement. "At least, not with current technology."
+
+Something in her phrasing unsettled me. "Why did you really approach me that day?"
+
+She considered me for a long moment, as though calculating the wisdom of honesty.
+
+"Your summer contained elements I was researching—academic expectations confounded by personal awakening, first love coinciding with intellectual passion. I collect specific narrative patterns. Yours fit parameters I was especially interested in at that time."
+
+"For what purpose?"
+
+"Pattern recognition. The most profound experiences in human life follow surprisingly consistent arcs. I've documented forty-three distinct structures of transformative experience. Your summer aligned with Pattern Seventeen."
+
+"That sounds more like research than collecting."
+
+She inclined her head slightly. "The boundary between observation and acquisition can be... permeable."
+
+A suspicion formed. "Are you some kind of writer?"
+
+"No. At least, not in the way you mean." She glanced at her watch. "I'm afraid I have an appointment. It was illuminating
+to see you again, Professor Chen."
+
+She turned to leave, but I caught her sleeve. "Wait. If I wanted to get it back—my memory, the emotional connection to it—could I?"
+
+She studied me with unexpected gentleness. "Why would you want it back? Has the unburdening not served you?"
+
+I couldn't articulate my sudden sense of loss. "I just want to know if it's possible."
+
+"Some things, once given away, can't be fully reclaimed," she said. "But I've found that what matters most is rarely truly gone. It just changes form." She extracted a business card from her purse and pressed it into my palm. "If you find yourself with another transformative experience that fits Pattern Seventeen, I would be interested. My research continues."
+
+As she walked away, I examined the card. It contained only her name and a phone number—no title, no institution. I slipped it into my wallet, uncertain why I felt compelled to keep it.
+
+That night, I dreamed of the beach in Maine, but in the dream, I was both my eighteen-year-old self experiencing the moment and my current self observing it. I woke with the conviction that Eliza Thornfield wasn't merely collecting memories—she was cataloging the architecture of human transformation itself. For what purpose, I couldn't begin to guess.
+
+Sometimes I take out her card and consider calling, curious to learn what she's discovered through her unusual research method. But I haven't yet. Part of me fears she might ask for another memory—and part of me fears I might be willing to sell it.`,
+    description: "A mysterious woman collects other people's memories in an unusual transaction.",
+    estimatedTime: 15,
+    difficulty: "hard",
+    vocabulary: [
+      { word: "trajectory", definition: "a path, progression, or line of development resembling a physical trajectory" },
+      { word: "excavating", definition: "revealing or extracting by careful investigation" },
+      { word: "pivotal", definition: "of crucial importance in relation to the development or success of something else" },
+      { word: "unburdening", definition: "the action of freeing oneself from a burden or anxiety by revealing it to someone else" },
+      { word: "illuminating", definition: "helping to explain or clarify; informative" }
+    ],
+    questions: [
+      {
+        id: "advanced-story-1-q1",
+        type: "mcq",
+        text: "How much money did Eliza initially offer for the narrator's memory of the summer?",
+        options: ["$100", "$200", "$300", "$500"],
+        correctAnswer: "$200"
+      },
+      {
+        id: "advanced-story-1-q2",
+        type: "mcq",
+        text: "Where did the narrator and Eliza meet for their memory transaction?",
+        options: [
+          "A coffee shop on Marlborough Street",
+          "The Boston Athenaeum",
+          "A gallery on Newbury Street",
+          "Hampton Beach"
+        ],
+        correctAnswer: "The Boston Athenaeum"
+      },
+      {
+        id: "advanced-story-1-q3",
+        type: "mcq",
+        text: "According to Eliza, what happens to most people's interest in memories they've sold?",
+        options: [
+          "They forget the memories completely",
+          "They become obsessed with reclaiming them",
+          "They lose interest in revisiting them",
+          "They feel intense regret"
+        ],
+        correctAnswer: "They lose interest in revisiting them"
+      },
+      {
+        id: "advanced-story-1-q4",
+        type: "mcq",
+        text: "How many distinct structures of transformative experience had Eliza documented?",
+        options: ["17", "25", "43", "100"],
+        correctAnswer: "43"
+      },
+      {
+        id: "advanced-story-1-q5",
+        type: "mcq",
+        text: "What was the title of the art exhibition where the narrator encountered Eliza years later?",
+        options: [
+          "Memory Collectors",
+          "Borrowed Lives",
+          "Pattern Seventeen",
+          "Human Transformation"
+        ],
+        correctAnswer: "Borrowed Lives"
+      },
+      {
+        id: "advanced-story-1-q6",
+        type: "mcq",
+        text: "How did the narrator feel after sharing their memory with Eliza?",
+        options: [
+          "Angry and exploited",
+          "Confused and disoriented",
+          "Hollowed out and lighter",
+          "Unchanged but wealthier"
+        ],
+        correctAnswer: "Hollowed out and lighter"
+      }
+    ],
+    pronunciation: [
+      {
+        title: "Academic and Literary Vocabulary",
+        text: "Each acquisition helps me understand the architecture of human experience. How we become ourselves.",
+        focusPoints: ["Practice the word stress in 'acquisition' and 'architecture'", "Focus on clearly pronouncing 'experience'"]
+      }
+    ]
+  },
+  {
+    id: "advanced-story-2",
+    title: "The Cartographer's Paradox",
+    level: "advanced",
+    type: "stories",
+    text: `Dr. Eleanor Marsh traced her finger along the faded contour line, following the curve of a mountain range that shouldn't exist. The parchment map beneath her gloved hands—purportedly from 1762—showed geographical features of the North American continent that had never been documented elsewhere. More troubling still were the seven locations marked with a symbol resembling an eye inside a triangle, each annotated with astronomical coordinates and dates spanning nearly three centuries into the future.
+
+The university's acquisition of the Thorne Collection had been heralded as a significant coup for the cartography department. Lawrence Thorne, eccentric collector and descendant of colonial surveyors, had bequeathed his family's accumulation of maps, instruments, and journals with the stipulation that Dr. Marsh personally catalog them. She had assumed the request stemmed from her reputation as a meticulous historian of cartography. Now, examining this impossible artifact, she wondered if there were other reasons.
+
+"Found something interesting?" 
+
+Eleanor startled at the voice. Dr. Marcus Chen, her colleague in theoretical physics, stood in the doorway of the preservation room. His unexpected presence annoyed her—this space was meant to be secure.
+
+"How did you get access to this area?" she asked.
+
+He held up a keycard. "Dean Williams approved my request. Said you might need interdisciplinary perspective on some of the Thorne items."
+
+Eleanor hesitated. Marcus specialized in quantum theory—specifically, the increasingly mainstream hypothesis of parallel dimensions. His assistance wasn't unwelcome, but she'd hoped to understand what she was looking at before involving others.
+
+"You have impeccable timing," she conceded, gesturing him forward. "This map defies conventional explanation."
+
+Marcus approached, eyebrows rising as he examined the document. "Eighteenth century?"
+
+"Supposedly. The craftsmanship and materials are consistent with that period. The geographical knowledge, however, is not." She pointed to the mountain range. "These formations weren't documented until Lewis and Clark, decades later. And these symbols"—her finger moved to the nearest triangular eye—"correspond to precise coordinates with associated dates ranging from 1869 to 2047."
+
+"May I?" Marcus asked, reaching for the magnifying glass beside her.
+
+He examined the annotations carefully, then straightened with a low whistle. "These aren't just dates and coordinates. They include stellar configurations—positions of planets relative to specific stars at the given times. And this script around the border... is it a cipher?"
+
+"I believe so. I've begun cataloging repeated characters, but without a key..." 
+
+"Reminds me of Edward Kelley's Enochian alphabet," Marcus murmured. "Supposedly angelic language."
+
+"You're versed in 16th-century occultism?" Eleanor asked, surprised.
+
+Marcus smiled slightly. "My interests extend beyond quantum field theory. The historical relationship between science and mysticism is... revealing."
+
+He reached into his pocket and removed what appeared to be a small UV light. "May I? It won't damage the parchment."
+
+Eleanor nodded reluctantly. Marcus switched on the device and passed it over the map. Instantly, previously invisible markings bloomed across the surface—constellations, mathematical formulas, and more triangular eyes, these containing what appeared to be detailed iris patterns.
+
+"How did you know?" Eleanor demanded.
+
+"Lawrence Thorne's great-grandfather corresponded with my great-grandmother, Mei Chen. She was a physicist with... unconventional theories." Marcus continued scanning methodically. "Their letters suggested they'd discovered something significant—a way of identifying what Thorne called 'thin places.'"
+
+"Thin places," Eleanor repeated. "The Celtic concept? Where the boundary between worlds grows permeable?"
+
+"Similar, but more specific. They believed certain locations temporarily allow observation of parallel timelines—alternate histories where different choices led to different geographical and historical developments."
+
+Eleanor wanted to dismiss the idea as absurd, but the evidence literally glowed before her. The formulas now visible in the margins contained notation she recognized from her limited exposure to quantum mechanics.
+
+"Are you suggesting this map shows locations where someone could... what? See alternate versions of our world?"
+
+"Not just see," Marcus said quietly. "Thorne's journals, which the dean asked me to examine, suggest his family discovered a method to obtain objects from these parallels. Including, perhaps, maps of what our continent might have looked like had history unfolded differently."
+
+Eleanor sat heavily in her chair. "You're proposing this artifact originated in a parallel timeline? One where these mountains formed differently?"
+
+"Or where they were mapped earlier." Marcus switched off the UV light. "The journals describe devices Thorne called 'viewers'—constructed at specific coordinates during precise astronomical alignments. These devices supposedly rendered the boundaries between parallels momentarily visible."
+
+"And the Dean believes this?" Eleanor asked incredulously.
+
+"The Dean executed Thorne's will, which included detailed instructions for reconstructing a viewer. He's requested my assessment of its theoretical feasibility." Marcus met her gaze directly. "I've concluded it merits investigation. The mathematics is... compelling."
+
+Eleanor turned back to the map, her historian's mind reeling with implications. "If this is authentic—not some elaborate hoax—it undermines our entire understanding of historical documentation. No artifact could be definitively contextualized if parallel origins are possible."
+
+"Hence the paradox referenced in Thorne's notes," Marcus nodded. "The cartographer's paradox: the impossibility of definitively mapping a multiverse from within a single timeline."
+
+Eleanor studied the nearest triangular eye marking, dated October 17, 2023—just three weeks away. The coordinates corresponded to a location approximately twenty miles from campus.
+
+"This alignment is imminent," she observed. "You're planning to construct this viewer, aren't you?"
+
+"With appropriate scientific controls and documentation," Marcus confirmed. "Thorne's will allocated substantial funding for the attempt."
+
+Eleanor considered declining involvement—returning to her orderly academic life of archival research and careful cataloging. But the historian in her couldn't ignore the possibility, however remote, of witnessing unrealized histories.
+
+"I want access to all of Thorne's journals," she said finally. "And full participation in the viewer construction. If we're entertaining fringe physics, we'll maintain rigorous historical methodology."
+
+Marcus smiled. "I was hoping you'd say that. According to Thorne, the viewers require expertise in both temporal and spatial mapping. A cartographer who understands that all maps are ultimately provisional representations of a more complex reality."
+
+Three weeks later, Eleanor found herself on an isolated hillside, helping Marcus assemble a device that resembled a Victorian telescope mated with a modern interferometer. The brass components—fabricated according to Thorne's specifications—gleamed in the autumn sunlight. The control mechanism incorporated both antique clockwork and contemporary quantum sensors contributed by Marcus's department.
+
+"The alignment begins in twelve minutes," Marcus announced, checking calculations on his tablet. "Stellar positions match Thorne's predictions exactly."
+
+"And you're certain this won't... I don't know, tear a hole in reality?" Eleanor adjusted the primary lens assembly nervously.
+
+"The mathematics suggests observation only, not interaction," Marcus assured her. "The quantum field modifications are minimal and temporary."
+
+As the calculated moment approached, they took positions at the dual eyepieces. Eleanor felt ridiculous, yet simultaneously aware of participating in something potentially historic—or catastrophically misguided.
+
+"Thirty seconds," Marcus murmured. He engaged the activation sequence.
+
+The device hummed almost imperceptibly. The brass components began rotating with watchwork precision, adjusting to celestial movements too subtle for human perception. Eleanor held her breath as she gazed into the eyepiece.
+
+Initially, she saw only the expected landscape—the valley below, autumn foliage, distant campus buildings. Then the image... shifted. Not dramatically, but unmistakably. The valley remained, but different structures occupied the vista. The sprawling research hospital was absent, replaced by what appeared to be an observatory complex. Roads followed alternate routes. The forests were less extensive, fields showing evidence of different agricultural patterns.
+
+"Are you seeing this?" she whispered.
+
+"Yes," Marcus's voice sounded strained. "Different timeline. Notice the architectural styles? Mid-century modernism predominates where our timeline favored neo-Gothic revival for university buildings."
+
+"How is this possible?" Eleanor murmured, adjusting the focus slightly.
+
+"Quantum superposition at macro scale," Marcus replied. "Momentary alignment of parallel probability waves, rendered observable through precisely calibrated interference patterns."
+
+Eleanor wanted to dismiss his explanation as pseudoscientific babble, but the evidence confronted her directly. As she watched, human figures moved through the alternate landscape—people living their lives in a world where different choices had shaped a different reality.
+
+"Can they see us?" she asked.
+
+"I don't believe—" Marcus began.
+
+His response was interrupted as one of the distant figures stopped abruptly and turned to face directly toward their position. Even at this distance, Eleanor could discern the figure raising what appeared to be an identical viewing device to its eyes.
+
+"Marcus," she said urgently, "someone there is looking back."
+
+Before he could respond, the image wavered. The figure observing them seemed to make an adjustment to its device. The visual field distorted, and suddenly Eleanor was no longer seeing the valley but what appeared to be an interior space—a laboratory filled with equipment both familiar and alien.
+
+The figure that had been distant now appeared close, as though their viewing devices had established a more direct connection. Eleanor gasped. The observer was a woman who shared her features exactly—but with different clothing, different hairstyle, surrounded by different artifacts.
+
+Their eyes met across the quantum divide.
+
+The other Eleanor held up a piece of paper on which was written: "THORNE LIED. VIEWERS DON'T JUST OBSERVE. THEY—"
+
+The connection abruptly terminated as the celestial alignment shifted. The device powered down automatically, brass components cooling with faint pings in the autumn air.
+
+Eleanor stepped back from the eyepiece, finding Marcus similarly disoriented.
+
+"Did you..." she began.
+
+"I saw something different," he interrupted. "A version of myself. He was trying to communicate a warning about the viewers."
+
+Eleanor described her parallel counterpart's message. "What do you think she meant? 'Viewers don't just observe. They' what?"
+
+Marcus was already disassembling critical components of the device with urgent precision. "Based on quantum theory, sustained observation of superpositioned states can collapse probability waves. If these viewers maintain connection long enough..."
+
+"They could collapse parallels into each other?" Eleanor suggested, the implications dawning horrifically. "Merge different histories?"
+
+"Or allow deliberate transfer between them." Marcus removed what appeared to be the central calibration element and secured it in a lead-lined case. "Thorne's journals mentioned obtaining 'artifacts' from parallels. I assumed this was metaphorical or delusional."
+
+Eleanor thought of the map that had initiated their investigation—its impossible mountains, its future dates. "If Thorne or his ancestors found a way to access alternate histories, what else might they have brought across? What interference might they have caused?"
+
+Marcus sealed the case with a decisive click. "That's the question we need to answer before the next alignment date on the map. Because if viewers exist in multiple parallels, all focused on the same coordinates at the same moment..."
+
+"Then we're not just observing history," Eleanor concluded grimly. "We're actively participating in its reconstruction."
+
+As they packed the remaining equipment, a sudden gust of wind disturbed the autumn leaves around them. Eleanor couldn't shake the sensation that it carried a whisper from another world—one where different choices had led to different consequences, and where the boundaries between might and have been were far more permeable than anyone had dared imagine.`,
+    description: "A historian and physicist discover a mysterious map that challenges their understanding of reality.",
+    estimatedTime: 15,
+    difficulty: "hard",
+    vocabulary: [
+      { word: "cartography", definition: "the science or practice of drawing maps" },
+      { word: "parchment", definition: "a writing material made from processed animal skin" },
+      { word: "acquisition", definition: "the act of acquiring or gaining possession" },
+      { word: "eccentric", definition: "unconventional and slightly strange" },
+      { word: "interferometer", definition: "an instrument that uses the interference of waves to make precise measurements" }
+    ],
+    questions: [
+      {
+        id: "advanced-story-2-q1",
+        type: "mcq",
+        text: "What unusual feature did Dr. Marsh notice on the map?",
+        options: [
+          "Missing countries",
+          "Strange language",
+          "Mountain ranges that shouldn't exist",
+          "An unknown ocean"
+        ],
+        correctAnswer: "Mountain ranges that shouldn't exist"
+      },
+      {
+        id: "advanced-story-2-q2",
+        type: "mcq",
+        text: "What symbol marked special locations on the map?",
+        options: [
+          "A star inside a circle",
+          "An eye inside a triangle",
+          "A cross with a moon",
+          "A spiral with dots"
+        ],
+        correctAnswer: "An eye inside a triangle"
+      },
+      {
+        id: "advanced-story-2-q3",
+        type: "mcq",
+        text: "What did Marcus Chen specialize in?",
+        options: [
+          "Archaeological dating",
+          "Quantum theory",
+          "Ancient languages",
+          "Historical cartography"
+        ],
+        correctAnswer: "Quantum theory"
+      },
+      {
+        id: "advanced-story-2-q4",
+        type: "mcq",
+        text: "What happened when UV light was shined on the map?",
+        options: [
+          "The map disintegrated",
+          "Previously invisible markings appeared",
+          "The ink changed colors",
+          "Nothing unusual happened"
+        ],
+        correctAnswer: "Previously invisible markings appeared"
+      },
+      {
+        id: "advanced-story-2-q5",
+        type: "mcq",
+        text: "What did Thorne call the locations where boundaries between parallels grew thin?",
+        options: [
+          "Crossings",
+          "Portals",
+          "Thin places",
+          "Quantum nodes"
+        ],
+        correctAnswer: "Thin places"
+      },
+      {
+        id: "advanced-story-2-q6",
+        type: "mcq",
+        text: "What warning did the parallel Eleanor try to communicate?",
+        options: [
+          "\"Thorne is coming. Hide the map.\"",
+          "\"The coordinates are wrong. Don't trust them.\"",
+          "\"Thorne lied. Viewers don't just observe.\"",
+          "\"Close the portal before midnight.\""
+        ],
+        correctAnswer: "\"Thorne lied. Viewers don't just observe.\""
+      }
+    ],
+    pronunciation: [
+      {
+        title: "Scientific and Academic Vocabulary",
+        text: "The cartographer's paradox: the impossibility of definitively mapping a multiverse from within a single timeline.",
+        focusPoints: ["Practice the word stress in 'cartographer's' and 'definitively'", "Focus on the pronunciation of 'multiverse'"]
+      }
+    ]
+  },
+  {
+    id: "advanced-story-3",
+    title: "Synchronicity",
+    level: "advanced",
+    type: "stories",
+    text: `The doctors had always told Adnan that his inexplicable connection with his twin sister was merely psychological—a product of shared genetics and environment, reinforced by their unusually close upbringing. As children, they had finished each other's sentences, experienced identical dreams, and once, when Amara broke her arm falling from a tree in Karachi, Adnan had screamed in pain five thousand miles away in his Boston dormitory.
+
+Their parents, both physicians, had documented these occurrences with clinical detachment, filling notebooks with observations about what they termed "apparent synchronistic phenomena." The twins had grown up with electrodes occasionally attached to their scalps, their blood regularly drawn for analysis, their experiences recorded for posterity. When no physiological explanation emerged, interest waned. Coincidence and confirmation bias, the specialists concluded. Nothing that violates the known laws of physics.
+
+Now, at thirty-two, Adnan stared at his computer screen where an email from his sister pulsed with impossible implications.
+
+Subject: Quantum Entanglement Study - Matched Results
+
+Adnan,
+
+The preliminary data is unmistakable. The entangled particles responded identically despite separation across the quantum network. More significantly, the neural monitoring showed corresponding patterns in my brain state and that of Subject B (whom I now know was you).
+
+We were right all along. What we experience isn't psychological. It's quantum mechanical.
+
+Call me as soon as you get this. The university is pushing to publish, but we need to discuss implications first.
+
+- Amara
+
+The irony wasn't lost on him. The twins had pursued identical fields—quantum physics—but from different angles. Amara specialized in quantum computing at Singapore's Institute for Quantum Technologies; Adnan researched quantum biology at MIT, investigating whether quantum effects might facilitate certain biological processes. They had deliberately established careers on opposite sides of the planet, a conscious attempt to disprove their connection by putting maximum distance between them.
+
+It hadn't worked. The inexplicable synchronicities had continued into adulthood, evolving from shared dreams to simultaneous breakthroughs and identical solutions to complex problems derived independently. Two years ago, they had developed a hypothesis—one so outlandish they had shared it with no one but each other: that the circumstances of their birth had somehow resulted in quantum entanglement between specific neural structures in their brains.
+
+Now Amara had apparently found evidence supporting their theory.
+
+Adnan's phone chimed with a text: "I know you've read my email. Call me."
+
+He smiled despite himself. Of course she would sense his hesitation.
+
+When Amara's face appeared on the video call, Adnan was struck anew by their similarities—the same arched eyebrows, the same intense brown eyes—despite the fact that she wore her hair in a short, practical style while his curled past his shoulders.
+
+"You're skeptical," she said without preamble.
+
+"I'm cautious," he countered. "Entanglement between quantum particles is one thing. Entanglement between structures composed of billions of neurons is..."
+
+"Unprecedented," she finished. "But not theoretically impossible. You yourself published on potential quantum effects in microtubules last year."
+
+"Theoretical foundations for potential quantum computation in neural structures," he corrected. "Nothing about inter-brain entanglement across thousands of miles."
+
+Amara leaned closer to the camera. "The experiment wasn't designed to test our specific hypothesis. It was a standard quantum network communication test using entangled photons. The neural monitoring was included because we're investigating quantum effects on cognitive processing. Your participation was blind—you were simply Subject B in Boston."
+
+"So what exactly are you claiming happened?"
+
+"When we measured the spin states of the entangled photons, we found the expected quantum correlation despite separation. Standard quantum mechanics. But the neural monitoring showed something extraordinary: identical patterns of activation in the prefrontal cortex of both participants at the exact moment of measurement."
+
+Adnan frowned. "That would be expected if both participants were performing the same cognitive task—observing measurement results."
+
+"Except that the activation preceded the measurement results," Amara said quietly. "By approximately 300 milliseconds. As though both brains anticipated the outcome simultaneously."
+
+The implication hung between them. Quantum entanglement was often mistakenly described as "faster than light communication," but it didn't actually transmit information—it simply meant that entangled particles maintained correlated states regardless of distance.
+
+"Send me the data," Adnan said finally. "The full dataset, not just your interpretation."
+
+"Already done. Check your secure server."
+
+Adnan spent three days analyzing the data, looking for flaws in methodology, alternative explanations, any reason to dismiss his sister's extraordinary claim. He found none. The neural synchronization was there, precisely as she'd described—anticipatory activation patterns that defied conventional explanation.
+
+When he called her back, his voice was subdued. "We need to run more tests. Controlled experiments specifically designed to test our hypothesis."
+
+"Already preparing the proposal," Amara replied. "But Adnan, you understand what this might mean?"
+
+He did. Their lifelong connection wasn't an anomaly to be dismissed by skeptical neurologists. It was potentially the first documented case of quantum entanglement operating at a macroscopic level in biological systems—a phenomenon that could revolutionize not only quantum physics but our understanding of consciousness itself.
+
+"We need to proceed carefully," he cautioned. "The scientific community will be skeptical at best, hostile at worst."
+
+"Which is why I've delayed publication of the initial findings," she agreed. "But there's something else we need to consider."
+
+"What?"
+
+"If our brains are indeed entangled in some quantum mechanical sense, what are the ethical implications of experimenting on ourselves? We'd be both researchers and subjects."
+
+Adnan hadn't considered this dimension. "We'd need oversight. Independent monitoring."
+
+"And we'd need to consider whether publication could lead to attempts to weaponize or commercialize the phenomenon," Amara added. "Quantum communication without technological infrastructure would have...significant implications."
+
+The conversation continued for hours, spanning scientific, ethical, and philosophical dimensions. By its conclusion, they had outlined a research protocol and security measures to protect both the integrity of the investigation and themselves.
+
+Over the following months, they conducted a series of carefully documented experiments. They recorded instances where changes in one twin's brain state corresponded with identical changes in the other's, despite separation and without conventional communication. They demonstrated that the connection operated independently of time zones, physical condition, and emotional state. Most startlingly, they found that the strength of the quantum correlation increased when one twin was in danger or extreme distress.
+
+This last discovery was unplanned. During an experimental session, the laboratory fire alarm activated at Amara's facility. In the chaos of evacuation, a chemical fire broke out near her position. As smoke filled the corridor, her oxygen levels dropped precipitously—and in Boston, Adnan suddenly began gasping for air, his blood oxygen saturation plummeting for no apparent physiological reason. The episode ended the moment Amara reached fresh air.
+
+The incident was captured in both locations with comprehensive biometric monitoring, providing the most compelling evidence yet of their hypothesis. It also left them deeply shaken.
+
+"This isn't just an academic curiosity anymore," Adnan said during their next call. "This connection could have survival value."
+
+"Or it could endanger us both," Amara countered. "If one of us experiences something catastrophic, would the other be equally affected? Could one twin's death impact the other through this quantum link?"
+
+The question had haunted them both since childhood. After their grandmother died, they had made a pact: whoever died first would attempt to communicate the experience to the other, to answer humanity's oldest question from beyond the threshold. As adults, they had dismissed this as childish fantasy. Now, the possibility loomed with new significance.
+
+"We need to understand the parameters and limitations," Adnan said. "But we also need to consider when and how to share these findings."
+
+The scientific implications were enormous. If quantum entanglement could operate at the level of neural structures, it suggested consciousness might be fundamentally connected to quantum mechanical processes—a hypothesis long championed by a minority of theorists but dismissed by mainstream neuroscience. It also suggested the possibility that other pairs of humans—particularly identical twins—might exhibit similar connections, albeit perhaps less pronounced.
+
+After six months of rigorous experimentation and documentation, they prepared their first paper for publication. Anticipating skepticism, they included only the most incontrovertible data and presented it not as proof of their specific case but as evidence supporting the broader hypothesis that quantum effects might operate in neural systems across previously unimagined distances.
+
+The response was immediate and polarized. Quantum physicists were intrigued but cautious; neuroscientists largely dismissive; the popular press sensationalist. Several prestigious laboratories requested access to their protocols to attempt replication with other twin pairs. Government agencies expressed interest in potential applications. Religious organizations cited the findings as evidence for the existence of the soul.
+
+Through it all, Adnan and Amara continued their investigation, documenting new aspects of their connection and developing theoretical frameworks to explain it. They discovered that their connection allowed for rudimentary direct communication—not language or images, but emotional states and basic conceptual transfer that operated below the threshold of conscious awareness.
+
+"It's not telepathy as popularly imagined," Amara explained to a skeptical colleague. "It's more like quantum-facilitated empathy with informational undertones. We can't read each other's thoughts, but we can sense each other's states and sometimes... impressions of concepts."
+
+The most profound moment came unexpectedly, during a routine experimental session one year into their research. Adnan, monitoring his own neural activity while Amara did the same in Singapore, noticed a pattern he hadn't observed before—a coherent oscillation in a frequency range associated with meditative states.
+
+He texted her: "Are you seeing this new pattern?"
+
+Her response was immediate: "Yes. And I know what it is."
+
+In their next video call, Amara explained her theory. "These oscillations don't originate in either of our brains. They're interference patterns—the result of quantum coherence between our neural states."
+
+"You're suggesting our entangled consciousness is creating a third pattern? A shared quantum state that exists independently of either individual brain?"
+
+"Precisely," she confirmed. "A quantum consciousness that emerges from but transcends our individual minds. It's not unlike quantum superposition—our entangled neural states exist simultaneously in multiple configurations, creating something greater than the sum of its parts."
+
+The implications were staggering, verging on the metaphysical. If consciousness could exist in a quantum state spanning two physically separated brains, what did that suggest about the fundamental nature of awareness itself? Could consciousness be a quantum field phenomenon rather than merely an emergent property of neural computation?
+
+As their research progressed, Adnan and Amara found themselves increasingly aligned not just in their scientific understanding but in their philosophical outlook. Their separate approaches to quantum physics—his biological, hers computational—merged into a unified theory of quantum consciousness that challenged conventional boundaries between physics and metaphysics.
+
+"We're not just documenting our connection anymore," Adnan observed during a late-night discussion. "We're using it as a lens to examine the nature of reality itself."
+
+Amara nodded. "Perhaps that was always the purpose of our entanglement—not merely to connect us as siblings, but to provide humanity with a glimpse of what consciousness truly is."
+
+"A quantum phenomenon that transcends spatial separation," Adnan continued her thought. "Which raises the question..."
+
+"...whether it might also transcend temporal boundaries," Amara finished.
+
+The childhood pact regarding death returned to their discussions, no longer as naive fantasy but as serious scientific inquiry. If their consciousness existed partially in a quantum state that spanned continental distances, what happened to that state when one physical body ceased functioning?
+
+They didn't have to wait long for an answer. Three months later, Adnan was presenting their research at a conference in Zurich when he collapsed mid-sentence. Medical personnel rushed to his aid as he clutched his head, crying out not in pain but in shock.
+
+"Amara," he gasped. "Something's happened to Amara."
+
+Eight thousand miles away, his sister had suffered a brain aneurysm while working late in her laboratory. By the time emergency services reached her, clinical death had occurred. Resuscitation efforts were initiated immediately.
+
+In Zurich, Adnan experienced something no human had previously documented—the quantum echo of his twin's consciousness as it separated from her physical form. For seventeen minutes, as medical teams in Singapore performed CPR and initiated emergency procedures, Adnan perceived what he would later describe as "consciousness without constraint"—a state of awareness no longer bound by individual neurological architecture.
+
+When Amara was successfully resuscitated, Adnan felt her consciousness "snap back" into physical form. He immediately booked a flight to Singapore.
+
+In the hospital, as Amara recovered, they compared experiences. Her recollection of the seventeen minutes of clinical death was fragmentary but aligned remarkably with Adnan's perception of her consciousness during that period. More significantly, both felt their quantum connection had fundamentally changed—deepened and expanded in ways they were only beginning to understand.
+
+"It wasn't death I experienced," Amara said quietly. "It was transformation. Consciousness without the limitations of a single neurological system."
+
+"The question is whether that transformation is unique to our entangled state, or whether it reflects a universal property of consciousness that only we could document due to our connection," Adnan responded.
+
+As Amara recovered, they documented everything—her experiences, Adnan's perceptions, the measurable changes in their quantum correlation following her resuscitation. They prepared what would become their most significant publication: "Quantum Consciousness Beyond Neural Architecture: Observations of Awareness During Temporary Cessation of Brain Function in an Entangled Twin Pair."
+
+The paper would eventually transform not just neuroscience and quantum physics, but humanity's conception of itself. The twins who had once been studied as curiosities became the originators of a new field—quantum consciousness studies—that bridged the previously unbridgeable gap between physical science and the subjective experience of awareness.
+
+Years later, when asked why the discovery had fallen to them specifically, Amara would offer a characteristically precise
+response: "The universe required observers who were themselves entangled. We didn't discover quantum consciousness—quantum consciousness discovered itself through us. This recursive relationship between observer and observed may be the most profound aspect of our finding."
+
+Adnan would add, "Our entanglement wasn't an anomaly to be explained away, but a window into the fundamental nature of consciousness itself. Perhaps the greatest synchronicity was that we both became physicists with the precise specializations needed to recognize what was happening within and between us."
+
+Their work continues, expanding human understanding of the quantum nature of awareness and challenging conventional boundaries between individual consciousnesses. What began as an unexplained connection between twins has evolved into humanity's first empirical glimpse beyond the horizon of conventional physics into the quantum foundation of mind itself—a synchronicity of cosmic significance and profound implication.`,
+    description: "Twin physicists discover their lifelong connection is more than psychological—it's quantum entanglement, with profound implications.",
+    estimatedTime: 15,
+    difficulty: "hard",
+    vocabulary: [
+      { word: "synchronistic", definition: "relating to the simultaneous occurrence of events that appear significantly related but have no discernible causal connection" },
+      { word: "entanglement", definition: "a quantum phenomenon where pairs of particles remain connected so that actions performed on one affect the other, regardless of distance" },
+      { word: "microtubules", definition: "hollow cylindrical structures that are part of a cell's cytoskeleton and may play a role in quantum effects in the brain" },
+      { word: "correlation", definition: "a mutual relationship or connection between two or more things" },
+      { word: "oscillation", definition: "movement back and forth at a regular speed, or variation between two states" }
+    ],
+    questions: [
+      {
+        id: "advanced-story-3-q1",
+        type: "mcq",
+        text: "What fields did the twins pursue in their careers?",
+        options: [
+          "Medicine and biology",
+          "Neuroscience and psychology",
+          "Computer science and engineering",
+          "Quantum physics with different specializations"
+        ],
+        correctAnswer: "Quantum physics with different specializations"
+      },
+      {
+        id: "advanced-story-3-q2",
+        type: "mcq",
+        text: "What unexpected neural activity did the twins discover during their experiment?",
+        options: [
+          "Identical dream patterns",
+          "Neural activation that preceded measurement results",
+          "Accelerated brain wave patterns",
+          "Decreased activity in the prefrontal cortex"
+        ],
+        correctAnswer: "Neural activation that preceded measurement results"
+      },
+      {
+        id: "advanced-story-3-q3",
+        type: "mcq",
+        text: "What happened to Adnan when Amara's oxygen levels dropped during a fire?",
+        options: [
+          "He felt anxious but had no physical symptoms",
+          "He lost consciousness immediately",
+          "He began gasping for air with dropping blood oxygen levels",
+          "He experienced a severe headache"
+        ],
+        correctAnswer: "He began gasping for air with dropping blood oxygen levels"
+      },
+      {
+        id: "advanced-story-3-q4",
+        type: "mcq",
+        text: "What did Amara describe as the nature of their direct communication ability?",
+        options: [
+          "Clear telepathic language transfer",
+          "Visual image sharing",
+          "Complete thought reading",
+          "Quantum-facilitated empathy with informational undertones"
+        ],
+        correctAnswer: "Quantum-facilitated empathy with informational undertones"
+      },
+      {
+        id: "advanced-story-3-q5",
+        type: "mcq",
+        text: "What was discovered about the coherent oscillation patterns observed in both twins?",
+        options: [
+          "They were random coincidences",
+          "They resulted from shared genetics",
+          "They were interference patterns from quantum coherence between neural states",
+          "They were caused by external electromagnetic influences"
+        ],
+        correctAnswer: "They were interference patterns from quantum coherence between neural states"
+      },
+      {
+        id: "advanced-story-3-q6",
+        type: "mcq",
+        text: "How long was Amara clinically dead before resuscitation?",
+        options: [
+          "5 minutes",
+          "17 minutes",
+          "30 minutes",
+          "Over an hour"
+        ],
+        correctAnswer: "17 minutes"
+      }
+    ],
+    pronunciation: [
+      {
+        title: "Scientific and Academic Vocabulary",
+        text: "The inexplicable synchronicities had continued into adulthood, evolving from shared dreams to simultaneous breakthroughs and identical solutions to complex problems derived independently.",
+        focusPoints: ["Practice the word stress in 'inexplicable' and 'synchronicities'", "Focus on clearly pronouncing 'simultaneously'"]
+      }
+    ]
+  },
+
+  // Advanced - ARTICLES (3 ta)
+  {
+    id: "advanced-article-1",
+    title: "The Neuroscience of Decision-Making Under Uncertainty",
+    level: "advanced",
+    type: "articles",
+    text: `Human decision-making under conditions of uncertainty represents one of the most complex cognitive processes studied in neuroscience, involving the orchestrated interaction of multiple brain regions and neurotransmitter systems. Recent advances in neuroimaging, computational modeling, and clinical studies have substantially enhanced our understanding of the neural mechanisms underlying how humans navigate ambiguous choices, weigh conflicting evidence, and formulate decisions when outcomes remain unpredictable. This article examines current research in this rapidly evolving field, with particular attention to the interplay between emotional and rational decision processes.
+
+At the neuroanatomical level, decision-making under uncertainty engages a distributed network of brain regions rather than any single specialized area. Functional magnetic resonance imaging (fMRI) studies consistently implicate the dorsolateral prefrontal cortex (DLPFC) in maintaining and manipulating potential choice options, while the anterior cingulate cortex (ACC) appears crucial for detecting conflicts between competing alternatives and signaling the need for additional cognitive control. The orbitofrontal cortex (OFC) integrates value assessments with emotional signals, contextual information, and potential outcomes, enabling nuanced evaluation of choices under ambiguous conditions.
+
+The ventromedial prefrontal cortex (vmPFC) emerges as particularly significant in uncertain decision contexts, serving as a critical hub for integrating affective signals from the limbic system—particularly the amygdala—with more analytical assessments from lateral prefrontal regions. Recent high-resolution imaging studies employing multivariate pattern analysis have revealed that the vmPFC represents the subjective value of options along a common neural currency, allowing for comparison between choices with fundamentally different attributes or potential outcomes. This computational function appears compromised in patients with vmPFC lesions, who typically demonstrate impaired decision-making under ambiguity despite preserved intellectual functioning in other domains.
+
+The insular cortex plays a unique role in uncertain decision processes, particularly through its involvement in representing interoceptive states and risk assessment. Anterior insula activation correlates strongly with risk prediction and risk prediction errors—the neural basis for learning from unexpected outcomes. This region shows heightened activity when subjects face ambiguous choices with potential negative consequences, suggesting its crucial role in loss aversion and vigilance. Notably, individuals with greater interoceptive awareness (the ability to perceive internal bodily states) show different patterns of insular activation during uncertain decisions and often demonstrate more advantageous choice behavior in experimental paradigms.
+
+Subcortical structures, particularly the striatum and amygdala, contribute essential functions to decision processes under uncertainty. The ventral striatum, with its dense dopaminergic innervation, encodes reward prediction errors that drive both immediate decision preferences and longer-term learning about choice outcomes. Recent research using combined fMRI/PET imaging has demonstrated that individual differences in dopamine receptor density in the ventral striatum correlate with variation in risk preferences and exploratory behavior. The amygdala, traditionally associated with fear processing, plays a broader role in uncertain decision-making by signaling the emotional salience of potential outcomes and mediating experience-dependent adjustments in choice behavior.
+
+Neuromodulatory systems profoundly influence decision-making under uncertainty through widespread projections to both cortical and subcortical structures. Dopaminergic signaling from the ventral tegmental area and substantia nigra modulates reward expectations and exploration behavior, with phasic dopamine release encoding the difference between expected and received outcomes. This prediction error signal is fundamental to reinforcement learning models that describe how humans adjust decision strategies based on experience. Individual variations in dopaminergic function—whether from genetic polymorphisms, pharmacological manipulations, or pathological conditions—correlate with differences in risk preferences and exploratory behavior.
+
+Noradrenergic projections from the locus coeruleus regulate arousal and attentional focus during uncertain decisions, with recent optogenetic studies in animal models suggesting that norepinephrine signaling modulates the exploration-exploitation tradeoff—the balance between searching for better alternatives versus exploiting known rewards. Pupillometry studies in humans, which provide an indirect measure of locus coeruleus activity, demonstrate that pupil dilation precedes shifts from exploitative to exploratory decision strategies when environmental volatility increases.
+
+Serotonergic signaling from the raphe nuclei appears particularly important for decisions involving delayed outcomes or potential losses. Acute tryptophan depletion, which temporarily reduces serotonin synthesis, typically increases impulsive choice and sensitivity to potential losses in experimental paradigms. Conversely, selective serotonin reuptake inhibitors often reduce impulsivity and modulate loss aversion. These findings align with computational models suggesting serotonin mediates temporal discounting and risk assessment functions, particularly for potentially aversive outcomes.
+
+Computational neuroscience has provided invaluable frameworks for understanding the algorithmic basis of decision-making under uncertainty. Bayesian models describe how the brain maintains and updates probabilistic representations of the environment, with neural activity in the parietal cortex and prefrontal regions encoding subjective probability distributions that reflect both prior knowledge and newly observed evidence. These models explain how individuals integrate conflicting information and adjust confidence levels when making judgments under ambiguity.
+
+Reinforcement learning models formalize how decision strategies evolve through experience, with neural correlates in dopaminergic signaling and striatal activity. Recent advances in hierarchical reinforcement learning models have elucidated how humans navigate complex, multi-level decision problems by abstracting higher-order patterns and policies. These computational approaches increasingly incorporate parameters reflecting individual differences in risk sensitivity, ambiguity tolerance, and exploration tendencies, providing mechanistic explanations for the substantial heterogeneity observed in human decision-making styles.
+
+Particularly relevant to real-world decision contexts, prospect theory and its neural foundations have illuminated systematic biases in human judgment under uncertainty. The asymmetric valuation of potential gains versus losses—with losses typically exerting greater influence than equivalent gains—manifests in differential activation patterns in the striatum, amygdala, and anterior insula. The diminishing sensitivity to changes in value as magnitudes increase corresponds to non-linear scaling of neural responses in the ventral striatum and vmPFC. The tendency to overweight low probabilities and underweight high probabilities correlates with distorted probability representations in prefrontal regions and altered dopaminergic signaling.
+
+Developmental neuroscience research has revealed that decision-making under uncertainty follows a protracted maturational trajectory, with adolescents demonstrating distinct neural activation patterns compared to adults. The differential development of subcortical reward systems versus prefrontal regulatory regions creates a maturational imbalance that may partially explain adolescents' increased risk-taking and sensitivity to peer influence. Longitudinal neuroimaging studies suggest that individual differences in the development of functional connectivity between the vmPFC and both the striatum and amygdala predict trajectories of decision-making competence through adolescence and early adulthood.
+
+At the other end of the lifespan, aging introduces significant alterations to decision processes under uncertainty. While crystallized knowledge and life experience may enhance certain aspects of decision-making, age-related changes in dopaminergic function, prefrontal structure, and insular integrity often affect risk assessment and learning from probabilistic feedback. Interestingly, some research suggests that older adults demonstrate greater decision satisfaction despite these neural changes, possibly reflecting adaptive strategies that compensate for altered cognitive processes or modifications in emotional reactivity to uncertain outcomes.
+
+Clinical populations provide critical insights into the neuroscience of decision-making under uncertainty. Patients with damage to the vmPFC typically demonstrate the "myopia for the future" syndrome characterized by dramatically impaired decision-making despite preserved intelligence. These individuals often make disadvantageous choices in experimental paradigms like the Iowa Gambling Task, demonstrating reduced sensitivity to potential future consequences and diminished autonomic responses to risky options. Similar patterns emerge in some patients with frontotemporal dementia, particularly those with ventromedial prefrontal atrophy.
+
+Addiction disorders involve profound disruptions to decision processes under uncertainty, with substance-dependent individuals showing altered risk sensitivity and temporal discounting functions. Neuroimaging studies reveal that individuals with addiction demonstrate blunted striatal responses to non-drug rewards but heightened responses to drug-related cues. Computational modeling suggests specific alterations to reinforcement learning parameters, particularly reduced learning rates for negative outcomes and distorted value representations. These neural and computational disruptions help explain the persistent selection of immediate drug rewards despite devastating long-term consequences.
+
+Anxiety disorders feature distinctive patterns of decision-making under uncertainty, characterized by heightened sensitivity to potential negative outcomes and ambiguous situations. Patients with generalized anxiety disorder show hyperactivation of the amygdala and anterior insula when facing uncertain choices, particularly those involving potential losses. Computationally, these individuals demonstrate altered volatility estimates in Bayesian models—essentially assigning higher weight to new evidence that suggests potential threats and maintaining elevated estimates of environmental unpredictability.
+
+Recent research has increasingly examined how social context influences neural processes during uncertain decisions. The perceived presence of observers activates mentalizing networks including the temporoparietal junction and dorsomedial prefrontal cortex during decision-making, often modifying choice behavior to align with presumed social norms. Decisions made under uncertainty for others rather than oneself engage somewhat distinct neural circuits, with relatively greater activation in executive control networks and attenuated emotional responses in limbic regions. These findings suggest that the common phenomenon of offering more rational advice to others than we follow ourselves may have specific neural underpinnings.
+
+Economic inequality and early life stress appear to significantly impact the neurodevelopment of decision-making systems. Individuals who experienced childhood poverty or trauma often show altered amygdala and prefrontal development, modified stress reactivity, and distinct patterns of decision-making under uncertainty. Neuroimaging studies suggest that early adversity may calibrate threat detection and reward valuation systems in ways that remain evident into adulthood, potentially reflecting adaptive responses to developmental environments characterized by unpredictability or resource scarcity. These findings have important implications for understanding socioeconomic disparities in decision outcomes across various life domains.
+
+Pharmacological interventions targeting neuromodulatory systems can significantly alter decision processes under uncertainty. Dopaminergic medications administered to Parkinson's patients often produce complex effects on decision-making, occasionally inducing pathological gambling or other impulse control disorders in a subset of treated individuals. Acute administration of L-DOPA in healthy volunteers typically increases risk-taking behavior and exploration in decision tasks. Serotonergic and noradrenergic drugs similarly modify specific aspects of uncertain choices, offering both therapeutic opportunities and mechanistic insights into the neurochemical foundations of decision processes.
+
+Non-invasive brain stimulation techniques have emerged as both investigative tools and potential interventions for modifying decision-making under uncertainty. Transcranial magnetic stimulation (TMS) targeting the dorsolateral prefrontal cortex can temporarily alter risk preferences and information integration during uncertain choices. Transcranial direct current stimulation (tDCS) applied to prefrontal regions has been shown to modify temporal discounting functions and exploration tendencies. These interventions provide causal evidence for regional contributions to decision processes and suggest potential therapeutic applications for conditions characterized by maladaptive decision patterns.
+
+The integration of artificial intelligence approaches with neuroscience has accelerated understanding of decision-making under uncertainty. Deep reinforcement learning algorithms now achieve superhuman performance in complex, uncertain environments like Go and poker, using computational architectures inspired by neural systems. Reciprocally, these AI systems generate novel hypotheses about potential algorithms implemented in human neural circuits. The growing field of neuroeconomics increasingly synthesizes insights from neuroscience, psychology, economics, and computer science to develop more comprehensive models of how humans navigate uncertainty.
+
+Clinical applications of decision neuroscience are emerging across various domains. Computational parameters extracted from decision tasks show promise as dimensional biomarkers for psychiatric conditions, potentially enabling more precise diagnosis and treatment selection. Cognitive training interventions targeting specific decision processes demonstrate efficacy for some substance use and impulse control disorders. Neuromodulation approaches based on identified neural circuits involved in maladaptive decision patterns are under investigation for treatment-resistant conditions. These translational developments illustrate the practical relevance of basic research in decision neuroscience.
+
+In conclusion, the neuroscience of decision-making under uncertainty reveals the remarkable complexity of the biological mechanisms that enable humans to navigate an inherently unpredictable world. The orchestrated interaction of multiple brain regions, neuromodulatory systems, and computational processes supports the integration of cognitive and emotional factors when evaluating uncertain prospects. Individual differences in these neural systems—arising from genetic variation, developmental experiences, aging processes, or pathological conditions—help explain the tremendous diversity in how humans approach uncertain choices across different contexts. Ongoing research at the intersection of neuroscience, psychology, economics, and computational modeling continues to refine our understanding of these fundamental aspects of human cognition and behavior.`,
+    description: "An academic article examining the neural mechanisms involved in making decisions under conditions of uncertainty.",
+    estimatedTime: 15,
+    difficulty: "very hard",
+    vocabulary: [
+      { word: "interoceptive", definition: "relating to stimuli produced within an organism, especially in the gut and other internal organs" },
+      { word: "optogenetic", definition: "relating to the use of genetic methods combined with optical technology to control the activity of specific cells" },
+      { word: "pupillometry", definition: "the measurement of changes in the diameter of the pupil of the eye" },
+      { word: "probabilistic", definition: "based on or adapted to a theory of probability" },
+      { word: "neuromodulatory", definition: "relating to the alteration of nervous activity through the release of neurotransmitters" }
+    ],
+    questions: [
+      {
+        id: "advanced-article-1-q1",
+        type: "mcq",
+        text: "According to the article, which brain region serves as a critical hub for integrating affective signals with analytical assessments?",
+        options: [
+          "Dorsolateral prefrontal cortex (DLPFC)",
+          "Anterior cingulate cortex (ACC)",
+          "Ventromedial prefrontal cortex (vmPFC)",
+          "Insular cortex"
+        ],
+        correctAnswer: "Ventromedial prefrontal cortex (vmPFC)"
+      },
+      {
+        id: "advanced-article-1-q2",
+        type: "mcq",
+        text: "Which neurotransmitter system is described as encoding reward prediction errors that drive decision preferences?",
+        options: [
+          "Serotonergic system",
+          "Dopaminergic system",
+          "Noradrenergic system",
+          "Cholinergic system"
+        ],
+        correctAnswer: "Dopaminergic system"
+      },
+      {
+        id: "advanced-article-1-q3",
+        type: "mcq",
+        text: "What neural measurement has been used as an indirect indicator of locus coeruleus activity during decision-making?",
+        options: [
+          "Heart rate variability",
+          "Galvanic skin response",
+          "Pupil dilation",
+          "Cortisol levels"
+        ],
+        correctAnswer: "Pupil dilation"
+      },
+      {
+        id: "advanced-article-1-q4",
+        type: "mcq",
+        text: "Which computational framework describes how the brain maintains and updates probabilistic representations of the environment?",
+        options: [
+          "Reinforcement learning models",
+          "Prospect theory",
+          "Bayesian models",
+          "Temporal difference learning"
+        ],
+        correctAnswer: "Bayesian models"
+      },
+      {
+        id: "advanced-article-1-q5",
+        type: "mcq",
+        text: "What developmental pattern is described regarding adolescent decision-making?",
+        options: [
+          "Enhanced prefrontal regulation compared to adults",
+          "Reduced sensitivity to rewards compared to adults",
+          "A maturational imbalance between reward systems and regulatory regions",
+          "Identical neural patterns to adults but with less experience"
+        ],
+        correctAnswer: "A maturational imbalance between reward systems and regulatory regions"
+      },
+      {
+        id: "advanced-article-1-q6",
+        type: "mcq",
+        text: "What syndrome is typically demonstrated by patients with damage to the vmPFC?",
+        options: [
+          "Hypervigilance syndrome",
+          "Myopia for the future syndrome",
+          "Reward insensitivity disorder",
+          "Decision paralysis syndrome"
+        ],
+        correctAnswer: "Myopia for the future syndrome"
+      }
+    ],
+    pronunciation: [
+      {
+        title: "Scientific and Academic Vocabulary",
+        text: "Functional magnetic resonance imaging studies consistently implicate the dorsolateral prefrontal cortex in maintaining and manipulating potential choice options.",
+        focusPoints: ["Practice the word stress in 'dorsolateral' and 'prefrontal'", "Focus on clearly pronouncing 'magnetic resonance imaging'"]
+      }
+    ]
+  },
+  {
+    id: "advanced-article-2",
+    title: "Linguistic Relativity: How Language Shapes Thought",
+    level: "advanced",
+    type: "articles",
+    text: `The hypothesis that language influences thought and perception has captivated scholars across numerous disciplines for nearly a century. Known variously as linguistic relativity, the Sapir-Whorf hypothesis, or the Whorfian hypothesis, this proposition suggests that the particular language we speak shapes our cognitive processes and our understanding of reality in substantive ways. From its controversial beginnings to contemporary experimental evidence, the relationship between language and cognition represents an intellectual journey that illuminates fundamental questions about human experience and the architecture of the mind.
+
+The origins of linguistic relativity as a formal hypothesis are generally attributed to American linguist Benjamin Lee Whorf and his mentor Edward Sapir in the early 20th century. Whorf, working with Native American languages like Hopi that differed dramatically from Indo-European languages, proposed that differences in grammatical structure and semantic categorization corresponded to different ways of conceptualizing reality. His famous examples included the multiple snow-related words in Inuit languages and the unique temporal concepts in Hopi that, he argued, enabled or constrained different cognitive possibilities for speakers.
+
+Whorf's initial claims were subsequently oversimplified into two distinct interpretations. The "strong" version, linguistic determinism, proposed that language absolutely determines thought, effectively imprisoning speakers within the conceptual boundaries of their mother tongue. The "weak" version, linguistic relativity proper, suggested more modestly that language influences or nudges thought in certain directions without completely constraining it. While contemporary scholars generally reject the strong deterministic position as empirically untenable, substantial evidence has accumulated supporting various forms of the weaker relativistic hypothesis.
+
+Research into color terminology provides one of the most thoroughly investigated domains of linguistic relativity. Languages vary considerably in how they parse the color spectrum, from languages with only two basic color terms (typically distinguishing light/warm from dark/cool colors) to those with twelve or more distinct basic categories. Early cross-cultural studies by Berlin and Kay (1969) suggested universal constraints in color categorization, seemingly undermining relativistic claims. However, subsequent research has revealed more nuanced effects: speakers of languages with different color terminologies show different perceptual boundaries, memory patterns, and discrimination abilities for colors.
+
+Particularly compelling evidence comes from studies with speakers of languages that lack the blue-green distinction (treating both as variants of the same basic color category). When asked to quickly identify whether two presented colors are the same or different, these speakers show slower reaction times when distinguishing blue from green compared to speakers of languages that lexically separate these colors. Importantly, this effect occurs even in non-linguistic tasks requiring simple perceptual discrimination, suggesting that language-specific categorization influences basic visual processing rather than merely affecting verbal labeling.
+
+Spatial concepts and reference frames represent another domain where linguistic variation appears to shape cognition. Languages differ dramatically in how they encode spatial relationships. English and many European languages rely heavily on relative spatial terms (left, right, front, back) that change depending on the viewer's perspective. In contrast, some languages like Kuuk Thaayorre (spoken by Australian aboriginals) primarily use absolute reference frames based on cardinal directions (north, south, east, west) regardless of the speaker's orientation.
+
+Experimental studies with speakers of these languages reveal striking cognitive differences. When asked to arrange a sequence of cards depicting a temporal progression (e.g., a man aging), English speakers overwhelmingly arrange them from left to right, consistent with reading direction. Kuuk Thaayorre speakers, however, arrange them from east to west regardless of which direction they themselves are facing—requiring an ongoing awareness of cardinal orientation that most English speakers lack. These spatial frameworks extend beyond explicit spatial reasoning to influence representations of time, numerical sequences, and emotional concepts.
+
+Grammatical gender systems provide further evidence for linguistic influence on cognition. Many languages assign masculine or feminine gender to nouns, including inanimate objects. Experimental work demonstrates that these purely grammatical distinctions influence how speakers conceptualize objects. In one classic study, German and Spanish speakers were asked to describe keys and bridges—words with opposite grammatical genders in the two languages. German speakers, for whom "key" is masculine, used terms like "hard," "heavy," and "metallic," while Spanish speakers, for whom "key" is feminine, more often described keys as "golden," "intricate," and "little." The pattern reversed for bridges, which are feminine in German but masculine in Spanish.
+
+These effects extend beyond conscious description to implicit associations and visual memory. When speakers of gendered languages are asked to personify objects in drawings or imagine objects speaking with a male or female voice, their choices align with grammatical gender approximately 80% of the time. Even in memory tasks with no explicit gender component, grammatical gender influences representation and recall, suggesting these linguistic categories shape cognitive processing automatically rather than merely as conscious translation strategies.
+
+The presence or absence of obligatory grammatical markers for information source (evidentiality) in different languages appears to influence attention and memory. Languages like Turkish and Bulgarian require speakers to grammatically indicate whether information comes from direct experience, inference, or hearsay. Speakers of these languages demonstrate enhanced source monitoring abilities and more accurate memory for how they acquired information compared to speakers of languages without obligatory evidentiality markers. Children acquiring evidential languages develop source monitoring capabilities earlier than children learning languages without such requirements.
+
+Number marking and counting systems vary substantially across languages, with corresponding cognitive effects. Some languages like Pirahã (spoken in the Amazon) lack exact number words beyond "one," "two," and "many." Speakers of such languages show different patterns in numerical tasks, with limited ability to perform exact arithmetic involving larger quantities. Other languages group numbers differently—for instance, some count in base-20 rather than base-10 systems—leading to different representational patterns and computational efficiencies for different numerical operations.
+
+Particularly intriguing are languages that use different counting systems for different object classes. Speakers of Japanese, which employs distinct counting systems for long thin objects versus flat objects versus small animals, show enhanced memory for object-numeral pairings when these follow the language's native classificatory system. This suggests that grammaticalized classificatory systems direct attention to particular object properties and influence conceptual organization.
+
+Verbs of motion receive dramatically different treatment across languages. English typically encodes manner of motion within the verb (walk, run, stroll) while indicating path via prepositional phrases (into the house, across the field). Other languages like Spanish typically encode path in the verb (enter, cross) while indicating manner through optional adverbials. These differences correspond to measurable variations in attention and memory for motion events. English speakers demonstrate enhanced recognition memory for manner of motion, while Spanish speakers show advantages for remembering path endpoints and boundary crossings.
+
+These motion verb distinctions influence not just memory but real-time perception. Eye-tracking studies reveal that speakers of different languages direct their visual attention differently when observing motion events, with their gaze patterns reflecting language-specific encoding preferences. These attentional biases emerge early in development, with infants beginning to show language-specific motion perception patterns before age two, suggesting deep connections between linguistic structure and perceptual processing.
+
+Counterfactual reasoning—thinking about what might have been—receives different grammatical treatment across languages, with corresponding differences in frequency and cognitive patterns. English has dedicated grammatical constructions for counterfactuals (If I had arrived earlier, I would have seen her) that clearly distinguish them from factual conditionals. Some languages mark this distinction less explicitly or require additional contextual cues to disambiguate counterfactual meanings.
+
+Experimental work demonstrates that speakers of languages with explicit counterfactual marking generate counterfactual alternatives more readily and apply counterfactual reasoning more consistently across contexts. This has implications for causal reasoning, creative problem-solving, and social cognition, as counterfactual thinking underlies many complex cognitive operations from scientific hypothesis testing to understanding others' mental states.
+
+Cross-linguistic differences in pronoun systems and person marking influence self-concept and social cognition. Languages vary in whether pronouns can be omitted, how social relationships are encoded in address terms, and whether collective versus individual standpoints receive grammatical marking. Japanese and some other East Asian languages freely omit pronouns and utilize sophisticated honorific systems that grammatically encode social relationships, while English requires explicit pronouns and encodes fewer social distinctions grammatically.
+
+Studies suggest these differences correlate with measurable variations in self-construal and social attention. Speakers of languages that facilitate pronoun dropping show more context-dependent self-concepts and greater attention to social contextual cues compared to speakers of languages requiring explicit pronouns. These patterns extend to differences in perspective-taking, implicit egocentric biases, and memory for social versus individual information.
+
+Bilingualism provides a unique window into linguistic relativity, as bilinguals often report "feeling different" when operating in different languages. Experimental evidence increasingly supports these subjective impressions. Bilinguals show language-specific cognitive patterns when operating in each of their languages, with effects on everything from risk assessment to moral reasoning. For instance, Turkish-English bilinguals show different patterns in source monitoring (tracking how they acquired information) depending on which language they're using, with stronger source monitoring when operating in Turkish with its grammaticalized evidentiality markers.
+
+Perhaps most striking are findings that language switching can shift personality profiles, emotional responses, and even performance on cognitive tasks. Chinese-English bilinguals score differently on personality inventories depending on whether they complete them in Chinese or English, with scores shifting in directions consistent with cultural values associated with each language. These effects occur even when content is carefully controlled for cultural references, suggesting the linguistic structure itself rather than merely cultural associations drives these cognitive shifts.
+
+Developmental evidence provides crucial insights into the linguistic relativity debate. Children acquiring different languages show divergent patterns of conceptual development that align with their language's structural features. Infants growing up in languages with more prevalent sound symbolism (words whose sounds suggest their meanings) develop different word learning strategies than those exposed to more arbitrary sound-meaning pairings. Children learning languages with grammaticalized evidentiality or complex honorific systems demonstrate earlier development of source monitoring and social cognitive capabilities compared to children acquiring languages without these features.
+
+These developmental trajectories suggest that language acquisition and conceptual development are deeply intertwined processes rather than separate modules. The emergence of language-specific cognitive patterns during child development provides some of the strongest evidence that linguistic structure influences rather than merely reflects conceptual organization.
+
+Neural imaging studies increasingly support linguistic relativity claims by demonstrating language-specific neural activation patterns. Functional MRI studies show that grammatical gender in one's native language influences object processing at the neural level, with different brain activation patterns when processing objects whose grammatical gender differs across languages. Electrophysiological studies reveal that brain responses to color or spatial stimuli differ between speakers of languages with different categorization systems, with these differences emerging as early as 100 milliseconds post-stimulus—suggesting automatic perceptual effects rather than merely deliberate categorization strategies.
+
+Particularly noteworthy are studies of linguistic relativistic effects in deaf signers of different sign languages. Sign languages vary considerably in their grammatical structures, spatial encoding systems, and classificatory devices. Signers of American Sign Language versus Japanese Sign Language show different spatial memory and motion perception patterns that align with differences in how their respective languages encode spatial relationships. These findings powerfully demonstrate that linguistic relativistic effects are not restricted to spoken language but represent more fundamental relationships between language structure and cognition.
+
+Computational modeling and artificial intelligence research offer novel perspectives on linguistic relativity. Neural network models trained on different languages develop different internal representational structures that influence their performance on various tasks. When these models are trained on languages with different grammatical gender systems or spatial reference frames, they develop biases that mirror those observed in human speakers of these languages. These computational findings suggest that many linguistic relativistic effects may emerge naturally from statistical learning processes applied to differently structured linguistic inputs, without requiring innate or modular cognitive architectures.
+
+Recent philosophical analyses have moved beyond simplistic acceptance or rejection of linguistic relativity to more nuanced understandings of language-cognition relationships. Neo-Whorfian approaches recognize bidirectional influences between language and thought, acknowledging that while language shapes thought, cognitive and perceptual universals also constrain linguistic variation. The concept of "thinking for speaking" suggests that linguistic effects on cognition may be particularly pronounced during language processing while allowing for non-linguistic cognition that operates somewhat independently of language structure.
+
+These philosophical refinements help explain why linguistic relativistic effects appear robust in some cognitive domains but minimal in others. Effects are typically strongest in domains where language provides regular, obligatory distinctions that must be processed for normal communication. Areas where languages create different habits of mind through repeated patterns show stronger relativistic effects than domains processed primarily through non-linguistic sensory or motor systems.
+
+Practical implications of linguistic relativity extend to multiple domains. In education, understanding how language structure influences conceptual development can inform more effective pedagogical approaches, particularly for mathematics and science instruction across different language communities. In cross-cultural communication, awareness of how different linguistic structures shape cognitive habits can help prevent misunderstandings and facilitate mutual comprehension. In clinical psychology, recognition that emotional concepts may be differently organized across languages can improve therapeutic approaches for multilingual populations.
+
+In conclusion, contemporary evidence strongly supports a moderate version of linguistic relativity: the languages we speak influence how we think, perceive, and remember, creating language-specific habits of mind that shape our cognitive processes. These effects do not determine thought absolutely but create preferences, tendencies, and attentional patterns that influence our experience of reality. As research continues to examine the complex interplay between language and cognition across diverse languages and cognitive domains, we gain deeper insight into both the universal aspects of human cognition and the remarkable cognitive diversity that different languages help create and sustain.`,
+    description: "An academic article examining the hypothesis that the language we speak influences how we think and perceive the world.",
+    estimatedTime: 15,
+    difficulty: "very hard",
+    vocabulary: [
+      { word: "relativity", definition: "the dependence of various physical phenomena on relative motion or relative position" },
+      { word: "determinism", definition: "the doctrine that all events, including human action, are ultimately determined by causes external to the will" },
+      { word: "evidentiality", definition: "grammatical marking of information source in a language" },
+      { word: "counterfactual", definition: "expressing what has not happened but could, would, or might under differing conditions" },
+      { word: "bidirectional", definition: "operating or functioning in two directions" }
+    ],
+    questions: [
+      {
+        id: "advanced-article-2-q1",
+        type: "mcq",
+        text: "Which of the following best describes the 'weak' version of the Sapir-Whorf hypothesis?",
+        options: [
+          "Language absolutely determines thought",
+          "Language influences thought without completely constraining it",
+          "Thought determines language structures",
+          "Language and thought are completely independent systems"
+        ],
+        correctAnswer: "Language influences thought without completely constraining it"
+      },
+      {
+        id: "advanced-article-2-q2",
+        type: "mcq",
+        text: "According to the article, how do speakers of Kuuk Thaayorre arrange cards depicting temporal progression?",
+        options: [
+          "From left to right",
+          "From right to left",
+          "From east to west",
+          "In a circular pattern"
+        ],
+        correctAnswer: "From east to west"
+      },
+      {
+        id: "advanced-article-2-q3",
+        type: "mcq",
+        text: "What effect do grammatical gender systems have on speakers' conceptualization of objects?",
+        options: [
+          "No significant effect",
+          "Speakers describe objects differently based on their grammatical gender",
+          "Speakers can only remember objects with clear natural gender",
+          "Grammatical gender only affects how children learn language"
+        ],
+        correctAnswer: "Speakers describe objects differently based on their grammatical gender"
+      },
+      {
+        id: "advanced-article-2-q4",
+        type: "mcq",
+        text: "What cognitive advantage do speakers of languages with obligatory evidentiality markers demonstrate?",
+        options: [
+          "Better mathematical reasoning",
+          "Enhanced source monitoring abilities",
+          "Improved color perception",
+          "Superior spatial orientation"
+        ],
+        correctAnswer: "Enhanced source monitoring abilities"
+      },
+      {
+        id: "advanced-article-2-q5",
+        type: "mcq",
+        text: "How does English typically encode motion compared to Spanish?",
+        options: [
+          "English encodes path in the verb while Spanish encodes manner",
+          "English encodes manner in the verb while Spanish encodes path",
+          "Both languages encode both manner and path in the verb",
+          "Neither language makes this distinction"
+        ],
+        correctAnswer: "English encodes manner in the verb while Spanish encodes path"
+      },
+      {
+        id: "advanced-article-2-q6",
+        type: "mcq",
+        text: "What happens when bilinguals switch languages according to the article?",
+        options: [
+          "Nothing significant changes in their thinking",
+          "They temporarily lose fluency in both languages",
+          "Their personality profiles and cognitive patterns can shift",
+          "They experience physical disorientation"
+        ],
+        correctAnswer: "Their personality profiles and cognitive patterns can shift"
+      }
+    ],
+    pronunciation: [
+      {
+        title: "Academic Vocabulary",
+        text: "The hypothesis that language influences thought and perception has captivated scholars across numerous disciplines for nearly a century.",
+        focusPoints: ["Practice the word stress in 'hypothesis' and 'disciplines'", "Focus on clearly pronouncing 'influences'"]
+      }
+    ]
+  },
+  {
+    id: "advanced-article-3",
+    title: "Climate Adaptation: Preparing for an Uncertain Future",
+    level: "advanced",
+    type: "articles",
+    text: `Climate adaptation—the process of adjusting human systems, infrastructure, and practices to respond to current or anticipated climate change impacts—has transitioned from a peripheral concern to a central imperative in climate policy. While mitigation efforts to reduce greenhouse gas emissions remain essential, the reality of committed warming from historical emissions and the inertia in both climate and socioeconomic systems necessitate simultaneous adaptation strategies. This article examines current approaches to climate adaptation across sectors, evaluates their effectiveness, and explores emerging frameworks for building adaptive capacity in an increasingly uncertain climate future.
+
+Adaptation approaches can be broadly categorized along several dimensions: reactive versus anticipatory, autonomous versus planned, public versus private, and incremental versus transformational. Reactive adaptation responds to climate impacts as they manifest, while anticipatory adaptation implements measures before major impacts occur. Autonomous adaptation emerges from individual actors responding to experienced or anticipated changes without coordinated intervention, whereas planned adaptation involves deliberate policy decisions based on awareness of changing conditions. Public adaptation is initiated and implemented by governments at various levels, while private adaptation occurs through market mechanisms or individual actions. Incremental adaptation maintains the essence and integrity of existing systems while making adjustments at the margins, whereas transformational adaptation fundamentally alters systems in response to climate pressures.
+
+These distinctions, while conceptually helpful, often blur in practice. Many adaptation initiatives combine elements from multiple categories, such as anticipatory planning that enables more effective autonomous responses or public policies that incentivize private adaptive actions. The most successful adaptation approaches typically integrate across these dimensions rather than pursuing any single strategy in isolation.
+
+Water management represents one of the most critical and complex adaptation challenges globally. Climate change alters hydrological cycles, increasing variability in precipitation patterns, intensifying both floods and droughts, accelerating glacial melt that affects downstream water availability, and raising sea levels that threaten coastal aquifers through saltwater intrusion. These changes impact water availability for human consumption, agriculture, industry, energy production, and ecosystem maintenance.
+
+Traditional water infrastructure has typically been designed using statistical approaches based on historical hydrological records, assuming relative stationarity in water systems. This assumption has become increasingly untenable as climate change shifts baseline conditions and increases hydrological variability. Adaptation in water management now emphasizes robust approaches that perform adequately across a wide range of potential future conditions rather than optimizing for a single expected scenario.
+
+Specific water adaptation strategies include expanding storage capacity through a combination of gray infrastructure (reservoirs, tanks) and green infrastructure (watershed restoration, aquifer recharge); implementing water conservation and efficiency measures across sectors; developing alternative water sources including wastewater recycling and desalination; establishing water markets and pricing mechanisms that reflect scarcity; adopting integrated water resource management approaches that coordinate across sectors and jurisdictions; and implementing early warning systems for extreme events.
+
+The Netherlands provides an instructive case study in anticipatory, planned water adaptation. The Dutch Delta Programme combines traditional flood protection infrastructure with innovative approaches like "Room for the River," which strategically restores floodplains to accommodate periodic flooding, and adaptive delta management, which establishes trigger points for implementing additional measures as sea level rise progresses. This approach acknowledges uncertainty while establishing clear pathways for action as conditions change.
+
+Agricultural adaptation encompasses critical interventions to maintain food security amid changing growing conditions. Climate change affects agriculture through multiple pathways: altered temperature and precipitation patterns, increased frequency and intensity of extreme weather events, shifting pest and disease pressures, and changes in growing season length and timing. These impacts vary significantly by region, with some areas potentially benefiting from longer growing seasons while others face severe productivity declines.
+
+Technical agricultural adaptation measures include developing and deploying climate-resilient crop varieties through both conventional breeding and genetic modification; implementing precision agriculture techniques that optimize inputs based on microclimatic conditions; diversifying cropping systems to reduce vulnerability to any single climate stressor; improving irrigation efficiency and water harvesting techniques; and establishing climate-smart livestock management practices such as heat-tolerant breeds and adjusted grazing regimes.
+
+Institutional and management adaptations in agriculture include improving climate information services and early warning systems for farmers; expanding crop insurance and other risk management tools; strengthening agricultural extension services to disseminate adaptive practices; reforming water allocation systems to improve efficiency and equity; and developing supply chain resilience through diversification of sourcing regions and storage capacity.
+
+Transformational adaptation in agriculture may involve more fundamental changes: shifting cultivation zones for specific crops as climate zones migrate; transitioning between crop and livestock systems based on changing conditions; adopting novel production systems like vertical farming or cellular agriculture in regions where conventional production becomes untenable; and developing alternative livelihoods in areas where agricultural viability diminishes despite adaptation efforts.
+
+The state of Maharashtra in India demonstrates integrated agricultural adaptation through its Project on Climate Resilient Agriculture, which combines watershed management, climate-resilient agricultural practices, and institutional capacity building. The project has demonstrated significant benefits in terms of reduced vulnerability to drought, improved productivity during normal years, and enhanced adaptive capacity among participating communities.
+
+Urban adaptation has gained prominent attention as cities house an increasing majority of the global population while facing compound climate risks. Urban areas contend with heat island effects that amplify warming trends, concentrated infrastructure vulnerable to extreme events, and often coastal locations susceptible to sea level rise. Simultaneously, cities serve as centers of innovation and economic resources that can enable significant adaptive capacity if effectively mobilized.
+
+Physical infrastructure adaptations in urban contexts include designing and retrofitting buildings for energy efficiency and passive cooling; expanding green infrastructure such as parks, green roofs, and urban forests to reduce heat island effects and manage stormwater; upgrading drainage systems to accommodate more intense precipitation events; and implementing coastal protection measures ranging from traditional sea walls to living shorelines that provide multiple ecosystem services while attenuating wave energy.
+
+Non-structural urban adaptations encompass updating building codes and zoning regulations to account for changing risks; implementing early warning systems and emergency response protocols for extreme events; establishing cooling centers and other dedicated facilities for vulnerable populations during heat waves; developing financial mechanisms to fund adaptation measures; and fostering social cohesion and community-based adaptation networks that can respond effectively during disruptions.
+
+Rotterdam's Climate Adaptation Strategy exemplifies comprehensive urban adaptation planning. The city has implemented multifunctional water plazas that serve as recreational spaces during dry periods but can temporarily store stormwater during intense precipitation events, thereby reducing flood risk. Rotterdam has also developed floating urban infrastructure that can accommodate sea level rise while transforming the relationship between the city and its waterways from one of defense to integration.
+
+Health systems face multiple climate-related challenges, including direct impacts from extreme heat and weather events; changing patterns of vector-borne diseases as climatic ranges shift; increased respiratory issues from worsened air quality and altered allergen patterns; and mental health impacts from both acute disasters and chronic environmental stress. These impacts interact with existing social vulnerabilities, often disproportionately affecting disadvantaged populations with limited access to healthcare and fewer resources for autonomous adaptation.
+
+Health system adaptations include developing heat-health action plans with early warning systems and targeted interventions for vulnerable populations; strengthening surveillance systems for climate-sensitive diseases; ensuring climate resilience in healthcare facilities through backup power systems, flood protection, and sustainable cooling; training medical professionals to recognize and respond to emerging climate-related health issues; and integrating climate projections into long-term health system planning.
+
+A notable example is the Quebec heat-health action system, developed following a deadly 2010 heat wave. The system combines meteorological forecasting with vulnerability mapping to trigger graduated interventions, including proactive outreach to isolated elderly residents, extended hours at cooling centers, and emergency medical response mobilization. Evaluation indicates this system significantly reduced mortality during subsequent heat events.
+
+Ecosystem-based adaptation (EbA) leverages natural systems and biodiversity to help human communities adapt to climate impacts while simultaneously providing multiple co-benefits. EbA approaches include conserving and restoring mangroves and coral reefs to protect coastal areas from storms and erosion; maintaining and expanding urban green spaces to reduce heat islands and manage stormwater; protecting and restoring wetlands to buffer flooding and filter water; and implementing sustainable forest management to reduce landslide risk and stabilize water supplies.
+
+EbA approaches often prove more cost-effective than traditional engineering solutions over the long term, particularly when accounting for co-benefits such as carbon sequestration, biodiversity conservation, air quality improvement, and recreational value. However, they typically require longer implementation timelines and more complex governance arrangements spanning multiple jurisdictions and stakeholders.
+
+Vietnam's restoration of mangrove forests along its coastline demonstrates successful EbA implementation. These efforts have significantly reduced damage from typhoons and storm surges while sequestering carbon, supporting fisheries that enhance local livelihoods, and preserving critical habitat for biodiversity. The Vietnam Red Cross estimates that every dollar invested in mangrove restoration has yielded at least seven dollars in benefits from reduced dyke maintenance and disaster impacts.
+
+Finance represents a critical constraint for adaptation implementation, particularly in developing countries with limited fiscal capacity despite often facing the most severe climate impacts. The Global Commission on Adaptation estimates that investing $1.8 trillion globally in five key adaptation areas between 2020 and 2030 could generate $7.1 trillion in net benefits, yet current adaptation finance falls far short of required levels.
+
+Adaptation financing mechanisms include direct public funding through national budgets and overseas development assistance; dedicated multilateral funds like the Green Climate Fund and Adaptation Fund; private sector investment mobilized through policy incentives and public-private partnerships; innovative financial instruments such as resilience bonds, parametric insurance, and debt-for-resilience swaps; and microfinance initiatives that enable community-level adaptation.
+
+Barbados provides an instructive example of innovative adaptation finance through its issuance of the world's first sovereign blue bond with a climate resilience component. This instrument directs capital toward both coastal ecosystem conservation and climate-resilient infrastructure, with performance metrics tied to specific adaptation outcomes that determine interest rates through sustainability-linked features.
+
+Governance challenges often exceed financial constraints in adaptation implementation. Effective adaptation typically requires coordination across multiple governance levels (international, national, regional, local), sectors (water, agriculture, health, etc.), and timeframes (immediate responses to long-term transformations). Institutional fragmentation, conflicting mandates, and misaligned incentives frequently impede integrated approaches.
+
+Promising governance innovations include establishing dedicated adaptation coordination bodies that span traditional departmental boundaries; developing legal frameworks that mandate consideration of changing climate conditions in planning processes; implementing decision-making protocols specifically designed for conditions of deep uncertainty, such as robust decision-making and dynamic adaptive policy pathways; creating knowledge-action networks that connect scientific expertise with practitioner needs; and establishing participatory processes that engage vulnerable communities in adaptation planning and implementation.
+
+South Korea's Framework Act on Low Carbon Green Growth illustrates comprehensive adaptation governance. The act mandates five-year adaptation planning cycles across all government ministries and provincial governments, with regular assessment and monitoring through standardized indicators. This approach mainstreams adaptation across sectors while enabling both vertical and horizontal coordination.
+
+Equity and justice dimensions have gained increasing recognition in adaptation discourse and practice. Climate impacts disproportionately affect marginalized populations with the fewest resources for adaptation, while benefits from adaptation investments often accrue unequally, potentially reinforcing existing disparities. Moreover, maladaptation—adaptation actions that inadvertently increase vulnerability for certain groups or sectors—presents a significant concern.
+
+Rights-based approaches to adaptation emphasize procedural justice (inclusive decision-making processes), distributive justice (equitable allocation of adaptation resources and benefits), and recognition justice (acknowledging the differentiated vulnerabilities and capacities of various groups). These frameworks advocate prioritizing the most vulnerable populations in adaptation planning while ensuring their meaningful participation in decision-making processes.
+
+Practical implementation of equitable adaptation includes conducting vulnerability assessments that explicitly incorporate social dimensions alongside biophysical factors; establishing dedicated funding mechanisms for locally-led adaptation initiatives; implementing transparent monitoring and evaluation systems that track distributive outcomes; and creating accountability mechanisms through which communities can seek redress when adaptation interventions exacerbate rather than ameliorate vulnerabilities.
+
+Limits to adaptation have become increasingly apparent as climate impacts intensify. While expanding adaptive capacity can reduce vulnerability across many contexts, physical, economic, and social thresholds exist beyond which adaptation becomes ineffective or prohibitively costly. Some small island nations face existential threats from sea level rise that may ultimately require managed retreat or climate mobility rather than in situ adaptation. Similarly, certain ecosystems like coral reefs face fundamental viability challenges under high-end warming scenarios despite potential adaptation interventions.
+
+These limits underscore the essential complementarity between adaptation and mitigation efforts. The most effective climate resilience strategies combine aggressive emissions reductions to limit the ultimate magnitude of change with robust adaptation measures to manage unavoidable impacts. This complementarity extends to implementation as well, with growing recognition of adaptation-mitigation synergies through interventions like ecosystem restoration, energy-efficient building design, and sustainable agriculture practices that deliver benefits across both dimensions.
+
+Looking forward, several emerging trends will likely shape the evolution of climate adaptation. First, advances in climate science, particularly in attribution of specific events to climate change and in higher-resolution projections, are enabling more targeted adaptation planning. Second, the expanding role of artificial intelligence and big data analytics offers new capabilities for identifying vulnerability hotspots, optimizing resource allocation, and developing early warning systems with unprecedented precision. Third, growing experience with implementation is generating valuable lessons about effective practices across contexts, facilitated by knowledge-sharing platforms like the Global Center on Adaptation and the Adaptation Without Borders initiative.
+
+Most fundamentally, successful adaptation increasingly requires reframing climate change not as a discrete environmental issue but as a systemic challenge that intersects with development pathways, governance structures, and societal values. This perspective emphasizes building general resilience and adaptive capacity through education, livelihoods, social protection, and inclusive institutions alongside specific climate risk management measures. As climate impacts accelerate and uncertainty increases, the capacity to learn, adjust, and transform in response to changing conditions may prove the most valuable adaptation strategy of all.`,
+    description: "An academic article examining strategies for adapting to climate change impacts across different sectors and regions.",
+    estimatedTime: 15,
+    difficulty: "very hard",
+    vocabulary: [
+      { word: "anticipatory", definition: "dealing with or taking into account anticipated events or situations" },
+      { word: "stationarity", definition: "the quality of a process in which the statistical properties do not change over time" },
+      { word: "maladaptation", definition: "actions that may lead to increased risk of adverse climate-related outcomes or increased vulnerability" },
+      { word: "incremental", definition: "increasing or adding on, especially in a regular series of small amounts" },
+      { word: "transformational", definition: "causing a major change in form, nature, or function" }
+    ],
+    questions: [
+      {
+        id: "advanced-article-3-q1",
+        type: "mcq",
+        text: "What is the main difference between reactive and anticipatory adaptation?",
+        options: [
+          "Reactive involves government action while anticipatory is private",
+          "Reactive responds to impacts as they occur while anticipatory implements measures before major impacts happen",
+          "Reactive is more expensive while anticipatory is cheaper",
+          "Reactive is for developing countries while anticipatory is for developed nations"
+        ],
+        correctAnswer: "Reactive responds to impacts as they occur while anticipatory implements measures before major impacts happen"
+      },
+      {
+        id: "advanced-article-3-q2",
+        type: "mcq",
+        text: "What traditional assumption in water infrastructure design has become increasingly untenable due to climate change?",
+        options: [
+          "That water is an unlimited resource",
+          "That water systems have relative stationarity",
+          "That groundwater is safer than surface water",
+          "That private water management is more efficient than public"
+        ],
+        correctAnswer: "That water systems have relative stationarity"
+      },
+      {
+        id: "advanced-article-3-q3",
+        type: "mcq",
+        text: "What is the purpose of Rotterdam's water plazas?",
+        options: [
+          "To provide drinking water during droughts",
+          "To serve as recreational spaces during dry periods and store stormwater during precipitation events",
+          "To generate hydroelectric power for the city",
+          "To create aesthetic water features to attract tourists"
+        ],
+        correctAnswer: "To serve as recreational spaces during dry periods and store stormwater during precipitation events"
+      },
+      {
+        id: "advanced-article-3-q4",
+        type: "mcq",
+        text: "According to the article, what is Ecosystem-based Adaptation (EbA)?",
+        options: [
+          "Using technology to create artificial ecosystems",
+          "Helping ecosystems adapt to climate change",
+          "Leveraging natural systems to help human communities adapt to climate impacts",
+          "Relocating ecosystems to more suitable climates"
+        ],
+        correctAnswer: "Leveraging natural systems to help human communities adapt to climate impacts"
+      },
+      {
+        id: "advanced-article-3-q5",
+        type: "mcq",
+        text: "What does the Global Commission on Adaptation estimate about the benefits of adaptation investments?",
+        options: [
+          "$1.8 trillion invested could generate $7.1 trillion in net benefits",
+          "$7.1 trillion invested could generate $1.8 trillion in net benefits",
+          "$1 trillion invested could prevent $10 trillion in damages",
+          "$5 trillion is needed annually for effective adaptation"
+        ],
+        correctAnswer: "$1.8 trillion invested could generate $7.1 trillion in net benefits"
+      },
+      {
+        id: "advanced-article-3-q6",
+        type: "mcq",
+        text: "What innovation did Barbados implement for adaptation finance?",
+        options: [
+          "A carbon tax with proceeds dedicated to adaptation",
+          "The world's first sovereign blue bond with a climate resilience component",
+          "A tourism tax specifically for coastal protection",
+          "A public-private partnership with insurance companies"
+        ],
+        correctAnswer: "The world's first sovereign blue bond with a climate resilience component"
+      }
+    ],
+    pronunciation: [
+      {
+        title: "Academic and Environmental Terminology",
+        text: "Climate adaptation—the process of adjusting human systems, infrastructure, and practices to respond to current or anticipated climate change impacts.",
+        focusPoints: ["Practice the word stress in 'adaptation' and 'infrastructure'", "Focus on clearly pronouncing 'anticipated'"]
+      }
+    ]
+  },
+
+  // Advanced - NEWS (3 ta)
+  {
+    id: "advanced-news-1",
+    title: "Historic Space Mission Successfully Samples Asteroid",
+    level: "advanced",
+    type: "news",
+    text: `The International Space Agency (ISA) confirmed yesterday that its Minerva spacecraft has successfully collected and secured samples from the asteroid Bennu, culminating a six-year mission that promises to deliver unprecedented insights into the early solar system and potentially the origins of life on Earth.
+
+Mission controllers at ISA's Space Operations Center erupted in celebration as telemetry data confirmed that Minerva's sample collection mechanism had successfully activated during its brief contact with Bennu's surface, extracting approximately 250 grams of pristine asteroid material. The spacecraft has now begun its two-year journey back to Earth, where scientists eagerly await the opportunity to analyze the samples using sophisticated laboratory techniques unavailable on the spacecraft itself.
+
+"This represents a pivotal moment in our exploration of the solar system," said Dr. Elena Mendoza, Minerva mission principal investigator. "Bennu is essentially a time capsule from the formation of our solar system 4.5 billion years ago. These samples will provide insights into the chemical and physical processes that formed the planets, including Earth, and may contain the precursor molecules that eventually led to life."
+
+Bennu, a carbon-rich asteroid approximately 500 meters in diameter, was chosen for the mission due to its primitive composition and accessibility. Spectroscopic analysis conducted during Minerva's two-year orbital survey of the asteroid confirmed the presence of hydrated minerals and organic compounds, indicating that Bennu has remained largely unchanged since its formation in the solar system's early history.
+
+The sample collection procedure, described by mission engineers as "touch-and-go," required extraordinary precision. Minerva briefly contacted Bennu's surface with a specialized collection device that released a burst of nitrogen gas to stir up surface material, which was then captured in a sterile container designed to preserve the samples in their pristine state during the return journey to Earth.
+
+"The operation required navigating a spacecraft the size of a small bus to a specific collection site roughly the size of a tennis court on an asteroid 320 million kilometers from Earth," explained Dr. Marcus Chen, Minerva navigation team lead. "We had to account for Bennu's microgravity, irregular shape, and surprisingly rugged surface features discovered during our orbital reconnaissance."
+
+The mission faced several significant challenges that required real-time adaptation by the engineering team. Initial surveys revealed that Bennu's surface was far more boulder-strewn than anticipated, necessitating the development of enhanced autonomous navigation systems to avoid hazards during the sample collection approach. Additionally, engineers discovered that the asteroid was ejecting small particles from its surface in unexpected eruption events, requiring adjustments to spacecraft operations and trajectory planning.
+
+"The fact that we're seeing particle ejection from Bennu is actually a scientific bonus," noted Dr. Sophia Williams, mission geologist. "It suggests active processes on what we previously thought might be a relatively inert body. Understanding this phenomenon adds another dimension to our investigation of asteroid behavior and evolution."
+
+The scientific significance of the mission extends beyond planetary science to potential applications in planetary defense. Bennu is classified as a potentially hazardous asteroid with a small probability of Earth impact in the late 22nd century. Data collected during Minerva's orbital phase has refined understanding of the Yarkovsky effect—a force resulting from uneven heating and cooling that gradually alters asteroid trajectories.
+
+"By precisely characterizing Bennu's orbit, surface properties, and internal structure, we're developing better models for predicting the long-term trajectories of near-Earth asteroids," said Dr. James Okafor, planetary defense specialist at the Global Asteroid Monitoring Program. "This information is crucial for developing effective deflection strategies should we identify an asteroid on a collision course with Earth."
+
+The Minerva mission represents the latest achievement in a renaissance of solar system exploration, following successful missions to Mars, Jupiter, and Pluto in recent years. It also demonstrates the increasing internationalization of space science, with sixteen countries contributing instruments or technical expertise to the spacecraft.
+
+"This mission exemplifies what we can achieve through international scientific cooperation," remarked ISA Director-General Dr. Hiroshi Tanaka. "The knowledge gained will belong to humanity as a whole, advancing our understanding of our cosmic origins and potentially informing strategies to protect our common future."
+
+The economic implications of asteroid exploration extend beyond scientific discovery. Bennu and similar asteroids contain valuable resources including water, rare metals, and organic compounds that could potentially support future space exploration activities.
+
+"While Minerva is purely a scientific mission, the technologies developed and the knowledge gained contribute to our growing capabilities for in-space resource utilization," explained Dr. Caroline Rodriguez, director of ISA's Resource Utilization Division. "The ability to extract water from asteroids, for example, could dramatically reduce the cost of sustained human presence in deep space by providing raw materials for propellant and life support without the need to launch them from Earth."
+
+When Minerva's sample return capsule parachutes to a landing in the Australian Outback in September 2025, it will mark the largest delivery of pristine asteroid material ever returned to Earth. Previous sample return missions from the Japanese space agency brought back microscopic quantities of material, while Minerva's samples will provide abundant material for decades of analysis.
+
+The samples will initially undergo preliminary examination at a specialized clean-room facility being constructed near the landing site before distribution to scientific institutions worldwide according to a peer-reviewed selection process. Approximately twenty-five percent of the material will be preserved for future analysis using technologies not yet developed, a lesson learned from lunar samples returned during the Apollo era that continue to yield new insights when examined with modern instruments.
+
+"These samples are a scientific treasure that will keep on giving for generations," said Dr. Mendoza. "Much like the Apollo lunar samples that still yield new discoveries fifty years later, the Bennu samples will likely be studied by scientists not yet born, using analytical techniques we haven't yet imagined."
+
+Public engagement has formed a central component of the mission, with millions following Minerva's progress through social media, dedicated applications, and educational programs. A series of high-resolution images captured during the sample collection maneuver, showing the spacecraft's collection head displacing surface material on Bennu, has generated particular public fascination.
+
+"The images of human technology gently making contact with a pristine world that has remained largely unchanged for billions of years captures something profound about our quest to understand the universe," reflected Dr. Tanaka. "It's a testament to human curiosity, ingenuity, and our fundamental desire to explore."`,
+    description: "A news article about a successful space mission to collect samples from an asteroid.",
+    estimatedTime: 10,
+    difficulty: "hard",
+    vocabulary: [
+      { word: "telemetry", definition: "the process of recording and transmitting the readings of an instrument" },
+      { word: "precursor", definition: "a thing that comes before another of the same kind; a forerunner" },
+      { word: "spectroscopic", definition: "relating to the analysis of spectra, especially as a method of analysis" },
+      { word: "microgravity", definition: "very weak gravity, such as that experienced in orbit around the Earth" },
+      { word: "Yarkovsky effect", definition: "a force that affects the orbital motion of small rotating bodies in space due to the uneven heating and cooling of their surfaces" }
+    ],
+    questions: [
+      {
+        id: "advanced-news-1-q1",
+        type: "mcq",
+        text: "How much asteroid material did the Minerva spacecraft collect from Bennu?",
+        options: ["50 grams", "250 grams", "500 grams", "1 kilogram"],
+        correctAnswer: "250 grams"
+      },
+      {
+        id: "advanced-news-1-q2",
+        type: "mcq",
+        text: "Why was Bennu chosen as the target for this mission?",
+        options: [
+          "Because it is the largest near-Earth asteroid",
+          "Because it has a moon orbiting it",
+          "Because of its primitive composition and accessibility",
+          "Because it contains valuable gold deposits"
+        ],
+        correctAnswer: "Because of its primitive composition and accessibility"
+      },
+      {
+        id: "advanced-news-1-q3",
+        type: "mcq",
+        text: "What unexpected phenomenon was discovered on Bennu during the mission?",
+        options: [
+          "Signs of microbial life",
+          "Liquid water on the surface",
+          "Particle ejection from its surface",
+          "Magnetic field generation"
+        ],
+        correctAnswer: "Particle ejection from its surface"
+      },
+      {
+        id: "advanced-news-1-q4",
+        type: "mcq",
+        text: "When is Minerva's sample return capsule expected to land on Earth?",
+        options: [
+          "December 2023",
+          "September 2024",
+          "September 2025",
+          "January 2026"
+        ],
+        correctAnswer: "September 2025"
+      },
+      {
+        id: "advanced-news-1-q5",
+        type: "mcq",
+        text: "What percentage of the returned samples will be preserved for future analysis?",
+        options: ["10 percent", "25 percent", "50 percent", "75 percent"],
+        correctAnswer: "25 percent"
+      },
+      {
+        id: "advanced-news-1-q6",
+        type: "mcq",
+        text: "Which of the following is mentioned as a potential benefit of asteroid resource utilization?",
+        options: [
+          "Reducing Earth's population",
+          "Creating new elements",
+          "Providing raw materials for space missions without launching them from Earth",
+          "Preventing asteroid impacts"
+        ],
+        correctAnswer: "Providing raw materials for space missions without launching them from Earth"
+      }
+    ],
+    pronunciation: [
+      {
+        title: "Scientific and Space Terminology",
+        text: "Spectroscopic analysis conducted during Minerva's two-year orbital survey of the asteroid confirmed the presence of hydrated minerals and organic compounds.",
+        focusPoints: ["Practice the word stress in 'spectroscopic' and 'orbital'", "Focus on clearly pronouncing 'hydrated minerals'"]
+      }
+    ]
+  },
+  {
+    id: "advanced-news-2",
+    title: "Breakthrough Neural Interface Restores Communication for Paralyzed Patients",
+    level: "advanced",
+    type: "news",
+    text: `In a landmark medical achievement, researchers at the Neurotechnology Institute have successfully deployed an advanced brain-computer interface that has restored communication capabilities for patients with complete paralysis, offering new hope for individuals with locked-in syndrome and severe neurological conditions.
+
+The system, called NeuroLink, combines cutting-edge electrode array technology with sophisticated machine learning algorithms to interpret neural activity in real time, allowing patients to compose text, control digital devices, and interact with their environment through thought alone. Results from the first clinical trial with six patients were published yesterday in the journal Neural Engineering Translational Medicine.
+
+"This represents a fundamental breakthrough in restoring functional communication for people who have lost all motor control," said Dr. Amara Patel, lead neuroscientist on the project. "Previous systems required some residual movement, even if just eye blinking or subtle facial twitches. NeuroLink works by directly interpreting the neural patterns associated with intended speech or movement, bypassing damaged pathways entirely."
+
+The trial's most remarkable success story involves Robert Chen, a 42-year-old former software engineer who developed locked-in syndrome following a brainstem stroke three years ago. Locked-in syndrome leaves patients cognitively aware but almost completely paralyzed, typically with no means of communication beyond potential eye movements—which Chen eventually lost as his condition progressed.
+
+Using the NeuroLink system, Chen can now compose text at approximately eight words per minute—significantly faster than previous interfaces—and control adaptive equipment in his environment. Most importantly, he can once again express his thoughts, needs, and emotions to family members and caregivers.
+
+"I haven't spoken to my children in almost two years," Chen communicated through the interface during a demonstration for medical journalists. "The silence was deafening. Now I can tell them I love them again. I can participate in decisions about my care. I exist as a person again, not just a body."
+
+The NeuroLink system utilizes a high-density array of 1,024 microelectrodes implanted in regions of the motor and premotor cortex associated with speech and movement intentions. Unlike previous interfaces that recorded from the brain's surface, these electrodes penetrate approximately 1.5 millimeters into the cortical tissue, providing significantly higher signal resolution while remaining within safety parameters established through extensive preclinical testing.
+
+"The electrode array itself represents a major engineering achievement," explained Dr. Marcus Williams, director of neural interface development at the institute. "Each electrode is thinner than a human hair yet contains advanced electronics that filter signal noise and amplify relevant neural activity before transmission. The array is also designed to minimize tissue reaction and maintain stable recordings over time, addressing the signal degradation issues that plagued earlier interfaces."
+
+Equally important is the system's machine learning component, which translates complex neural firing patterns into intended communication. Patients undergo an intensive calibration process where they imagine speaking specific words or phrases while the system builds a personalized neural decoding model. Over time, the algorithms adapt to each user's unique patterns, improving accuracy and expanding vocabulary.
+
+"What's particularly notable about NeuroLink is its ability to capitalize on neuroplasticity," said Dr. Elena Rodríguez, neurologist and co-author of the study. "As patients use the system, their neural patterns become more distinct and consistent, while the machine learning algorithms simultaneously become better at interpretation. It's a virtuous cycle of co-adaptation between brain and computer."
+
+The current system allows patients to select letters from an on-screen keyboard by imagining the movement of their hand to the desired character. More advanced users like Chen can employ a predictive text interface that accelerates communication speed. The researchers are now developing more intuitive paradigms, including direct decoding of internal speech—effectively translating thoughts directly to text without the intermediate step of imagining movement.
+
+"Our next phase aims to achieve communication rates of 20-25 words per minute, approaching the speed of natural conversation," said Dr. Patel. "We're also expanding functionality beyond text to include emotional expression through synthesized speech with appropriate intonation."
+
+The clinical trial included six patients with different conditions causing profound paralysis, including amyotrophic lateral sclerosis (ALS), brainstem stroke, and high cervical spinal cord injury. All participants achieved functional communication, though with varying degrees of speed and accuracy. The researchers noted that patients with neurodegenerative conditions showed more variable results than those with stable lesions, suggesting that ongoing neural degeneration presents additional challenges for interface stability.
+
+Ethicists and disability rights advocates have largely welcomed the technology while emphasizing the importance of patient autonomy in deployment decisions. "This technology has transformative potential for individuals who have lost communication, but implementation must prioritize each person's values and preferences," commented Dr. James Okafor, chair of the Neuroethics Advisory Committee that provided oversight for the trial. "For some individuals with locked-in syndrome, restoring communication is quite literally lifesaving for their psychological well-being."
+
+The development team consulted extensively with bioethicists and patients with paralysis throughout the design process. "A crucial ethical consideration is ensuring that patients can express whether they wish to continue using the system once it's implanted," noted Dr. Sophia Nakamura, bioethicist at the institute. "We've incorporated multiple redundancies to verify consent and give users complete control over when the system is active."
+
+Healthcare economists note that while the current per-patient cost of approximately $350,000 for the implant and initial calibration is substantial, it may ultimately reduce long-term care costs by enabling more efficient communication of needs and potentially allowing some patients to participate in remote work. Several major insurance providers have expressed interest in coverage arrangements following FDA approval, which the research team anticipates pursuing next year.
+
+"The economic analysis extends beyond direct healthcare costs," explained Dr. Victoria Chen, health economist at National University Medical Center. "When individuals regain communication ability, we see reduced caregiver burden, improved efficiency in medical decision-making, and in some cases, the ability to contribute economically through adapted employment. These factors suggest favorable cost-effectiveness despite the significant upfront investment."
+
+The technology builds on decades of neural interface research dating back to early experiments in the 1990s. Dr. Lawrence Peterson, a pioneer in the field who was not involved in the current study, described the results as "a quantum leap forward" in brain-computer interface capability. "What's remarkable is not just the technical achievement but how quickly these patients adapted to using their neural activity as a communication channel. It speaks to the brain's remarkable adaptability even in the face of profound physical limitations."
+
+Patients' families report transformative effects beyond basic communication. "Before NeuroLink, we could only ask my mother yes/no questions based on eye blinks, and even those became unreliable as her ALS progressed," said Maria Gonzalez, whose mother participated in the trial. "Now she can tell us exactly what she needs, share her thoughts about her grandchildren, and even help plan family gatherings. We've gotten our mother back in a way we thought impossible."
+
+The research team emphasizes that while the current system requires neurosurgery and is therefore initially targeted at patients with the most severe communication impairments, they envision developing less invasive versions for individuals with less profound disabilities. Parallel research tracks are exploring alternative electrode designs that could be implanted through blood vessels rather than direct brain surgery, potentially expanding accessibility.
+
+The Neurotechnology Institute has partnered with medical device manufacturer NeuraSystems to begin the process of scaling production while maintaining the exacting quality standards required for neural implants. "Moving from bespoke research devices to clinically deployable medical products presents significant engineering challenges," said Dr. Williams. "Each array must meet stringent biocompatibility, durability, and performance specifications with essentially zero tolerance for error."
+
+As the technology advances, researchers are exploring expanded capabilities beyond text communication. Future iterations may include control of robotic assistive devices, enhanced environmental control systems, and potentially some form of mobility assistance through neural control of exoskeletons or wheelchairs.
+
+"We're just beginning to tap the potential of direct neural interfaces," said Dr. Patel. "The brain's capacity to adapt to these technologies consistently exceeds our expectations. Patients who have lived in communicative isolation for years are showing us new possibilities with each session."
+
+For Robert Chen, the immediate impact is deeply personal rather than technological. Through the NeuroLink system, he composed a message for this article: "Technology didn't just give me back my voice—it restored my humanity. When you can't communicate, you exist but don't fully live. I'm present in my family's lives again. That's the true miracle here."`,
+    description: "A news article about a revolutionary neural interface technology that helps paralyzed patients communicate.",
+    estimatedTime: 10,
+    difficulty: "hard",
+    vocabulary: [
+      { word: "electrode array", definition: "a collection of electrical conductors in contact with brain tissue to record neural activity" },
+      { word: "neuroplasticity", definition: "the ability of the brain to form and reorganize synaptic connections, especially in response to learning or experience or following injury" },
+      { word: "locked-in syndrome", definition: "a condition in which a patient is aware but cannot move or communicate verbally due to complete paralysis of nearly all voluntary muscles" },
+      { word: "calibration", definition: "the process of configuring an instrument to provide a result for a sample within an acceptable range" },
+      { word: "bespoke", definition: "made to order; custom-made" }
+    ],
+    questions: [
+      {
+        id: "advanced-news-2-q1",
+        type: "mcq",
+        text: "What is the name of the brain-computer interface system described in the article?",
+        options: ["BrainLink", "NeuroLink", "NeuraConnect", "CortexBridge"],
+        correctAnswer: "NeuroLink"
+      },
+      {
+        id: "advanced-news-2-q2",
+        type: "mcq",
+        text: "How many words per minute can Robert Chen compose using the system?",
+        options: ["4 words", "8 words", "15 words", "25 words"],
+        correctAnswer: "8 words"
+      },
+      {
+        id: "advanced-news-2-q3",
+        type: "mcq",
+        text: "How many microelectrodes does the NeuroLink system utilize?",
+        options: ["512", "1,024", "2,048", "4,096"],
+        correctAnswer: "1,024"
+      },
+      {
+        id: "advanced-news-2-q4",
+        type: "mcq",
+        text: "What is the approximate cost of the implant and initial calibration per patient?",
+        options: ["$150,000", "$250,000", "$350,000", "$500,000"],
+        correctAnswer: "$350,000"
+      },
+      {
+        id: "advanced-news-2-q5",
+        type: "mcq",
+        text: "How do patients currently select letters using the system?",
+        options: [
+          "By blinking their eyes",
+          "By imagining the movement of their hand to the desired character",
+          "By thinking of the sound of each letter",
+          "By contracting facial muscles"
+        ],
+        correctAnswer: "By imagining the movement of their hand to the desired character"
+      },
+      {
+        id: "advanced-news-2-q6",
+        type: "mcq",
+        text: "What communication rate are researchers aiming to achieve in the next phase?",
+        options: [
+          "10-15 words per minute",
+          "20-25 words per minute",
+          "30-35 words per minute",
+          "40-50 words per minute"
+        ],
+        correctAnswer: "20-25 words per minute"
+      }
+    ],
+    pronunciation: [
+      {
+        title: "Medical and Technical Terminology",
+        text: "The system utilizes a high-density array of microelectrodes implanted in regions of the motor and premotor cortex associated with speech and movement intentions.",
+        focusPoints: ["Practice the word stress in 'microelectrodes' and 'premotor'", "Focus on clearly pronouncing 'cortex'"]
+      }
+    ]
+  },
+  {
+    id: "advanced-news-3",
+    title: "Unprecedented Marine Heatwave Threatens Pacific Ecosystem",
+    level: "advanced",
+    type: "news",
+    text: `Marine scientists have issued an urgent warning about an extraordinary marine heatwave currently intensifying across the North Pacific Ocean, with ocean temperatures reaching up to 5°C above normal across a vast region stretching from Japan to North America. Researchers are describing the phenomenon as potentially the most severe marine heatwave ever recorded in the Pacific basin, raising profound concerns about cascading ecological impacts.
+
+The anomaly, which researchers have designated "The Pacific Amplification Event," began forming approximately three months ago and has expanded dramatically in both area and intensity over recent weeks. Satellite data analyzed by the Oceanic Monitoring Institute reveals that the core of the heatwave now covers approximately 4 million square kilometers—an area larger than the Indian subcontinent—with the most extreme temperature anomalies concentrated in a region about 800 kilometers west of the North American coastline.
+
+"What we're observing is unprecedented in the forty-year satellite record," explained Dr. Hiroshi Yamamoto, lead oceanographer at the Pacific Rim Oceanic Observatory. "Previous marine heatwaves typically featured temperature anomalies of 2-3°C above baseline. We're now recording sustained temperatures exceeding 5°C above normal in the core region, with no signs of dissipation."
+
+Unlike atmospheric heat waves that typically resolve within days or weeks, marine heatwaves can persist for months or even years due to the ocean's enormous thermal inertia. The 2013-2016 "Blob" heatwave in the northeast Pacific, previously considered the most significant event of its kind, maintained elevated temperatures for nearly three years and caused widespread ecosystem disruption. Early indicators suggest the current event could potentially exceed that impact.
+
+"The spatial extent, intensity, and rate of temperature increase we're observing surpass anything in our historical dataset," noted Dr. Elena Rodriguez from the Institute of Marine Sciences. "We're essentially conducting an unplanned experiment on a planetary scale with unknown consequences for marine ecosystems."
+
+The heatwave's development has been linked to a combination of factors, including a persistent high-pressure atmospheric system that has reduced wind mixing of surface waters, decreased cloud cover resulting in increased solar radiation reaching the ocean surface, and background warming from climate change that has elevated baseline temperatures throughout the region.
+
+Immediate ecological impacts are already becoming apparent across multiple trophic levels of the marine ecosystem. Satellite chlorophyll measurements indicate a 30% reduction in phytoplankton productivity within the most severely affected regions, disrupting the foundation of the marine food web. Field surveys have documented extensive bleaching of cold-water coral communities along continental shelf regions, while commercial fisheries are reporting significant shifts in the distribution of economically important species.
+
+"Many marine species have specific thermal tolerances, and these extreme conditions are pushing organisms beyond their physiological limits," explained marine ecologist Dr. Marcus Chen. "We're observing mass mortality events in some sessile invertebrate communities, while more mobile species are undertaking unprecedented migration patterns to escape the elevated temperatures."
+
+Particularly concerning are reports from Alaska's Aleutian Islands, where researchers have documented unusual mortality events among seabird colonies dependent on specific fish species that have apparently relocated to cooler waters. Wildlife rehabilitation centers along the North American west coast are reporting increasing numbers of malnourished sea lions and other marine mammals, suggesting disruptions to prey availability.
+
+Commercial fishing operations throughout the region are experiencing significant disruptions as target species alter their typical distribution patterns. "We're seeing commercially valuable species like Pacific cod appearing in regions hundreds of kilometers north of their traditional fishing grounds," reported Sarah Johnson, fisheries management specialist with the North Pacific Fishery Management Council. "While this creates temporary opportunities for northern fishing communities, it represents a devastating economic impact for traditional fishing operations."
+
+The heatwave's timing coincides with the seasonal salmon runs along the North American coast, raising particular concerns for these ecologically and culturally significant species. Adult salmon returning to spawn face potential physiological stress from elevated river and stream temperatures, while juvenile salmon entering the ocean environment may encounter reduced food availability and increased predation pressure from shifting species distributions.
+
+"Pacific salmon species were already facing multiple stressors including habitat degradation and historical overfishing," noted indigenous fisheries manager David Littlebear from the Coastal First Nations Alliance. "This marine heatwave represents yet another threat to species that form the ecological, cultural, and economic backbone of indigenous communities throughout the region."
+
+Aquaculture operations are also reporting significant impacts, with shellfish farms experiencing elevated mortality rates as water temperatures exceed thresholds for optimal growth and reproduction. Several large-scale operations in affected regions have implemented emergency cooling systems or accelerated harvest schedules to minimize economic losses.
+
+Beyond the immediate biological impacts, oceanographers are monitoring potential secondary effects on regional weather patterns. "These extensive sea surface temperature anomalies can modify atmospheric circulation, potentially influencing precipitation patterns along coastal regions," explained meteorologist Dr. James Williams. "Historical analysis of previous, less intense heatwaves suggests potential links to increased drought conditions in coastal watersheds and altered storm tracks."
+
+The economic implications extend beyond fisheries to potentially impact shipping, coastal tourism, and even global seafood markets as supply chains adjust to changing species distributions and availability. Economic analysts at the Pacific Rim Development Council project regional economic impacts potentially exceeding $3 billion if conditions persist through the coming season.
+
+Climate scientists emphasize that while marine heatwaves occur naturally, their increasing frequency, intensity, and duration align with projections from climate change models. "What we're witnessing is consistent with climate change predictions," noted Dr. Sophia Nakamura, climate scientist at the International Climate Research Center. "As baseline ocean temperatures rise due to greenhouse gas emissions, naturally occurring variability is expressed on top of this elevated baseline, pushing extremes beyond historical precedents."
+
+A 2020 study published in the journal Science concluded that marine heatwaves have already become 20 times more common due to human influence on the climate, with further increases projected as global temperatures continue rising. "We're essentially observing the leading edge of a fundamental transformation of marine ecosystems," Dr. Nakamura added.
+
+An international scientific response has been rapidly organized, with research vessels from six nations being redirected to conduct intensive data collection throughout the affected region. The Ocean Monitoring Alliance has also deployed an array of autonomous underwater gliders and surface drifters to provide continuous monitoring of temperature profiles, oxygen levels, and other critical parameters throughout the water column.
+
+Additionally, molecular biologists are conducting real-time genomic analyses to monitor for potential toxic algal blooms that could develop under prolonged high-temperature conditions. "Certain harmful algal species can proliferate rapidly during marine heatwaves, potentially releasing toxins that bioaccumulate through the food web," explained marine microbiologist Dr. Caroline Rodriguez. "We're implementing an early warning monitoring system to detect genetic signatures of concerning species before they reach bloom concentrations."
+
+Public health officials in coastal communities have activated contingency plans developed following previous heatwave events, including enhanced monitoring of seafood for biotoxins and public education campaigns regarding potential health risks. "The connection between marine ecosystem health and human health becomes particularly apparent during these extreme events," noted public health director Dr. Robert Chen.
+
+Policymakers are confronting difficult decisions regarding potential interventions to protect vulnerable species and ecosystems. Emergency measures under consideration include temporary fishery closures in severely impacted regions, expanded protective zones around critical habitats, and potential captive maintenance of threatened species until conditions improve.
+
+Long-term planning efforts are also intensifying, with marine protected area managers reassessing conservation strategies based on projected future conditions rather than historical baselines. "We can no longer manage solely based on historical ecosystem states," explained Maria Gonzalez, director of marine conservation policy. "We need to transition toward forward-looking approaches that anticipate continuing changes while protecting biodiversity and ecosystem function under novel conditions."
+
+As monitoring continues, scientists emphasize that the full ecological impacts may not become apparent for months or even years. "Marine ecosystems respond to perturbations across multiple time scales," noted Dr. Rodriguez. "While some effects are immediately visible, others—particularly changes in reproduction, recruitment, and population structure—may take several generations to fully manifest."
+
+The international scientific community has characterized the Pacific Amplification Event as representing both an ecological crisis and a critical research opportunity that may provide insights into marine ecosystem responses to climate change. "As devastating as this event is, it provides a window into potential future ocean states under continued warming," Dr. Yamamoto observed. "The data we're gathering now will be essential for developing effective adaptation and conservation strategies for a changing ocean."`,
+    description: "An in-depth news article about a severe marine heatwave affecting the Pacific Ocean and its ecological impacts.",
+    estimatedTime: 10,
+    difficulty: "hard",
+    vocabulary: [
+      { word: "anomaly", definition: "something that deviates from what is standard, normal, or expected" },
+      { word: "trophic", definition: "relating to feeding and nutrition" },
+      { word: "sessile", definition: "fixed in one place; immobile" },
+      { word: "bioaccumulate", definition: "to increase in concentration in organisms as a result of intake from their environment or diet" },
+      { word: "perturbations", definition: "disturbances or deviations from a regular pattern" }
+    ],
+    questions: [
+      {
+        id: "advanced-news-3-q1",
+        type: "mcq",
+        text: "What is the name given to the marine heatwave described in the article?",
+        options: [
+          "The Great Pacific Warming",
+          "The Pacific Amplification Event",
+          "The Pacific Heat Blob",
+          "The North Pacific Thermal Anomaly"
+        ],
+        correctAnswer: "The Pacific Amplification Event"
+      },
+      {
+        id: "advanced-news-3-q2",
+        type: "mcq",
+        text: "How much above normal are ocean temperatures reaching in the most affected areas?",
+        options: ["Up to 2°C", "Up to 3°C", "Up to 5°C", "Up to 7°C"],
+        correctAnswer: "Up to 5°C"
+      },
+      {
+        id: "advanced-news-3-q3",
+        type: "mcq",
+        text: "Approximately how large is the core area of the heatwave according to the article?",
+        options: [
+          "1 million square kilometers",
+          "4 million square kilometers",
+          "8 million square kilometers",
+          "12 million square kilometers"
+        ],
+        correctAnswer: "4 million square kilometers"
+      },
+      {
+        id: "advanced-news-3-q4",
+        type: "mcq",
+        text: "What percentage reduction in phytoplankton productivity has been observed in the most affected regions?",
+        options: ["10%", "20%", "30%", "50%"],
+        correctAnswer: "30%"
+      },
+      {
+        id: "advanced-news-3-q5",
+        type: "mcq",
+        text: "According to the 2020 study mentioned, how much more common have marine heatwaves become due to human influence?",
+        options: [
+          "5 times more common",
+          "10 times more common",
+          "20 times more common",
+          "50 times more common"
+        ],
+        correctAnswer: "20 times more common"
+      },
+      {
+        id: "advanced-news-3-q6",
+        type: "mcq",
+        text: "What is the projected economic impact if the conditions persist through the coming season?",
+        options: [
+          "Over $1 billion",
+          "Over $3 billion",
+          "Over $5 billion",
+          "Over $10 billion"
+        ],
+        correctAnswer: "Over $3 billion"
+      }
+    ],
+    pronunciation: [
+      {
+        title: "Scientific and Environmental Terminology",
+        text: "Satellite chlorophyll measurements indicate a 30% reduction in phytoplankton productivity within the most severely affected regions.",
+        focusPoints: ["Practice the word stress in 'chlorophyll' and 'phytoplankton'", "Focus on clearly pronouncing 'productivity'"]
+      }
+    ]
+  }
+];
+
+export default readingExercises;

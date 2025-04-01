@@ -1,0 +1,19 @@
+{
+  "/_not-found/page": "app/_not-found/page.js",
+  "/courses/page": "app/courses/page.js",
+  "/get-started/page": "app/get-started/page.js",
+  "/achievements/page": "app/achievements/page.js",
+  "/login/page": "app/login/page.js",
+  "/grammar/page": "app/grammar/page.js",
+  "/page": "app/page.js",
+  "/listening/page": "app/listening/page.js",
+  "/register/page": "app/register/page.js",
+  "/settings/page": "app/settings/page.js",
+  "/speaking/page": "app/speaking/page.js",
+  "/writing/[feedback]/[id]/page": "app/writing/[feedback]/[id]/page.js",
+  "/vocabulary/page": "app/vocabulary/page.js",
+  "/writing/components/page": "app/writing/components/page.js",
+  "/writing/page": "app/writing/page.js",
+  "/chat/page": "app/chat/page.js",
+  "/reading/page": "app/reading/page.js"
+}
