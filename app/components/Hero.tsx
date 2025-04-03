@@ -14,6 +14,11 @@ export function Hero() {
 
   return (
     <section id="home" className="w-full h-screen overflow-hidden relative flex flex-col">
+      {/* Test Mode Notification Banner */}
+      <div className="bg-yellow-500 text-white p-2 text-center font-medium sticky top-0 z-50">
+        Diqqat! Sayt test rejimida ishlamoqda. Ba'zi funksiyalar vaqtinchalik ishlamasligi mumkin.
+      </div>
+      
       <div className="animation-delay-8 animate-fadeIn flex flex-col items-center justify-center flex-grow w-full px-4 text-center py-4">
         <div className="z-10 mb-3 sm:justify-center">
           <div className="relative flex items-center whitespace-nowrap rounded-full border bg-green-50 px-3 py-1 text-xs leading-6 text-green-600">
@@ -49,6 +54,8 @@ export function Hero() {
                   AI yordamchingiz kunning istalgan vaqtida, doimiy sizning xizmatingizda. Jonli suhbat, talaffuz mashqlari, grammatika tuzatish — hammasi bir joyda!
                 </p>
               </div>
+              
+             
               
               <div className="flex flex-wrap items-center justify-center gap-2 mt-5 text-gray-500 text-xs md:text-sm">
                 <Link href="#speaking" className="hover:text-black">Speaking</Link>

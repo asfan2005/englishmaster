@@ -8,6 +8,8 @@ import {
   Headphones,
   Users,
   Settings,
+  CreditCard,
+  LayoutDashboard
 } from 'lucide-react';
 import Link from 'next/link';
 import { Dock, DockIcon, DockItem, DockLabel } from '@/components/ui/dock';
@@ -19,6 +21,13 @@ const data = [
       <HomeIcon className='h-full w-full text-neutral-600 dark:text-neutral-300' />
     ),
     href: '/',
+  },
+  {
+    title: 'Dashboard',
+    icon: (
+      <LayoutDashboard className='h-full w-full text-neutral-600 dark:text-neutral-300' />
+    ),
+    href: '/dashboard',
   },
   {
     title: 'Courses',
@@ -54,6 +63,13 @@ const data = [
       <Users className='h-full w-full text-neutral-600 dark:text-neutral-300' />
     ),
     href: '/community',
+  },
+  {
+    title: 'Pricing',
+    icon: (
+      <CreditCard className='h-full w-full text-neutral-600 dark:text-neutral-300' />
+    ),
+    href: '/pricing',
   },
   {
     title: 'Settings',
