@@ -32,7 +32,7 @@ export default function DeveloperToolbar() {
             <span className="text-xs font-semibold">ENGLISHMASTER PLATFORM</span>
             <span className="text-xs ml-2 text-gray-400">Development Mode</span>
             <div className="flex-1"></div>
-            <div className="px-2 py-0.5 bg-green-800 rounded text-[10px] text-green-300">TEST BUILD</div>
+            <div className="px-2 py-0.5 bg-green-800 rounded text-[10px] text-green-300">TEST BUILD 2025</div>
           </div>
           
           <div className="grid grid-cols-4 gap-2 mt-3">
@@ -61,6 +61,10 @@ export default function DeveloperToolbar() {
             <div className="flex justify-between text-gray-400">
               <span>Server Status</span>
               <span className="text-green-400">Running</span>
+            </div>
+            <div className="flex justify-between text-gray-400 border-t border-gray-700 pt-1 mt-1">
+              <span>Build Year</span>
+              <span className="text-yellow-400">2025</span>
             </div>
           </div>
         </div>

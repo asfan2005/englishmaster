@@ -9,7 +9,7 @@ interface VersionInfoProps {
 
 export default function VersionInfo({
   version = "0.1.0-beta",
-  buildDate = new Date().toISOString().split("T")[0]
+  buildDate = "2025-04-05"
 }: VersionInfoProps) {
   return (
     <div className="fixed bottom-20 left-4 z-50 bg-gray-800 text-white rounded-lg shadow-lg px-3 py-2 text-xs flex items-center">

@@ -5541,7 +5541,7 @@ Public engagement has formed a central component of the mission, with millions f
         type: "mcq",
         text: "When is Minerva's sample return capsule expected to land on Earth?",
         options: [
-          "December 2023",
+          "December 2025",
           "September 2024",
           "September 2025",
           "January 2026"

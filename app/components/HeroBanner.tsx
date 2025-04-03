@@ -12,7 +12,7 @@ export default function HeroBanner() {
   ];
 
   return (
-    <div className="bg-gradient-to-r from-blue-600 to-indigo-700 text-white">
+    <div className="bg-gradient-to-r from-blue-600 to-indigo-700 text-white mt-0">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* Left column with text */}
