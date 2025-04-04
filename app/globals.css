@@ -93,15 +93,17 @@
 }
 
 .animate-fadeIn {
-  animation: fadeIn 1.5s ease-in-out;
+  animation: fadeIn 0.5s ease-out forwards;
 }
 
 @keyframes fadeIn {
-  0% {
+  from {
     opacity: 0;
+    transform: translateY(10px);
   }
-  100% {
+  to {
     opacity: 1;
+    transform: translateY(0);
   }
 }
 
@@ -116,4 +118,118 @@
     width: calc(33.333% - 1rem);
     min-height: 120px;
   }
+}
+
+/* Custom utility classes for 3D transforms and animations */
+.perspective-1000 {
+  perspective: 1000px;
+}
+
+.transform-style-3d {
+  transform-style: preserve-3d;
+}
+
+.backface-hidden {
+  backface-visibility: hidden;
+}
+
+.rotate-y-180 {
+  transform: rotateY(180deg);
+}
+
+/* Animation for sound visualization */
+@keyframes sound {
+  0% {
+    height: 5%;
+  }
+  50% {
+    height: calc(5% + var(--random-height, 70%));
+  }
+  100% {
+    height: 5%;
+  }
+}
+
+.animate-sound {
+  animation: sound 1.2s ease-in-out infinite;
+}
+
+/* Background animation for gradients */
+.background-animate {
+  background-size: 400%;
+  animation: gradient 8s ease infinite;
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Hover animation for cards */
+.card-hover {
+  transition: transform 0.3s ease-out;
+}
+
+.card-hover:hover {
+  transform: translateY(-8px);
+}
+
+/* Ribbon effect */
+.ribbon {
+  position: absolute;
+  right: -5px;
+  top: -5px;
+  z-index: 1;
+  overflow: hidden;
+  width: 75px;
+  height: 75px;
+  text-align: right;
+}
+
+.ribbon span {
+  font-size: 10px;
+  font-weight: bold;
+  color: #FFF;
+  text-transform: uppercase;
+  text-align: center;
+  line-height: 20px;
+  transform: rotate(45deg);
+  width: 100px;
+  display: block;
+  background: linear-gradient(to right, #3b82f6, #6366f1);
+  box-shadow: 0 3px 10px -5px rgba(0, 0, 0, 0.5);
+  position: absolute;
+  top: 19px;
+  right: -21px;
+}
+
+.ribbon span::before {
+  content: "";
+  position: absolute;
+  left: 0px;
+  top: 100%;
+  z-index: -1;
+  border-left: 3px solid #3b82f6;
+  border-right: 3px solid transparent;
+  border-bottom: 3px solid transparent;
+  border-top: 3px solid #3b82f6;
+}
+
+.ribbon span::after {
+  content: "";
+  position: absolute;
+  right: 0px;
+  top: 100%;
+  z-index: -1;
+  border-left: 3px solid transparent;
+  border-right: 3px solid #6366f1;
+  border-bottom: 3px solid transparent;
+  border-top: 3px solid #6366f1;
 } 

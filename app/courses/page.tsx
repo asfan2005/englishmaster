@@ -608,7 +608,7 @@ const allCourses = [
       duration: "10 hafta",
       lessons: 30,
       price: "Bepul",
-      teacher: "Alex Johnson",
+      teacher: "To'raqulov Asfandiyor",
       rating: 4.9,
       reviewCount: 312,
       category: "it",

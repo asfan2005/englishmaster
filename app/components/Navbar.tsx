@@ -3,7 +3,6 @@
 import { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Menu, X, User, LogIn } from "lucide-react";
 
 const navigation = [
   { name: "Home", href: "/" },
@@ -25,12 +24,12 @@ export default function Navbar() {
   };
 
   return (
-    <nav className="bg-white shadow-sm w-full">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between h-16">
-          <div className="flex">
+    <nav className="bg-white shadow">
+      <div className="max-w-7xl mx-auto px-4">
+        <div className="flex justify-between h-16 items-center">
+          <div className="flex items-center">
             {/* Logo */}
-            <div className="flex-shrink-0 flex items-center">
+            <div>
               <Link href="/" className="flex items-center">
                 <span className="text-xl font-bold text-blue-600">English</span>
                 <span className="text-xl font-bold text-indigo-700">Master</span>
@@ -38,16 +37,14 @@ export default function Navbar() {
             </div>
             
             {/* Desktop navigation */}
-            <div className="hidden sm:ml-6 sm:flex sm:space-x-8">
+            <div className="hidden sm:ml-6 sm:flex sm:space-x-4">
               {navigation.map((item) => (
                 <Link
                   key={item.name}
                   href={item.href}
-                  className={`inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium ${
-                    isActive(item.href)
-                      ? "border-blue-500 text-gray-900"
-                      : "border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700"
-                  }`}
+                  className={isActive(item.href) 
+                    ? "px-3 py-2 text-blue-600 font-medium" 
+                    : "px-3 py-2 text-gray-600 hover:text-blue-600"}
                 >
                   {item.name}
                 </Link>
@@ -57,18 +54,10 @@ export default function Navbar() {
           
           {/* Right side buttons */}
           <div className="hidden sm:flex sm:items-center sm:space-x-2">
-            {/* Login/Signup buttons */}
-            <Link 
-              href="/login" 
-              className="inline-flex items-center px-3 py-1.5 border border-gray-300 text-sm font-medium rounded text-gray-700 bg-white hover:bg-gray-50"
-            >
-              <LogIn className="h-4 w-4 mr-1" />
+            <Link href="/login" className="px-3 py-2 text-gray-600 hover:text-blue-600">
               Log in
             </Link>
-            <Link 
-              href="/register" 
-              className="inline-flex items-center px-3 py-1.5 border border-transparent text-sm font-medium rounded text-white bg-blue-600 hover:bg-blue-700"
-            >
+            <Link href="/register" className="ml-2 px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700">
               Sign up
             </Link>
           </div>
@@ -77,15 +66,10 @@ export default function Navbar() {
           <div className="flex items-center sm:hidden">
             <button
               type="button"
-              className="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              className="text-gray-600 hover:text-blue-600"
             >
-              <span className="sr-only">Open main menu</span>
-              {mobileMenuOpen ? (
-                <X className="block h-6 w-6" aria-hidden="true" />
-              ) : (
-                <Menu className="block h-6 w-6" aria-hidden="true" />
-              )}
+              {mobileMenuOpen ? "✕" : "☰"}
             </button>
           </div>
         </div>
@@ -93,35 +77,32 @@ export default function Navbar() {
       
       {/* Mobile menu */}
       {mobileMenuOpen && (
-        <div className="sm:hidden bg-white border-b border-gray-200">
-          <div className="px-2 pt-2 pb-3 space-y-1">
+        <div className="sm:hidden bg-white border-t">
+          <div className="pt-2 pb-3 space-y-1">
             {navigation.map((item) => (
               <Link
                 key={item.name}
                 href={item.href}
-                className={`block px-3 py-2 rounded-md text-base font-medium ${
-                  isActive(item.href)
-                    ? "bg-blue-50 border-l-4 border-blue-500 text-blue-700"
-                    : "text-gray-600 hover:bg-gray-50 hover:text-gray-900"
-                }`}
+                className={isActive(item.href) 
+                  ? "block px-3 py-2 text-blue-600 font-medium" 
+                  : "block px-3 py-2 text-gray-600 hover:text-blue-600"}
                 onClick={() => setMobileMenuOpen(false)}
               >
                 {item.name}
               </Link>
             ))}
-            <div className="pt-4 pb-3 border-t border-gray-200">
-              <div className="flex items-center px-3 space-x-2">
+            <div className="pt-4 pb-3 border-t">
+              <div className="flex flex-col px-3 space-y-2">
                 <Link 
                   href="/login" 
-                  className="inline-flex items-center px-3 py-2 border border-gray-300 text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 w-full"
+                  className="py-2 text-gray-600 hover:text-blue-600"
                   onClick={() => setMobileMenuOpen(false)}
                 >
-                  <LogIn className="h-4 w-4 mr-1" />
                   Log in
                 </Link>
                 <Link 
-                  href="/register" 
-                  className="inline-flex items-center px-3 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 w-full justify-center"
+                  href="/register"
+                  className="py-2 px-4 bg-blue-600 text-white rounded text-center hover:bg-blue-700" 
                   onClick={() => setMobileMenuOpen(false)}
                 >
                   Sign up

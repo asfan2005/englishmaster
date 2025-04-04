@@ -6,8 +6,8 @@ import { User, Settings, Book, MessageSquare, Calendar, BarChart, Edit, ChevronR
 
 // Mock user data
 const userData = {
-  name: "Alex Johnson",
-  email: "alex.johnson@example.com",
+  name: "To'raqulov Asfandiyor",
+  email: "asfan.coder@gmail.com",
   level: "Intermediate",
   joinDate: "January 15, 2023",
   completedLessons: 37,

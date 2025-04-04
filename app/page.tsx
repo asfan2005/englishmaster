@@ -4,6 +4,8 @@ import HeroBanner from './components/HeroBanner';
 import ComingSoonOverlay from './components/ComingSoonOverlay';
 import { BookOpen, GraduationCap, Languages, MessageSquare, BookMarked, Award, Globe, Laptop, Video, Headphones } from 'lucide-react';
 import Link from 'next/link';
+import HowItWorks from './components/HowItWorks';
+import PopularCourses from './components/PopularCourses';
 
 // Sample course data
 const popularCourses = [
@@ -40,92 +42,13 @@ export default function Home() {
   return (
     <AppLayout>
       {/* Hero Banner */}
-      <HeroBanner />
+      <HeroBanner />  
       
-      {/* Main Features Section */}
-      <section className="py-16 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">How EnglishMaster Works</h2>
-            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-              Our comprehensive approach combines expert instruction, interactive practice, and innovative technology to deliver results.
-            </p>
-          </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
-            {[
-              {
-                icon: <BookOpen className="h-12 w-12 text-blue-500" />,
-                title: "Learn",
-                description: "Access comprehensive courses designed by language experts covering grammar, vocabulary, and all essential skills."
-              },
-              {
-                icon: <MessageSquare className="h-12 w-12 text-indigo-500" />,
-                title: "Practice",
-                description: "Engage in conversations with our AI language partner or connect with native speakers for real-world practice."
-              },
-              {
-                icon: <GraduationCap className="h-12 w-12 text-purple-500" />,
-                title: "Master",
-                description: "Track your progress, receive personalized feedback, and achieve fluency at your own pace."
-              }
-            ].map((feature, index) => (
-              <div key={index} className="text-center">
-                <div className="flex justify-center mb-4">{feature.icon}</div>
-                <h3 className="text-xl font-semibold text-gray-900 mb-3">{feature.title}</h3>
-                <p className="text-gray-600">{feature.description}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      {/* How It Works Section */}
+      <HowItWorks />
       
       {/* Popular Courses Section */}
-      <section className="py-16 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-end mb-12">
-            <div>
-              <h2 className="text-3xl font-bold text-gray-900 mb-4">Popular Courses</h2>
-              <p className="text-lg text-gray-600">Start your learning journey with our top-rated courses</p>
-            </div>
-            <Link 
-              href="/courses" 
-              className="text-blue-600 font-medium hover:text-blue-800 flex items-center"
-            >
-              View All Courses
-            </Link>
-          </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {popularCourses.map((course) => (
-              <Link 
-                key={course.id} 
-                href={`/courses/${course.id}`}
-                className="bg-white rounded-xl shadow-sm hover:shadow-md transition-shadow overflow-hidden"
-              >
-                <div className="p-6">
-                  <div className="flex justify-between items-start mb-4">
-                    <div className="p-3 bg-blue-50 rounded-lg">
-                      {course.icon}
-                    </div>
-                    <span className="text-sm font-medium px-3 py-1 bg-indigo-50 text-indigo-700 rounded-full">
-                      {course.level}
-                    </span>
-                  </div>
-                  
-                  <h3 className="text-xl font-semibold text-gray-900 mb-2">{course.title}</h3>
-                  <p className="text-gray-600 mb-6">{course.description}</p>
-                  
-                  <div className="flex justify-between text-sm text-gray-500 pt-4 border-t border-gray-100">
-                    <span>{course.lessons} Lessons</span>
-                    <span>{course.students.toLocaleString()} Students</span>
-                  </div>
-                </div>
-              </Link>
-            ))}
-          </div>
-        </div>
-      </section>
+      <PopularCourses />
       
       {/* Upcoming Features Section */}
       <section className="py-16 bg-white">
